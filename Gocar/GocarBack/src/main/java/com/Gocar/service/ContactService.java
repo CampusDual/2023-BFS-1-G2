@@ -21,8 +21,8 @@ public class ContactService implements IContactService {
     @Override
     public ContactDTO queryContact(ContactDTO contactDTO) {
         Contact contact = ContactMapper.INSTANCE.toEntity(contactDTO);
-        return ContactMapper.INSTANCE.toDTO(contactDao.getReferenceById(contact.getId()));
-    }
+        return
+    }ContactMapper.INSTANCE.toDTO(contactDao.getReferenceById(contact.getId()));
 
     @Override
     public List<ContactDTO> queryAllContact() {
