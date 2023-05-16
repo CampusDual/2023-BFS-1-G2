@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/2023-BFS-1-G2.iml" filepath="$PROJECT_DIR$/.idea/2023-BFS-1-G2.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Gocar/GocarBack/GocarBack.iml" filepath="$PROJECT_DIR$/Gocar/GocarBack/GocarBack.iml" />
     </modules>
   </component>
 </project>
