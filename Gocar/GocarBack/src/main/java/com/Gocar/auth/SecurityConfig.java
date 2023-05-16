@@ -43,7 +43,8 @@ public class SecurityConfig {
                 .httpBasic()
                 .and()
                 .authorizeRequests()
-                .antMatchers("/test/**", "/public/**").permitAll()
+                .antMatchers("/test/**", "/public/**", "/contacts/**").permitAll()//Permite tanto Get como Post
+                //.antMatchers(HttpMethod.GET, "/contacts/**").permitAll()// permite todo solo Get
                 .antMatchers(HttpMethod.DELETE).hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
