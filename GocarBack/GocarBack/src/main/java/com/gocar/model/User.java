@@ -3,19 +3,18 @@ package com.gocar.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "USERS")
+@Table(name = "USERS", uniqueConstraints = {@UniqueConstraint(columnNames = {"nif"})})
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column
+    @Column(unique = true)
     private String nif;
 
     @Column
     private String name;
-
 
     @Column
     private String email;

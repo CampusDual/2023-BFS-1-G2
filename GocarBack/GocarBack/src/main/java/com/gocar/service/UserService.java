@@ -6,11 +6,15 @@ import com.gocar.model.dao.UserDao;
 import com.gocar.model.dto.UserDTO;
 import com.gocar.model.dto.dtomapper.UserMapper;
 
+import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
+import javax.management.openmbean.KeyAlreadyExistsException;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Service("UserService")
 @Lazy
@@ -32,9 +36,23 @@ public class UserService implements IUserService {
 
     @Override
     public int insertUser(UserDTO userDTO) {
-        User user = UserMapper.INSTANCE.toEntity(userDTO);
-        userDao.saveAndFlush(user);
-        return user.getId();
+        String patron = "^[0-9]{8,8}[A-Za-z]$";
+        Pattern pattern = Pattern.compile(patron);
+
+        try{
+            User user = UserMapper.INSTANCE.toEntity(userDTO);
+            user.setNif(user.getNif().toUpperCase());
+            Matcher matcher = pattern.matcher(user.getNif());
+            if (!matcher.matches()) {
+                throw new Exception();
+            }
+            userDao.saveAndFlush(user);
+            return user.getId();
+        }catch(Exception e){
+           return -1;
+        }
+
+
     }
 
     @Override
