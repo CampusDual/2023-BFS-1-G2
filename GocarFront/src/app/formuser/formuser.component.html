@@ -1,20 +1,17 @@
 <main class="main-form">
-<form (submit)="saveNewUser($event)">
-    
+  <form (submit)="saveNewUser($event)">
     <div>
-        <input type="text" name="name" id="name" placeholder="Introduce el nombre">        
+      <input type="text" name="name" id="name" placeholder="Introduce el nombre" [(ngModel)]="newUser.name">
     </div>
     <div>
-        <input type="password" name="pass" id="pass" placeholder="Introduce contraseña">
+      <input type="password" name="pass" id="pass" placeholder="Introduce contraseña" [(ngModel)]="newUser.password">
     </div>
     <div>
-        <input type="text" name="nif" id="nif" placeholder="Introduce tu NIF">
+      <input type="text" name="nif" id="nif" placeholder="Introduce tu NIF" [(ngModel)]="newUser.nif">
     </div>
     <div>
-        <input type="email" name="email" id="email" placeholder="Introudce un email">
+      <input type="email" name="email" id="email" placeholder="Introduce un email" [(ngModel)]="newUser.email">
     </div>
-
     <button type="submit">Enviar</button>
-    
-</form>
+  </form>
 </main>

@@ -8,6 +8,7 @@ import { FormuserComponent } from './formuser/formuser.component';
 import { HeaderComponent } from './header/header.component';
 import { MatIconModule, MatMenuModule, MatToolbarModule } from '@angular/material';
 import {  HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import {  HttpClientModule } from '@angular/common/http';
     MatMenuModule,
     MatIconModule,
     MatToolbarModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   
   ],
   providers: [],

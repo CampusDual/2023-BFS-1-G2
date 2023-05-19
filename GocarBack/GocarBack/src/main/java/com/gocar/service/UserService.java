@@ -43,6 +43,7 @@ public class UserService implements IUserService {
             if (!Validation.nifValidate(user.getNif())) {
                 throw new Exception();
             }
+            user.setNif(user.getNif().toUpperCase());//Convertimos la letra a mayuscula
             userDao.saveAndFlush(user);
             return user.getId();
         }catch(Exception e){
