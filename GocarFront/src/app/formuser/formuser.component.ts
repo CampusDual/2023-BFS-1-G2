@@ -18,9 +18,6 @@ export class FormuserComponent implements OnInit {
 
   saveNewUser(e: Event){
     e.preventDefault();
-    // const newUser = new User;
-    // newUser.name = "prueba";
-    // newUser.nif = "32684086M";
     console.log("intentamos insertar usuario " + this.newUser);
     this.userService.addUser(this.newUser).subscribe(user => console.log(user));
   }
