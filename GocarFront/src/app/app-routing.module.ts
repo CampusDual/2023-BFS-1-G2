@@ -4,7 +4,8 @@ import { FormuserComponent } from './formuser/formuser.component';
 
 
 const routes: Routes = [
-  {path: 'registrarme', component: FormuserComponent}
+  {path: 'registrarme', component: FormuserComponent},
+  {path: '', redirectTo: '', pathMatch: 'full' }
 ];
 
 @NgModule({
