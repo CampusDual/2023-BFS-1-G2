@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormuserComponent } from './formuser/formuser.component';
 import { HeaderComponent } from './header/header.component';
 import { MatIconModule, MatMenuModule, MatToolbarModule } from '@angular/material';
+import {  HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { MatIconModule, MatMenuModule, MatToolbarModule } from '@angular/materia
     BrowserAnimationsModule,
     MatMenuModule,
     MatIconModule,
-    MatToolbarModule
+    MatToolbarModule,
+    HttpClientModule
   
   ],
   providers: [],
