@@ -16,27 +16,31 @@
   </form>
 </main> -->
 
-
-<form #userForm = "ngForm">
-    <mat-form-field appearance="fill">
+<main class="main-form">
+<form #userForm = "ngForm" class="main-form-form">
+  <h2>Welcome</h2>
+    <mat-form-field appearance="fill" class="main-form-form-input">
         <mat-label>Nif</mat-label>
-        <input matInput type="text" name="nif">
+        <input matInput type="text" name="nif" required [(ngModel)]="newUser.nif">
     </mat-form-field>
 
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="fill" class="main-form-form-input">
         <mat-label>Nombre</mat-label>
-        <input matInput type="text" name="name">
+        <input matInput type="text" name="name" [(ngModel)]="newUser.name">
     </mat-form-field>
 
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="fill" class="main-form-form-input">
         <mat-label>Contraseña</mat-label>
-        <input matInput type="password" name="name">
+        <input matInput type="password" name="name" [(ngModel)]="newUser.password">
     </mat-form-field>
 
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="fill" class="main-form-form-input">
         <mat-label>Email</mat-label>
-        <input matInput type="email" name="name">
+        <input matInput type="email" name="name" [(ngModel)]="newUser.email">
     </mat-form-field>
 
+    <button mat-flat-button color="primary" (click)="saveNewUser($event)"> 
+      <mat-icon>save</mat-icon>Guardar</button>
+  </form>
 
-</form>
+  </main> 
