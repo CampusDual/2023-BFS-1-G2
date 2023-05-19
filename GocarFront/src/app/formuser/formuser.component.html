@@ -1,4 +1,4 @@
-<main class="main-form">
+<!-- <main class="main-form">
   <form (submit)="saveNewUser($event)">
     <div>
       <input type="text" name="name" id="name" placeholder="Introduce el nombre" [(ngModel)]="newUser.name">
@@ -14,4 +14,29 @@
     </div>
     <button type="submit">Enviar</button>
   </form>
-</main>
+</main> -->
+
+
+<form #userForm = "ngForm">
+    <mat-form-field appearance="fill">
+        <mat-label>Nif</mat-label>
+        <input matInput type="text" name="nif">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Nombre</mat-label>
+        <input matInput type="text" name="name">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Contraseña</mat-label>
+        <input matInput type="password" name="name">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" name="name">
+    </mat-form-field>
+
+
+</form>

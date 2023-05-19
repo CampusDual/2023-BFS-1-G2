@@ -6,9 +6,10 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormuserComponent } from './formuser/formuser.component';
 import { HeaderComponent } from './header/header.component';
-import { MatIconModule, MatMenuModule, MatToolbarModule } from '@angular/material';
+import { MatIconModule, MatInputModule, MatMenuModule, MatToolbarModule } from '@angular/material';
 import {  HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 
 @NgModule({
@@ -25,7 +26,11 @@ import { FormsModule } from '@angular/forms';
     MatIconModule,
     MatToolbarModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatInputModule
+    
   
   ],
   providers: [],
