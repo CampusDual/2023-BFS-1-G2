@@ -1,6 +1,7 @@
 package com.gocar.service;
 
 import com.gocar.api.IUserService;
+import com.gocar.auth.Validation;
 import com.gocar.model.User;
 import com.gocar.model.dao.UserDao;
 import com.gocar.model.dto.UserDTO;
@@ -36,14 +37,10 @@ public class UserService implements IUserService {
 
     @Override
     public int insertUser(UserDTO userDTO) {
-        String patron = "^[0-9]{8,8}[A-Za-z]$";
-        Pattern pattern = Pattern.compile(patron);
 
         try{
             User user = UserMapper.INSTANCE.toEntity(userDTO);
-            user.setNif(user.getNif().toUpperCase());
-            Matcher matcher = pattern.matcher(user.getNif());
-            if (!matcher.matches()) {
+            if (!Validation.nifValidate(user.getNif())) {
                 throw new Exception();
             }
             userDao.saveAndFlush(user);
@@ -51,8 +48,6 @@ public class UserService implements IUserService {
         }catch(Exception e){
            return -1;
         }
-
-
     }
 
     @Override
