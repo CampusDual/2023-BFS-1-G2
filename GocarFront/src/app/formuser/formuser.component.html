@@ -1,8 +1,8 @@
 <main class="main-form">
-<form action=" " method="post">
+<form (submit)="saveNewUser($event)">
     
     <div>
-        <input type="name" name="name" id="name" placeholder="Introduce el nombre">        
+        <input type="text" name="name" id="name" placeholder="Introduce el nombre">        
     </div>
     <div>
         <input type="password" name="pass" id="pass" placeholder="Introduce contraseña">
@@ -14,7 +14,7 @@
         <input type="email" name="email" id="email" placeholder="Introudce un email">
     </div>
 
-    <button type="submit" (click)="saveNewUser()">Enviar</button>
+    <button type="submit">Enviar</button>
     
 </form>
 </main>
