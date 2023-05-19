@@ -2,29 +2,30 @@ package com.gocar.auth;
 
 public class Validation {
 
+
     public static boolean nifValidate(String nif) {
-        // Verificar la longitud del DNI
+        // Verificacion de la longitud del DNI
         if (nif.length() != 9) {
-            return false; // excep
+            return false;
         }
 
-        // Extraer el número y la letra del DNI
+        // Extraer el num y la letra del DNI
         String number = nif.substring(0, 8);
-        String letter = nif.substring(8).toUpperCase();
+        char letter = Character.toUpperCase(nif.charAt(8));
 
-        // Verificar que el número sea numérico
+        // try catch para verificar que el num sea numerico
         try {
             Integer.parseInt(number);
         } catch (NumberFormatException e) {
             return false;
         }
 
-        // Calcular la letra correspondiente al número
-        String letters = "TRWAGMYFPDXBNJZSQVHLCKE";
+        // Calculo de la letra correspondiente al num
+        char[] letters = {'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'};
         int indice = Integer.parseInt(number) % 23;
-        char calulatedLetter = letters.charAt(indice);
+        char calculatedLetter = letters[indice];
 
         // Comparar la letra calculada con la letra del DNI
-        return letter.charAt(0) == calulatedLetter;
+        return letter == calculatedLetter;
     }
 }
