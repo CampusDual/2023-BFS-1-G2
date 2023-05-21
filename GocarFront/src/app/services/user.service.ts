@@ -16,14 +16,9 @@ export class UserService{
 
     }
 
-    addUser(user: User): Observable<User>{
-        return this.http.post(this.urlEndPoint.concat('/add'), user, {headers: this.header}).pipe(
-            tap(response => console.log(response)),
-            map(response => {
-                let user = response as User;
-                return user;
-            })
-        );
+    addUser(user: User): Observable<Number>{
+        return this.http.post<Number>(this.urlEndPoint.concat('/add'), user, {headers: this.header})
+        .pipe();
     }
 
 }
