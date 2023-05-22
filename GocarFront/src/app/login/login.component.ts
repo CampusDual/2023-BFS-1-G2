@@ -10,9 +10,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   newUser: User = new User();
-  router : Router;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
 
 
   ngOnInit() {
@@ -28,7 +27,7 @@ export class LoginComponent implements OnInit {
         e.preventDefault();
       } else {
         alert('LOGUEADO CON EXITO')
-        this.router.navigate(['/home'])
+        this.router.navigate(['/loguearme/home']);
       }
     });
   }

@@ -1,8 +1,6 @@
 package com.gocar.auth;
 
 public class Validation {
-
-
     public static boolean nifValidate(String nif) {
         // Verificacion de la longitud del DNI
         if (nif.length() != 9) {

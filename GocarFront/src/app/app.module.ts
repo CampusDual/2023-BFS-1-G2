@@ -13,11 +13,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { InicioComponent } from './inicio/inicio.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
-import { NavigationExtras} from '@angular/router';
-
-
-
-
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -41,8 +39,6 @@ import { NavigationExtras} from '@angular/router';
     MatFormFieldModule,
     FormsModule,
     MatInputModule,
-    Navigator
-
 
     
   
