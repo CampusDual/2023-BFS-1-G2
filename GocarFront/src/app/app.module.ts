@@ -12,6 +12,10 @@ import { FormsModule } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { InicioComponent } from './inicio/inicio.component';
 import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
+import { NavigationExtras} from '@angular/router';
+
+
 
 
 
@@ -23,6 +27,7 @@ import { LoginComponent } from './login/login.component';
     HeaderComponent,
     InicioComponent,
     LoginComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,6 +41,8 @@ import { LoginComponent } from './login/login.component';
     MatFormFieldModule,
     FormsModule,
     MatInputModule,
+    Navigator
+
 
     
   

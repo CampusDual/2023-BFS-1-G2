@@ -22,4 +22,9 @@ export class UserService{
         .pipe();
     }
 
+    checkUser(user : User) : Observable <Number>{
+        return this.http.post<Number>(this.urlEndPoint.concat('/loguearme'), user, {headers: this.header})
+        .pipe();
+    }
+
 }

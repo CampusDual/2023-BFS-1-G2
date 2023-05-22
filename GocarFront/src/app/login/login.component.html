@@ -1,22 +1,22 @@
 <main class="main-form">
-    <form #userForm = "ngForm" class="main-form-form">
+    <form #userForm = "ngForm" class="main-form-form" (ngSubmit) ="checkNewUser($event)">
       <h2>Welcome</h2>
 
        
       <mat-form-field appearance="fill" class="main-form-form-input">
         <mat-label>Email</mat-label>
-        <input matInput type="email" name="name">
+        <input matInput type="email" name="name" [(ngModel)]="newUser.email">
     </mat-form-field>
     
     <mat-form-field appearance="fill" class="main-form-form-input">
             <mat-label>Contraseña</mat-label>
-            <input matInput type="password" name="name">
+            <input matInput type="password" name="name" [(ngModel)]="newUser.password">
         </mat-form-field>
     
      
-    
-        <button mat-flat-button color="primary"  [routerLink]="['']"> 
-          <mat-icon>save</mat-icon>GUARDAR</button>
+        <button type= "submit" mat-flat-button color="primary"> 
+          <mat-icon>save</mat-icon>
+          GUARDAR</button>
       </form>
     
       </main> 
