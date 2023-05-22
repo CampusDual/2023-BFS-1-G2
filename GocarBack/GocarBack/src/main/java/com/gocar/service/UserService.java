@@ -11,6 +11,8 @@ import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.management.openmbean.KeyAlreadyExistsException;
 import java.util.List;
@@ -38,7 +40,7 @@ public class UserService implements IUserService {
     @Override
     public int insertUser(UserDTO userDTO) {
 
-        try{
+        try {
             User user = UserMapper.INSTANCE.toEntity(userDTO);
             if (!Validation.nifValidate(user.getNif())) {
                 throw new Exception();
@@ -46,8 +48,8 @@ public class UserService implements IUserService {
             user.setNif(user.getNif().toUpperCase());//Convertimos la letra a mayuscula
             userDao.saveAndFlush(user);
             return user.getId();
-        }catch(Exception e){
-           return -1;
+        } catch (Exception e) {
+            return -1;
         }
     }
 
@@ -62,5 +64,17 @@ public class UserService implements IUserService {
         User user = UserMapper.INSTANCE.toEntity(userDTO);
         userDao.delete(user);
         return id;
+    }
+
+    @Override
+    public int userOk(UserDTO userDTO) {
+        User userprueba = UserMapper.INSTANCE.toEntity(userDTO);
+        for (User user : userDao.findAll()) {
+            if (userprueba.getEmail().equals(user.getEmail()) && userprueba.getPassword().equals(user.getPassword())) {
+                return 1;
+            }
+
+        }
+        return -1;
     }
 }
