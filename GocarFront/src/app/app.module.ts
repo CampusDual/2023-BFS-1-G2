@@ -10,13 +10,19 @@ import { MatIconModule, MatInputModule, MatMenuModule, MatToolbarModule } from '
 import {  HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { InicioComponent } from './inicio/inicio.component';
+import { LoginComponent } from './login/login.component';
+
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     FormuserComponent,
-    HeaderComponent
+    HeaderComponent,
+    InicioComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,10 +35,13 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     FormsModule,
     MatFormFieldModule,
     FormsModule,
-    MatInputModule
+    MatInputModule,
+
     
   
   ],
+
+
   providers: [],
   bootstrap: [AppComponent]
 })

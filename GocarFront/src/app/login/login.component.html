@@ -1,0 +1,22 @@
+<main class="main-form">
+    <form #userForm = "ngForm" class="main-form-form">
+      <h2>Welcome</h2>
+
+       
+      <mat-form-field appearance="fill" class="main-form-form-input">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" name="name">
+    </mat-form-field>
+    
+    <mat-form-field appearance="fill" class="main-form-form-input">
+            <mat-label>Contraseña</mat-label>
+            <input matInput type="password" name="name">
+        </mat-form-field>
+    
+     
+    
+        <button mat-flat-button color="primary"  [routerLink]="['']"> 
+          <mat-icon>save</mat-icon>GUARDAR</button>
+      </form>
+    
+      </main> 
