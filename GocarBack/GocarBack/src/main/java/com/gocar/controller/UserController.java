@@ -46,7 +46,7 @@ public class UserController {
         return userService.deleteUser(userDTO);
     }
 
-    @PostMapping("/loguearme")
+    @PostMapping("/Conectarse")
     public int userOk(@RequestBody UserDTO userDTO) {
         return userService.userOk(userDTO);
 
