@@ -7,7 +7,6 @@ import com.gocar.model.User;
 import com.gocar.model.dao.UserDao;
 import com.gocar.model.dto.UserDTO;
 import com.gocar.model.dto.dtomapper.UserMapper;
-import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
