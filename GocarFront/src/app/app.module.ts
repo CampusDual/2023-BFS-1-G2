@@ -18,6 +18,7 @@ import { Router } from '@angular/router';
 import { RouterModule } from '@angular/router';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +27,7 @@ import { RouterModule } from '@angular/router';
     InicioComponent,
     LoginComponent,
     HomeComponent,
+   
   ],
   imports: [
     BrowserModule,
