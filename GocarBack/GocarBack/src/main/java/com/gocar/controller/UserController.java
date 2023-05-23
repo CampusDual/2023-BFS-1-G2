@@ -47,7 +47,7 @@ public class UserController {
     }
 
     @PostMapping("/loguearme")
-    public int userOk(@RequestBody UserDTO userDTO){
+    public int userOk(@RequestBody UserDTO userDTO) {
         return userService.userOk(userDTO);
 
     }
