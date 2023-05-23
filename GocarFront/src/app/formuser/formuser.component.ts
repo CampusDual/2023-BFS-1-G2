@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { User } from '../model/user';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,7 +13,7 @@ export class FormuserComponent implements OnInit {
 
   newUser: User = new User();
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -29,6 +30,7 @@ export class FormuserComponent implements OnInit {
         this.newUser.email = "";
       } else {
         alert('REGISTRO CON EXITO')
+        this.router.navigate(['/loguearme/home']);
       }
     });
   }
