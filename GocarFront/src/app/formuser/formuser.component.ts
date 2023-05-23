@@ -30,7 +30,7 @@ export class FormuserComponent implements OnInit {
         this.newUser.email = "";
       } else {
         alert('REGISTRO CON EXITO')
-        this.router.navigate(['/loguearme/home']);
+        this.router.navigate(['/home']);
       }
     });
   }

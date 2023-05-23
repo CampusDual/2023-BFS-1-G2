@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
         e.preventDefault();
       } else {
         alert('LOGUEADO CON EXITO')
-        this.router.navigate(['/loguearme/home']);
+        this.router.navigate(['/home']);
       }
     });
   }
