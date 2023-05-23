@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
     this.userService.checkUser(this.newUser).subscribe( response =>{
       if(response == -1)  {
         alert('ERROR EN EL LOGUEO')
+        // En caso de que de un error los campos se van a vaciar
         this.newUser.email = "";
         this.newUser.password="";
         e.preventDefault();
