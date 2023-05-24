@@ -2,12 +2,11 @@
     <span class="fill-remaining-space">
   
      <button mat-icon-button [matMenuTriggerFor]="menu" #menuTrigger="matMenuTrigger" (mouseover)="menuTrigger.openMenu()">
-            
-        <mat-icon>menu</mat-icon>
-  
-     </button>
+          <mat-icon>menu</mat-icon>
+      </button>
   
      <mat-menu #menu="matMenu" [overlapTrigger]="false">
+<<<<<<< Updated upstream
   
      <span (mouseleave)="menuTrigger.closeMenu()">
   
@@ -27,21 +26,32 @@
   
        <span>Registrarme</span>
   
+=======
+      <span (mouseleave)="menuTrigger.closeMenu()">
+      <button mat-menu-item  [routerLink]="[rutaHome]"> <!-- Redireccion diferente si usuario logueado o no-->
+         <mat-icon>home</mat-icon>
+         <span>Inicio</span>
       </button>
-      <button mat-menu-item [routerLink]="['/Conectarse']">
+
+      <button mat-menu-item *ngIf="!logueado" [routerLink]="['/registrarme']">  
+         <mat-icon>person_add</mat-icon>  
+         <span>Registrarme</span>  
+      </button>
+
+      <button mat-menu-item *ngIf="!logueado" [routerLink]="['/Conectarse']">  
+         <mat-icon>perm_identity</mat-icon>    
+         <span>Conectarse</span>    
+      </button>
+
+      <button mat-menu-item *ngIf="logueado" [routerLink]="['/registroCoche']">  
+         <mat-icon>perm_identity</mat-icon>    
+         <span>Añadir Coche</span>    
+>>>>>>> Stashed changes
+      </button>
   
-         <mat-icon>perm_identity</mat-icon>
-    
-         <span>Conectarse</span>
-    
-        </button>
-  
-    </span>
-  
-    </mat-menu>
-  
-    </span>
-  
+    </span>  
+    </mat-menu>  
+    </span>  
     <span class="fill-remaining-space">GoCarSpain</span>
   
    </mat-toolbar>

@@ -24,7 +24,10 @@ export class LoginComponent implements OnInit {
         alert('Credenciales Incorrectas')
         e.preventDefault();
       } else {
-        this.router.navigate(['/home']);
+        localStorage.setItem('logueado', 'true');
+        this.router.navigate(['/home']).then(() => {
+          window.location.reload();
+        });
       }
     });
   }
