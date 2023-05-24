@@ -62,6 +62,7 @@ public class UserService implements IUserService {
 
     @Override
     public int userOk(UserDTO userDTO) {
+        if(userDTO.getEmail() == null || userDTO.getPassword() == null) return -1;
         User userprueba = UserMapper.INSTANCE.toEntity(userDTO);
         for (User user : userDao.findAll()) {
             if (userprueba.getEmail().equals(user.getEmail()) && userprueba.getPassword().equals(user.getPassword())) {
