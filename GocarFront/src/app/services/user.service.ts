@@ -17,9 +17,13 @@ export class UserService{
     }
 
     //Como al llamar al endPoint devuelve el id del user o -1 si hay errores el observable es tipo Number
-    addUser(user: User): Observable<Number>{
-        return this.http.post<Number>(this.urlEndPoint.concat('/add'), user, {headers: this.header})
-        .pipe();
+    addUser(user: User): Observable<User>{
+        return this.http.post(this.urlEndPoint.concat('/add'), user, {headers: this.header})
+        .pipe(
+            map(response => {
+              return response as User
+            })
+        );
     }
 
     checkUser(user : User) : Observable <Number>{

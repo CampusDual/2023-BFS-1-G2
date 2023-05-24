@@ -18,9 +18,11 @@ export class FormuserComponent implements OnInit {
   ngOnInit() {}
 
   saveNewUser(e: Event){
+
     console.log("intentamos insertar usuario " + this.newUser);
     this.userService.addUser(this.newUser).subscribe( response =>{
-      if(response == -1)  {
+
+      if(response.id == -1)  {
         alert('ERROR EN EL REGISTRO')        
       } else {
         this.router.navigate(['/Conectarse']);

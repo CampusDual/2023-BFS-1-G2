@@ -45,11 +45,7 @@
   .main-form-form-input:focus {
     border: 4px solid #11359D;
   }
-  .main-form-form-input:focus::placeholder{
-    font-size: 10px;
-    color: #11359D;
-    margin-top: 0px;
-  }
+ 
   .main-form-form-input:-webkit-autofill{
     background: #11359D;
   }
