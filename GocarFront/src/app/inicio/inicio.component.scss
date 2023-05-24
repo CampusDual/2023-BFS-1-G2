@@ -8,7 +8,7 @@
   .button-container button {
     margin: 0 10px; 
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #042668;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -19,6 +19,7 @@
   }
   
   .button-container button:hover {
-    background-color: #0056b3;
+    color: #109AE9;
+    outline: 2px solid #109AE9;
   }
   
