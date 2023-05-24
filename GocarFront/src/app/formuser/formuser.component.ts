@@ -15,8 +15,7 @@ export class FormuserComponent implements OnInit {
 
   constructor(private userService: UserService, private router: Router) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   saveNewUser(e: Event){
     console.log("intentamos insertar usuario " + this.newUser);
@@ -30,7 +29,7 @@ export class FormuserComponent implements OnInit {
         this.newUser.email = "";
       } else {
         alert('REGISTRO CON EXITO')
-        this.router.navigate(['/home']);
+        this.router.navigate(['/Conectarse']);
       }
     });
   }
