@@ -1,5 +1,4 @@
-<mat-toolbar color="primary">
-
+<mat-toolbar color="primary" >
     <span class="fill-remaining-space">
   
      <button mat-icon-button [matMenuTriggerFor]="menu" #menuTrigger="matMenuTrigger" (mouseover)="menuTrigger.openMenu()">
@@ -19,6 +18,8 @@
        <span>Inicio</span>
   
     </button>
+
+   
   
     <button mat-menu-item [routerLink]="['/registrarme']">
   
@@ -44,3 +45,12 @@
     <span class="fill-remaining-space">GoCarSpain</span>
   
    </mat-toolbar>
+
+   <!-- 
+      Ejemplo de if en el html
+      *ngIf="cadena == 'Mostrar todo'; else prueba"
+      
+      <ng-template #prueba>
+      <mat-icon>home</mat-icon>
+      <span>Esto es una prueba</span>
+    </ng-template> -->
