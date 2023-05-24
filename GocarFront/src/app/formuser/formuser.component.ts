@@ -23,7 +23,6 @@ export class FormuserComponent implements OnInit {
       if(response == -1)  {
         alert('ERROR EN EL REGISTRO')        
       } else {
-        alert('REGISTRO CON EXITO')
         this.router.navigate(['/Conectarse']);
       }
     });

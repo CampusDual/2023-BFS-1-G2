@@ -21,13 +21,9 @@ export class LoginComponent implements OnInit {
     console.log ("intentamos loguear");
     this.userService.checkUser(this.newUser).subscribe( response =>{
       if(response == -1)  {
-        alert('ERROR EN LA CONEXION')
-        // En caso de que de un error los campos se van a vaciar
-        this.newUser.email = "";
-        this.newUser.password="";
+        alert('Credenciales Incorrectas')
         e.preventDefault();
       } else {
-        alert('CONECTADO CON EXITO')
         this.router.navigate(['/home']);
       }
     });
