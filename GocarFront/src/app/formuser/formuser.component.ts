@@ -21,14 +21,8 @@ export class FormuserComponent implements OnInit {
     console.log("intentamos insertar usuario " + this.newUser);
     this.userService.addUser(this.newUser).subscribe( response =>{
       if(response == -1)  {
-        alert('ERROR EN EL REGISTRO')
-        // Cuando salte el error los campos se van a limpiar (same a como tenemos en el inicio components)
-        this.newUser.nif = "";
-        this.newUser.name = "";
-        this.newUser.password = "";
-        this.newUser.email = "";
+        alert('ERROR EN EL REGISTRO')        
       } else {
-        alert('REGISTRO CON EXITO')
         this.router.navigate(['/Conectarse']);
       }
     });
