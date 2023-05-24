@@ -1,40 +1,40 @@
 <mat-toolbar color="primary" >
-    <span class="fill-remaining-space">
+   <span class="fill-remaining-space">
   
-     <button mat-icon-button [matMenuTriggerFor]="menu" #menuTrigger="matMenuTrigger" (mouseover)="menuTrigger.openMenu()">
-          <mat-icon>menu</mat-icon>
-      </button>
+   <button mat-icon-button [matMenuTriggerFor]="menu" #menuTrigger="matMenuTrigger" (mouseover)="menuTrigger.openMenu()">
+         <mat-icon>menu</mat-icon>
+   </button>
   
-     <mat-menu #menu="matMenu" [overlapTrigger]="false">
+   <mat-menu #menu="matMenu" [overlapTrigger]="false">
 
-      <span (mouseleave)="menuTrigger.closeMenu()">
-      <button mat-menu-item  [routerLink]="[rutaHome]"> <!-- Redireccion diferente si usuario logueado o no-->
-         <mat-icon>home</mat-icon>
-         <span>Inicio</span>
-      </button>
+   <span (mouseleave)="menuTrigger.closeMenu()">
+   <button mat-menu-item  [routerLink]="[rutaHome]"> <!-- Redireccion diferente si usuario logueado o no-->
+      <mat-icon>home</mat-icon>
+      <span>Inicio</span>
+   </button>
 
-      <button mat-menu-item *ngIf="!logueado" [routerLink]="['/registrarme']">  
-         <mat-icon>person_add</mat-icon>  
-         <span>Registrarme</span>  
-      </button>
+   <button mat-menu-item *ngIf="!logueado" [routerLink]="['/registrarme']">  
+      <mat-icon>person_add</mat-icon>  
+      <span>Registrarme</span>  
+   </button>
 
-      <button mat-menu-item *ngIf="!logueado" [routerLink]="['/Conectarse']">  
-         <mat-icon>perm_identity</mat-icon>    
-         <span>Conectarse</span>    
-      </button>
+   <button mat-menu-item *ngIf="!logueado" [routerLink]="['/Conectarse']">  
+      <mat-icon>perm_identity</mat-icon>    
+      <span>Conectarse</span>    
+   </button>
 
-      <button mat-menu-item *ngIf="logueado" [routerLink]="['/registroCoche']">  
-         <mat-icon>perm_identity</mat-icon>    
-         <span>Añadir Coche</span>    
+   <button mat-menu-item *ngIf="logueado" [routerLink]="['/registroCoche']">  
+      <mat-icon>perm_identity</mat-icon>    
+      <span>Añadir Coche</span>    
 
-      </button>
+   </button>
   
-    </span>  
-    </mat-menu>  
-    </span>  
-    <span class="fill-remaining-space">GoCarSpain</span>
+   </span>  
+   </mat-menu>  
+   </span>  
+   <span class="fill-remaining-space">GoCarSpain</span>
   
-   </mat-toolbar>
+</mat-toolbar>
 
    <!-- 
       Ejemplo de if en el html
