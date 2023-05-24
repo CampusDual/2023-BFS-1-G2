@@ -38,6 +38,7 @@ public class UserService implements IUserService {
 
         try {
             User user = UserMapper.INSTANCE.toEntity(userDTO);
+            user.getEmail().toLowerCase();
             if (!Validation.nifValidate(user.getNif())) {
                 throw new NIFViolationException("El DNI no cumple con el formato especificado");
             }
