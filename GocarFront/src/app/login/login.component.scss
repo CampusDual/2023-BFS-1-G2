@@ -58,18 +58,17 @@
     font-size: 18px;
     font-weight: 700;
     padding: 10px;
-    color: #fff;
+    color: #11359D;
     cursor: pointer;
-   border: none;
-    background: #042668;
+    border: none;
+    background: #fff;
     gap: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .main-form-form button:hover{
-  
-  color: #109AE9;
-  outline: 2px solid #109AE9;
+  color: #fff;
+  background: #11359D ;
    
 }

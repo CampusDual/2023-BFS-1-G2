@@ -8,9 +8,9 @@
   .button-container button {
     margin: 0 10px; 
     padding: 10px 20px;
-    background-color: #042668;
-    color: #fff;
-    border: none;
+    background-color: #fff;
+    color: #11359D;
+    border: 2px solid #11359D;
     border-radius: 4px;
     font-size: 16px;
     font-weight: bold;
@@ -19,7 +19,7 @@
   }
   
   .button-container button:hover {
-    color: #109AE9;
-    outline: 2px solid #109AE9;
+  color: #fff;
+  background: #11359D ;
   }
   
