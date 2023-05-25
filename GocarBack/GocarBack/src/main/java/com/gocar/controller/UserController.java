@@ -38,6 +38,13 @@ public class UserController extends HttpEntity {
         return userService.queryUser(userDTO);
     }
 
+    @GetMapping("/get/{id}")
+    public UserDTO getUser(@PathVariable int id) {
+        UserDTO userDTO = new UserDTO();
+        userDTO.setId(id);
+        return userService.queryUser(userDTO);
+    }
+
     @GetMapping("/getAll")
     public List<UserDTO> queryAllUsers() {
         return userService.queryAllUser();
