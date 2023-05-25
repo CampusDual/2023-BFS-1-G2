@@ -24,8 +24,9 @@ public class UserService implements IUserService {
     private UserDao userDao;
 
     @Override
-    public UserDTO queryUser(Integer userID) {
-        return UserMapper.INSTANCE.toDTO(userDao.findById(userID));
+    public UserDTO queryUser(UserDTO userDTO) {
+        User user = UserMapper.INSTANCE.toEntity(userDTO);
+        return UserMapper.INSTANCE.toDTO(userDao.getReferenceById(user.getId()));
     }
 
     @Override

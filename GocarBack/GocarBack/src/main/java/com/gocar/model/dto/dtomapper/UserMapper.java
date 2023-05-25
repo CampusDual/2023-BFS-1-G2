@@ -12,7 +12,7 @@ import java.util.Optional;
 public interface UserMapper {
 
     UserMapper INSTANCE = Mappers.getMapper(UserMapper.class);
-    UserDTO toDTO(Optional<User> user);
+    UserDTO toDTO(User user);
 
     List<UserDTO> toDTOList(List<User> users);
 

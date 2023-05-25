@@ -33,9 +33,9 @@ public class UserController extends HttpEntity {
         return "User controller works!";
     }
 
-    @GetMapping("/get/{userID}")
-    public UserDTO queryUser(@PathVariable Integer userID) {
-        return userService.queryUser(userID);
+    @PostMapping("/get")
+    public UserDTO queryUser(@RequestBody UserDTO userDTO) {
+        return userService.queryUser(userDTO);
     }
 
     @GetMapping("/get/{id}")
