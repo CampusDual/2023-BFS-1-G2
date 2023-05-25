@@ -6,12 +6,13 @@ import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
 import java.util.List;
+import java.util.Optional;
 
 @Mapper
 public interface UserMapper {
 
     UserMapper INSTANCE = Mappers.getMapper(UserMapper.class);
-    UserDTO toDTO(User user);
+    UserDTO toDTO(Optional<User> user);
 
     List<UserDTO> toDTOList(List<User> users);
 

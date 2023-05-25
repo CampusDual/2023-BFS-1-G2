@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 
 import java.util.List;
+import java.util.Optional;
 
 @Service("UserService")
 @Lazy
@@ -23,9 +24,8 @@ public class UserService implements IUserService {
     private UserDao userDao;
 
     @Override
-    public UserDTO queryUser(UserDTO userDTO) {
-        User user = UserMapper.INSTANCE.toEntity(userDTO);
-        return UserMapper.INSTANCE.toDTO(userDao.getReferenceById(user.getId()));
+    public UserDTO queryUser(Integer userID) {
+        return UserMapper.INSTANCE.toDTO(userDao.findById(userID));
     }
 
     @Override
