@@ -7,7 +7,7 @@ import java.util.List;
 public interface IUserService {
 
     //CRUD Operations
-    UserDTO queryUser(UserDTO userDTO);
+    UserDTO queryUser(Integer userID);
 
     List<UserDTO> queryAllUser();
 

@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 
 import java.util.List;
+import java.util.Optional;
 
 @Service("UserService")
 @Lazy
@@ -23,9 +24,8 @@ public class UserService implements IUserService {
     private UserDao userDao;
 
     @Override
-    public UserDTO queryUser(UserDTO userDTO) {
-        User user = UserMapper.INSTANCE.toEntity(userDTO);
-        return UserMapper.INSTANCE.toDTO(userDao.getReferenceById(user.getId()));
+    public UserDTO queryUser(Integer userID) {
+        return UserMapper.INSTANCE.toDTO(userDao.findById(userID));
     }
 
     @Override
@@ -67,12 +67,12 @@ public class UserService implements IUserService {
     public int userOk(UserDTO userDTO) {
         if(userDTO.getEmail() == null || userDTO.getPassword() == null) return -1;
         User userprueba = UserMapper.INSTANCE.toEntity(userDTO);
-        userprueba.getEmail().toLowerCase();
+        // Conversion a lower funcional (faltaba settearlo antes de pasarlo)
+        userprueba.setEmail(userprueba.getEmail().toLowerCase());
         for (User user : userDao.findAll()) {
             if (userprueba.getEmail().equals(user.getEmail()) && userprueba.getPassword().equals(user.getPassword())) {
                 return 1;
             }
-
         }
         return -1;
     }
