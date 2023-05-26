@@ -28,6 +28,10 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>com.ontimize.jee</groupId>
 			<artifactId>ontimize-jee-server-jdbc</artifactId>
 		</dependency>
