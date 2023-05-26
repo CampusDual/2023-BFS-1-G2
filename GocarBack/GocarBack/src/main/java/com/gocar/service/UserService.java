@@ -25,6 +25,7 @@ public class UserService implements IUserService {
 
     @Override
     public UserDTO queryUser(UserDTO userDTO) {
+        // IMPORTANTE SIEMPRE TENEMOS QUE CONVERTIRLO DE ESTA MANERA SINO NO LE GUSTA //
         User user = UserMapper.INSTANCE.toEntity(userDTO);
         return UserMapper.INSTANCE.toDTO(userDao.getReferenceById(user.getId()));
     }
