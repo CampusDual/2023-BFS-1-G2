@@ -1,0 +1,27 @@
+<!-- <o-form-layout-manager title="{{'USERS' | oTranslate }}" separator=" " mode="tab" label-columns="NIF;NAME;SURNAME;PASSWORD;EMAIL">
+  <div fxFill>
+    <o-table fxFlex attr="customersTable" service="users" entity="user" keys="USER_" 
+    columns="USER_;NIF;NAME;SURNAME;PASSWORD;EMAIL" 
+    visible-columns="NIF;NAME;SURNAME;PASSWORD;EMAIL" query-rows="20">
+     <o-table-column attr="ID" title="ID" width="100px"></o-table-column>
+   </o-table>
+  </div>
+ </o-form-layout-manager> -->
+
+
+ <o-form-layout-manager mode="dialog" title="BRANCHES" label-columns="NAME" separator=""
+  attr="o-form-layout-branches-home">
+
+  <o-form-layout-dialog-options width="1000px" height="600px"
+  disable-close="true" ></o-form-layout-dialog-options>
+
+  <div fxFill>
+    <o-table fxFlex attr="customersTable" service="users" entity="user" keys="USER_" 
+    columns="USER_;NIF;NAME;SURNAME;PASSWORD;EMAIL" 
+    visible-columns="NIF;NAME;SURNAME;PASSWORD;EMAIL" query-rows="20">
+     <o-table-column attr="ID" title="ID" width="100px"></o-table-column>
+   </o-table>
+  </div>
+
+
+</o-form-layout-manager>
