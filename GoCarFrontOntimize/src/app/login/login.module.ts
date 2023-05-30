@@ -4,6 +4,7 @@ import { OntimizeWebModule } from 'ontimize-web-ngx';
 import { SharedModule } from '../shared/shared.module';
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
+import { UsersRegisterComponent } from '../main/users/users-register/users-register.component';
 
 
 
@@ -13,9 +14,14 @@ import { LoginComponent } from './login.component';
     OntimizeWebModule,
     LoginRoutingModule,
 
+
   ],
   declarations: [
-    LoginComponent
-  ]
+    LoginComponent,
+    UsersRegisterComponent
+  ],
+entryComponents : [
+  UsersRegisterComponent
+]
 })
 export class LoginModule { }
