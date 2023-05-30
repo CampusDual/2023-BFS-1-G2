@@ -1,8 +1,10 @@
 import { Component, Inject, Injector, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService, LocalStorageService, NavigationService } from 'ontimize-web-ngx';
 import { Observable } from 'rxjs';
+import { UsersRegisterComponent } from '../main/users/users-register/users-register.component';
 
 @Component({
   selector: 'login',
@@ -12,6 +14,7 @@ import { Observable } from 'rxjs';
 })
 export class LoginComponent implements OnInit {
 
+
   loginForm: FormGroup = new FormGroup({});
   userCtrl: FormControl = new FormControl('', Validators.required);
   pwdCtrl: FormControl = new FormControl('', Validators.required);
@@ -20,6 +23,7 @@ export class LoginComponent implements OnInit {
   router: Router;
 
   constructor(
+    protected dialog: MatDialog,
     private actRoute: ActivatedRoute,
     router: Router,
     @Inject(NavigationService) public navigation: NavigationService,
@@ -76,6 +80,13 @@ export class LoginComponent implements OnInit {
         break;
       default: break;
     }
+  }
+  public openRegisterUser(): void {
+    this.dialog.open(UsersRegisterComponent, {
+      height: '800px',
+      width: '800px',
+    
+    });
   }
 
 }

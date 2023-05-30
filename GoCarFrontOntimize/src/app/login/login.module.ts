@@ -5,11 +5,14 @@ import { SharedModule } from '../shared/shared.module';
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
 
+
+
 @NgModule({
   imports: [
     SharedModule,
     OntimizeWebModule,
-    LoginRoutingModule
+    LoginRoutingModule,
+
   ],
   declarations: [
     LoginComponent

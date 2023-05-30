@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CONFIG } from './app.config';
 
+
 // Standard providers...
 // Defining custom providers (if needed)...
 export const customProviders: any = [
@@ -17,10 +18,17 @@ export const customProviders: any = [
     ONTIMIZE_MODULES,
     OntimizeWebModule,
     AppRoutingModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', 
+  
+    { enabled: environment.production,
+   
+    
+   })
+  
   ],
   declarations: [
-    AppComponent
+    AppComponent,
+
   ],
   bootstrap: [
     AppComponent
