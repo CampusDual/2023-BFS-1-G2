@@ -31,5 +31,6 @@
   "COMMENTS": "Comments",
   "USERS": "Users",
   "REMEMBER_ME" : "Remember",
-  "LOGIN_TITLE" :"Login"
+  "LOGIN_TITLE" :"Login",
+  "USER_INFORMATION" : "User Information" 
 }
