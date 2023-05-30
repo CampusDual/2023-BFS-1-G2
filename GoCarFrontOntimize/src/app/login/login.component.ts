@@ -15,7 +15,7 @@ import { UsersRegisterComponent } from '../main/users/users-register/users-regis
 export class LoginComponent implements OnInit {
 
 
-  loginForm: FormGroup = new FormGroup({});
+  loginForm: FormGroup ;
   userCtrl: FormControl = new FormControl('', Validators.required);
   pwdCtrl: FormControl = new FormControl('', Validators.required);
   sessionExpired = false;
@@ -48,6 +48,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): any {
+    this.loginForm =  new FormGroup({});
     this.navigation.setVisible(false);
 
     this.loginForm.addControl('username', this.userCtrl);
@@ -83,8 +84,8 @@ export class LoginComponent implements OnInit {
   }
   public openRegisterUser(): void {
     this.dialog.open(UsersRegisterComponent, {
-      height: '800px',
-      width: '800px',
+      height: '600px',
+      width: '600px',
     
     });
   }

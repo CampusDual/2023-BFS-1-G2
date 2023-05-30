@@ -1,17 +1,21 @@
 
-<o-form-layout-manager mode="dialog" service="customers" entity="customer" keys="CUSTOMERID" header-actions="I" show-header-navigation="no">
+<o-form mode="dialog" service="customers" entity="customer" keys="CUSTOMERID" header-actions="I" show-header="no" >
   <o-text-input attr="CUSTOMERID" sql-type="INTEGER" enabled="no"></o-text-input>
   <o-row>
     
+    <!-- FALTA CAMBIAR AKI POR REGISTRO USUARIO O ALGO ASI -->
     <o-column title-label="CUSTOMER_PERSONAL_INFORMATION" fxFlex>
       <o-row>
-        <o-text-input class="input-padding" attr="NAME" fxFlex="40" required="yes"></o-text-input>
-        <o-text-input class="input-padding" attr="SURNAME" fxFlex="40" required="yes"></o-text-input>
-        <o-text-input class="input-padding" attr="PASSWORD" fxFlex="40" required="yes"></o-text-input>
-
+        <o-text-input class="input-padding" attr="NAME" fxFlex required="yes"></o-text-input>
       </o-row>
       <o-row>
-        <o-nif-input attr="NIF" class="input-padding" fxFlex="40" required="yes"></o-nif-input>
+        <o-text-input class="input-padding" attr="SURNAME" fxFlex required="yes"></o-text-input>
+      </o-row>
+      <o-row>
+        <o-text-input class="input-padding" attr="PASSWORD" fxFlex required="yes"></o-text-input>
+      </o-row>
+      <o-row>
+        <o-nif-input attr="NIF" class="input-padding" fxFlex required="yes"></o-nif-input>
   
       </o-row>
       <o-row>
@@ -20,4 +24,4 @@
     
     </o-column>
   </o-row>
-</o-form-layout-manager>
+</o-form>
