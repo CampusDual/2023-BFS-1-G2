@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injector, OnInit, ViewChild } from '@angular/core';
+import { MatDialogRef } from '@angular/material';
+import { OFormComponent, OntimizeService } from 'ontimize-web-ngx';
 
 @Component({
   selector: 'app-users-register',
@@ -7,9 +9,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsersRegisterComponent implements OnInit {
 
-  constructor() { }
+  protected userService : OntimizeService;
+
+  @ViewChild('form', { static: false }) form: OFormComponent;
+  constructor(public injector : Injector, private dialogRef: MatDialogRef<UsersRegisterComponent>) {
+  
+  this.userService = this.injector.get(OntimizeService);
+   }
 
   ngOnInit() {
+    this.configureUserService();
   }
 
+  public send(){
+ console.log(this.form);
+    // this.userService.insert()
+  }
+
+public configureUserService(){
+  const conf = this.userService.getDefaultServiceConfiguration('users');
+  this.userService.configureService(conf);
+}
+
+
+public forceInsertMode(event: any) {
+  if (event != OFormComponent.Mode().INSERT) {
+    this.form.setInsertMode();
+ 
+  }
+}
+
+public closeDialog(event: any) {
+  this.dialogRef.close();
+}
 }

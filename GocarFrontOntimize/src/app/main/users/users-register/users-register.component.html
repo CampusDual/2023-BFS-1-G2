@@ -2,7 +2,9 @@
   <h2 >Registro de Usuario</h2>
 </div>
 
-<o-form mode="dialog" service="users" entity="user" keys="USER_"  show-header="no">
+<!-- <o-form mode="dialog" service="users" entity="user" keys="USER_"  show-header="no"> -->
+  <!-- <sign-in-form #registryForm service="users" entity="uawe" keys="USER_" columns="username;password;license;name_comercial;locality;province" 
+  show-header="no" label-header="REGISTRY" header-actions="I"></sign-in-form>
   <o-row>
     
     
@@ -24,7 +26,40 @@
         <o-email-input attr="EMAIL" fxFlex></o-email-input>
       </o-row>
 
-      <button>Registro</button>
+      <button>{{ 'REGISTER' | oTranslate }}</button>
+
+    </o-column>
+    
+  </o-row>
+</o-form> -->
+
+<!-- <o-form #registryForm service="users" entity="user" keys="USER_" columns="NAME;SURNAME;PASSWORD;NIF;EMAIL" show-header="no" label-header="REGISTRY" header-actions="I"> -->
+
+  <o-form fxFill #form (onFormModeChange)="forceInsertMode($event)" (onInsert)="closeDialog($event)" service="users"
+  entity="user" header-actions="I" show-header-navigation="no">
+  
+  <o-row>
+    <o-column title-label="USER_PERSONAL_INFORMATION" fxFlex>
+      <o-row>
+        <o-text-input class="input-padding" attr="USER_" fxFlex required="yes"></o-text-input>
+      </o-row>
+      <o-row>
+        <o-text-input class="input-padding" attr="NAME" fxFlex required="yes"></o-text-input>
+      </o-row>
+      <o-row>
+        <o-text-input class="input-padding" attr="SURNAME" fxFlex required="yes"></o-text-input>
+      </o-row>
+      <o-row>
+        <o-password-input class="input-padding" attr="PASSWORD" fxFlex required="yes" show-password-button="yes"></o-password-input>
+      </o-row>
+      <o-row>
+        <o-nif-input attr="NIF" class="input-padding" fxFlex required="yes"></o-nif-input>
+      </o-row>
+      <o-row>
+        <o-email-input attr="EMAIL" fxFlex></o-email-input>
+      </o-row>
+
+      <button (click)="registryForm.send()">Registro</button>
 
     </o-column>
     
