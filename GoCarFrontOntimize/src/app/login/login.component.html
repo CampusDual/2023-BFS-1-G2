@@ -33,11 +33,12 @@
             <mat-checkbox class="text">{{ 'REMEMBER_ME' | oTranslate }}</mat-checkbox>
           </div>
 
-          <button mat-raised-button color="primary" type="submit">{{ 'LOGIN' | oTranslate }}</button>
+          <button mat-raised-button color="primary" type="">{{ 'LOGIN' | oTranslate }}</button>
           <div layout-padding></div>
           <div layout-padding></div>
+          <button type="button" (click)="openRegisterUser()" >Registrarme</button>
         </form>
-        <button (click)="openRegisterUser()" >Registrarme</button>
+        
       </div>
 
     </div>
