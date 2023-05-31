@@ -33,5 +33,6 @@
   "REMEMBER_ME" : "Recordarme",
   "LOGIN_TITLE" :"Inicio sesión",
   "USER_INFORMATION" : "Información Usuario",
-  "REGISTER" : "Registro" 
+  "REGISTER" : "Registro" ,
+  "USER_": "Nombre usuario"
 }

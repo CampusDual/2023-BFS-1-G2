@@ -33,5 +33,6 @@
   "REMEMBER_ME" : "Remember",
   "LOGIN_TITLE" :"Login",
   "USER_INFORMATION" : "User Information" ,
-  "REGISTER" :" Register"
+  "REGISTER" :" Register",
+  "USER_": "Username"
 }
