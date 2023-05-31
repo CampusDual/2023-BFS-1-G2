@@ -1,6 +1,8 @@
+
 import { Component, Injector, OnInit, ViewChild } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
 import { OFormComponent, OntimizeService } from 'ontimize-web-ngx';
+
 
 @Component({
   selector: 'app-users-register',
