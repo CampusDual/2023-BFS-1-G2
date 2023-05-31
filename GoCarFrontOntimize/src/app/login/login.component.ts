@@ -85,7 +85,7 @@ export class LoginComponent implements OnInit {
   public openRegisterUser(): void {
     this.dialog.open(UsersRegisterComponent, {
       height: '600px',
-      width: '600px',
+      width: '400px'
     
     });
   }
