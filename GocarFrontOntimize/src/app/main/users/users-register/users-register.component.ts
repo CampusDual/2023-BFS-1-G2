@@ -26,6 +26,7 @@ export class UsersRegisterComponent implements OnInit {
   public send(){
  console.log(this.form);
     // this.userService.insert()
+    //coment
   }
 
 public configureUserService(){
