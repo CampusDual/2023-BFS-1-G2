@@ -1,64 +1,33 @@
 
 
-<!-- <o-form mode="dialog" service="users" entity="user" keys="USER_"  show-header="no"> -->
-  <!-- <sign-in-form #registryForm service="users" entity="uawe" keys="USER_" columns="username;password;license;name_comercial;locality;province" 
-  show-header="no" label-header="REGISTRY" header-actions="I"></sign-in-form>
+
+  <o-form  fxFill #form mode="dialog" (onFormModeChange)="forceInsertMode($event)" (onInsert)="closeDialog($event)" service="users" entity="user"  show-header="no">
+  
   <o-row>
-    
-    
-    <o-column title-label="USER_PERSONAL_INFORMATION" fxFlex>
-  <o-row>
+    <o-column title="USER_REGISTER" fxFlex>
+ 
+      
+      <o-row>
         <o-text-input class="input-padding" attr="NAME" fxFlex required="yes"></o-text-input>
       </o-row>
       <o-row>
         <o-text-input class="input-padding" attr="SURNAME" fxFlex required="yes"></o-text-input>
       </o-row>
-      <o-row>
-        <o-password-input class="input-padding" attr="PASSWORD" fxFlex required="yes" show-password-button="yes"></o-password-input>
-      </o-row>
+      
       <o-row>
         <o-nif-input attr="NIF" class="input-padding" fxFlex required="yes"></o-nif-input>
-  
       </o-row>
       <o-row>
         <o-email-input attr="EMAIL" fxFlex></o-email-input>
       </o-row>
-
-      <button>{{ 'REGISTER' | oTranslate }}</button>
-
-    </o-column>
-    
-  </o-row>
-</o-form> -->
-
-<!-- <o-form #registryForm service="users" entity="user" keys="USER_" columns="NAME;SURNAME;PASSWORD;NIF;EMAIL" show-header="no" label-header="REGISTRY" header-actions="I"> -->
-
-  
- 
-  <o-form fxFill #form mode="dialog" (onFormModeChange)="forceInsertMode($event)" (onInsert)="closeDialog($event)" service="users" entity="user"  show-header="no">
-  
-  <o-row>
-    <o-column title="USER_REGISTER" fxFlex>
-      <!-- <div class="custom-header">
-        <h2 >Registro de Usuario</h2>
-      </div> -->
       <o-row>
         <o-text-input class="input-padding" attr="USER_" fxFlex required="yes"></o-text-input>
       </o-row>
       <o-row>
-        <o-text-input class="input-padding" attr="NAME" fxFlex required="yes"></o-text-input>
+        <o-password-input class="input-padding"  id = "password1" attr="PASSWORD1"  fxFlex required="yes" show-password-button="yes"></o-password-input>
       </o-row>
       <o-row>
-        <o-text-input class="input-padding" attr="SURNAME" fxFlex required="yes"></o-text-input>
-      </o-row>
-      <o-row>
-        <o-password-input class="input-padding" attr="PASSWORD" fxFlex required="yes" show-password-button="yes"></o-password-input>
-      </o-row>
-      <o-row>
-        <o-nif-input attr="NIF" class="input-padding" fxFlex required="yes"></o-nif-input>
-      </o-row>
-      <o-row>
-        <o-email-input attr="EMAIL" fxFlex></o-email-input>
+        <o-password-input class="input-padding" id = "password2" attr="PASSWORD2"  fxFlex required="yes" show-password-button="yes"></o-password-input>
       </o-row>
 
       <div class="ontimize-buttons">
