@@ -1,4 +1,3 @@
-
 import { Component, Injector, OnInit, ViewChild } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
 import { OFormComponent, OntimizeService } from 'ontimize-web-ngx';
@@ -23,12 +22,20 @@ export class UsersRegisterComponent implements OnInit {
     this.configureUserService();
   }
 
-  public send(){
- console.log(this.form);
-    // this.userService.insert()
-    //coment
+  public send() {
+    const password = this.form.formGroup.get('PASSWORD').value;
+    const confirmPassword = this.form.formGroup.get('CONFIRM_PASSWORD').value;
+  
+    if (password !== confirmPassword) {
+      // No es igual
+      console.log('pass no igual');
+      return;
+    }
+  
+    // pasa y se inserta
+    this.form.insert();
   }
-
+  
 public configureUserService(){
   const conf = this.userService.getDefaultServiceConfiguration('users');
   this.userService.configureService(conf);
