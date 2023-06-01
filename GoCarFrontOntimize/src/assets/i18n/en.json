@@ -34,5 +34,6 @@
   "LOGIN_TITLE" :"Login",
   "USER_INFORMATION" : "User Information" ,
   "REGISTER" :" Register",
-  "USER_": "Username"
+  "USER_": "Username",
+  "USER_REGISTER": "User Register"
 }

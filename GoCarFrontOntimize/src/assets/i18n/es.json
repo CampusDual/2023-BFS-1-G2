@@ -34,5 +34,6 @@
   "LOGIN_TITLE" :"Inicio sesión",
   "USER_INFORMATION" : "Información Usuario",
   "REGISTER" : "Registro" ,
-  "USER_": "Nombre usuario"
+  "USER_": "Nombre usuario",
+  "USER_REGISTER" : "Registro de Usuario"
 }
