@@ -26,9 +26,9 @@
       <o-row>
         <o-password-input class="input-padding" attr="CONFIRM_PASSWORD" fxFlex required="yes" show-password-button="yes"></o-password-input>
       </o-row>      
-      
+
       <div class="ontimize-buttons">
-        <o-button attr="basic1" type="STROKED" label="CANCELAR" layout-padding color="primary"></o-button>
+        <o-button attr="basic1" type="STROKED" label="CANCELAR" layout-padding color="primary" (click)="closeDialog()"></o-button>
         <o-button attr="basic1" type="STROKED" label="GUARDAR" layout-padding color="primary" (click)="send()"></o-button>
       </div>
       <!-- ERA LA PRIMERA OPCION -->

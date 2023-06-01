@@ -35,5 +35,8 @@
   "USER_INFORMATION" : "Información Usuario",
   "REGISTER" : "Registro" ,
   "USER_": "Nombre usuario",
-  "USER_REGISTER" : "Registro de Usuario"
+  "USER_REGISTER" : "Registro de Usuario",
+  "CONFIRM_PASSWORD" : "Confirmar Contraseña",
+  "GUARDAR" : "Guardar",
+  "CANCELAR" : "Cancelar"
 }

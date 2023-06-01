@@ -29,11 +29,12 @@ export class UsersRegisterComponent implements OnInit {
     if (password !== confirmPassword) {
       // No es igual
       console.log('pass no igual');
-      return;
+      alert("Las contraseñas no coinciden");
+      
+    }else{
+      this.form.insert();
     }
-  
-    // pasa y se inserta
-    this.form.insert();
+    
   }
   
 public configureUserService(){
