@@ -34,5 +34,4 @@ public class UserRestController extends ORestController<IUserService> {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
-
 }
