@@ -36,17 +36,16 @@ export class UsersRegisterComponent implements OnInit {
       alert("Las contraseñas no coinciden");
       
     }else{
-      await this.form.insert();
+      this.form.insert();
       if (userName && userName.length > 0 && password && password.length > 0) {
         const self = this;
         this.authService.login(userName, password)
           .subscribe(() => {
-            self.router.navigate(['../'], { relativeTo: this.actRoute });
+            self.router.navigate(['/main/home']);
           })
       }
     }
-    
-  }
+    }
   
 public configureUserService(){
   const conf = this.userService.getDefaultServiceConfiguration('users');
