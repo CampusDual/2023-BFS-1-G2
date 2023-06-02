@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d99bd92-2f71-426f-b3e5-36ad3c4188a8" name="Changes" comment="" />
+    <list default="true" id="9d99bd92-2f71-426f-b3e5-36ad3c4188a8" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springontimize/springontimize-model/springontimize-model.iml" beforeDir="false" afterPath="$PROJECT_DIR$/springontimize/springontimize-model/springontimize-model.iml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,7 +29,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/alex_/OneDrive/Documentos/GitHub/2023-BFS-1-G2/GocarBackOntimize/springontimize",
+    "last_opened_file_path": "C:/Users/alex_/OneDrive/Documentos/GitHub/2023-BFS-1-G2/GocarBackOntimize",
     "settings.editor.selected.configurable": "preferences.keymap"
   }
 }]]></component>
