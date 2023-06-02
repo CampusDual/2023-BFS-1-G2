@@ -1,6 +1,8 @@
-import { Component, Injector, OnInit, ViewChild } from '@angular/core';
+import { Component, Inject, Injector, OnInit, ViewChild } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
-import { OFormComponent, OntimizeService } from 'ontimize-web-ngx';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService, OFormComponent, OntimizeService } from 'ontimize-web-ngx';
+import { async } from 'rxjs/internal/scheduler/async';
 
 
 @Component({
@@ -13,7 +15,8 @@ export class UsersRegisterComponent implements OnInit {
   protected userService : OntimizeService;
 
   @ViewChild('form', { static: false }) form: OFormComponent;
-  constructor(public injector : Injector, private dialogRef: MatDialogRef<UsersRegisterComponent>) {
+  constructor(public injector : Injector, private dialogRef: MatDialogRef<UsersRegisterComponent>, private router:Router, private actRoute: ActivatedRoute,@Inject(AuthService) private authService: AuthService,
+  ) {
   
   this.userService = this.injector.get(OntimizeService);
    }
@@ -22,9 +25,10 @@ export class UsersRegisterComponent implements OnInit {
     this.configureUserService();
   }
 
-  public send() {
+  public async send(){
     const password = this.form.formGroup.get('PASSWORD').value;
     const confirmPassword = this.form.formGroup.get('CONFIRM_PASSWORD').value;
+    const userName = this.form.formGroup.get('USER_').value;
   
     if (password !== confirmPassword) {
       // No es igual
@@ -32,7 +36,14 @@ export class UsersRegisterComponent implements OnInit {
       alert("Las contraseñas no coinciden");
       
     }else{
-      this.form.insert();
+      await this.form.insert();
+      if (userName && userName.length > 0 && password && password.length > 0) {
+        const self = this;
+        this.authService.login(userName, password)
+          .subscribe(() => {
+            self.router.navigate(['../'], { relativeTo: this.actRoute });
+          })
+      }
     }
     
   }
