@@ -31,6 +31,24 @@
                 ]]>
             </Sentence>
         </Query>
+        <Query id="all">
+            <ValidColumns>
+                <Column>car_</Column>
+                <Column>brand</Column>
+                <Column>model</Column>
+                <Column>status</Column>
+                <Column>location</Column>
+            </ValidColumns>
+            <Sentence>
+                <![CDATA[
+                    SELECT
+                        #COLUMNS#
+                    FROM
+                        ${mainschema}.TCARS
+                    #WHERE#
+                ]]>
+            </Sentence>
+        </Query>
         <!--<Query id="login">
             <ValidColumns>
                 <Column>USER_</Column>

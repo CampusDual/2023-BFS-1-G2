@@ -6,7 +6,7 @@ import { CarsNewComponent } from './cars-new/cars-new.component';
 
 
 const routes: Routes = [
-{path : '',  component : CarsHomeComponent},
+{path : 'all',  component : CarsHomeComponent},
 {path : 'new', component : CarsNewComponent },
 {path : ':CAR_', component : CarsDetailComponent},
 ];
