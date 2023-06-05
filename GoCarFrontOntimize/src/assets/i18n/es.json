@@ -38,5 +38,7 @@
   "USER_REGISTER" : "Registro de Usuario",
   "CONFIRM_PASSWORD" : "Confirmar Contraseña",
   "GUARDAR" : "Guardar",
-  "CANCELAR" : "Cancelar"
+  "CANCELAR" : "Cancelar",
+  "Password must matched" : "La contraseña debe coincidir",
+  "CARS" : "Coches"
 }

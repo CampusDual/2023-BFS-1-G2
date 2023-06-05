@@ -3,7 +3,7 @@ import { ValidatorFn, FormControl, ValidationErrors } from '@angular/forms';
 import { MatDialogRef } from '@angular/material';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService, OFormComponent, OntimizeService } from 'ontimize-web-ngx';
-import { async } from 'rxjs/internal/scheduler/async';
+
 
 
 @Component({
@@ -17,7 +17,7 @@ export class UsersRegisterComponent implements OnInit {
   // error: boolean;
  
   protected userService : OntimizeService;
-  // validatorsArray: ValidatorFn[] = [];
+  validatorsConfirmPasswordArray: ValidatorFn[] = []; //array para la validación de 2 contraseñas iguales.
 
 
   @ViewChild('form', { static: false }) form: OFormComponent;
@@ -26,27 +26,17 @@ export class UsersRegisterComponent implements OnInit {
      private router:Router, private actRoute: ActivatedRoute,@Inject(AuthService)
      private authService: AuthService) {
       
-      // this.validatorsArray.push(this.aValidator)
+      
       this.userService = this.injector.get(OntimizeService);
+      this.validatorsConfirmPasswordArray.push(this.passwordMatchValidator);
    }
 
   ngOnInit() {
     this.configureUserService();
-    // this.error = false;
+   
   }
 
-  // aValidator(control: FormControl): ValidationErrors {
-  //   let result = {};
-  //   const password = this.form.formGroup.get('PASSWORD').value;
-  //   const confirmPassword = this.form.formGroup.get('CONFIRM_PASSWORD').value;
-  //   // const confirmPassword = this.form.formGroup.get('CONFIRM_PASSWORD').value
-  //   if (confirmPassword !== password) {
-  //     result['las pass no coinciden'] = true;
-  //   }
-    
-  //   return result;
-  // }
-
+  
   public async send(){
     const password = this.form.formGroup.get('PASSWORD').value;
     const confirmPassword = this.form.formGroup.get('CONFIRM_PASSWORD').value;
@@ -62,6 +52,7 @@ export class UsersRegisterComponent implements OnInit {
     }else{
       // this.error = true
       this.form.insert();
+      //INTENTO DE LOGIN DESPUES DE REGISTRO Y REDIRECCIONAR. FALLABA A LA HORA DEL LOGIN
       // if (userName && userName.length > 0 && password && password.length > 0) {
       //   const self = this;
       //   this.authService.login(userName, password)
@@ -72,31 +63,27 @@ export class UsersRegisterComponent implements OnInit {
     }
     }
   
-public configureUserService(){
-  const conf = this.userService.getDefaultServiceConfiguration('users');
-  this.userService.configureService(conf);
-}
-
-handleError(error) {
-  switch (error.status) {
-    case 401:
-      console.error(error);
-    case 500:
-      console.log(error)
-      break;
-    default: break;
+  public configureUserService(){
+    const conf = this.userService.getDefaultServiceConfiguration('users');
+    this.userService.configureService(conf);
   }
-}
 
-
-public forceInsertMode(event: any) {
-  if (event != OFormComponent.Mode().INSERT) {
-    this.form.setInsertMode();
- 
+  public forceInsertMode(event: any) {
+    if (event != OFormComponent.Mode().INSERT) {
+      this.form.setInsertMode();
+  
+    }
   }
-}
 
-public closeDialog(event: any) {
-  this.dialogRef.close();
-}
+  public closeDialog(event: any) {
+    this.dialogRef.close();
+  }
+
+  
+  passwordMatchValidator(control: any): any {
+    const password = control.parent ? control.parent.controls['PASSWORD'].value : null;//El control.parent es necesario sino peta
+    const confirmPassword = control.value;
+    return password === confirmPassword ? null : { passwordsNotMatched: true };
+  }
+
 }
