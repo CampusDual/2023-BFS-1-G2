@@ -24,7 +24,9 @@
         <o-password-input class="input-padding" attr="PASSWORD" fxFlex required="yes" show-password-button="yes"></o-password-input>
       </o-row>
       <o-row>
-        <o-password-input class="this.className" attr="CONFIRM_PASSWORD"  fxFlex  required="yes" show-password-button="yes"></o-password-input>
+        <o-password-input class="this.className" attr="CONFIRM_PASSWORD" fxFlex required="yes" show-password-button="yes" [validators]="validatorsConfirmPasswordArray">
+          <o-validator error-name="passwordsNotMatched" error-text="Password must matched"></o-validator>
+        </o-password-input>
       </o-row>   
      
 
