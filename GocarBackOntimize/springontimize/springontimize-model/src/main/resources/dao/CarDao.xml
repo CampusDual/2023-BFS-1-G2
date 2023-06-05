@@ -6,20 +6,20 @@
         catalog="" schema="${mainschema}" table="TCARS"
         datasource="mainDataSource" sqlhandler="dbSQLStatementHandler">
     <DeleteKeys>
-        <Column>CAR_</Column>
+        <Column>car_</Column>
     </DeleteKeys>
     <UpdateKeys>
-        <Column>CAR_</Column>
+        <Column>car_</Column>
     </UpdateKeys>
-    <GeneratedKey>CAR_</GeneratedKey>
+    <GeneratedKey>car_</GeneratedKey>
     <Queries>
         <Query id="default">
             <ValidColumns>
-                <Column>CAR_</Column>
-                <Column>BRAND</Column>
-                <Column>MODEL</Column>
-                <Column>STATUS</Column>
-                <Column>LOCALITATION</Column>
+                <Column>car_</Column>
+                <Column>brand</Column>
+                <Column>model</Column>
+                <Column>status</Column>
+                <Column>location</Column>
             </ValidColumns>
             <Sentence>
                 <![CDATA[
