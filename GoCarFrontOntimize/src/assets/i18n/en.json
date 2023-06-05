@@ -39,7 +39,8 @@
   "CONFIRM_PASSWORD": "Confirm Password",
   "GUARDAR" : "Save",
   "CANCELAR" : "Cancel",
-  "Password must matched" : "Password must matched"
+  "Password must matched" : "Password must matched",
+  "CARS" : "Cars"
 
  
 }

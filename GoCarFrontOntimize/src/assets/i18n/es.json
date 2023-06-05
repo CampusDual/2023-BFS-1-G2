@@ -39,5 +39,6 @@
   "CONFIRM_PASSWORD" : "Confirmar Contraseña",
   "GUARDAR" : "Guardar",
   "CANCELAR" : "Cancelar",
-  "Password must matched" : "La contraseña debe coincidir"
+  "Password must matched" : "La contraseña debe coincidir",
+  "CARS" : "Coches"
 }

@@ -68,18 +68,6 @@ export class UsersRegisterComponent implements OnInit {
     this.userService.configureService(conf);
   }
 
-  handleError(error) {
-    switch (error.status) {
-      case 401:
-        console.error(error);
-      case 500:
-        console.log(error)
-        break;
-      default: break;
-    }
-  }
-
-
   public forceInsertMode(event: any) {
     if (event != OFormComponent.Mode().INSERT) {
       this.form.setInsertMode();
