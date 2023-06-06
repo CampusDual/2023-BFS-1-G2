@@ -30,9 +30,10 @@ public class CarService implements ICarService {
 	//Sample to permission
 	//@Secured({ PermissionsProviderSecured.SECURED })
 	public EntityResult carQuery(Map<?, ?> keyMap, List<?> attrList) {
-		return this.daoHelper.query(carDao, keyMap, attrList);
-	}
+		EntityResult result = this.daoHelper.query(carDao, keyMap, attrList);
 
+		return result;
+	}
 	public EntityResult carInsert(Map<?, ?> attrMap) {
 		return this.daoHelper.insert(carDao, attrMap);
 	}

@@ -3,7 +3,7 @@
         xmlns="http://www.ontimize.com/schema/jdbc"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.ontimize.com/schema/jdbc http://www.ontimize.com/schema/jdbc/ontimize-jdbc-dao.xsd"
-        catalog="" schema="${mainschema}" table="TCARS"
+        catalog="" schema="${mainschema}" table="tcars"
         datasource="mainDataSource" sqlhandler="dbSQLStatementHandler">
     <DeleteKeys>
         <Column>car_</Column>
@@ -26,33 +26,11 @@
                     SELECT
                         #COLUMNS#
                     FROM
-                        ${mainschema}.TCARS
+                        ${mainschema}.tcars
                     #WHERE#
                 ]]>
             </Sentence>
         </Query>
-    
-        <!--<Query id="login">
-            <ValidColumns>
-                <Column>USER_</Column>
-                <Column>PASSWORD</Column>
-                <Column>NAME</Column>
-                <Column>SURNAME</Column>
-                <Column>EMAIL</Column>
-                <Column>NIF</Column>
-                <Column>USERBLOCKED</Column>
-                <Column>LASTPASSWORDUPDATE</Column>
-                <Column>FIRSTLOGIN</Column>
-            </ValidColumns>
-            <Sentence>
-                <![CDATA[
-                    SELECT
-                        #COLUMNS#
-                    FROM
-                        ${mainschema}.TUSER
-                    #WHERE#
-                ]]>
-            </Sentence>
-        </Query>-->
+
     </Queries>
 </JdbcEntitySetup>

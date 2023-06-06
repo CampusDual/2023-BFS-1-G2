@@ -1,26 +1,26 @@
-<o-form fxFill #form mode="dialog" (onFormModeChange)="forceInsertMode($event)" (onInsert)="closeDialog($event)" service="cars" entity="car"  show-header="no">
+<o-form fxFill #form mode="dialog" (onFormModeChange)="forceInsertMode($event)" (onInsert)="closeDialog($event)" service="cars" entity="car"  header-actions="R;I;U;D" show-header="no">
   
     <o-row>
       <o-column title="CAR_REGISTER" fxFlex>
 
         <o-row>
-          <o-text-input class="input-padding" attr="BRAND" fxFlex required="yes"></o-text-input>
+          <o-text-input class="input-padding" attr="brand" fxFlex required="yes"></o-text-input>
         </o-row>
 
         <o-row>
-          <o-text-input class="input-padding" attr="MODEL" fxFlex required="yes"></o-text-input>
+          <o-text-input class="input-padding" attr="model" fxFlex required="yes"></o-text-input>
         </o-row>
 
         <o-row>
-            <o-text-input class="input-padding" attr="STATUS" fxFlex required="no"></o-text-input>
+            <o-text-input class="input-padding" attr="status" fxFlex required="no"></o-text-input>
         </o-row>
 
         <o-row>
-            <o-real-input attr="LOCATION" decimal-separator="," max-decimal-digits="10" min-decimal-digits="0" 
+            <o-real-input attr="location" decimal-separator="," max-decimal-digits="10" min-decimal-digits="0" 
             class="input-padding" fxFlex="50"></o-real-input>
-         <!-- <o-real-input attr="LONGITUDE" decimal-separator="," max-decimal-digits="10" min-decimal-digits="0" 
+         <!-- <o-real-input attr="longitude" decimal-separator="," max-decimal-digits="10" min-decimal-digits="0" 
              class="input-padding" fxFlex="50"></o-real-input>
-        <o-real-input attr="LATITUDE" decimal-separator="," max-decimal-digits="10" min-decimal-digits="0" 
+        <o-real-input attr="latitude" decimal-separator="," max-decimal-digits="10" min-decimal-digits="0" 
               fxFlex="50"></o-real-input> -->
         </o-row>
 

@@ -1,5 +1,5 @@
 import { Component, Inject, Injector, OnInit, ViewChild } from '@angular/core';
-import { ValidatorFn, FormControl, ValidationErrors } from '@angular/forms';
+import { ValidatorFn, FormControl, ValidationErrors, FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef } from '@angular/material';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService, OFormComponent, OntimizeService } from 'ontimize-web-ngx';
@@ -19,28 +19,33 @@ export class UsersRegisterComponent implements OnInit {
   protected userService : OntimizeService;
   validatorsConfirmPasswordArray: ValidatorFn[] = []; //array para la validación de 2 contraseñas iguales.
 
+  public  pass: string | undefined;
+  public  confirm_pass : string | undefined;
 
   @ViewChild('form', { static: false }) form: OFormComponent;
   
+  dialogForm : FormGroup;
+
   constructor(public injector : Injector, private dialogRef: MatDialogRef<UsersRegisterComponent>,
      private router:Router, private actRoute: ActivatedRoute,@Inject(AuthService)
-     private authService: AuthService) {
+     private authService: AuthService,  private fb: FormBuilder,) {
       
-      
-      this.userService = this.injector.get(OntimizeService);
       this.validatorsConfirmPasswordArray.push(this.passwordMatchValidator);
-   }
-
-  ngOnInit() {
+      this.userService = this.injector.get(OntimizeService);
+    }
+    
+    ngOnInit() {
+      this.dialogForm = this.fb.group({}); 
+   
     this.configureUserService();
    
   }
-
+  
   
   public async send(){
-    const password = this.form.formGroup.get('PASSWORD').value;
-    const confirmPassword = this.form.formGroup.get('CONFIRM_PASSWORD').value;
-    const userName = this.form.formGroup.get('USER_').value;
+    const password = this.form.formGroup.get('password').value;
+    const confirmPassword = this.form.formGroup.get('confirm_password').value;
+    const userName = this.form.formGroup.get('user_').value;
     
     if (password !== confirmPassword) {
       // No es igual
@@ -80,10 +85,24 @@ export class UsersRegisterComponent implements OnInit {
   }
 
   
-  passwordMatchValidator(control: any): any {
-    const password = control.parent ? control.parent.controls['PASSWORD'].value : null;//El control.parent es necesario sino peta
-    const confirmPassword = control.value;
-    return password === confirmPassword ? null : { passwordsNotMatched: true };
+ public passwordMatchValidator(control: FormControl): any {
+  this.dialogForm.get('password');
+
+
+
+  return null;
+
+
+    // if (this.form){
+    //   const password = this.form.formGroup.get('password').value;
+    //   const confirm_password = this.form.formGroup.get('confirm_password').value;
+
+    //   return password === confirm_password ? null : { passwordsNotMatched: true };
+    // }
+    // return null;
+
+    // const password = control.parent ? control.parent.controls['password'].value : null;//El control.parent es necesario sino peta
+    // const confirmPassword = control.value;
   }
 
 }
