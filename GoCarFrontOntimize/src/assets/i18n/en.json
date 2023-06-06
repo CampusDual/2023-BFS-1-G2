@@ -5,9 +5,9 @@
   "USERNAME": "Username",
   "PASSWORD": "Password",
   "LOGIN": "Login",
-  "LOGOUT": "Logout",
+  "logout": "Logout",
   "VIEW": "Views",
-  "HOME": "Home",
+  "home": "Home",
   "ERROR_REQUIRED_FIELD": "Field is required",
   "ERROR_MIN_LENGTH_REQUIRED": "The value length entered must be at least 8 characters.",
   "ERROR_SESSION_EXPIRED": "Session expired.",
@@ -46,7 +46,8 @@
   "brand":"Brand",
   "model": "Model",
   "status": "Status",
-  "location": "Location"
+  "location": "Location",
+  "CAR_REGISTER" : "Car Register"
 
  
 }

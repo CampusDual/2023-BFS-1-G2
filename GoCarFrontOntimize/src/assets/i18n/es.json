@@ -5,9 +5,9 @@
   "USERNAME": "Usuario",
   "PASSWORD": "Contraseña",
   "LOGIN": "Entrar",
-  "LOGOUT": "Salir",
+  "logout": "Salir",
   "VIEW": "Vistas",
-  "HOME": "Inicio",
+  "home": "Inicio",
   "ERROR_REQUIRED_FIELD": "El campo es requerido",
   "ERROR_MIN_LENGTH_REQUIRED": "El valor introducido tiene que tener una longitud mínima de 8 caracteres",
   "ERROR_SESSION_EXPIRED": "La sesión ha caducado",
@@ -46,5 +46,6 @@
   "brand":"Marca",
   "model": "Modelo",
   "status": "Estado",
-  "location": "Localicación"
+  "location": "Localicación",
+  "CAR_REGISTER" : "Registro Coche"
 }

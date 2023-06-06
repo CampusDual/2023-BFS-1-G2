@@ -1,7 +1,7 @@
 <o-form fxFill #form mode="dialog" (onFormModeChange)="forceInsertMode($event)" (onInsert)="closeDialog($event)" service="cars" entity="car"  header-actions="R;I;U;D" show-header="no">
   
     <o-row>
-      <o-column title="CAR_REGISTER" fxFlex>
+      <o-column title="" fxFlex>
 
         <o-row>
           <o-text-input class="input-padding" attr="brand" fxFlex required="yes"></o-text-input>
@@ -16,8 +16,8 @@
         </o-row>
 
         <o-row>
-            <o-real-input attr="location" decimal-separator="," max-decimal-digits="10" min-decimal-digits="0" 
-            class="input-padding" fxFlex="50"></o-real-input>
+            <o-text-input attr="location" decimal-separator="," max-decimal-digits="10" min-decimal-digits="0" 
+            class="input-padding" fxFlex="50"></o-text-input>
          <!-- <o-real-input attr="longitude" decimal-separator="," max-decimal-digits="10" min-decimal-digits="0" 
              class="input-padding" fxFlex="50"></o-real-input>
         <o-real-input attr="latitude" decimal-separator="," max-decimal-digits="10" min-decimal-digits="0" 
