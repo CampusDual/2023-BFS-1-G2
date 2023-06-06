@@ -47,7 +47,8 @@
   "model": "Model",
   "status": "Status",
   "location": "Location",
-  "CAR_REGISTER" : "Car Register"
+  "CAR_REGISTER" : "Car Register",
+  "plate" : "Plate"
 
  
 }
