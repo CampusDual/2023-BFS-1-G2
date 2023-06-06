@@ -37,7 +37,7 @@ export class UsersRegisterComponent implements OnInit {
     ngOnInit() {
       this.dialogForm = this.fb.group({}); 
    
-    this.configureUserService();
+      this.configureUserService();
    
   }
   
@@ -85,24 +85,23 @@ export class UsersRegisterComponent implements OnInit {
   }
 
   
- public passwordMatchValidator(control: FormControl): any {
-  this.dialogForm.get('password');
+  passwordMatchValidator(control: any): any {
+  
+  try {
+
+    const password = control.parent ? control.parent.controls['password'].value : null
+    const confirm_password = control.value
+
+    return password === confirm_password ? null : { passwordsNotMatched: true };
+
+  }catch(e){
+
+  }
 
 
+ 
 
-  return null;
 
-
-    // if (this.form){
-    //   const password = this.form.formGroup.get('password').value;
-    //   const confirm_password = this.form.formGroup.get('confirm_password').value;
-
-    //   return password === confirm_password ? null : { passwordsNotMatched: true };
-    // }
-    // return null;
-
-    // const password = control.parent ? control.parent.controls['password'].value : null;//El control.parent es necesario sino peta
-    // const confirmPassword = control.value;
   }
 
 }
