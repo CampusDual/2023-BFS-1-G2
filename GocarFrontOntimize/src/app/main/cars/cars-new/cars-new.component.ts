@@ -29,11 +29,7 @@ export class CarsNewComponent implements OnInit {
       this.carService = this.injector.get(OntimizeService);
        }
 
-  ngOnInit() {
-
-    //Imprime todos los coches
-    this.getAllCars(this.body)
-  }
+  ngOnInit() {}
 
   public async send(){
 
@@ -57,7 +53,7 @@ export class CarsNewComponent implements OnInit {
      this.dialogRef.close();
   }
   
-  public async getAllCars(body: Object) {
+  public async getAllCars(body: Object, auth: string) {
 
     try{
 
@@ -66,7 +62,7 @@ export class CarsNewComponent implements OnInit {
         body: JSON.stringify(body),
         headers: {
           "Content-type": "application/json; charset=UTF-8",
-          "Authorization": this.auth
+          "Authorization": auth
       }
       }).then(res => res.json())
 
