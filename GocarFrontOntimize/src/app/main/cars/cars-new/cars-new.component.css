@@ -1,0 +1,26 @@
+.cars-new {
+    width: 300px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.cars-new-principal-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.cars-new-principal-row-column {
+    padding: .8rem;  
+}
+
+.row-location {
+    display: flex;
+    justify-content: center;
+}
+.input-padding {
+    margin: auto;
+    text-align: center;
+}

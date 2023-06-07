@@ -1,12 +1,12 @@
 
-  <o-form-layout-manager mode="dialog" title=""  label-columns="name" separator=""
-  attr="o-form-layout-branches-home">
+  <o-form-layout-manager mode="dialog" title=""  label-columns="name" 
+  attr="o-form-layout-branches-home" color="warn">
 
-  <o-form-layout-dialog-options width="1000px" height="600px"
+  <o-form-layout-dialog-options  title = "Nuevo coche" width="400px" height="450px"
   disable-close="true" ></o-form-layout-dialog-options>
 
 
-  <div fxFill class="center">
+  <div>
     <o-table fxFlex attr="carTable" service="cars" entity="car" keys="car_" 
     columns="car_;brand;model;plate;location" 
     visible-columns="brand;model;plate;location" query-rows="20">
