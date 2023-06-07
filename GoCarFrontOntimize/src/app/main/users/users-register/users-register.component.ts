@@ -98,10 +98,6 @@ export class UsersRegisterComponent implements OnInit {
 
   }
 
-
- 
-
-
   }
 
 }

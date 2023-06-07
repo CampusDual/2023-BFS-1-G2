@@ -48,5 +48,6 @@
   "status": "Estado",
   "location": "Localicación",
   "CAR_REGISTER" : "Registro Coche",
-  "plate" : "Matrícula"
+  "plate" : "Matrícula",
+  "REGISTRAR" : "Registrar"
 }

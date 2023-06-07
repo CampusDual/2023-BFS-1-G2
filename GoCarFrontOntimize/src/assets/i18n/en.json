@@ -48,7 +48,8 @@
   "status": "Status",
   "location": "Location",
   "CAR_REGISTER" : "Car Register",
-  "plate" : "Plate"
+  "plate" : "Plate",
+  "REGISTRAR" : "Register"
 
  
 }
