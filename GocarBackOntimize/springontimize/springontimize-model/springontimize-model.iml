@@ -11,6 +11,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="springontimize-api" />
+    <orderEntry type="module" module-name="springontimize-api" />
     <orderEntry type="library" name="Maven: com.ontimize.jee:ontimize-jee-common:5.7.0" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-beans:5.3.7" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-context:5.3.7" level="project" />
