@@ -22,7 +22,6 @@ export const CONFIG: Config = {
   //  Language of the application.
   locale: 'es',
 
-
   // The service type used (Ontimize REST standart, Ontimize REST JEE
   // or custom implementation) in the whole application.
   serviceType: 'OntimizeEE',
@@ -32,7 +31,7 @@ export const CONFIG: Config = {
 
   appMenuConfiguration: MENU_CONFIG,
 
-  applicationLocales: ['es', 'en', 'gl'],
+  applicationLocales: ['es', 'en'],
 
   exportConfiguration: {
     path: '/export'
