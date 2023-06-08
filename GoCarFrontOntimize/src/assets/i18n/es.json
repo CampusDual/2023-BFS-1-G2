@@ -41,13 +41,14 @@
   "CANCELAR" : "Cancelar",
   "Password must matched" : "La contraseña debe coincidir",
   "cars" : "Coches",
-  "nif" : "Nif",
+  "nif" : "NIF",
   "password" : "Contraseña",
   "brand":"Marca",
   "model": "Modelo",
   "status": "Estado",
-  "location": "Localicación",
+  "location": "Localización",
   "CAR_REGISTER" : "Registro Coche",
   "plate" : "Matrícula",
-  "REGISTRAR" : "Registrar"
+  "REGISTRAR" : "Registrar",
+  "LOCALE_gl" : "GL"
 }

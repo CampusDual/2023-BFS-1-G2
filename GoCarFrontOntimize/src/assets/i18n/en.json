@@ -41,7 +41,7 @@
   "CANCELAR" : "Cancel",
   "Password must matched" : "Password must matched",
   "cars" : "Cars",
-  "nif" : "Nif",
+  "nif" : "NIF",
   "password": "Pasword",
   "brand":"Brand",
   "model": "Model",
@@ -49,7 +49,8 @@
   "location": "Location",
   "CAR_REGISTER" : "Car Register",
   "plate" : "Plate",
-  "REGISTRAR" : "Register"
+  "REGISTRAR" : "Register",
+  "LOCALE_gl" : "GL"
 
  
 }
