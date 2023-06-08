@@ -49,5 +49,6 @@
   "location": "Localicación",
   "CAR_REGISTER" : "Registro Coche",
   "plate" : "Matrícula",
-  "REGISTRAR" : "Registrar"
+  "REGISTRAR" : "Registrar",
+  "user_id" : "Propietario"
 }
