@@ -50,5 +50,7 @@
   "CAR_REGISTER" : "Registro Coche",
   "plate" : "Matrícula",
   "REGISTRAR" : "Registrar",
-  "user_id" : "Propietario"
+  "user_id" : "Propietario",
+  "end_date_available" : "Fecha fin disponibilidad",
+  "start_date_available" : "Fecha inicio disponibilidad"
 }

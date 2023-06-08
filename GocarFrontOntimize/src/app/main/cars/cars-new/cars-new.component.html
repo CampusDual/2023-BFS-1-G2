@@ -1,4 +1,4 @@
-<o-form  #form mode="dialog" class="cars-new" (onFormModeChange)="forceInsertMode($event)" (onInsert)="closeDialog($event)" service="cars" entity="car"  header-actions="R;I;U;D" show-header="no">
+<o-form  #form mode="dialog" class="cars-new" (onFormModeChange)="forceInsertMode($event)" (onInsert)="closeDialog($event)" service="cars" entity="car"  header-actions="R;I;U;D" show-header="yes">
   
     <o-row class="cars-new-principal-row">
       <o-column title="" class="cars-new-principal-row-column">
@@ -18,6 +18,13 @@
         <!-- <o-row>
             <o-text-input class="input-padding" attr="status" fxFlex required="no"></o-text-input>
         </o-row> -->
+
+        <o-row>
+          <o-date-input value-type="date" class="input-padding" label ="start_date_available" attr_="start_date_available" fxFlex required ="no"></o-date-input>
+        </o-row>
+        <o-row>
+          <o-date-input class="input-padding" label="end_date_available" attr_="end_date_available" fxFlex required ="no"></o-date-input>
+        </o-row>
 
         <o-row class="row-location">
             <o-text-input attr="location" decimal-separator="," max-decimal-digits="10" min-decimal-digits="0" 

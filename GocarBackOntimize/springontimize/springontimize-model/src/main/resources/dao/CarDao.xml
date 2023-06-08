@@ -21,6 +21,9 @@
                 <Column>plate</Column>
                 <Column>location</Column>
                 <Column>user_id</Column>
+                <Column>start_date_available</Column>
+                <Column>end_date_available</Column>
+
             </ValidColumns>
             <Sentence>
                 <![CDATA[
