@@ -6,10 +6,10 @@
   disable-close="true" ></o-form-layout-dialog-options>
 
 
-  <div>
-    <o-table fxFlex attr="carTable" service="cars" entity="car" keys="car_id" 
-    columns="car_id;brand;model;plate;location" 
-    visible-columns="brand;model;plate;location" query-rows="20">
+  <div class="table-car">
+    <o-table  fxFlex attr="carTable" service="cars" entity="car" keys="car_id" 
+    columns="car_id;brand;model;plate;location;user_id" 
+    visible-columns="brand;model;plate;location;user_id" query-rows="20" detail-mode="dblclick">
      <o-table-column attr="id" title="id" width="100px" ></o-table-column>
    </o-table>
   </div>

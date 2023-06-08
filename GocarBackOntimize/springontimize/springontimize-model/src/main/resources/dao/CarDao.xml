@@ -20,6 +20,7 @@
                 <Column>model</Column>
                 <Column>plate</Column>
                 <Column>location</Column>
+                <Column>user_id</Column>
             </ValidColumns>
             <Sentence>
                 <![CDATA[
