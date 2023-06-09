@@ -39,6 +39,7 @@ export class CarsHomeComponent implements OnInit {
       this.carsList = data.filter(car => {
         return car.user_id === sessionStorage.getItem("user_id")
       })
+      
       console.log(sessionStorage.getItem("user_id"))
       console.log(this.carsList)
 

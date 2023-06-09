@@ -23,10 +23,10 @@ export class CarsNewComponent implements OnInit {
 
   }
 
-    ngOnInit() {
-      this.user_id = sessionStorage.getItem("user_id")
-      console.log(this.user_id)
-    }
+  ngOnInit() {
+    this.user_id = sessionStorage.getItem('user_id');
+    console.log(this.user_id);
+  }
 
     public async send(){
       this.form.insert();
