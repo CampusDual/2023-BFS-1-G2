@@ -22,6 +22,7 @@ public class CarDao extends OntimizeJdbcDaoSupport {
     public static final String USER_ID = "user_id";
     public static final String START_DATE_AVAILABLE = "start_date_available";
     public static final String END_DATE_AVAILABLE = "end_date_available";
+    public static final String CAR_PHOTO = "car_photo";
 
 
 }

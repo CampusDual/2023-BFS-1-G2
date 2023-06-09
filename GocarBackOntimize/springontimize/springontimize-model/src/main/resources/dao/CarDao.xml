@@ -23,6 +23,7 @@
                 <Column>user_id</Column>
                 <Column>start_date_available</Column>
                 <Column>end_date_available</Column>
+                <Column>car_photo</Column>
 
             </ValidColumns>
             <Sentence>

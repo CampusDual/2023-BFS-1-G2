@@ -2,7 +2,7 @@
   <o-form-layout-manager mode="dialog" title=""  label-columns="name" 
   attr="o-form-layout-branches-home" color="warn">
 
-  <o-form-layout-dialog-options  title = "Car" width="600px" height="600px"
+  <o-form-layout-dialog-options  title = "Car" width="600px" height="1000px"
   disable-close="true" ></o-form-layout-dialog-options>
 
 
@@ -19,20 +19,21 @@
   show-page-size="yes" page-size-options="24;32;64" insert-button="yes" insert-button-position="top" orderable="yes" sortable-columns="brand;model;plate;location;user_id;start_date_available;end_date_available">
   <o-grid-item *ngFor="let list of grid.dataArray">
     <o-column layout-padding class="container-item">
-      <img [src]="list.thumbnailUrl" style="margin-top:8px">
-      <h2> {{list.brand}} </h2>
+      <img [src]="list.car_photo" style="margin-top:8px">
+      <h3> {{list.brand}} </h3>
       <h4> {{list.model}} </h4>
-      <div class="phone">
-        <mat-icon>phone</mat-icon><span>{{ list.plate }} </span></div>
-      <div class="email">
-        <mat-icon>email</mat-icon><span>{{ list.location }}</span></div>
-      <div class="domain">
-        <mat-icon>domain</mat-icon><span>{{ list.user_id }}</span></div>
-      <div class="website">
-        <mat-icon>website</mat-icon><span>{{ convertDate(list.start_date_available) }}</span></div>
-      <div class="body">
-        {{ convertDate(list.end_date_available) }}
-      </div>
+      <div class="plate">
+        <mat-icon>money</mat-icon><span> {{ list.plate }} </span></div>
+      <div class="location">
+        <mat-icon>place</mat-icon><span> {{ list.location }}</span></div>
+      <div class="user_id">
+        <mat-icon>person_outline</mat-icon><span> {{ list.user_id }}</span></div>
+      <div class="start_date_available">
+        <mat-icon>access_time</mat-icon><span> {{ convertDate(list.start_date_available) }}</span>
+      
+        <span> - {{ convertDate(list.end_date_available) }}</span></div>
+       
+     
     </o-column>
   </o-grid-item>
 </o-grid>
