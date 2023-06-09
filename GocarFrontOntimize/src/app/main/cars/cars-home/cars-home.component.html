@@ -2,15 +2,39 @@
   <o-form-layout-manager mode="dialog" title=""  label-columns="name" 
   attr="o-form-layout-branches-home" color="warn">
 
-  <o-form-layout-dialog-options  title = "Nuevo coche" width="400px" height="450px"
+  <o-form-layout-dialog-options  title = "Nuevo coche" width="600px" height="550px"
   disable-close="true" ></o-form-layout-dialog-options>
 
 
-  <div class="table-car">
+  <!-- <div class="table-car">
     <o-table  fxFlex attr="carTable" service="cars" entity="car" keys="car_id" 
     columns="car_id;brand;model;plate;location;user_id;start_date_available;end_date_available" 
     visible-columns="brand;model;plate;location;user_id;start_date_available;end_date_available" query-rows="20" detail-mode="dblclick">
      <o-table-column attr="id" title="id" width="100px" ></o-table-column>
    </o-table>
+  </div> -->
+
+  <div>
+    <o-grid #grid columns="car_id;brand;model;plate;location;user_id;start_date_available;end_date_available" keys="car_id" service="cars" entity="car"
+  show-page-size="yes" page-size-options="24;32;64" insert-button="yes" insert-button-position="top" orderable="yes" sortable-columns="brand;model;plate;location;user_id;start_date_available;end_date_available">
+  <o-grid-item *ngFor="let list of grid.dataArray">
+    <o-column layout-padding class="container-item">
+      <img [src]="list.thumbnailUrl" style="margin-top:8px">
+      <h2> {{list.brand}} </h2>
+      <h4> {{list.model}} </h4>
+      <div class="phone">
+        <mat-icon>phone</mat-icon><span>{{ list.plate }} </span></div>
+      <div class="email">
+        <mat-icon>email</mat-icon><span>{{ list.location }}</span></div>
+      <div class="domain">
+        <mat-icon>domain</mat-icon><span>{{ list.user_id }}</span></div>
+      <div class="website">
+        <mat-icon>website</mat-icon><span>{{ convertDate(list.start_date_available) }}</span></div>
+      <div class="body">
+        {{ convertDate(list.end_date_available) }}
+      </div>
+    </o-column>
+  </o-grid-item>
+</o-grid>
   </div>
 </o-form-layout-manager>

@@ -1,4 +1,4 @@
-<o-form  #form mode="dialog" class="cars-new" (onFormModeChange)="forceInsertMode($event)" (onInsert)="closeDialog($event)" service="cars" entity="car"  header-actions="R;I;U;D" show-header="yes">
+<o-form  #form mode="dialog" class="cars-new" service="cars" entity="car"  header-actions="R;I;U;D" show-header="yes">
   
     <o-row class="cars-new-principal-row">
       <o-column title="" class="cars-new-principal-row-column">
@@ -35,11 +35,11 @@
               fxFlex="50"></o-real-input> -->
         </o-row>
 
-        <div class="ontimize-buttons">
+        <!-- <div class="ontimize-buttons">
           <o-button attr="basic1" type="STROKED" label="CANCELAR" layout-padding color="primary" (click)="closeDialog()"></o-button>
           <o-button attr="basic1" type="STROKED" label="GUARDAR" layout-padding color="primary" (click)="send()"></o-button>
         </div>
-  
+   -->
       </o-column>
     </o-row>
   </o-form>

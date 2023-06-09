@@ -11,43 +11,47 @@ import { UsersRegisterComponent } from '../../users/users-register/users-registe
 })
 export class CarsNewComponent implements OnInit {
 
-  protected carService : OntimizeService;
-
-  @ViewChild('form', { static: false }) form: OFormComponent;
-  
-  constructor(public injector : Injector, private dialogRef: MatDialogRef<CarsNewComponent>,) {  
-
-    this.carService = this.injector.get(OntimizeService);
-
+  ngOnInit(): void {
+    
   }
 
-    ngOnInit() {}
+  // protected carService : OntimizeService;
 
-    public async send(){
+  // @ViewChild('form', { static: false }) form: OFormComponent;
+  
+  // constructor(public injector : Injector, private dialogRef: MatDialogRef<CarsNewComponent>,) {  
 
-      this.form.insert();
+  //   this.carService = this.injector.get(OntimizeService);
+
+  // }
+
+  //   ngOnInit() {}
+
+  //   public async send(){
+
+  //     this.form.insert();
     
-    }
+  //   }
 
   
-    public configureCarService(){
+  //   public configureCarService(){
 
-      const conf = this.carService.getDefaultServiceConfiguration('cars');
-      this.carService.configureService(conf);
+  //     const conf = this.carService.getDefaultServiceConfiguration('cars');
+  //     this.carService.configureService(conf);
 
-    }
+  //   }
 
-    public forceInsertMode(event: any) {
+  //   public forceInsertMode(event: any) {
 
-      if (event != OFormComponent.Mode().INSERT) {
-        this.form.setInsertMode();
-      }
+  //     if (event != OFormComponent.Mode().INSERT) {
+  //       this.form.setInsertMode();
+  //     }
       
-    }
+  //   }
     
-   public closeDialog(event: any) {
-     this.dialogRef.close();
-  }
+  //  public closeDialog(event: any) {
+  //    this.dialogRef.close();
+  // }
   
   
 

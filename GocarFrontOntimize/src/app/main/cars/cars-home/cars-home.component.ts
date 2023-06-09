@@ -12,4 +12,9 @@ export class CarsHomeComponent implements OnInit {
   ngOnInit() {
   }
 
+  convertDate(date: Date){
+    const newDate = new Date(date);
+    return (newDate.toLocaleDateString());
+  }
+
 }
