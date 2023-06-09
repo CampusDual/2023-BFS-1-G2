@@ -14,7 +14,7 @@ public interface ICarService {
 	public EntityResult carUpdate(Map<?, ?> attrMap, Map<?, ?> keyMap);
 	public EntityResult carDelete(Map<?, ?> keyMap);
 
-	public EntityResult myCarInsert(Map<?, ?> attrMap);
+	//public EntityResult myCarInsert(Map<?, ?> attrMap);
 
 
 }
