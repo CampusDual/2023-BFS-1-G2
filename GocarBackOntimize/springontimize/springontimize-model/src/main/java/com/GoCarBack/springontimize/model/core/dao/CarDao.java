@@ -14,11 +14,15 @@ import org.springframework.stereotype.Repository;
 	configurationFilePlaceholder = "dao/placeholders.properties")
 public class CarDao extends OntimizeJdbcDaoSupport {
 
-    public static final String ID = "car_";
+    public static final String ID = "car_id";
+    public static final String UserID = "user_id";
     public static final String BRAND = "brand";
     public static final String MODEL = "model";
     public static final String plate = "plate";
     public static final String LOCATION = "location";
+    public static final String START_DATE_AVAILABLE = "start_date_available";
+    public static final String END_DATE_AVAILABLE = "end_date_available";
+
 
 
 }

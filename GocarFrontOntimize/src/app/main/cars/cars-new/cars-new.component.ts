@@ -14,6 +14,8 @@ export class CarsNewComponent implements OnInit {
   protected carService : OntimizeService;
 
   @ViewChild('form', { static: false }) form: OFormComponent;
+
+  user_id : string
   
   constructor(public injector : Injector, private dialogRef: MatDialogRef<CarsNewComponent>,) {  
 
@@ -21,14 +23,15 @@ export class CarsNewComponent implements OnInit {
 
   }
 
-    ngOnInit() {}
+    ngOnInit() {
+      this.user_id = sessionStorage.getItem("user_id")
+      console.log(this.user_id)
+    }
 
     public async send(){
-
       this.form.insert();
     
     }
-
   
     public configureCarService(){
 
