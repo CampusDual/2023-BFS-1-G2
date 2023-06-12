@@ -3,7 +3,7 @@ import { MatDialogRef } from '@angular/material';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService, OFormComponent, OntimizeService } from 'ontimize-web-ngx';
 import { UsersRegisterComponent } from '../../users/users-register/users-register.component';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn } from '@angular/forms';
 
 @Component({
   selector: 'app-cars-new',
@@ -11,6 +11,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./cars-new.component.css']
 })
 export class CarsNewComponent implements OnInit {
+
+  validatorsConfirmPlateArray: ValidatorFn[] = [];
 
    protected carService : OntimizeService;
 
@@ -23,27 +25,26 @@ export class CarsNewComponent implements OnInit {
    constructor(public injector : Injector, private dialogRef: MatDialogRef<CarsNewComponent>, private fb: FormBuilder,) {  
 
     this.carService = this.injector.get(OntimizeService);
+    this.validatorsConfirmPlateArray.push(this.plateFormatValidator);
 
    }
 
-   public getId():string {
-
-    return sessionStorage.getItem('user_id')
-
-   }
-
-   public getValue() {
-    return 'paco'
-   }
-
+   plateFormatValidator(control: AbstractControl): ValidationErrors | null {
+  
+    try {
+  
+      const platePattern = /^[0-9]{4}(?!.*(LL|CH))[BCDFGHJKLMNPRSTVWXYZ]{3}/i;
+      
+      return platePattern.test(control.value) ? null : { plateNotFormat: true };
+  
+    }catch(e){
+  
+    }
+  
+    }
      ngOnInit() {
 
-      this.dialogForm = this.fb.group({}); 
-  
-     }
-     public performAction() {
-      console.log('insertado')
-
+    
      }
      
 

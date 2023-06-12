@@ -16,11 +16,13 @@
         </o-row>
 
         <o-row>
-          <o-text-input class="input-padding" attr="model" fxFlex="400px" required="yes"></o-text-input>
+          <o-text-input class="input-padding" attr="model" fxFlex="400px" required="yes" ></o-text-input>
         </o-row>
 
         <o-row>
-          <o-text-input class="input-padding" attr="plate" fxFlex="400px" required="yes"></o-text-input>
+          <o-text-input class="input-padding" attr="plate" fxFlex="400px" required="yes" placeholder="1234ABC" [validators]="validatorsConfirmPlateArray">
+            <o-validator error-name="plateNotFormat" error-text="El formato de la matricula no es correcto"></o-validator>
+          </o-text-input>
       </o-row>
     
       <!-- IMAGEN -->
