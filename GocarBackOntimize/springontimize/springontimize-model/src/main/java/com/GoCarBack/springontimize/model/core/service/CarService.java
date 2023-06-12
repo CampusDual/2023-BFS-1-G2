@@ -11,6 +11,10 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+import com.ontimize.jee.common.db.SQLStatementBuilder;
+import com.ontimize.jee.common.db.SQLStatementBuilder.BasicExpression;
+import com.ontimize.jee.common.db.SQLStatementBuilder.BasicField;
+import com.ontimize.jee.common.db.SQLStatementBuilder.BasicOperator;
 
 import java.util.List;
 import java.util.Map;
@@ -50,11 +54,20 @@ public class CarService implements ICarService {
 	}
 
 	@Override
+	public EntityResult myCarQuery(Map<String, Object> keyMap, List<?> attrList) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		keyMap.put(PRIMARYUSERKEY, auth.getName());
+		return this.daoHelper.query(carDao, keyMap, attrList);
+	}
+
+	@Override
 	public EntityResult myCarInsert(Map<String, Object> attrMap) {
 		//Recuperamos el id_user que esta logueado y lo metemos en el map para guardalo en la bbdd
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		attrMap.put(PRIMARYUSERKEY, auth.getName());
 		return this.daoHelper.insert(carDao,attrMap);
 	}
+
+
 
 }
