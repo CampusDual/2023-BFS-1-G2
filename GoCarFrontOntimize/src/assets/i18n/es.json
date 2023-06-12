@@ -53,5 +53,7 @@
   "user_id" : "Propietario",
   "end_date_available" : "Fecha fin disponibilidad",
   "start_date_available" : "Fecha inicio disponibilidad",
-  "Car" : "Coche"
+  "Car" : "Coche",
+  "Invalid registration format": "Registro de matricula inválido",
+  "My Cars": "Mis Coches"
 }
