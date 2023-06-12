@@ -9,10 +9,17 @@
     <o-grid #grid [columns]="carsList"
       show-page-size="yes" page-size-options="24;32;64" insert-button="yes" insert-button-position="top"
       orderable="yes" sortable-columns="brand;model;plate;location">
-      <o-grid-item *ngFor="let list of carsList">
+
+      <o-grid-item *ngFor="let list of carsList"> 
+
         <o-column layout-padding class="container-item">
-          <!-- <img [src]="https://www.google.es/url?sa=i&url=https%3A%2F%2Fwww.autofacil.es%2Findustria%2Fganadores-premios-coche-ano-mundo-2022%2F353273.html&psig=AOvVaw0GSQ4USaZ6AUHtOb4a6tB1&ust=1686391784331000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCNjH1Yv5tf8CFQAAAAAdAAAAABAE" style="margin-top:8px"> -->
+         
+          <!-- <img [src]="list.thumbnailUrl" style="margin-top:8px" empty-image="src/app/assets/images/no-image.png" > -->
           <img [src]="list.car_photo" style="margin-top:8px">
+          <!-- <img [src]="list.car_photo" empty-image="src\assets\images\no-image.png" style="margin-top:8px"> -->
+          <!-- <o-image attr="car_photo" [data]="dataBase64"></o-image> -->
+          <!-- <img  attr="car_photo" title="car_photo" orderable="no" searchable="no" type="image" avatar="yes" empty-image="assets/images/no-image.png" image-type="base64"> -->
+         
           <h2>{{ list.brand }}</h2>
           <h4>{{ list.model }}</h4>
           <div class="plate">
