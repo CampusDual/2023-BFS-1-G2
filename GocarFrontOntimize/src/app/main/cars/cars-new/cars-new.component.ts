@@ -3,6 +3,7 @@ import { MatDialogRef } from '@angular/material';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService, OFormComponent, OntimizeService } from 'ontimize-web-ngx';
 import { UsersRegisterComponent } from '../../users/users-register/users-register.component';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-cars-new',
@@ -11,21 +12,40 @@ import { UsersRegisterComponent } from '../../users/users-register/users-registe
 })
 export class CarsNewComponent implements OnInit {
 
-  ngOnInit(): void {
-    
-  }
+   protected carService : OntimizeService;
 
-  // protected carService : OntimizeService;
+   idUser: string = sessionStorage.getItem('user_id')
 
-  // @ViewChild('form', { static: false }) form: OFormComponent;
+   @ViewChild('form', { static: false }) form: OFormComponent;
+
+   dialogForm : FormGroup;
   
-  // constructor(public injector : Injector, private dialogRef: MatDialogRef<CarsNewComponent>,) {  
+   constructor(public injector : Injector, private dialogRef: MatDialogRef<CarsNewComponent>, private fb: FormBuilder,) {  
 
-  //   this.carService = this.injector.get(OntimizeService);
+    this.carService = this.injector.get(OntimizeService);
 
-  // }
+   }
 
-  //   ngOnInit() {}
+   public getId():string {
+
+    return sessionStorage.getItem('user_id')
+
+   }
+
+   public getValue() {
+    return 'paco'
+   }
+
+     ngOnInit() {
+
+      this.dialogForm = this.fb.group({}); 
+  
+     }
+     public performAction() {
+      console.log('insertado')
+
+     }
+     
 
   //   public async send(){
 
