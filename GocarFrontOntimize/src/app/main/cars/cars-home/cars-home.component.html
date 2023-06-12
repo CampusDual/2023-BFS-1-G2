@@ -6,11 +6,11 @@
 
 
   <div>
-    <o-grid #grid [columns]="carsList"
+    <o-grid #grid service="cars" entity="car" keys="car_id" columns="car_id;ser_id;brand;model;location;start_date_available;plate;end_date_available;car_photo"
       show-page-size="yes" page-size-options="24;32;64" insert-button="yes" insert-button-position="top"
-      orderable="yes" sortable-columns="brand;model;plate;location">
+      orderable="yes" sortable-columns="brand;model;plate;location" attr="gridMyCars" >
 
-      <o-grid-item *ngFor="let list of carsList"> 
+      <o-grid-item *ngFor="let list of grid.dataArray"> 
 
         <o-column layout-padding class="container-item" >
 <!-- IMAGEN -->

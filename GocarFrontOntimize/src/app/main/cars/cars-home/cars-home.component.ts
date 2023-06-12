@@ -7,12 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarsHomeComponent implements OnInit {
 
-  username: string = 'demo'
-  password: string = 'demouser'
+  // username: string = 'demo'
+  // password: string = 'demouser'
 
-  auth: string = "Basic " + btoa(`${this.username}:${this.password}`)
+  // auth: string = "Basic " + btoa(`${this.username}:${this.password}`)
 
-  carsList: Array<Object>
+  // carsList: Array<Object>
 
 //-- IMAGEN -->
 
@@ -20,44 +20,48 @@ export class CarsHomeComponent implements OnInit {
 
 //-- IMAGEN 
 
-  public imagebase64;
+  // public imagebase64;
 
-  protected body = {
-    filter: {
-      // user_id: this.user_id
-    },
-    columns: ["user_id", "brand", "model", "location","start_date_available", "plate", "end_date_available", "car_photo"]}
+  // protected body = {
+  //   filter: {
+  //     // user_id: this.user_id
+  //   },
+  //   columns: ["car_id" ,"user_id", "brand", "model", "location","start_date_available", "plate", "end_date_available", "car_photo"]}
     
 
-  constructor() { }
+  // constructor() { }
 
-  async ngOnInit() {
+  // async ngOnInit() {
     
-    try{
+  //   try{
 
-     const {data} = await fetch('http://localhost:33333/cars/car/search', {
-        method: 'POST', 
-        body: JSON.stringify(this.body),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-          "Authorization": this.auth
-      }
-      }).then(res => res.json())
+  //    const {data} = await fetch('http://localhost:33333/cars/car/search', {
+  //       method: 'POST', 
+  //       body: JSON.stringify(this.body),
+  //       headers: {
+  //         "Content-type": "application/json; charset=UTF-8",
+  //         "Authorization": this.auth
+  //     }
+  //     }).then(res => res.json())
         
-      this.carsList = data.filter(car => {
-        return car.user_id === sessionStorage.getItem("user_id")
-      })
+  //     this.carsList = data.filter(car => {
+  //       return car.user_id === sessionStorage.getItem("user_id")
+  //     })
       
-      console.log(sessionStorage.getItem("user_id"))
-      console.log(this.carsList)
+  //     console.log(sessionStorage.getItem("user_id"))
+  //     console.log(this.carsList)
 
-    }catch(e){
+  //   }catch(e){
 
-      console.log(e.message)
-    } 
+  //     console.log(e.message)
+  //   } 
+  // }
+
+
+  ngOnInit(): void {
+    
   }
-
-
+  constructor(){}
   convertDate(date: Date){
     const newDate = new Date(date);
     return (newDate.toLocaleDateString());
