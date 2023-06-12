@@ -8,6 +8,8 @@ import com.ontimize.jee.common.dto.EntityResult;
 import com.ontimize.jee.server.dao.DefaultOntimizeDaoHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,6 +20,7 @@ import java.util.Map;
 @Service("CarService")
 public class CarService implements ICarService {
 
+	private static final String PRIMARYUSERKEY = "user_id";
 	@Autowired
 	private CarDao carDao;
 
@@ -44,6 +47,14 @@ public class CarService implements ICarService {
 
 	public EntityResult carDelete(Map<?, ?> keyMap) {
 		return this.daoHelper.delete(this.carDao, keyMap);
+	}
+
+	@Override
+	public EntityResult myCarInsert(Map<String, Object> attrMap) {
+		//Recuperamos el id_user que esta logueado y lo metemos en el map para guardalo en la bbdd
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		attrMap.put(PRIMARYUSERKEY, auth.getName());
+		return this.daoHelper.insert(carDao,attrMap);
 	}
 
 }
