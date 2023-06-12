@@ -1,10 +1,16 @@
+
 <o-form  #form mode="dialog" class="cars-new" service="cars" entity="myCar"  header-actions="R;I;U;D" show-header="yes">
+
   
     <o-row class="cars-new-principal-row">
       <o-column title="" class="cars-new-principal-row-column">
 
         <o-row>
-          <o-text-input class="input-padding" attr="brand" fxFlex="400px" required="yes"></o-text-input>
+          <o-text-input class="input-padding" attr="user_id"  required="no" fxFlex="400px"></o-text-input>
+        </o-row>
+
+        <o-row>
+          <o-text-input class="input-padding" attr="brand"  fxFlex="400px" required="yes"></o-text-input>
                <!-- <o-combo attr="brand" service="cars" entity="car" sql-type="UUID"  value-column="brand"
               columns="brand" visible-columns="brand"></o-combo> -->
         </o-row>
