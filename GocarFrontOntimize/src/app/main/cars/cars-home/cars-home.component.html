@@ -11,8 +11,8 @@
       <h1>My cars<span>&#160;</span></h1>
     </div>
     <o-list #list service="cars" entity="myCar" keys="car_id" columns="car_id;user_id;brand;model;location;start_date_available;plate;end_date_available;car_photo"
-      show-page-size="yes" fxFlex paginations-controls="yes" quick-filter-columns=";" insert-button="yes" insert-button-position="top"
-      orderable="yes" sort-columns="brand;model;plate;location" class="list">
+      show-page-size="yes" fxFlex paginations-controls="yes" quick-filter-columns=";" insert-button="yes" insert-button-position="top" 
+      selectable="yes" orderable="yes" sort-columns="brand;model;plate;location" class="list">
       
       <o-list-item *ngFor="let list of list.dataArray" class="list-item"> 
           <header class="list-item-header">
