@@ -8,7 +8,7 @@
   <div>
     <o-grid #grid service="cars" entity="myCar" keys="car_id" columns="car_id;user_id;brand;model;location;start_date_available;plate;end_date_available;car_photo"
       show-page-size="yes" page-size-options="24;32;64" insert-button="yes" insert-button-position="top"
-      orderable="yes" sortable-columns="brand;model;plate;location" attr="gridMyCars">
+      orderable="yes" sortable-columns="brand;model;plate;location" attr="gridMyCars" grid-item-height="1:1.5">
 
 
       <o-grid-item *ngFor="let list of grid.dataArray" class="grid"> 
