@@ -24,6 +24,7 @@
                 <Column>start_date_available</Column>
                 <Column>end_date_available</Column>
                 <Column>car_photo</Column>
+                <Column>daily_rental_price</Column>
 
             </ValidColumns>
             <Sentence>

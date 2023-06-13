@@ -55,5 +55,6 @@
   "start_date_available" : "Start date available",
   "Car" : "Car",
   "Invalid registration format": "Invalid registration format",
-  "My Cars": "My Cars"
+  "My Cars": "My Cars",
+  "daily_rental_price": "Daily rental price"
 }
