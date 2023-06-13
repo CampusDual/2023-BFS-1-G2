@@ -8,31 +8,38 @@
   <div>
     <o-grid #grid service="cars" entity="myCar" keys="car_id" columns="car_id;user_id;brand;model;location;start_date_available;plate;end_date_available;car_photo"
       show-page-size="yes" page-size-options="24;32;64" insert-button="yes" insert-button-position="top"
-      orderable="yes" sortable-columns="brand;model;plate;location" attr="gridMyCars" >
+      orderable="yes" sortable-columns="brand;model;plate;location" attr="gridMyCars">
 
-      <o-grid-item *ngFor="let list of grid.dataArray"  > 
 
-        <o-column layout-padding class="container-item" >
-<!-- IMAGEN -->
-          <!-- <o-image attr="car_photo" title="car_photo"  [data]= "list.car_photo" orderable="no" enabled="false" searchable="no" type="image" avatar="yes" 
-          empty-image="assets/images/no-image.png" image-type="base64" show-controls="no" read-only="yes"></o-image> -->
+      <o-grid-item *ngFor="let list of grid.dataArray" class="grid"> 
 
-          <!-- <o-image attr="car_photo" [data]="list.car_photo" empty-image="src/app/assets/images/no-image.png"></o-image> -->
-<!-- IMAGEN -->
 
+        <o-column class="grid-item">
+          <header class="grid-item-header">
+            <div class="grid-item-header-div">
+              <h2>{{ list.brand }}</h2>
+            </div>
+            
+          </header>
+
+          <div class="grid-picture">
+            <img src="https://motor.elpais.com/wp-content/uploads/2019/03/Ford-Fiesta-3door-UK-2008-1920x1080-007-1440x740.jpg" />
+          </div>
          
-          <h2>{{ list.brand }}</h2>
-          <h4>{{ list.model }}</h4>
-          <div class="plate">
-            <mat-icon>money</mat-icon><span> {{ list.plate }} </span></div>
-          <div class="location">
-            <mat-icon>place</mat-icon><span> {{ list.location }}</span></div>
-          <div class="user_id">
-            <mat-icon>person_outline</mat-icon><span> {{ list.user_id }}</span></div>
-          <div class="start_date_available">
-            <mat-icon>access_time</mat-icon><span> {{ convertDate(list.start_date_available) }}</span>
-          
-            <span> - {{ convertDate(list.end_date_available) }}</span></div>
+          <main class="grid-item-body">
+             
+              <div class="plate">
+                <h4>{{ list.model }}</h4>
+                 <span> <mat-icon>money</mat-icon> {{ list.plate }} </span>
+              </div>
+              <div class="location">
+                <mat-icon>place</mat-icon><span> {{ list.location }}</span>
+              </div>
+              
+              <div class="start_date_available">
+                <span> <mat-icon>access_time</mat-icon>{{ convertDate(list.start_date_available) }} - {{ convertDate(list.end_date_available) }}</span>
+              </div>
+            </main>
           
         </o-column>
       </o-grid-item>
@@ -40,3 +47,8 @@
   </div>
 </o-form-layout-manager>
 
+
+<!-- <o-image attr="car_photo" title="car_photo"  [data]= "list.car_photo" orderable="no" enabled="false" searchable="no" type="image" avatar="yes" 
+          empty-image="assets/images/no-image.png" image-type="base64" show-controls="no" read-only="yes"></o-image> -->
+
+          <!-- <o-image attr="car_photo" [data]="list.car_photo" empty-image="src/app/assets/images/no-image.png"></o-image> -->
