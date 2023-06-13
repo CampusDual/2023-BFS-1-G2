@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JdbcEntitySetup
+        xmlns="http://www.ontimize.com/schema/jdbc"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.ontimize.com/schema/jdbc http://www.ontimize.com/schema/jdbc/ontimize-jdbc-dao.xsd"
+        catalog="" schema="${mainschema}" table="trents"
+        datasource="mainDataSource" sqlhandler="dbSQLStatementHandler">
+    <DeleteKeys>
+        <Column>rent_id</Column>
+    </DeleteKeys>
+    <UpdateKeys>
+        <Column>rent_id</Column>
+    </UpdateKeys>
+    <GeneratedKey>rent_id</GeneratedKey>
+    <Queries>
+        <Query id="default">
+            <ValidColumns>
+                <Column>rent_id</Column>
+                <Column>car_id</Column>
+                <Column>user_rent</Column>
+                <Column>rental_start_date</Column>
+                <Column>rental_end_date</Column>
+                <Column>total_price</Column>
+
+
+            </ValidColumns>
+            <Sentence>
+                <![CDATA[
+                    SELECT
+                        #COLUMNS#
+                    FROM
+                        ${mainschema}.trents
+                    #WHERE#
+                ]]>
+            </Sentence>
+        </Query>
+
+    </Queries>
+</JdbcEntitySetup>
