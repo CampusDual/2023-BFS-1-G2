@@ -1,0 +1,8 @@
+.cars-detail {
+    width: 400px;
+    margin: auto;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+}

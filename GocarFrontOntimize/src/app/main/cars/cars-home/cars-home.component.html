@@ -1,7 +1,7 @@
 <o-form-layout-manager mode="dialog" title=""  label-columns="name" 
-  attr="o-form-layout-branches-home" color="warn">
-
-  <o-form-layout-dialog-options  title = "Car" width="600px" height="1000px" 
+  attr="o-form-layout-branches-home" color="warn"> 
+ 
+  <o-form-layout-dialog-options  title = "Car" width="600px" height="600px" 
   disable-close="true" ></o-form-layout-dialog-options>
 
 
@@ -10,7 +10,7 @@
       show-page-size="yes" page-size-options="24;32;64" insert-button="yes" insert-button-position="top"
       orderable="yes" sortable-columns="brand;model;plate;location" attr="gridMyCars" >
 
-      <o-grid-item *ngFor="let list of grid.dataArray" > 
+      <o-grid-item *ngFor="let list of grid.dataArray"  > 
 
         <o-column layout-padding class="container-item" >
 <!-- IMAGEN -->
