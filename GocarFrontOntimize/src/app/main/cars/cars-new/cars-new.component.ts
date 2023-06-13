@@ -32,16 +32,14 @@ export class CarsNewComponent implements OnInit {
    plateFormatValidator(control: AbstractControl): ValidationErrors | null {
   
     try {
-  
-      const platePattern = /^[0-9]{4}(?!.*(LL|CH))[BCDFGHJKLMNPRSTVWXYZ]{3}/i;
-      
+    
+      const platePattern = /^[0-9]{4}(?!.*(LL|CH))[BCDFGHJKLMNPRSTVWXYZ]{3}$/i;
+        
       return platePattern.test(control.value) ? null : { plateNotFormat: true };
-  
+    
     }catch(e){
-  
-    }
-  
-    }
+      }
+  }
      ngOnInit() {
 
     

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 
 @Component({
   selector: 'app-cars-detail',
@@ -7,9 +8,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarsDetailComponent implements OnInit {
 
-  constructor() { }
+  validatorsConfirmPlateArray: ValidatorFn[] = [];
+
+   
+   constructor() {  
+
+    this.validatorsConfirmPlateArray.push(this.plateFormatValidator);
+
+   }
+ 
 
   ngOnInit() {
+  }
+
+  plateFormatValidator(control: AbstractControl): ValidationErrors | null {
+  
+    try {
+    
+      const platePattern = /^[0-9]{4}(?!.*(LL|CH))[BCDFGHJKLMNPRSTVWXYZ]{3}$/i;
+        
+      return platePattern.test(control.value) ? null : { plateNotFormat: true };
+    
+    }catch(e){
+      }
   }
 
 }
