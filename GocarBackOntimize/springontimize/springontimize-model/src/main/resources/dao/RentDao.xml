@@ -3,28 +3,25 @@
         xmlns="http://www.ontimize.com/schema/jdbc"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.ontimize.com/schema/jdbc http://www.ontimize.com/schema/jdbc/ontimize-jdbc-dao.xsd"
-        catalog="" schema="${mainschema}" table="tcars"
+        catalog="" schema="${mainschema}" table="trents"
         datasource="mainDataSource" sqlhandler="dbSQLStatementHandler">
     <DeleteKeys>
-        <Column>car_id</Column>
+        <Column>rent_id</Column>
     </DeleteKeys>
     <UpdateKeys>
-        <Column>car_id</Column>
+        <Column>rent_id</Column>
     </UpdateKeys>
-    <GeneratedKey>car_id</GeneratedKey>
+    <GeneratedKey>rent_id</GeneratedKey>
     <Queries>
         <Query id="default">
             <ValidColumns>
+                <Column>rent_id</Column>
                 <Column>car_id</Column>
-                <Column>brand</Column>
-                <Column>model</Column>
-                <Column>plate</Column>
-                <Column>location</Column>
-                <Column>user_id</Column>
-                <Column>start_date_available</Column>
-                <Column>end_date_available</Column>
-                <Column>car_photo</Column>
-                <Column>daily_rental_price</Column>
+                <Column>user_rent</Column>
+                <Column>rental_start_date</Column>
+                <Column>rental_end_date</Column>
+                <Column>total_price</Column>
+
 
             </ValidColumns>
             <Sentence>
@@ -32,7 +29,7 @@
                     SELECT
                         #COLUMNS#
                     FROM
-                        ${mainschema}.tcars
+                        ${mainschema}.trents
                     #WHERE#
                 ]]>
             </Sentence>

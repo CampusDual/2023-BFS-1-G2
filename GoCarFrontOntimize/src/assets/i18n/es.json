@@ -55,5 +55,6 @@
   "start_date_available" : "Fecha inicio disponibilidad",
   "Car" : "Coche",
   "Invalid registration format": "Registro de matricula inválido",
-  "My Cars": "Mis Coches"
+  "My Cars": "Mis Coches",
+  "daily_rental_price": "Precio diario alquiler"
 }
