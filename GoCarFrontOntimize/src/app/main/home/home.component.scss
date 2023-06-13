@@ -163,8 +163,8 @@ width: 280px;
   animation: border 2s infinite;
   top: 0;
   left: 0;
-  border-top-color: #e91e63;;
-  border-right-color: #e91e63;;
+  border-top-color: #7DCF00;;
+  border-right-color: #7DCF00;;
 }
 .grid-item:hover::after {
   bottom: 0;
@@ -194,12 +194,12 @@ width: 280px;
 /*Colores de bordes*/
 @keyframes borderColor {
   0% {
-    border-bottom-color: #e91e63;
-    border-left-color: #e91e63;
+    border-bottom-color: #7DCF00;
+    border-left-color: #7DCF00;
   }
   50% {
-    border-bottom-color: #e91e63;
-    border-left-color: #e91e63;
+    border-bottom-color: #7DCF00;
+    border-left-color: #7DCF00;
   }
   51% {
     border-bottom-color: transparent;

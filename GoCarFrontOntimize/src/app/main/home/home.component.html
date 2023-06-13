@@ -1,14 +1,13 @@
 <div class="home">
+  
   <div class="main-container-title">
     <h1>WELCOME!!!<span>&#160;</span></h1>
   </div>
+
   <o-grid #grid service="cars" entity="car" keys="car_id" columns="car_id;user_id;brand;model;location;start_date_available;plate;end_date_available;car_photo"
     show-page-size="yes" fxFlex page-size-options="24;32;64" orderable="yes" sortable-columns="brand;model;plate;location" attr="gridMyCars" >
 
-
     <o-grid-item *ngFor="let list of grid.dataArray" class="grid"> 
-
-
       <o-column class="grid-item">
         <header class="grid-item-header">
           <div class="grid-item-header-div">
