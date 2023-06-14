@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 
 @Lazy
-@Repository(value = "CarDao")
+@Repository(value = "RentDao")
 @ConfigurationFile(
 	configurationFile = "dao/CarDao.xml",
 	configurationFilePlaceholder = "dao/placeholders.properties")

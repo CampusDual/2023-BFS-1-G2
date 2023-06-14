@@ -46,7 +46,7 @@
   "brand":"Brand",
   "model": "Model",
   "status": "Status",
-  "location": "Location",
+  "location": "Pick up location",
   "CAR_REGISTER" : "Car Register",
   "plate" : "Plate",
   "REGISTRAR" : "Register",
@@ -56,5 +56,6 @@
   "Car" : "Car",
   "Invalid registration format": "Invalid registration format",
   "My Cars": "My Cars",
-  "daily_rental_price": "Daily rental price"
+  "daily_rental_price": "Daily rental price",
+  "Price_per_day": "Price per day"
 }
