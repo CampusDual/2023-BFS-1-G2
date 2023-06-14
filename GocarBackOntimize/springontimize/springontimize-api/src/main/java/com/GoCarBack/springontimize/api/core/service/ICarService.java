@@ -16,6 +16,7 @@ public interface ICarService {
 
 	public EntityResult myCarQuery(Map<String, Object> keyMap, List<?> attrList);
 	public EntityResult myCarInsert(Map<String, Object> attrMap);
+	public EntityResult availableCarsQuery(Map<String, Object> keyMap, List<?> attrList);
 
 
 }

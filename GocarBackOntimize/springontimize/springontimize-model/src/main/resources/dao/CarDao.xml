@@ -37,6 +37,34 @@
                 ]]>
             </Sentence>
         </Query>
+        <Query id="available_cars">
+            <ValidColumns>
+                <Column>car_id</Column>
+                <Column>brand</Column>
+                <Column>model</Column>
+                <Column>plate</Column>
+                <Column>location</Column>
+                <Column>user_id</Column>
+                <Column>start_date_available</Column>
+                <Column>end_date_available</Column>
+                <Column>car_photo</Column>
+                <Column>daily_rental_price</Column>
+
+            </ValidColumns>
+            <Sentence>
+                <![CDATA[
+                    SELECT
+                        #COLUMNS#
+                    FROM
+                        ${mainschema}.tcars
+                    WHERE
+                        start_date_available >= CAST(NOW() AS DATE)
+                        AND end_date_available >= CAST(NOW() AS DATE)
+                        
+
+                ]]>
+            </Sentence>
+        </Query>
 
     </Queries>
 </JdbcEntitySetup>

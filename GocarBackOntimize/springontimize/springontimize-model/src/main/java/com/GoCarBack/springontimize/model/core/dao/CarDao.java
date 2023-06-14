@@ -25,5 +25,7 @@ public class CarDao extends OntimizeJdbcDaoSupport {
     public static final String CAR_PHOTO = "car_photo";
     public static final String DAILY_RENTAL_PRICE = "daily_rental_price";
 
+    public static final String AVAILABLE_CARS = "available_cars";
+
 
 }
