@@ -41,7 +41,7 @@
   "CANCELAR" : "Cancelar",
   "Password must matched" : "La contraseña debe coincidir",
   "cars" : "Coches",
-  "nif" : "Nif",
+  "nif" : "NIF",
   "password" : "Contraseña",
   "brand":"Marca",
   "model": "Modelo",
@@ -58,5 +58,6 @@
   "My Cars": "Mis Coches",
   "daily_rental_price": "Precio diario alquiler",
   "Price_per_day": "Precio por día",
-  "cars renting": "Alquiler coches"
+  "cars renting": "Alquiler coches",
+  "LOCALE_gl" : "GL"
 }
