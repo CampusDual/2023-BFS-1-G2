@@ -71,7 +71,7 @@ public class CarService implements ICarService {
 	@Override
 	public EntityResult availableCarsQuery(Map<String, Object> keyMap, List<?> attrList){
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-     	keyMap.put(PRIMARYUSERKEY, auth.getName());
+     	//keyMap.put(PRIMARYUSERKEY, auth.getName());
 		return this.daoHelper.query(carDao, keyMap, attrList, CarDao.AVAILABLE_CARS);
 
 
