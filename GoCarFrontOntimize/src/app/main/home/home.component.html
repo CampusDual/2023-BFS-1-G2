@@ -4,7 +4,7 @@
     <h1>WELCOME!!!<span>&#160;</span></h1>
   </div>
 
-  <o-grid #grid service="cars" entity="car" keys="car_id" columns="car_id;user_id;brand;model;location;start_date_available;plate;end_date_available;car_photo"
+  <o-grid #grid service="cars" entity="car" keys="car_id" columns="car_id;user_id;brand;model;location;start_date_available;plate;end_date_available;car_photo;daily_rental_price"
     show-page-size="yes" fxFlex page-size-options="24;32;64" orderable="yes" sortable-columns="brand;model;plate;location" attr="gridMyCars" >
 
     <o-grid-item *ngFor="let list of grid.dataArray" class="grid"> 
@@ -28,6 +28,9 @@
             </div>
             <div class="location">
               <mat-icon>place</mat-icon><span> {{ list.location }}</span>
+            </div>
+            <div class="price">
+              <mat-icon>€_simbol</mat-icon><span> {{ list.daily_rental_price }}</span>
             </div>
             
             <div class="start_date_available">
