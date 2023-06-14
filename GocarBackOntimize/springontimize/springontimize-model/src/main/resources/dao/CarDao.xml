@@ -57,9 +57,10 @@
                         #COLUMNS#
                     FROM
                         ${mainschema}.tcars
-                    WHERE
-                        
-                        CAST(NOW() AS DATE) between start_date_available and end_date_available
+                    #WHERE#
+
+                        and CAST(NOW() AS DATE) between start_date_available and end_date_available
+
 
                 ]]>
             </Sentence>

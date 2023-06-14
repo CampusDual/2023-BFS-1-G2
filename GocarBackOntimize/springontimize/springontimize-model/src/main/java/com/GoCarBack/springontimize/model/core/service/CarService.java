@@ -5,6 +5,7 @@ package com.GoCarBack.springontimize.model.core.service;
 import com.GoCarBack.springontimize.api.core.service.ICarService;
 import com.GoCarBack.springontimize.model.core.dao.CarDao;
 import com.ontimize.jee.common.dto.EntityResult;
+import com.ontimize.jee.common.gui.SearchValue;
 import com.ontimize.jee.server.dao.DefaultOntimizeDaoHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
@@ -72,8 +73,9 @@ public class CarService implements ICarService {
 	public EntityResult availableCarsQuery(Map<String, Object> keyMap, List<?> attrList){
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
      	//keyMap.put(PRIMARYUSERKEY, auth.getName());
+		SearchValue notUser = new SearchValue(SearchValue.NOT_EQUAL,auth.getName());
+		keyMap.put(PRIMARYUSERKEY, notUser);
 		return this.daoHelper.query(carDao, keyMap, attrList, CarDao.AVAILABLE_CARS);
-
-
 	}
+
 }
