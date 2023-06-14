@@ -55,9 +55,9 @@
   "start_date_available" : "Start date available",
   "Car" : "Car",
   "Invalid registration format": "Invalid registration format",
-  "My Cars": "My Cars",
+  "My Cars": "My garage",
   "daily_rental_price": "Daily rental price",
   "Price_per_day": "Price per day",
-  "cars renting": "Cars renting",
+  "cars renting": "Rent car",
   "LOCALE_gl" : "GL"
 }
