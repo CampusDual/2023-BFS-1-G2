@@ -54,6 +54,7 @@ button{
 
 
 .list-item {
+    margin-top: 10rem;
     margin: auto;
     background: #fff;
     text-align: center;
@@ -70,7 +71,7 @@ button{
 }
 
 .list-item:hover{
-    scale: 1.1;  
+    scale: 1.05;  
 }
 
 .list-item-body:hover .start_date_available {
@@ -128,7 +129,7 @@ mat-icon{
     justify-self: end;
     color: #e91e63;
     font-weight: bold;
-    width: 280px;
+    width: 25rem;
     display: flex;
     flex-direction: column;
     align-items: center;

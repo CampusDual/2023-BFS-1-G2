@@ -1,6 +1,3 @@
-.table-car{
-  height: 100%;
-}
 
 
 button{ 
@@ -12,6 +9,7 @@ justify-content: center;
 margin-top: 100px;
 }
 
+
 .main-container-title {
 top:0px;
 margin-top: 30px;
@@ -21,7 +19,9 @@ height: 50px;
 align-items: center;
 display: flex;
 }
-
+.grid{
+  display: flex
+}
 
 .main-container-title h1 {
 text-shadow: 2px 2px 2px #e91e63;
@@ -53,19 +53,21 @@ to {
 
 
 .grid-item{
+  margin-top: 50px;
   background: #fff;
   text-align: center;
-  width: 300px;
+  width: 20rem;
   display: flex;
   flex-direction: column;
   transition: all .8s ease;
   justify-content: space-around;
   border-radius: 8px;
-  height: 350px;   
+  height: 23rem;   
+  margin-bottom: 40px;
 }
 
 .grid-item:hover{
-  scale: 1.1;  
+  scale: 1.05;  
 }
 
 .grid-item-body:hover .start_date_available {
@@ -92,10 +94,17 @@ mat-icon{
   height: 2rem;
     
 }
-.location , .price{
+
+.location {
   display: flex;
   gap: .4rem;
 }
+.price {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 
 .grid-picture {  
 display: flex;
