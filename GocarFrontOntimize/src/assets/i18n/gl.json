@@ -59,6 +59,7 @@
   "daily_rental_price": "Precio diario aluguer",
   "Price_per_day": "Precio por día",
   "cars renting": "Alugar coches",
-  "LOCALE_gl" : "GL"
+  "LOCALE_gl" : "GL",
+  "RENT": "ALUGAR"
 
 }

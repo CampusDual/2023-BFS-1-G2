@@ -9,6 +9,8 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import com.GoCarBack.springontimize.api.core.service.IRentService;
@@ -21,6 +23,7 @@ import com.ontimize.jee.server.dao.DefaultOntimizeDaoHelper;
 @Service("RentService")
 public class RentService implements IRentService {
 
+	private static final String USER_RENT = "user_rent";
 	@Autowired
 	private RentDao rentDao;
 
@@ -34,7 +37,9 @@ public class RentService implements IRentService {
 		return this.daoHelper.query(rentDao, keyMap, attrList);
 	}
 
-	public EntityResult rentInsert(Map<?, ?> attrMap) {
+	public EntityResult rentInsert(Map<String, Object> attrMap) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		attrMap.put(USER_RENT, auth.getName());
 		return this.daoHelper.insert(rentDao, attrMap);
 	}
 

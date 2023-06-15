@@ -7,6 +7,9 @@ export const SERVICE_CONFIG: Object = {
   },
     'cars_brands':{
       'path' : '/brands'
-    }
+    },
+  'rents': {
+    'path' : '/rents'
+  }
   
 };
