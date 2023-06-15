@@ -27,7 +27,7 @@ export class UsersRegisterComponent implements OnInit {
   dialogForm : FormGroup;
 
   constructor(public injector : Injector, private dialogRef: MatDialogRef<UsersRegisterComponent>,
-     private router:Router, private actRoute: ActivatedRoute,@Inject(AuthService)
+     private router:Router, private actRoute: ActivatedRoute, @Inject(AuthService)
      private authService: AuthService,  private fb: FormBuilder,) {
       
       this.validatorsConfirmPasswordArray.push(this.passwordMatchValidator);
@@ -56,7 +56,8 @@ export class UsersRegisterComponent implements OnInit {
       
     }else{
       // this.error = true
-      this.form.insert();
+      this.form.insert()
+     
       //INTENTO DE LOGIN DESPUES DE REGISTRO Y REDIRECCIONAR. FALLABA A LA HORA DEL LOGIN
       // if (userName && userName.length > 0 && password && password.length > 0) {
       //   const self = this;

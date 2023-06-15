@@ -1,4 +1,4 @@
-<o-form class="login-form" #form mode="dialog" (onFormModeChange)="forceInsertMode($event)" (onInsert)="closeDialog($event)" service="users" entity="user"  show-header="no">
+<o-form class="login-form" #form mode="dialog"   message-service-type="customMessageServiceTypeUser" (onFormModeChange)="forceInsertMode($event)" (onInsert)="closeDialog($event)" service="users" entity="user"  show-header="no">
   
   <o-row>
     <o-column title="USER_REGISTER"  class="login-column">
