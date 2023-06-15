@@ -1,59 +1,45 @@
-
 <o-form  #form mode="dialog" class="cars-new" service="cars" entity="myCar"  header-actions="R;I;U;D" show-header="yes">
-
   
-    <o-row class="cars-new-principal-row">
-      <o-column title="" class="cars-new-principal-row-column">
+  <o-row class="cars-new-principal-row">
+    <o-column title="" class="cars-new-principal-row-column">
+      <o-row>
+        <!-- <o-text-input class="input-padding" attr="brand"  fxFlex="400px" required="yes"></o-text-input> -->
+             <o-combo attr="brand" service="cars_brands" entity="brand" sql-type="UUID"  value-column="brand_name"
+            columns="brand_name" visible-columns="brand_name"></o-combo> 
+      </o-row>
+      <o-row>
+        <o-text-input class="input-padding" attr="model" fxFlex="400px" required="yes" ></o-text-input>
+      </o-row>
+      <o-row>
+        <o-text-input class="input-padding" attr="plate" fxFlex="400px" required="yes" placeholder="1234ABC" [validators]="validatorsConfirmPlateArray">
+          <o-validator error-name="plateNotFormat" error-text="Invalid registration format"></o-validator>
+        </o-text-input>
+      </o-row>
+  
+    <!-- IMAGEN -->
+    <!-- <o-image attr="car_photo" title="car_photo" orderable="no" searchable="no" type="image" avatar="yes" 
+    empty-image="assets/images/no-image.png" image-type="base64"></o-image> -->
+    <!-- IMAGEN -->
+    <!-- <o-row>
+    <o-text-input class="input-padding" attr="status" fxFlex required="no"></o-text-input>
+    </o-row> -->
 
-        <o-row>
-          <o-text-input class="input-padding" attr="brand"  fxFlex="400px" required="yes"></o-text-input>
-               <!-- <o-combo attr="brand" service="cars" entity="car" sql-type="UUID"  value-column="brand"
-              columns="brand" visible-columns="brand"></o-combo> -->
-        </o-row>
+      <o-row>
+        <o-date-input value-type="date" class="input-padding" label ="start_date_available" attr="start_date_available" fxFlex="400px" required ="no"></o-date-input>
+      </o-row>
+      <o-row>
+        <o-date-input class="input-padding" label="end_date_available" attr="end_date_available" fxFlex="400px" required ="no"></o-date-input>
+      </o-row>
 
-        <o-row>
-          <o-text-input class="input-padding" attr="model" fxFlex="400px" required="yes" ></o-text-input>
-        </o-row>
+      <o-row class="row-location">
+          <o-text-input attr="location" decimal-separator="," max-decimal-digits="10" min-decimal-digits="0" 
+          class="input-padding" fxFlex="400px"></o-text-input>
+       <!-- <o-real-input attr="longitude" decimal-separator="," max-decimal-digits="10" min-decimal-digits="0" 
+           class="input-padding" fxFlex="50"></o-real-input>
+      <o-real-input attr="latitude" decimal-separator="," max-decimal-digits="10" min-decimal-digits="0" 
+            fxFlex="50"></o-real-input> -->
+      </o-row>
 
-        <o-row>
-          <o-text-input class="input-padding" attr="plate" fxFlex="400px" required="yes" placeholder="1234ABC" [validators]="validatorsConfirmPlateArray">
-            <o-validator error-name="plateNotFormat" error-text="Invalid registration format"></o-validator>
-          </o-text-input>
-        </o-row>
-        <o-row>
-          <o-integer-input attr="daily_rental_price" label="Price_per_day" min="1" max="100" required="yes"></o-integer-input>
-        </o-row>
-      <!-- IMAGEN -->
-
-      <!-- <o-image attr="car_photo" title="car_photo" orderable="no" searchable="no" type="image" avatar="yes" 
-      empty-image="assets/images/no-image.png" image-type="base64"></o-image> -->
-
-      <!-- IMAGEN -->
-
-
-        <!-- <o-row>
-            <o-text-input class="input-padding" attr="status" fxFlex required="no"></o-text-input>
-        </o-row> -->
-
-
-        <o-row>
-          <o-date-input value-type="date" class="input-padding" label ="start_date_available" attr="start_date_available" fxFlex="400px" required ="yes" start-at="today" min="today"></o-date-input>
-        </o-row>
-        <o-row>
-          <o-date-input class="input-padding" label="end_date_available" attr="end_date_available" fxFlex="400px" required ="yes"></o-date-input>
-        </o-row>
-
-        <o-row class="row-location">
-            <o-text-input attr="location" decimal-separator="," max-decimal-digits="10" min-decimal-digits="0" 
-            class="input-padding" fxFlex="400px" required ="yes"></o-text-input>
-         <!-- <o-real-input attr="longitude" decimal-separator="," max-decimal-digits="10" min-decimal-digits="0" 
-             class="input-padding" fxFlex="50"></o-real-input>
-        <o-real-input attr="latitude" decimal-separator="," max-decimal-digits="10" min-decimal-digits="0" 
-              fxFlex="50"></o-real-input> -->
-        </o-row>
-
-         <!--Testing-->
-
-      </o-column>
-    </o-row>
-  </o-form>
+    </o-column>
+  </o-row>
+</o-form>

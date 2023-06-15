@@ -19,4 +19,5 @@ public interface ICarService {
 	public EntityResult availableCarsQuery(Map<String, Object> keyMap, List<?> attrList);
 
 
+
 }
