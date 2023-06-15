@@ -4,7 +4,9 @@
     <o-column title="" class="cars-new-principal-row-column">
       <o-row>
         <!-- <o-text-input class="input-padding" attr="brand"  fxFlex="400px" required="yes"></o-text-input> -->
+
              <o-combo attr="brand" service="cars_brands" entity="brand" value-column="brand_name"
+
             columns="brand_name" visible-columns="brand_name"></o-combo> 
       </o-row>
       <o-row>
@@ -14,6 +16,9 @@
         <o-text-input class="input-padding" attr="plate" fxFlex="400px" required="yes" placeholder="1234ABC" [validators]="validatorsConfirmPlateArray">
           <o-validator error-name="plateNotFormat" error-text="Invalid registration format"></o-validator>
         </o-text-input>
+      </o-row>
+      <o-row>
+        <o-integer-input attr="daily_rental_price" label="Price_per_day" min="1" max="100" required="yes"></o-integer-input>
       </o-row>
   
     <!-- IMAGEN -->
