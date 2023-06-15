@@ -5,7 +5,7 @@
   </div>
 
   <o-grid #grid service="cars" entity="availableCars" keys="car_id" columns="car_id;user_id;brand;model;location;start_date_available;plate;end_date_available;car_photo;daily_rental_price"
-    show-page-size="yes" fxFlex page-size-options="24;32;64" orderable="yes" sortable-columns="brand;model;plate;location;daily_rental_price" attr="gridMyCars" >
+    show-page-size="yes" fxFlex page-size-options="24;32;64" orderable="yes" sortable-columns="brand;model;plate;location;daily_rental_price;start_date_available" attr="gridMyCars" >
 
     <o-grid-item *ngFor="let list of grid.dataArray" class="grid"> 
       <o-column class="grid-item">
