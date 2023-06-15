@@ -5,7 +5,11 @@
   </div>
 
   <o-grid #grid service="cars" entity="availableCars" keys="car_id" columns="car_id;user_id;brand;model;location;start_date_available;plate;end_date_available;car_photo;daily_rental_price"
+<<<<<<< Updated upstream
     show-page-size="yes" fxFlex page-size-options="24;32;64" orderable="yes" sortable-columns="brand;model;plate;location;daily_rental_price" attr="gridMyCars" >
+=======
+    show-page-size="yes" fxFlex page-size-options="24;32;64" orderable="yes" sortable-columns="brand;model;plate;location" attr="gridMyCars" class="main-grid">
+>>>>>>> Stashed changes
 
     <o-grid-item *ngFor="let list of grid.dataArray" class="grid"> 
       <o-column class="grid-item">
@@ -30,7 +34,7 @@
               <mat-icon>place</mat-icon><span> {{ list.location }}</span>
             </div>
             <div class="price">
-              <mat-icon>€_simbol</mat-icon><span> {{ list.daily_rental_price }}</span>
+              <span>{{ list.daily_rental_price }}</span><mat-icon>euro</mat-icon>
             </div>
             
             <div class="start_date_available">
