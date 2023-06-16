@@ -12,6 +12,8 @@ import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn 
 })
 export class CarsNewComponent implements OnInit {
 
+  fecha:string;
+
   validatorsConfirmPlateArray: ValidatorFn[] = [];
 
    protected carService : OntimizeService;
@@ -45,6 +47,18 @@ export class CarsNewComponent implements OnInit {
     
      }
      
+     public starEndDate(){
+      let startDate = this.form.getFieldValue("start_date_available");
+     
+     
+      
+      
+      const fecha = new Date(startDate);
+      this.fecha = fecha.toISOString().slice(0, 10).toString();
+      this.form.setFieldValue("end_date_available", this.fecha);
+      console.log(this.fecha);
+
+     }
 
   //   public async send(){
 

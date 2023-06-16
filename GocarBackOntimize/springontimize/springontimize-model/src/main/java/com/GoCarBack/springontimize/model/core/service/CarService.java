@@ -17,8 +17,11 @@ import com.ontimize.jee.common.db.SQLStatementBuilder.BasicExpression;
 import com.ontimize.jee.common.db.SQLStatementBuilder.BasicField;
 import com.ontimize.jee.common.db.SQLStatementBuilder.BasicOperator;
 
-import java.util.List;
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 
 @Lazy
@@ -63,9 +66,23 @@ public class CarService implements ICarService {
 
 	@Override
 	public EntityResult myCarInsert(Map<String, Object> attrMap) {
-		//Recuperamos el id_user que esta logueado y lo metemos en el map para guardalo en la bbdd
+//Recuperamos el id_user que esta logueado y lo metemos en el map para guardalo en la bbdd
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		attrMap.put(PRIMARYUSERKEY, auth.getName());
+
+		Map<String, Object> dateRangeMap = (Map<String, Object>) attrMap.get("daterange");
+		String startDate= (String) dateRangeMap.get("startDate");
+		String endDate= (String) dateRangeMap.get("endDate");
+
+		DateTimeFormatter pattern = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
+		ZonedDateTime dateTimeStart = ZonedDateTime.parse(startDate, pattern);
+		ZonedDateTime dateTimeEnd = ZonedDateTime.parse(endDate, pattern);
+
+
+		attrMap.put("start_date_available", Date.from(dateTimeStart.toInstant()));
+		attrMap.put("end_date_available", Date.from(dateTimeEnd.toInstant()));
+
+
 		return this.daoHelper.insert(carDao,attrMap);
 	}
 

@@ -37,7 +37,6 @@ export class HomeDetailComponent implements OnInit {
     
     const milisegundos = endtDate - startDate;
     const days = milisegundos / (24 * 60 * 60 * 1000);
-    console.log(days);
     const totalPrice = priceDay * days;
 
     this.formRent.setFieldValue("total_price", totalPrice);

@@ -64,5 +64,6 @@
   "Alquiler" : "Nuevo alquiler",
   "rental_start_date" :"Fecha inicio alquiler",
   "rental_end_date" :"Fecha fin alquiler",
-  "total_price":"Precio total"
+  "total_price":"Precio total",
+  "date_range": "Rango fechas disponible"
 }
