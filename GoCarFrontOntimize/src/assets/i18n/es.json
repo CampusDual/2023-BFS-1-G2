@@ -60,5 +60,6 @@
   "Price_per_day": "Precio por día",
   "cars renting": "Alquilar coches",
   "LOCALE_gl" : "GL",
-  "RENT": "ALQUILAR"
+  "RENT": "ALQUILAR",
+  "Alquiler" : "Nuevo alquiler"
 }
