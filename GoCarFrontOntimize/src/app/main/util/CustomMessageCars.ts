@@ -18,7 +18,7 @@ export class CustomMessageServiceCar extends OFormMessageService {
   }
   
   public getInsertErrorMessage(): string {
-    return 'patata';
+    return 'Error en la inserción';
   }
 
   
