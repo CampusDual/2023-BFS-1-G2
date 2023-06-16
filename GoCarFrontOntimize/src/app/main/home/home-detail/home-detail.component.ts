@@ -9,14 +9,11 @@ import { AbstractControl, ValidationErrors, ValidatorFn, FormBuilder, FormGroup 
 })
 export class HomeDetailComponent implements OnInit {
 
-  username: string = 'demo'
-  password: string = 'demouser'
-
-  auth: string = "Basic " + btoa(`${this.username}:${this.password}`)
 
 
   
-  @ViewChild('form', { static: false }) form: OFormComponent;
+  @ViewChild('formCar', { static: false }) formCar: OFormComponent;
+  @ViewChild('formRent', { static: false }) formRent: OFormComponent;
   dialogForm : FormGroup;
   constructor(private fb: FormBuilder) { }
 
@@ -27,33 +24,23 @@ export class HomeDetailComponent implements OnInit {
   public insertRent() {
 
     
-    const car_id = this.form.formGroup.get('car_id').value;
-    const brand = this.form.formGroup.get('brand').value;
-    const model = this.form.formGroup.get('model').value;
-    const daily_rental_price= this.form.formGroup.get('daily_rental_price').value;
-    const rental_start_date= this.form.formGroup.get('rental_start_date').value;
-    const rental_end_date= this.form.formGroup.get('rental_end_date').value;
-    console.log(typeof car_id)
+    let getIdCar = this.formCar.getFieldValue("car_id");
+          this.formRent.setFieldValue("car_id",getIdCar);
+          this.formRent.insert();
 
-    const dataFormArray = [daily_rental_price, rental_end_date, rental_start_date]
+  }
+
+  public calculatePrice(){
+    let startDate = this.formRent.getFieldValue("rental_start_date");
+    let endtDate = this.formRent.getFieldValue("rental_end_date");
+    let priceDay = this.formCar.getFieldValue("daily_rental_price");
     
-    if(dataFormArray.some( item => item === undefined)) 
-      alert('Algun campo esta vacio')
-    
-    else {
-      
-      let dataForm = {
-       car_id, daily_rental_price, rental_end_date, rental_start_date}
-        
-      fetch('http://localhost:33333/rents/rent', {
-        method:  'POST',
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-          "Authorization": this.auth
-      },body: JSON.stringify(dataForm)
-      })
-    }
-   
+    const milisegundos = endtDate - startDate;
+    const days = milisegundos / (24 * 60 * 60 * 1000);
+    console.log(days);
+    const totalPrice = priceDay * days;
+
+    this.formRent.setFieldValue("total_price", totalPrice);
   }
 
 }
