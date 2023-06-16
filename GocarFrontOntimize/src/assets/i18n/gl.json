@@ -55,12 +55,15 @@
   "start_date_available" : "Data inicio dispoñibilidade",
   "Car" : "Coche",
   "Invalid registration format": "Rexistro de matrícula inválido",
-  "My Cars": "Meu garaxe",
-  "daily_rental_price": "Precio diario aluguer",
-  "Price_per_day": "Precio por día",
+  "My Cars": "O meu garaxe",
+  "daily_rental_price": "Prezo diario aluguer",
+  "Price_per_day": "Prezo por día",
   "cars renting": "Alugar coches",
   "LOCALE_gl" : "GL",
   "RENT": "ALUGAR",
-  "Alquiler" : "Novo aluguer"
+  "Alquiler" : "Novo aluguer",
+  "rental_start_date" :"Data inicio aluguer",
+  "rental_end_date" :"Data fin aluguer",
+  "total_price":"Prezo total"
 
 }

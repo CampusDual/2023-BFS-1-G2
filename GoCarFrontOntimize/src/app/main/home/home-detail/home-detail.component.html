@@ -4,7 +4,7 @@
 
   <o-form  #formCar mode="dialog" class="cars-detail" service="cars" entity="car" keys="car_id" keys-sql-types="INTEGER" header-actions="U;D" show-header="no">
   
-    <o-row class="cars-new-principal-row">
+    <o-row class="cars-new-principal-row" >
       <o-column title="" class="cars-new-principal-row-column">
 
         <o-row>
@@ -32,13 +32,17 @@
                 <o-date-input class="input-padding" label="rental_end_date" attr="rental_end_date" fxFlex="400px" required ="no" (onChange)="calculatePrice()"></o-date-input>
             </o-row>
 
-            <o-row>
+            <o-row class="totalprice">
                 <o-integer-input attr="total_price" label="total_price" required="yes" enabled></o-integer-input>
             </o-row>
-        <o-row>
-
-          <button type="button" (click)="insertRent()" >{{ 'RENT' | oTranslate }}</button>
+        <o-row class="botonrent">
+          <div class="ontimize-buttons">
+            <o-button attr="basic1" type="STROKED" label="RENT" layout-padding color="primary" (click)="insertRent()"></o-button>
+          </div>
+          <!-- <button type="button" (click)="insertRent()" >{{ 'RENT' | oTranslate }}</button> -->
         </o-row>
+
+       
         </o-form>
       </o-column>
     </o-row>

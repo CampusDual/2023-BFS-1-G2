@@ -61,5 +61,10 @@
   "cars renting": "Rent car",
   "LOCALE_gl" : "GL",
   "RENT": "RENT",
-  "Alquiler" : "New rent"
+  "Alquiler" : "New rent",
+  "rental_start_date" :"Rental start date",
+  "rental_end_date" :"Rental end date",
+  "total_price":"Total price"
+
+
 }

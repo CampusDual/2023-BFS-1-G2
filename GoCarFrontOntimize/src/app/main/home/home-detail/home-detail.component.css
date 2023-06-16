@@ -1,0 +1,17 @@
+.ontimize-buttons{
+    margin: auto;
+}
+.cars-new-principal-row{
+    display: flex;
+    margin: auto;  
+}
+.botonrent{
+    margin-top: 30px;
+}
+.ontimize-buttons o-button{
+    width: 180px;
+
+}
+.totalprice{
+    border: 1px solid palevioletred;
+}
