@@ -5,7 +5,6 @@ import { OntimizeWebModule } from 'ontimize-web-ngx';
 import { UsersRoutingModule } from './users-routing.module';
 
 import { UsersRegisterComponent } from './users-register/users-register.component';
-import { CustomMessageService } from '../util/CustomMessageUser';
 
 
 @NgModule({
