@@ -23,6 +23,8 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
 
   }
+
+  public funcion = () => {}
   
   public getRandomImage(): string {
     return this.randonImage[Math.floor(Math.random() * 3)]

@@ -1,0 +1,71 @@
+.ontimize-buttons{
+    margin: auto;
+}
+.cars-new-principal-row{
+    display: flex;
+    margin: auto;  
+}
+.cars-detail {
+  
+}
+.botonrent{
+    margin-top: 30px;
+}
+.ontimize-buttons o-button{
+    width: 180px;
+
+}
+.totalprice{
+    border: 1px solid palevioletred;
+}
+
+.cars-new-principal-row {
+    border: 2px solid red;
+   
+}
+
+.cars-new-principal-row-column-info {
+    color: #e91e63;
+    padding: .6rem;
+    border-radius: 8px;
+    background-color: #fff;
+    width: 15rem;
+    height: 10rem;
+}
+
+.cars-new-principal-row-column-info-row {
+    height: 3.6rem;
+}
+/* .cars-new-principal-row-column-info-row::-webkit-scrollbar{
+    display: hidden;
+} */
+.cars-new-principal-row-column-row {
+    background-color: #eceff1;
+    flex-grow: 1;
+    display: flex;
+    justify-content: end;
+    gap: 1rem;
+}
+.cars-new-principal-row-column-requireInputs {
+    /* border: 2px solid brown; */
+    width: 20rem;
+    border-radius: 8px;
+    margin: auto;
+    background-color: #fff;
+}
+.form{
+    background-color: #eceff1;
+    width: 100%;
+    display: flex;
+    gap: 2.4rem;
+    flex-direction: column;
+    
+   
+}
+.prueba {
+    flex-grow: 1;
+    background-color: #fff;
+    display: flex;
+    place-content: center;
+    align-items: center;
+}

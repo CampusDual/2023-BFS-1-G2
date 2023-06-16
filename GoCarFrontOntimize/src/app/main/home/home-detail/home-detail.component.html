@@ -3,44 +3,57 @@
   show-header-navigation="yes"> -->
 
   <o-form  #formCar mode="dialog" class="cars-detail" service="cars" entity="car" keys="car_id" keys-sql-types="INTEGER" header-actions="U;D" show-header="no">
+  <div class="form">
   
-    <o-row class="cars-new-principal-row">
-      <o-column title="" class="cars-new-principal-row-column">
+    
+        
+    <div class="cars-new-principal-row-column-row">
+      <div class="prueba">Futura foto</div>
+      <div class="cars-new-principal-row-column-info">
+       <o-row>
+           <o-text-input class="input-padding" attr="car_id" fxFlex required="yes" enabled oHidden></o-text-input>
+         </o-row>
+       <o-row class="cars-new-principal-row-column-info-row">
+         <o-text-input class="input-padding" attr="brand" fxFlex required="yes" enabled></o-text-input>
+       </o-row>
 
-        <o-row>
-            <o-text-input class="input-padding" attr="car_id" fxFlex="400px" required="yes" enabled></o-text-input>
-          </o-row>
-        <o-row>
-          <o-text-input class="input-padding" attr="brand" fxFlex="400px" required="yes" enabled></o-text-input>
-        </o-row>
-
-        <o-row>
-          <o-text-input class="input-padding" attr="model" fxFlex="400px" required="yes" enabled></o-text-input>
-        </o-row>
-        <o-row>
-          <o-integer-input attr="daily_rental_price" label="Price_per_day" min="1" max="100" required="yes" enabled></o-integer-input>
-        </o-row>
-
+       <o-row class="cars-new-principal-row-column-info-row">
+         <o-text-input class="input-padding" attr="model" fxFlex required="yes" enabled></o-text-input>
+       </o-row>
+       <o-row >
+         <o-integer-input attr="daily_rental_price" label="Price_per_day" min="1" max="100" required="yes" enabled></o-integer-input>
+       </o-row>
+     </div>
+    </div>
+      
+       <div class="cars-new-principal-row-column-requireInputs">
         <o-form  #formRent  service="rents" entity="rent" keys="rent_id" keys-sql-types="INTEGER" header-actions="I" show-header="no">
-            <o-row>
-                <o-text-input attr="car_id" oHidden></o-text-input>
-            </o-row>
-            <o-row>
-                <o-date-input value-type="date" class="input-padding" label ="rental_start_date" attr="rental_start_date" fxFlex="400px" required ="no" (onChange)="calculatePrice()"></o-date-input>
-            </o-row>
-            <o-row>
-                <o-date-input class="input-padding" label="rental_end_date" attr="rental_end_date" fxFlex="400px" required ="no" (onChange)="calculatePrice()"></o-date-input>
-            </o-row>
+          <o-row>
+              <o-text-input attr="car_id" oHidden></o-text-input>
+          </o-row>
+          <o-row>
+              <o-date-input value-type="date" class="input-padding" label ="rental_start_date" attr="rental_start_date" fxFlex required ="no" (onChange)="calculatePrice()"></o-date-input>
+          </o-row>
+          <o-row>
+              <o-date-input class="input-padding" label="rental_end_date" attr="rental_end_date" fxFlex required ="no" (onChange)="calculatePrice()"></o-date-input>
+          </o-row>
 
-            <o-row>
-                <o-integer-input attr="total_price" label="total_price" required="yes" enabled></o-integer-input>
-            </o-row>
-        <o-row>
+          <o-row class="totalprice">
+              <o-integer-input attr="total_price" label="total_price" required="yes" enabled></o-integer-input>
+          </o-row>
+      <o-row class="botonrent">
+        <div class="ontimize-buttons">
+          <o-button attr="basic1" type="STROKED" label="RENT" layout-padding color="primary" (click)="insertRent()"></o-button>
+        </div>
+        <!-- <button type="button" (click)="insertRent()" >{{ 'RENT' | oTranslate }}</button> -->
+      </o-row>
+      </o-form>
+       </div>
+    
+        
+      
+    
 
-          <button type="button" (click)="insertRent()" >{{ 'RENT' | oTranslate }}</button>
-        </o-row>
-        </o-form>
-      </o-column>
-    </o-row>
-  </o-form>
+  </div>
+</o-form>
 
