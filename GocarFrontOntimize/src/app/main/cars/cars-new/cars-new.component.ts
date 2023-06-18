@@ -71,7 +71,6 @@ export class CarsNewComponent implements OnInit {
   //  public closeDialog(event: any) {
   //    this.dialogRef.close();
   // }
-  // test
   
   
 
