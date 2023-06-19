@@ -14,8 +14,7 @@ import { AuthService, OFormComponent, OntimizeService } from 'ontimize-web-ngx';
 export class UsersRegisterComponent implements OnInit {
 
   
-  // error: boolean;
- 
+  
   protected userService : OntimizeService;
   validatorsConfirmPasswordArray: ValidatorFn[] = []; //array para la validación de 2 contraseñas iguales.
 

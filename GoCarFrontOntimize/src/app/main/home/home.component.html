@@ -6,7 +6,7 @@
 <div class="home">
   
   <div class="main-container-title">
-    <h1>WELCOME!!!<span>&#160;</span></h1>
+    <h1>WELCOME {{user.toUpperCase()}} !!!<span>&#160;</span></h1>
   </div>
 
   <o-grid #grid service="cars" entity="availableCars" keys="car_id" columns="car_id;user_id;brand;model;location;start_date_available;plate;end_date_available;car_photo;daily_rental_price"
