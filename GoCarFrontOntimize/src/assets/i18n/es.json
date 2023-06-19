@@ -72,6 +72,7 @@
   "Are you really sure you want to do this? All changes will be lost" : "¿Estás realmente seguro de que quieres hacer esto? Todos los cambios se perderán",
   "Coche registrado" :"Coche registrado",
   "Error en la inserción":"Error en la inserción",
-  "Registrado con exito" : "Registrado con éxito"
+  "Registrado con exito" : "Registrado con éxito",
+  "car_photo":"Foto coche"
 
 }

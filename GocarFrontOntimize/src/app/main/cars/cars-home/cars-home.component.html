@@ -18,9 +18,11 @@
               <h2>{{ list.brand }}</h2>
             </div>
           </header>
+
           <div  class="list-picture" *ngIf="list.car_photo">
             <o-image attr="car_photo" title="car_photo"  [data]= "list.car_photo" orderable="no" enabled="false" searchable="no" type="image" avatar="yes" 
             not-found-image="\..\..\assets\images\no-image.png" image-type="base64" show-controls="no" read-only="yes"></o-image>
+            
           </div>
           <main class="list-item-body">
               <div class="plate">
@@ -42,8 +44,3 @@
     </o-list>
   </main>
 </o-form-layout-manager>
-
-
-
-
-          <!-- <o-image attr="car_photo" [data]="list.car_photo" empty-image="src/app/assets/images/no-image.png"></o-image> -->

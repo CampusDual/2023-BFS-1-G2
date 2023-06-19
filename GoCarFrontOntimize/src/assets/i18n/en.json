@@ -72,7 +72,8 @@
   "Saving data failed":"Savin data failed",
   "Coche registrado" :"Registered car",
   "Error en la inserción": "Insertion error",
-  "Registrado con exito" : "Successfully registered"
+  "Registrado con exito" : "Successfully registered",
+  "car_photo":"Car photo"
  
 
 }
