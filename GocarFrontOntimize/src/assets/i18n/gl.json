@@ -65,6 +65,9 @@
   "rental_start_date" :"Data inicio aluguer",
   "rental_end_date" :"Data fin aluguer",
   "total_price":"Prezo total",
-  "date_range": "Rango datas dispoñibel"
+  "date_range": "Rango datas dispoñibel",
+  "Error when renting": "Erro no aluguer",
+  "Successful rental": "Aluger con éxito",
+  "Saving data failed": "Erro o gardar os datos"
 
 }

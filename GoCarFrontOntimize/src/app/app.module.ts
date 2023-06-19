@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { CONFIG } from './app.config';
 import { CustomMessageServiceUser } from './main/util/CustomMessageUser';
 import { CustomMessageServiceCar } from './main/util/CustomMessageCars';
+import { CustomMessageServiceRent } from './main/util/CustomMessageRent';
 
 
 // Standard providers...
@@ -39,6 +40,7 @@ export const customProviders: any = [
     { provide: APP_CONFIG, useValue: CONFIG },
     { provide: 'customMessageServiceTypeUser', useValue: CustomMessageServiceUser },
     { provide: 'customMessageServiceTypeCar', useValue: CustomMessageServiceCar },
+    { provide: 'customMessageServiceTypeRent', useValue: CustomMessageServiceRent },
     ONTIMIZE_PROVIDERS,
     ...customProviders
   ]

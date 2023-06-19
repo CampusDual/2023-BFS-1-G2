@@ -65,7 +65,10 @@
   "rental_start_date" :"Rental start date",
   "rental_end_date" :"Rental end date",
   "total_price":"Total price",
-  "date_range": "Date range available"
+  "date_range": "Date range available",
+  "Error when renting": "Error when renting",
+  "Successful rental": "Successful rental",
+  "Saving data failed": "Saving data failed"
  
 
 }

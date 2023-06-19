@@ -1,12 +1,6 @@
-<!-- <o-form mode="dialog" attr="car_detail" service="cars" entity="myCar" fxLayout="column" show-header="yes"
-  header-actions="R;I;U;D" #oDetailForm keys="car_id" keys-sql-types="INTEGER"
-  show-header-navigation="yes"> -->
-
-  <o-form  #formCar mode="dialog" class="cars-detail" service="cars" entity="car" keys="car_id" keys-sql-types="INTEGER" header-actions="U;D" show-header="no">
+<o-form  #formCar mode="dialog" class="cars-detail" service="cars" entity="car" keys="car_id" keys-sql-types="INTEGER" header-actions="U;D" 
+   show-header="no">
   <div class="form">
-  
-    
-        
     <div class="cars-new-principal-row-column-row">
       <div class="prueba">Futura foto</div>
       <div class="cars-new-principal-row-column-info">
@@ -24,10 +18,9 @@
          <o-integer-input attr="daily_rental_price" label="Price_per_day" min="1" max="100" required="yes" enabled></o-integer-input>
        </o-row>
      </div>
-    </div>
-      
-       <div class="cars-new-principal-row-column-requireInputs">
-        <o-form  #formRent  service="rents" entity="rent" keys="rent_id" keys-sql-types="INTEGER" header-actions="I" show-header="no">
+      </div>
+      <div class="cars-new-principal-row-column-requireInputs">
+        <o-form  #formRent  service="rents" entity="rent" keys="rent_id" keys-sql-types="INTEGER" message-service-type="customMessageServiceTypeRent" header-actions="I" show-header="no">
           <o-row>
               <o-text-input attr="car_id" oHidden></o-text-input>
           </o-row>
@@ -41,19 +34,14 @@
           <o-row class="totalprice">
               <o-integer-input attr="total_price" label="total_price" required="yes" enabled></o-integer-input>
           </o-row>
-      <o-row class="botonrent">
-        <div class="ontimize-buttons">
-          <o-button attr="basic1" type="STROKED" label="RENT" layout-padding color="primary" (click)="insertRent()"></o-button>
-        </div>
-        <!-- <button type="button" (click)="insertRent()" >{{ 'RENT' | oTranslate }}</button> -->
-      </o-row>
+          <o-row class="botonrent">
+            <div class="ontimize-buttons">
+              <o-button attr="basic1" type="STROKED" label="RENT" layout-padding color="primary" (click)="insertRent()"></o-button>
+            </div>
+            <!-- <button type="button" (click)="insertRent()" >{{ 'RENT' | oTranslate }}</button> -->
+          </o-row>
       </o-form>
-       </div>
-    
-        
-      
-    
-
+    </div>
   </div>
 </o-form>
 
