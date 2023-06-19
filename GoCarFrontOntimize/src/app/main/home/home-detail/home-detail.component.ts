@@ -29,10 +29,14 @@ export class HomeDetailComponent implements OnInit {
 
   public calculatePrice(){
     let startDate = this.formRent.getFieldValue("rental_start_date");
-    let endtDate = this.formRent.getFieldValue("rental_end_date");
+    let endDate = this.formRent.getFieldValue("rental_end_date");
     let priceDay = this.formCar.getFieldValue("daily_rental_price");
+    if(endDate == null){
+
+      this.formRent.setFieldValue("rental_end_date", startDate + 1)
+    }
     
-    const milisegundos = endtDate - startDate;
+    const milisegundos = endDate - startDate;
     const days = milisegundos / (24 * 60 * 60 * 1000);
     const totalPrice = priceDay * days;
 

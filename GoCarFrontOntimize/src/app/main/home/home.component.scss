@@ -21,6 +21,7 @@ display: flex;
 }
 .grid{
   display: flex
+  
 }
 
 .main-container-title h1 {
@@ -62,7 +63,7 @@ to {
   transition: all .8s ease;
   justify-content: space-around;
   border-radius: 8px;
-  height: 23rem;   
+  height: 28rem;   
   margin-bottom: 40px;
 }
 
@@ -108,10 +109,11 @@ mat-icon{
 
 .grid-picture {  
 display: flex;
-border-radius: 60px;
 margin: auto;
-width: 280px;
- 
+}
+
+.picture-car{
+  object-fit: cover;
 }
 .plate{
   height: 40px;
@@ -131,17 +133,15 @@ width: 280px;
   border-radius: 8px;
 }
 .grid-item-body{
-  margin: auto;
-  width: 280px;
+  margin: 2px 8px;
+  width: 300px;
   color: #e91e63;
   font-weight: bold;
-  height: 150px;
+  height: 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1rem;
-  margin-top: 1rem;
   gap: .5rem;
 }
 .start_date_available{
