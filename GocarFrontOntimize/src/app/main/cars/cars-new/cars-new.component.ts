@@ -1,8 +1,6 @@
-import { Component, Inject, Injector, OnInit, ViewChild } from '@angular/core';
+import { Component, Injector, OnInit, ViewChild } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
-import { Router, ActivatedRoute } from '@angular/router';
-import { AuthService, OFormComponent, OntimizeService } from 'ontimize-web-ngx';
-import { UsersRegisterComponent } from '../../users/users-register/users-register.component';
+import {  OFormComponent, OntimizeService } from 'ontimize-web-ngx';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn } from '@angular/forms';
 
 @Component({
@@ -49,43 +47,11 @@ export class CarsNewComponent implements OnInit {
      
      public starEndDate(){
       let startDate = this.form.getFieldValue("start_date_available");
-     
-     
-      
-      
       const fecha = new Date(startDate);
       this.fecha = fecha.toISOString().slice(0, 10).toString();
       this.form.setFieldValue("end_date_available", this.fecha);
       console.log(this.fecha);
 
      }
-
-  //   public async send(){
-
-  //     this.form.insert();
-    
-  //   }
-
-  
-  //   public configureCarService(){
-
-  //     const conf = this.carService.getDefaultServiceConfiguration('cars');
-  //     this.carService.configureService(conf);
-
-  //   }
-
-  //   public forceInsertMode(event: any) {
-
-  //     if (event != OFormComponent.Mode().INSERT) {
-  //       this.form.setInsertMode();
-  //     }
-      
-  //   }
-    
-  //  public closeDialog(event: any) {
-  //    this.dialogRef.close();
-  // }
-  
-  
 
 }
