@@ -1,7 +1,7 @@
 <o-form-layout-manager mode="dialog" title=""  label-columns="name" 
   attr="o-form-layout-branches-home" color="warn"> 
  
-  <o-form-layout-dialog-options  title = "Alquiler" width="600px" height="650px" 
+  <o-form-layout-dialog-options  title = "Alquiler" width="630px" height="670px" 
   disable-close="true" ></o-form-layout-dialog-options>
 
 <div class="home">
@@ -11,8 +11,8 @@
   </div>
 
   <o-grid #grid service="cars" entity="availableCars" keys="car_id" columns="car_id;user_id;brand;model;location;start_date_available;plate;end_date_available;car_photo;daily_rental_price"
-
-    show-page-size="yes" fxFlex page-size-options="24;32;64" orderable="yes" sort-column="start_date_available" sortable-columns="brand;model;plate;location;daily_rental_price;start_date_available" attr="gridMyCars" >
+  show-page-size="yes" fxFlex page-size-options="12;24;32;64" orderable="yes" sort-column="start_date_available" sortable-columns="brand;model;plate;location;daily_rental_price;start_date_available"
+   attr="gridMyCars" >
 
 
     <o-grid-item *ngFor="let list of grid.dataArray" class="grid"> 
@@ -26,8 +26,8 @@
 
         <div class="grid-picture" *ngIf="list.car_photo">
 
-          <o-image attr="car_photo" title="car_photo"  [data]= "list.car_photo" orderable="no" enabled="false" searchable="no" avatar="yes" 
-          empty-image="assets/images/no-image.png" image-type="base64" show-controls="no" read-only="yes" ></o-image>
+          <o-image class="picture-car" attr="car_photo" title="car_photo"  [data]= "list.car_photo" orderable="no" searchable="no" avatar="yes" 
+          empty-image="assets/images/no-image.png" image-type="base64" show-controls="no" read-only="yes" auto-fit="no" ></o-image>
         </div>
        
         <main class="grid-item-body">
