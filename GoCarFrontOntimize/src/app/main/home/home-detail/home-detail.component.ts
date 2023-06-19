@@ -9,10 +9,7 @@ import { AbstractControl, ValidationErrors, ValidatorFn, FormBuilder, FormGroup 
 })
 export class HomeDetailComponent implements OnInit {
 
-
-
-  
-  @ViewChild('formCar', { static: false }) formCar: OFormComponent;
+ @ViewChild('formCar', { static: false }) formCar: OFormComponent;
   @ViewChild('formRent', { static: false }) formRent: OFormComponent;
   dialogForm : FormGroup;
   constructor(private fb: FormBuilder) { }
