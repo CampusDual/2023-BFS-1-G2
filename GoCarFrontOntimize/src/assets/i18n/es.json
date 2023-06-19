@@ -68,5 +68,10 @@
   "date_range": "Rango fechas disponible",
   "Error when renting": "Error al alquilar",
   "Successful rental": "Alquier con éxito",
-  "Saving data failed": "Error al guardar datos"
+  "Saving data failed": "Error al guardar datos",
+  "Are you really sure you want to do this? All changes will be lost" : "¿Estás realmente seguro de que quieres hacer esto? Todos los cambios se perderán",
+  "Coche registrado" :"Coche registrado",
+  "Error en la inserción":"Error en la inserción",
+  "Registrado con exito" : "Registrado con éxito"
+
 }
