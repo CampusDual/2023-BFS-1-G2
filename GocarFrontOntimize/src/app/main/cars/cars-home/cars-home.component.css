@@ -152,7 +152,7 @@ mat-icon{
 
 /*Animaciones*/
 
-.list-item:hover::before, .list-item:hover::after {
+/* .list-item:hover::before, .list-item:hover::after {
     content: '';
     box-sizing: border-box;
     position: absolute;
@@ -175,7 +175,7 @@ mat-icon{
     animation: border 2s 1s infinite, borderColor2 2s 1s infinite;
 }
 /*Definicion de comportamientos de bordes*/
-@keyframes border {
+/* @keyframes border {
     0% {
       width: 0;
       height: 0;
@@ -195,7 +195,7 @@ mat-icon{
   }
 
 /*Colores de bordes*/
-@keyframes borderColor2 {
+/* @keyframes borderColor2 {
     0% {
       border-bottom-color: #e91e63;
       border-left-color: #e91e63;
@@ -212,4 +212,4 @@ mat-icon{
       border-bottom-color: transparent;
       border-left-color: transparent;
     }
-  }
+  }  */

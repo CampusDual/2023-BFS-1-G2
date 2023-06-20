@@ -4,16 +4,27 @@
     <o-row>
       <o-text-input class="input-padding" attr="car_id" fxFlex required="yes" enabled oHidden></o-text-input>
     </o-row>
-  <o-row class="cars-new-principal-row-column-info-row">
+    
+    <o-row class="cars-new-principal-row-column-info-row">
     <o-text-input class="input-padding" attr="brand" fxFlex required="yes" enabled></o-text-input>
-  </o-row>
+    </o-row>
 
-  <o-row class="cars-new-principal-row-column-info-row">
+    <o-row class="cars-new-principal-row-column-info-row">
     <o-text-input class="input-padding" attr="model" fxFlex required="yes" enabled></o-text-input>
-  </o-row>
-  <o-row class="cars-new-principal-row-column-info-row">
+    </o-row>
+    
+    <o-row class="cars-new-principal-row-column-info-row">
     <o-integer-input attr="daily_rental_price" label="Price_per_day" min="1" max="100" required="yes" enabled></o-integer-input>
-  </o-row>
+    </o-row>
+  
+    <o-row class="cars-new-principal-row-column-info-row">
+    <o-date-input value-type="date" class="input-padding" label ="start_date_available" attr="start_date_available" fxFlex required ="no" (onChange)="calculatePrice()"></o-date-input>
+    </o-row>
+  
+    <o-row class="cars-new-principal-row-column-info-row">
+    <o-date-input class="input-padding" label="rental_end_date" attr="end_date_available" fxFlex required ="no" (onChange)="calculatePrice()"></o-date-input>
+    </o-row>
+
     <div class="cars-new-principal-row-column-row">
       <div class="prueba">
         <o-image attr="car_photo" title="car_photo" orderable="no" searchable="no" type="image" avatar="yes" show-controls="no" read-only="yes"
@@ -21,13 +32,16 @@
       </div>
       <div class="cars-new-principal-row-column-info">
         <div>
-          <span>{{formCar.getFieldValue('model')}}</span>
-        </div>
-        <div>
           <span>{{formCar.getFieldValue('brand')}}</span>
         </div>
         <div>
+          <span>{{formCar.getFieldValue('model')}}</span>
+        </div>
+        <div>
           <span>{{formCar.getFieldValue('daily_rental_price')}}</span><mat-icon>euro</mat-icon><span>/day</span>
+        </div>
+        <div>
+          <span>Hasta el {{convertDate(formCar.getFieldValue('end_date_available'))}}</span>
         </div>
      </div>
       </div>

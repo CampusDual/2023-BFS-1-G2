@@ -34,6 +34,11 @@ export class HomeDetailComponent implements OnInit {
 
   }
 
+  convertDate(date: Date){
+    const newDate = new Date(date);
+    return (newDate.toLocaleDateString());
+  }
+
   public calculatePrice(){
     let startDate = this.formRent.getFieldValue("rental_start_date");
     let endDate = this.formRent.getFieldValue("rental_end_date");
