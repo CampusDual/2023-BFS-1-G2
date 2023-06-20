@@ -15,15 +15,11 @@
     
     <o-row class="cars-new-principal-row-column-info-row">
     <o-integer-input attr="daily_rental_price" label="Price_per_day" min="1" max="100" required="yes" enabled></o-integer-input>
-    </o-row>
-  
-    <o-row class="cars-new-principal-row-column-info-row">
-    <o-date-input value-type="date" class="input-padding" label ="start_date_available" attr="start_date_available" fxFlex required ="no" (onChange)="calculatePrice()"></o-date-input>
-    </o-row>
-  
-    <o-row class="cars-new-principal-row-column-info-row">
-    <o-date-input class="input-padding" label="rental_end_date" attr="end_date_available" fxFlex required ="no" (onChange)="calculatePrice()"></o-date-input>
-    </o-row>
+
+  </o-row>
+  <o-row class="cars-new-principal-row-column-info-row">
+    <o-date-input class="input-padding" attr="end_date_available" fxFlex required="yes" enable></o-date-input>
+  </o-row>
 
     <div class="cars-new-principal-row-column-row">
       <div class="prueba">
@@ -42,6 +38,7 @@
         </div>
         <div>
           <span>Hasta el {{convertDate(formCar.getFieldValue('end_date_available'))}}</span>
+
         </div>
      </div>
       </div>
@@ -50,11 +47,15 @@
           <o-row>
               <o-text-input attr="car_id" oHidden></o-text-input>
           </o-row>
-          <o-row>
-              <o-date-input value-type="date" class="input-padding" label ="rental_start_date" attr="rental_start_date" fxFlex required ="no" (onChange)="calculatePrice()"></o-date-input>
+          <!-- <o-row>
+              <o-date-input value-type="date" class="input-padding" label ="rental_start_date" attr="rental_start_date" fxFlex (onChange)="calculatePrice()"></o-date-input>
           </o-row>
           <o-row>
-              <o-date-input class="input-padding" label="rental_end_date" attr="rental_end_date" fxFlex required ="no" (onChange)="calculatePrice()"></o-date-input>
+              <o-date-input class="input-padding" label="rental_end_date" attr="rental_end_date" fxFlex (onChange)="calculatePrice()"></o-date-input>
+          </o-row> -->
+
+          <o-row>
+            <o-daterange-input attr="daterange" label="date_range" [min]="currentDay()" [max]="convertDate(formCar.getFieldValue('end_date_available'))" format="YYYY/MM/DD"  required="yes" (onChange)="calculatePrice()"></o-daterange-input>
           </o-row>
 
           <o-row class="totalprice">

@@ -27,7 +27,7 @@
 
               <!-- -------------- DATE RANGE ------------------- -->
       <o-row>
-        <o-daterange-input attr="daterange" label="date_range" min="2023-06-15" required="yes"></o-daterange-input>
+        <o-daterange-input attr="daterange" label="date_range" [min]="currentDay()" format="YYYY/MM/DD"  required="yes"></o-daterange-input>
       </o-row>
 
              <!-- -------------- LOCATION ------------------- -->

@@ -2,6 +2,7 @@ import { Component, Injector, OnInit, ViewChild } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
 import {  OFormComponent, OntimizeService } from 'ontimize-web-ngx';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn } from '@angular/forms';
+import { CurrentDay } from '../../util/CurrentDay';
 
 @Component({
   selector: 'app-cars-new',
@@ -53,5 +54,11 @@ export class CarsNewComponent implements OnInit {
       console.log(this.fecha);
 
      }
+
+     public currentDay(){
+      const today = new CurrentDay();
+      return today.currentDay();;
+      }
+  
 
 }

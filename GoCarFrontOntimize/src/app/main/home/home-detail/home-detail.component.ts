@@ -1,6 +1,7 @@
 import { Component, OnInit,  ViewChild} from '@angular/core';
 import {  OFormComponent } from 'ontimize-web-ngx';
 import { AbstractControl, ValidationErrors, ValidatorFn, FormBuilder, FormGroup } from '@angular/forms';
+import { CurrentDay } from '../../util/CurrentDay';
 
 @Component({
   selector: 'app-home-detail',
@@ -25,6 +26,7 @@ export class HomeDetailComponent implements OnInit {
         element.setAttribute('style', "opacity: 0.1")
       })
     }
+
   }
 
   public insertRent() {
@@ -36,23 +38,48 @@ export class HomeDetailComponent implements OnInit {
 
   convertDate(date: Date){
     const newDate = new Date(date);
-    return (newDate.toLocaleDateString());
+    const year = newDate.getFullYear();
+        let month: string | number = newDate.getMonth() + 1;
+        let day: string | number = newDate.getDate();
+    
+        // Add a leading zero if the month or day is less than 10
+        if (month < 10) {
+          month = '0' + month;
+        }
+        if (day < 10) {
+          day = '0' + day;
+        }
+    
+        return `${year}-${month}-${day}`;
+   
   }
 
   public calculatePrice(){
-    let startDate = this.formRent.getFieldValue("rental_start_date");
-    let endDate = this.formRent.getFieldValue("rental_end_date");
+    let dates = this.formRent.getFieldValue("daterange");
+    console.log(dates);
+   
     let priceDay = this.formCar.getFieldValue("daily_rental_price");
-    if(endDate == null){
-
-      this.formRent.setFieldValue("rental_end_date", startDate + 1)
-    }
+    console.log(priceDay);
+    const startDate = dates.startDate;
+    const endDate = dates.endDate;
     
     const milisegundos = endDate - startDate;
-    const days = milisegundos / (24 * 60 * 60 * 1000);
-    const totalPrice = priceDay * days;
+    const days = Math.ceil(milisegundos / (24 * 60 * 60 * 1000));
+    const totalPrice = priceDay * (days);
 
     this.formRent.setFieldValue("total_price", totalPrice);
+  }
+
+  public currentDay(){
+    const today = new CurrentDay();
+    return today.currentDay();;
+    }
+
+
+  public dateEndAvailable(){
+    const endAvailabe = this.formCar.getFieldValue("end_date_available");
+    return "2023-06-30";
+    
   }
 
 }
