@@ -1,25 +1,34 @@
 <o-form  #formCar mode="dialog" class="cars-detail" service="cars" entity="car" keys="car_id" keys-sql-types="INTEGER" header-actions="U;D" 
    show-header="no">
   <div class="form">
+    <o-row>
+      <o-text-input class="input-padding" attr="car_id" fxFlex required="yes" enabled oHidden></o-text-input>
+    </o-row>
+  <o-row class="cars-new-principal-row-column-info-row">
+    <o-text-input class="input-padding" attr="brand" fxFlex required="yes" enabled></o-text-input>
+  </o-row>
+
+  <o-row class="cars-new-principal-row-column-info-row">
+    <o-text-input class="input-padding" attr="model" fxFlex required="yes" enabled></o-text-input>
+  </o-row>
+  <o-row class="cars-new-principal-row-column-info-row">
+    <o-integer-input attr="daily_rental_price" label="Price_per_day" min="1" max="100" required="yes" enabled></o-integer-input>
+  </o-row>
     <div class="cars-new-principal-row-column-row">
       <div class="prueba">
         <o-image attr="car_photo" title="car_photo" orderable="no" searchable="no" type="image" avatar="yes" show-controls="no" read-only="yes"
         empty-image="src\assets\images\no-image.png" image-type="base64" width="300px" height="200px"></o-image>
       </div>
       <div class="cars-new-principal-row-column-info">
-       <o-row>
-           <o-text-input class="input-padding" attr="car_id" fxFlex required="yes" enabled oHidden></o-text-input>
-         </o-row>
-       <o-row class="cars-new-principal-row-column-info-row">
-         <o-text-input class="input-padding" attr="brand" fxFlex required="yes" enabled></o-text-input>
-       </o-row>
-
-       <o-row class="cars-new-principal-row-column-info-row">
-         <o-text-input class="input-padding" attr="model" fxFlex required="yes" enabled></o-text-input>
-       </o-row>
-       <o-row >
-         <o-integer-input attr="daily_rental_price" label="Price_per_day" min="1" max="100" required="yes" enabled></o-integer-input>
-       </o-row>
+        <div>
+          <span>Model: {{formCar.getFieldValue('model')}}</span>
+        </div>
+        <div>
+          <span>Brand: {{formCar.getFieldValue('brand')}}</span>
+        </div>
+        <div>
+          <span>{{formCar.getFieldValue('daily_rental_price')}}</span><mat-icon>euro</mat-icon><span>/day</span>
+        </div>
      </div>
       </div>
       <div class="cars-new-principal-row-column-requireInputs">
@@ -35,7 +44,7 @@
           </o-row>
 
           <o-row class="totalprice">
-              <o-integer-input attr="total_price" label="total_price" required="yes" enabled></o-integer-input>
+              <o-integer-input attr="total_price" label="total_price" required="yes" enabled class="totalprice-amount"></o-integer-input>
           </o-row>
           <o-row class="botonrent">
             <div class="ontimize-buttons">

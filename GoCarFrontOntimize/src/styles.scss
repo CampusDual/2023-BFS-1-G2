@@ -10,5 +10,47 @@
 }
 
 .mat-dialog-container  {
-  background-color: #eceff1;;
+  border-radius: 30px;
+  transition: all .5s ease;
+  background-color: transparent;
+  border-radius: 8px;
+  box-shadow: none;
+ background-color: #eceff1;
+  // box-shadow: 5px 5px 15px #fff ;
+}
+
+.ng-star-inserted {
+ 
+  font-weight: bold;
+  color: #e91e63;
+}
+.mat-form-field-wrapper {
+  border:none;
+}
+.mat-icon {
+  color: #F1AD2D;
+}
+.title-container {
+  font-weight: bold;
+  background-color: transparent;
+  box-shadow: 1px 1px 15px inset #fff;
+  outline: none;
+  padding: 0;
+}
+// .form-layout-dialog-container {
+//   border: 2px solid red;
+//   border-radius: 8px;
+// }
+.mat-button-focus-overlay{
+  background-color: red;;
+}
+.mat-stroked-button {
+  background-color: red;
+  color: #fff;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

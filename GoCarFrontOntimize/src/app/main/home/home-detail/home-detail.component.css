@@ -6,6 +6,10 @@
     margin: auto;  
 }
 .cars-detail {
+    border-radius: 8px;
+    padding: .4rem;
+    opacity: 1;
+    background-color: transparent;
   
 }
 .botonrent{
@@ -15,57 +19,92 @@
     width: 180px;
 
 }
-.totalprice{
-    border: 1px solid palevioletred;
-}
-
-.cars-new-principal-row {
-    border: 2px solid red;
-   
-}
 
 .cars-new-principal-row-column-info {
-    color: #e91e63;
-    padding: .6rem;
+    padding: .4rem;
+    transition: all 1s ease;
     border-radius: 8px;
-    background-color: #fff;
-    width: 15rem;
-    height: 10rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    width: 12rem;
+    height: 8rem;  
+    font-size: 10px;
+    background-color: transparent;
+    box-shadow: 1px 1px 15px inset #fff;
+    color: #e91e63;
+    border-bottom: 2px solid #F1AD2D;
 }
 
+.cars-new-principal-row-column-info div {
+    font-weight: bold;
+    display: flex;
+    border-bottom: 2px solid #F1AD2D;
+}
 .cars-new-principal-row-column-info-row {
     height: 3.6rem;
+    display: none;
 }
 /* .cars-new-principal-row-column-info-row::-webkit-scrollbar{
     display: hidden;
 } */
+
 .cars-new-principal-row-column-row {
-    background-color: #eceff1;
+    border-radius: 8px;
+    background-color: transparent;
     flex-grow: 1;
     display: flex;
-    justify-content: end;
-    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    gap: 4rem;
+}
+.ontimize-buttons-button{
+    background-color: transparent;
 }
 .cars-new-principal-row-column-requireInputs {
     /* border: 2px solid brown; */
     width: 20rem;
     border-radius: 8px;
     margin: auto;
-    background-color: #fff;
+    background-color: transparent;
+    box-shadow: 1px 1px 15px inset #fff;
+    border-bottom: 2px solid #F1AD2D;
+    color: #e91e63;
+}
+.totalprice-amount{
+    color: #e91e63;
 }
 .form{
-    background-color: #eceff1;
+    /* background-color: #eceff1; */
+    background-color: transparent;
     width: 100%;
     display: flex;
-    gap: 2.4rem;
-    flex-direction: column;
-    
-   
+    gap: 1.3rem;
+    flex-direction: column;  
+    border-radius: 8px;
+}
+.form .prueba:hover ~ .cars-new-principal-row-column-info{
+  
+}
+.form .prueba:hover ~ .cars-new-principal-row-column-info {
+    scale: 1.1;
 }
 .prueba {
     flex-grow: 1;
-    background-color: #fff;
+    background-color: transparent;
     display: flex;
     place-content: center;
     align-items: center;
+    border-bottom: 2px solid #F1AD2D;
+    border-radius: 8px;
 }
+.prueba img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+  }
+

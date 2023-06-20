@@ -9,18 +9,29 @@ import { AbstractControl, ValidationErrors, ValidatorFn, FormBuilder, FormGroup 
 })
 export class HomeDetailComponent implements OnInit {
 
+
  @ViewChild('formCar', { static: false }) formCar: OFormComponent;
+
+
+
   @ViewChild('formRent', { static: false }) formRent: OFormComponent;
   dialogForm : FormGroup;
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
     this.dialogForm = this.fb.group({}); 
+
+    if(this.dialogForm.enabled) {
+      document.querySelector('.o-grid-toolbar').setAttribute('style', "opacity: 0.1")
+      document.querySelectorAll('.grid-item').forEach( element => {
+        element.setAttribute('style', "opacity: 0.1")
+      })
+    }else {
+      document.querySelector('.o-grid-toolbar').setAttribute('style', "opacity: 1")
+    }
   }
 
   public insertRent() {
-
-    
     let getIdCar = this.formCar.getFieldValue("car_id");
           this.formRent.setFieldValue("car_id",getIdCar);
           this.formRent.insert();

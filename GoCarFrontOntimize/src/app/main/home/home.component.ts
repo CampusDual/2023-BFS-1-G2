@@ -17,9 +17,13 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+
     const localStorageData = JSON.parse(localStorage.getItem('com.ontimize.web.ngx.jee.seed'));
     this.user = localStorageData.session.user;
+
+    
   }
+
 
   navigate() {
     this.router.navigate(['../', 'login'], { relativeTo: this.actRoute });

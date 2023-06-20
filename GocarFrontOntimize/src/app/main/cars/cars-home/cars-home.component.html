@@ -6,13 +6,14 @@
   
   <main class="main">
     <div class="main-container-title">
-      <h1>My cars<span>&#160;</span></h1>
+      <!-- <h1>My cars<span>&#160;</span></h1> -->
     </div>
     <o-list #list service="cars" entity="myCar" keys="car_id" columns="car_id;user_id;brand;model;location;start_date_available;plate;end_date_available;car_photo;daily_rental_price"
       show-page-size="yes" fxFlex paginations-controls="yes" quick-filter-columns="brand;model;location" insert-button="yes" insert-button-position="top" delete-button="no"
       selectable="no" orderable="yes" sort-columns="brand;model;plate;location" class="list">
       
       <o-list-item *ngFor="let list of list.dataArray" class="list-item"> 
+        
           <header class="list-item-header">
             <div class="list-item-header-div">
               <h2>{{ list.brand }}</h2>
