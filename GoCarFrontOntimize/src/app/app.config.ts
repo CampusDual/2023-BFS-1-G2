@@ -31,7 +31,7 @@ export const CONFIG: Config = {
 
   appMenuConfiguration: MENU_CONFIG,
 
-  applicationLocales: ['es', 'en','gl'],
+  applicationLocales: ['es', 'en'],
 
   exportConfiguration: {
     path: '/export'

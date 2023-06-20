@@ -73,7 +73,10 @@
   "Coche registrado" :"Registered car",
   "Error en la inserción": "Insertion error",
   "Registrado con exito" : "Successfully registered",
-  "car_photo":"Car photo"
+  "car_photo":"Car photo",
+  "Modification done successfully" : "Modification done successfully",
+  "Car removed" : "Car removed",
+  "Erase failed": "Erase failed"
  
 
 }
