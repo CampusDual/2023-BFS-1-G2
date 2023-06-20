@@ -12,13 +12,6 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
-import com.ontimize.jee.common.db.SQLStatementBuilder;
-import com.ontimize.jee.common.db.SQLStatementBuilder.BasicExpression;
-import com.ontimize.jee.common.db.SQLStatementBuilder.BasicField;
-import com.ontimize.jee.common.db.SQLStatementBuilder.BasicOperator;
-
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -35,15 +28,12 @@ public class CarService implements ICarService {
 	@Autowired
 	private DefaultOntimizeDaoHelper daoHelper;
 
-	public void loginQuery(Map<?, ?> key, List<?> attr) {
-	}
-
-	//Sample to permission
+		//Sample to permission
 	//@Secured({ PermissionsProviderSecured.SECURED })
 	public EntityResult carQuery(Map<?, ?> keyMap, List<?> attrList) {
-		EntityResult result = this.daoHelper.query(carDao, keyMap, attrList);
 
-		return result;
+		return  this.daoHelper.query(carDao, keyMap, attrList);
+
 	}
 	public EntityResult carInsert(Map<?, ?> attrMap) {
 		return this.daoHelper.insert(carDao, attrMap);
@@ -89,7 +79,6 @@ public class CarService implements ICarService {
 	@Override
 	public EntityResult availableCarsQuery(Map<String, Object> keyMap, List<?> attrList){
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-     	//keyMap.put(PRIMARYUSERKEY, auth.getName());
 		SearchValue notUser = new SearchValue(SearchValue.NOT_EQUAL,auth.getName());
 		keyMap.put(PRIMARYUSERKEY, notUser);
 		return this.daoHelper.query(carDao, keyMap, attrList, CarDao.AVAILABLE_CARS);
