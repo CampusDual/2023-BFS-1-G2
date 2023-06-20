@@ -12,8 +12,6 @@ export class HomeDetailComponent implements OnInit {
 
  @ViewChild('formCar', { static: false }) formCar: OFormComponent;
 
-
-
   @ViewChild('formRent', { static: false }) formRent: OFormComponent;
   dialogForm : FormGroup;
   constructor(private fb: FormBuilder) { }
@@ -22,12 +20,10 @@ export class HomeDetailComponent implements OnInit {
     this.dialogForm = this.fb.group({}); 
 
     if(this.dialogForm.enabled) {
-      document.querySelector('.o-grid-toolbar').setAttribute('style', "opacity: 0.1")
+      // document.querySelector('.o-grid-toolbar').setAttribute('style', "opacity: 0.1")
       document.querySelectorAll('.grid-item').forEach( element => {
         element.setAttribute('style', "opacity: 0.1")
       })
-    }else {
-      document.querySelector('.o-grid-toolbar').setAttribute('style', "opacity: 1")
     }
   }
 

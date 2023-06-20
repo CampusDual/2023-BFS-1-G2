@@ -67,12 +67,14 @@
   "total_price":"Precio total",
   "date_range": "Rango fechas disponible",
   "Error when renting": "Error al alquilar",
-  "Successful rental": "Alquier con éxito",
+  "Successful rental": "Alquiler realizado con éxito",
   "Saving data failed": "Error al guardar datos",
   "Are you really sure you want to do this? All changes will be lost" : "¿Estás realmente seguro de que quieres hacer esto? Todos los cambios se perderán",
   "Coche registrado" :"Coche registrado",
   "Error en la inserción":"Error en la inserción",
   "Registrado con exito" : "Registrado con éxito",
-  "car_photo":"Foto coche"
-
+  "car_photo":"Foto coche",
+  "Modification done successfully": "Modificación realizada con éxito",
+  "Car removed" : "Coche eliminado",
+  "Erase failed": "Error en el borrado"
 }

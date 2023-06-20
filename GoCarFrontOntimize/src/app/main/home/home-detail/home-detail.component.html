@@ -1,4 +1,4 @@
-<o-form  #formCar mode="dialog" class="cars-detail" service="cars" entity="car" keys="car_id" keys-sql-types="INTEGER" header-actions="U;D" 
+<o-form  #formCar mode="dialog" class="cars-detail" service="cars" entity="car" keys="car_id" message-service-type="customMessageServiceTypeCar" keys-sql-types="INTEGER" header-actions="U;D" 
    show-header="no">
   <div class="form">
     <o-row>
@@ -21,10 +21,10 @@
       </div>
       <div class="cars-new-principal-row-column-info">
         <div>
-          <span>Model: {{formCar.getFieldValue('model')}}</span>
+          <span>{{formCar.getFieldValue('model')}}</span>
         </div>
         <div>
-          <span>Brand: {{formCar.getFieldValue('brand')}}</span>
+          <span>{{formCar.getFieldValue('brand')}}</span>
         </div>
         <div>
           <span>{{formCar.getFieldValue('daily_rental_price')}}</span><mat-icon>euro</mat-icon><span>/day</span>

@@ -12,7 +12,6 @@ export class CustomMessageServiceCar extends OFormMessageService {
     return 'Saving data failed';
   }
   
-  
   public getInsertSuccessMessage(): string {
     return 'Coche registrado'
   }
@@ -21,5 +20,15 @@ export class CustomMessageServiceCar extends OFormMessageService {
     return 'Error en la inserción';
   }
 
-  
+  getUpdateSuccessMessage(): string {
+    return 'Modification done successfully';
+  }
+  getDeleteSuccessMessage(): string {
+    return 'Car removed';
+  }
+
+  getDeleteErrorMessage(): string {
+    return 'Erase failed';
+  }
+ 
 }

@@ -171,7 +171,7 @@ mat-icon{
 .list-item:hover::after {
     bottom: 0;
     right: 0;
-    animation: border 2s 1s infinite, borderColor 2s 1s infinite;
+    animation: border 2s 1s infinite, borderColor2 2s 1s infinite;
 }
 /*Definicion de comportamientos de bordes*/
 @keyframes border {
@@ -194,7 +194,7 @@ mat-icon{
   }
 
 /*Colores de bordes*/
-@keyframes borderColor {
+@keyframes borderColor2 {
     0% {
       border-bottom-color: #e91e63;
       border-left-color: #e91e63;
