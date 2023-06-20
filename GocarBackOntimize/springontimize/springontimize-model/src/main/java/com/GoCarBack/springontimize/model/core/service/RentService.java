@@ -38,6 +38,7 @@ public class RentService implements IRentService {
 	}
 
 	public EntityResult rentInsert(Map<String, Object> attrMap) {
+		//We recover the id_user that is logged in, and we put it in the map to save it in the database
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		attrMap.put(USER_RENT, auth.getName());
 		return this.daoHelper.insert(rentDao, attrMap);

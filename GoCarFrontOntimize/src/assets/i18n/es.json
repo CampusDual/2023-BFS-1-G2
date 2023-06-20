@@ -76,5 +76,6 @@
   "car_photo":"Foto coche",
   "Modification done successfully": "Modificación realizada con éxito",
   "Car removed" : "Coche eliminado",
-  "Erase failed": "Error en el borrado"
+  "Erase failed": "Error en el borrado",
+  "DATERANGE.APPLYLABEL": "Seleccionar fechas"
 }

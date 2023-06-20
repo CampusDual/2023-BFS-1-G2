@@ -21,8 +21,6 @@
                 <Column>rental_start_date</Column>
                 <Column>rental_end_date</Column>
                 <Column>total_price</Column>
-
-
             </ValidColumns>
             <Sentence>
                 <![CDATA[
