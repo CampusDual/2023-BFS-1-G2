@@ -42,5 +42,3 @@ export class CarsDetailComponent implements OnInit {
   }
 
 }
-
-
