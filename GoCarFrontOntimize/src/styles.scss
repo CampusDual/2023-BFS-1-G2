@@ -58,11 +58,13 @@
 .o-form-toolbar .mat-toolbar {
   box-shadow: none;
   background-color: white;
+  
  
 }
 
 .o-form-toolbar{
   margin: 0 auto;
+  margin-top: 38px;
 }
 
 // .mat-form-field-wrapper{
@@ -72,4 +74,5 @@
 .o-grid-toolbar.o-data-toolbar.ng-star-inserted * {
   color: #e91e63 !important;
   // background-color: #e91e63 !important;
+
 }
