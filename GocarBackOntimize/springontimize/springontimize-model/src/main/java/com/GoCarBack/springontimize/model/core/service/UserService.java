@@ -9,6 +9,8 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import com.GoCarBack.springontimize.api.core.service.IUserService;
@@ -21,6 +23,7 @@ import com.ontimize.jee.server.dao.DefaultOntimizeDaoHelper;
 @Service("UserService")
 public class UserService implements IUserService {
 
+	private static final String PRIMARYUSERKEY = "user_id";
 	@Autowired
 	private UserDao userDao;
 
@@ -36,7 +39,11 @@ public class UserService implements IUserService {
 		return this.daoHelper.query(userDao, keyMap, attrList);
 	}
 
-	public EntityResult userInsert(Map<?, ?> attrMap) {
+	public EntityResult userInsert(Map<String, Object > attrMap) {
+
+		String nif = (String) attrMap.get("nif");
+		attrMap.put("nif", nif.toUpperCase());
+
 		return this.daoHelper.insert(userDao, attrMap);
 	}
 
