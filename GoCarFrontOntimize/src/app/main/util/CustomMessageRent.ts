@@ -11,8 +11,7 @@ export class CustomMessageServiceRent extends OFormMessageService {
   getUpdateErrorMessage(): string {
     return 'Saving data failed';
   }
-  
-  
+   
   public getInsertSuccessMessage(): string {
     return 'Successful rental'
   }
