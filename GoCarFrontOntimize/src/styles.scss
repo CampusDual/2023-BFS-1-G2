@@ -15,7 +15,7 @@
   background-color: transparent;
   border-radius: 8px;
   box-shadow: none;
- background-color: #eceff1;
+ background-color: white;
   // box-shadow: 5px 5px 15px #fff ;
 }
 
@@ -55,3 +55,7 @@
   top: -65px !important;
 }
 
+.o-form-toolbar .mat-toolbar {
+  box-shadow: none;
+  background-color: white;
+}
