@@ -78,5 +78,6 @@
   "Car removed" : "Coche eliminado",
   "Erase failed": "Error en el borrado",
   "DATERANGE.APPLYLABEL": "Seleccionar fechas",
-  "day": "dia"
+  "day": "dia",
+  "until": "Hasta"
 }

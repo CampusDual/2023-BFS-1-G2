@@ -18,6 +18,8 @@ import com.GoCarBack.springontimize.model.core.dao.RentDao;
 import com.ontimize.jee.common.dto.EntityResult;
 import com.ontimize.jee.server.dao.DefaultOntimizeDaoHelper;
 
+import static com.GoCarBack.springontimize.model.core.service.CarService.formatDateDateRange;
+
 
 @Lazy
 @Service("RentService")
@@ -41,6 +43,14 @@ public class RentService implements IRentService {
 		//We recover the id_user that is logged in, and we put it in the map to save it in the database
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		attrMap.put(USER_RENT, auth.getName());
+
+		Map<String, Object> dateRangeMap = (Map<String, Object>) attrMap.get("daterange");
+		String startDate= (String) dateRangeMap.get("startDate");
+		String endDate= (String) dateRangeMap.get("endDate");
+
+		attrMap.put("rental_start_date", formatDateDateRange(startDate));
+		attrMap.put("rental_end_date", formatDateDateRange(endDate));
+
 		return this.daoHelper.insert(rentDao, attrMap);
 	}
 

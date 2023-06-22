@@ -76,7 +76,9 @@
   "car_photo":"Car photo",
   "Modification done successfully" : "Modification done successfully",
   "Car removed" : "Car removed",
-  "Erase failed": "Erase failed"
+  "Erase failed": "Erase failed",
+  "day": "day",
+  "until": "Until"
  
 
 }

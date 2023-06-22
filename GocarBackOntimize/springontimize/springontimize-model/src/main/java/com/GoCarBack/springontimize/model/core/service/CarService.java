@@ -80,7 +80,7 @@ public class CarService implements ICarService {
 		return this.daoHelper.query(carDao, keyMap, attrList, CarDao.AVAILABLE_CARS);
 	}
 
-	public Date formatDateDateRange(String date){
+	public static Date formatDateDateRange(String date){
 		//Create a pattern to transform the date and then return it formatted
 		DateTimeFormatter pattern = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
 		ZonedDateTime dateTimeStart = ZonedDateTime.parse(date, pattern);
