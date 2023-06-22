@@ -58,6 +58,9 @@ public class CarService implements ICarService {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		attrMap.put(PRIMARYUSERKEY, auth.getName());
 
+		String plate = (String) attrMap.get("plate");
+		attrMap.put("plate", plate.toUpperCase());
+
 		//We retrieve the map that returns the date range and access its values
 		Map<String, Object> dateRangeMap = (Map<String, Object>) attrMap.get("daterange");
 		String startDate= (String) dateRangeMap.get("startDate");
