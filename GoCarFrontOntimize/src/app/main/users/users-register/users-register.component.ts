@@ -13,8 +13,6 @@ import { AuthService, OFormComponent, OntimizeService } from 'ontimize-web-ngx';
 })
 export class UsersRegisterComponent implements OnInit {
 
-  
-  
   protected userService : OntimizeService;
   validatorsConfirmPasswordArray: ValidatorFn[] = []; //array para la validación de 2 contraseñas iguales.
 
@@ -35,12 +33,9 @@ export class UsersRegisterComponent implements OnInit {
     
     ngOnInit() {
       this.dialogForm = this.fb.group({}); 
-   
       this.configureUserService();
-   
   }
-  
-  
+
   public async send(){
     const password = this.form.formGroup.get('password').value;
     const confirmPassword = this.form.formGroup.get('confirm_password').value;
@@ -52,19 +47,8 @@ export class UsersRegisterComponent implements OnInit {
       // this.error = false;
       alert("Las contraseñas no coinciden");
      
-      
     }else{
-      // this.error = true
       this.form.insert()
-     
-      //INTENTO DE LOGIN DESPUES DE REGISTRO Y REDIRECCIONAR. FALLABA A LA HORA DEL LOGIN
-      // if (userName && userName.length > 0 && password && password.length > 0) {
-      //   const self = this;
-      //   this.authService.login(userName, password)
-      //     .subscribe(() => {
-      //       self.router.navigate(['/main/home']);
-      //     }, this.handleError)
-      // }
     }
     }
   

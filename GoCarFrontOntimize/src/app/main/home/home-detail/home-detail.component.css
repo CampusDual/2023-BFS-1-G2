@@ -10,14 +10,13 @@
     padding: .4rem;
     opacity: 1;
     background-color: transparent;
-  
 }
 .botonrent{
     margin-top: 30px;
 }
+
 .ontimize-buttons o-button{
     width: 180px;
-
 }
 
 .cars-new-principal-row-column-info {
@@ -47,9 +46,6 @@
     height: 3.6rem;
     display: none;
 }
-/* .cars-new-principal-row-column-info-row::-webkit-scrollbar{
-    display: hidden;
-} */
 
 .cars-new-principal-row-column-row {
     border-radius: 8px;
@@ -64,6 +60,7 @@
 .ontimize-buttons-button{
     background-color: transparent;
 }
+
 .cars-new-principal-row-column-requireInputs {
     /* border: 2px solid brown; */
     width: 20rem;
@@ -86,9 +83,7 @@
     flex-direction: column;  
     border-radius: 8px;
 }
-.form .prueba:hover ~ .cars-new-principal-row-column-info{
-  
-}
+
 .form .prueba:hover ~ .cars-new-principal-row-column-info {
     scale: 1.1;
 }
