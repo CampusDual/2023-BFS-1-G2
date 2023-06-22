@@ -1,38 +1,24 @@
-<o-form #form mode="dialog" class="cars-new" message-service-type="customMessageServiceTypeCar" service="cars" entity="myCar" header-actions="R;I;U;D" show-header="yes">
+
+
+
+<o-form #form mode="dialog" class="cars-new" message-service-type="customMessageServiceTypeCar" service="cars" entity="car" keys="car_id" keys-sql-types="INTEGER" header-actions="U;D" show-header="yes">
   <o-row>
-    <!-- COLUMN LEFT -->
-    <o-column  class="leftColumn" fxFlex="50%">
-      <!-- BRAND -->
-      <o-row>
-        <o-combo attr="brand" service="cars_brands" entity="brand" fxFlex="100%" value-column="brand_name" columns="brand_name" visible-columns="brand_name"></o-combo>
-      </o-row>
-      <!-- MODEL -->
-      <o-row>
-        <o-text-input class="input-padding" attr="model" fxFlex="100%" required="yes"></o-text-input>
-      </o-row>
-      <!-- PLATE -->
-      <o-row>
-        <o-text-input class="input-padding" attr="plate" fxFlex="100%" required="yes" placeholder="1234ABC" [validators]="validatorsConfirmPlateArray">
-          <o-validator error-name="plateNotFormat" error-text="Invalid registration format"></o-validator>
-        </o-text-input>
-      </o-row>
-      <!-- PRICE PER DAY -->
-      <o-row>
-        <o-integer-input attr="daily_rental_price" label="Price_per_day" fxFlex="100%" min="1" max="100" required="yes"></o-integer-input>
-      </o-row>
-      <!-- DATE RANGE -->
-      <o-row>
-        <o-daterange-input attr="daterange" label="date_range" fxFlex="100%" [min]="currentDay()" format="YYYY/MM/DD" required="yes"></o-daterange-input>
-      </o-row>
-      <!-- LOCATION -->
-      <o-row class="row-location">
-        <o-text-input attr="location" decimal-separator="," fxFlex="100%" max-decimal-digits="10" min-decimal-digits="0" class="input-padding" fxFlex="100%"></o-text-input>
-      </o-row>
+    <o-column class="leftColumn" fxFlex="40%">
+      <o-combo attr="brand" service="cars_brands" entity="brand" value-column="brand_name" columns="brand_name" visible-columns="brand_name"></o-combo>
+      <o-text-input class="input-padding" attr="model" fxFlex="100%" required="yes"></o-text-input>
+      <o-text-input class="input-padding" attr="plate" fxFlex="100%" required="yes" placeholder="1234ABC" [validators]="validatorsConfirmPlateArray">
+        <o-validator error-name="plateNotFormat" error-text="Invalid registration format"></o-validator>
+      </o-text-input>
+      <o-integer-input attr="daily_rental_price" label="Price_per_day" min="1" max="100" required="yes"></o-integer-input>
+      <o-text-input attr="location" decimal-separator="," max-decimal-digits="10" min-decimal-digits="0" class="input-padding" fxFlex="100%"></o-text-input>
     </o-column>
-    <!-- COLUMN RIGHT -->
-    <o-column  fxFlex="50%">
-      <!-- PHOTO -->
-      <o-image  class="photoCar" attr="car_photo" title="car_photo" avatar="yes" empty-image="./src/assets/images/no-image.png" image-type="base64" show-controls="yes" read-only="no"></o-image>
+    <o-column fxFlex="60%">
+      <o-image attr="car_photo" title="car_photo" class="photoCar" orderable="no" searchable="no" type="image" avatar="yes" empty-image="src\assets\images\no-image.png" image-type="base64"></o-image>
+    </o-column>
+  </o-row>
+  <o-row>
+    <o-column class="leftColumn" fxFlex="40%">
+      <o-daterange-input attr="daterange" label="date_range" fxFlex="100%" [min]="currentDay()" format="YYYY/MM/DD" required="yes"></o-daterange-input>
     </o-column>
   </o-row>
 </o-form>
