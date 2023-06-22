@@ -1,5 +1,5 @@
 .cars-new {
-    width: 400px;
+    /* width: 400px; */
     margin: auto;
     display: flex;
     flex-direction: column-reverse;
@@ -30,3 +30,11 @@
 
 }
 
+.leftColumn{
+    margin-right: 30px;
+   
+}
+
+.photoCar{
+    height: 95%;
+}
