@@ -12,13 +12,9 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
-import com.ontimize.jee.common.db.SQLStatementBuilder;
-import com.ontimize.jee.common.db.SQLStatementBuilder.BasicExpression;
-import com.ontimize.jee.common.db.SQLStatementBuilder.BasicField;
-import com.ontimize.jee.common.db.SQLStatementBuilder.BasicOperator;
-
-import java.util.List;
-import java.util.Map;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 
 @Lazy
@@ -32,16 +28,10 @@ public class CarService implements ICarService {
 	@Autowired
 	private DefaultOntimizeDaoHelper daoHelper;
 
-	public void loginQuery(Map<?, ?> key, List<?> attr) {
-	}
-
-	//Sample to permission
-	//@Secured({ PermissionsProviderSecured.SECURED })
 	public EntityResult carQuery(Map<?, ?> keyMap, List<?> attrList) {
-		EntityResult result = this.daoHelper.query(carDao, keyMap, attrList);
-
-		return result;
+		return  this.daoHelper.query(carDao, keyMap, attrList);
 	}
+
 	public EntityResult carInsert(Map<?, ?> attrMap) {
 		return this.daoHelper.insert(carDao, attrMap);
 	}
@@ -56,6 +46,7 @@ public class CarService implements ICarService {
 
 	@Override
 	public EntityResult myCarQuery(Map<String, Object> keyMap, List<?> attrList) {
+		//We recover the id_user that is logged in, and we put it in the map to save it in the database
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		keyMap.put(PRIMARYUSERKEY, auth.getName());
 		return this.daoHelper.query(carDao, keyMap, attrList);
@@ -63,19 +54,43 @@ public class CarService implements ICarService {
 
 	@Override
 	public EntityResult myCarInsert(Map<String, Object> attrMap) {
-		//Recuperamos el id_user que esta logueado y lo metemos en el map para guardalo en la bbdd
+		//We recover the id_user that is logged, and we put it in the map to save it in the database
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		attrMap.put(PRIMARYUSERKEY, auth.getName());
+
+		String plate = (String) attrMap.get("plate");
+		attrMap.put("plate", plate.toUpperCase());
+
+		//We retrieve the map that returns the date range and access its values
+		Map<String, Object> dateRangeMap = (Map<String, Object>) attrMap.get("daterange");
+		String startDate= (String) dateRangeMap.get("startDate");
+		String endDate= (String) dateRangeMap.get("endDate");
+
+		attrMap.put("start_date_available", formatDateDateRange(startDate));
+		attrMap.put("end_date_available", formatDateDateRange(endDate));
+
 		return this.daoHelper.insert(carDao,attrMap);
 	}
 
 	@Override
 	public EntityResult availableCarsQuery(Map<String, Object> keyMap, List<?> attrList){
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-     	//keyMap.put(PRIMARYUSERKEY, auth.getName());
+
+		//We create a SearchValue in which it is not equal to the registered user and then we add it to the map
 		SearchValue notUser = new SearchValue(SearchValue.NOT_EQUAL,auth.getName());
 		keyMap.put(PRIMARYUSERKEY, notUser);
+
 		return this.daoHelper.query(carDao, keyMap, attrList, CarDao.AVAILABLE_CARS);
+	}
+
+
+
+	public static Date formatDateDateRange(String date){
+		//Create a pattern to transform the date and then return it formatted
+		DateTimeFormatter pattern = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
+		ZonedDateTime dateTimeStart = ZonedDateTime.parse(date, pattern);
+		Date finalDate = Date.from(dateTimeStart.toInstant());
+		return finalDate;
 	}
 
 }

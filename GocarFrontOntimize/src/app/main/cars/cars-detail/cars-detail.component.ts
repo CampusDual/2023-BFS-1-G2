@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
+import { Component, OnInit, ViewChild} from '@angular/core';
+import { AbstractControl, ValidationErrors, ValidatorFn, FormBuilder, FormGroup } from '@angular/forms';
+import {  OFormComponent } from 'ontimize-web-ngx';
 
 @Component({
   selector: 'app-cars-detail',
@@ -10,8 +11,10 @@ export class CarsDetailComponent implements OnInit {
 
   validatorsConfirmPlateArray: ValidatorFn[] = [];
 
-   
-   constructor() {  
+  @ViewChild('form', { static: false }) form: OFormComponent;
+  dialogForm : FormGroup;
+
+   constructor( private fb: FormBuilder,) {  
 
     this.validatorsConfirmPlateArray.push(this.plateFormatValidator);
 
@@ -19,7 +22,12 @@ export class CarsDetailComponent implements OnInit {
  
 
   ngOnInit() {
+    this.dialogForm = this.fb.group({});
+
+  
   }
+
+
 
   plateFormatValidator(control: AbstractControl): ValidationErrors | null {
   

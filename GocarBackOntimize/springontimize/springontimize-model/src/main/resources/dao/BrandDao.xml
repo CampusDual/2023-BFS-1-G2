@@ -17,7 +17,6 @@
             <ValidColumns>
                 <Column>brand_id</Column>
                 <Column>brand_name</Column>
-
             </ValidColumns>
             <Sentence>
                 <![CDATA[

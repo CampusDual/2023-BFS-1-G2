@@ -13,6 +13,7 @@ import { UsersRegisterComponent } from './users-register/users-register.componen
     CommonModule,
     OntimizeWebModule,
     UsersRoutingModule
-  ]
+  ],
+
 })
 export class UsersModule { }

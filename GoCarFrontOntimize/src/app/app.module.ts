@@ -6,6 +6,9 @@ import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CONFIG } from './app.config';
+import { CustomMessageServiceUser } from './main/util/CustomMessageUser';
+import { CustomMessageServiceCar } from './main/util/CustomMessageCars';
+import { CustomMessageServiceRent } from './main/util/CustomMessageRent';
 
 
 // Standard providers...
@@ -20,10 +23,8 @@ export const customProviders: any = [
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', 
   
-    { enabled: environment.production,
-   
-    
-   })
+    { enabled: environment.production, }
+    )
   
   ],
   declarations: [
@@ -35,8 +36,11 @@ export const customProviders: any = [
   ],
   providers: [
     { provide: APP_CONFIG, useValue: CONFIG },
+    { provide: 'customMessageServiceTypeUser', useValue: CustomMessageServiceUser },
+    { provide: 'customMessageServiceTypeCar', useValue: CustomMessageServiceCar },
+    { provide: 'customMessageServiceTypeRent', useValue: CustomMessageServiceRent },
     ONTIMIZE_PROVIDERS,
     ...customProviders
-  ],
+  ]
 })
 export class AppModule { }

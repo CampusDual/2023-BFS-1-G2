@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 @Lazy
 @Repository(value = "RentDao")
 @ConfigurationFile(
-	configurationFile = "dao/CarDao.xml",
+	configurationFile = "dao/RentDao.xml",
 	configurationFilePlaceholder = "dao/placeholders.properties")
 public class RentDao extends OntimizeJdbcDaoSupport {
 

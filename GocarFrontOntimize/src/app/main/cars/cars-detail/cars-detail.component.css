@@ -1,8 +1,16 @@
 .cars-detail {
-    width: 400px;
+    /* width: 400px; */
     margin: auto;
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
     justify-content: center;
+}
+
+.leftColumn{
+    margin-right: 30px;
+}
+
+.dateRight{
+    margin-left: 30px;
 }

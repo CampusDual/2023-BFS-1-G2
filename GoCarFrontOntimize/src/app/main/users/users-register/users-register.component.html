@@ -1,10 +1,7 @@
-<o-form class="login-form" #form mode="dialog" (onFormModeChange)="forceInsertMode($event)" (onInsert)="closeDialog($event)" service="users" entity="user"  show-header="no">
+<o-form class="login-form" #form mode="dialog"   message-service-type="customMessageServiceTypeUser" (onFormModeChange)="forceInsertMode($event)" (onInsert)="closeDialog($event)" service="users" entity="user"  show-header="no">
   
   <o-row>
     <o-column title="USER_REGISTER"  class="login-column">
-      <!-- <div class="custom-header">
-        <h2 >Registro de Usuario</h2>
-      </div> -->
       <o-row>
         <o-text-input class="input-padding" attr="name" width="250px" required="yes"></o-text-input>
       </o-row>
@@ -32,9 +29,6 @@
         <o-button attr="basic1" type="STROKED" label="CANCELAR" layout-padding color="primary" (click)="closeDialog()"></o-button>
         <o-button attr="basic1" type="STROKED" label="REGISTRAR" layout-padding color="primary" (click)="send()"></o-button>
       </div>
-      <!-- ERA LA PRIMERA OPCION -->
-      <!-- <button (click)="registryForm.send()">Registro</button> -->
-      
     </o-column>
     
   </o-row>

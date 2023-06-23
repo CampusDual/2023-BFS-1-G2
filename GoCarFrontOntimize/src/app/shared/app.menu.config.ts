@@ -5,7 +5,15 @@ import {
 
 export const MENU_CONFIG: MenuRootItem[] = [
   { id: 'home', name: 'cars renting', icon: 'car_rental', route: '/main/home' },
-  // { id: 'users', name: 'users', icon: 'people', route: '/main/users' },
-  {id: 'cars', name: 'My Cars', icon: 'warehouse', route: '/main/cars'},
-  { id: 'logout', name: 'logout', route: '/login', icon: 'power_settings_new', confirm: 'yes' }
+
+  {id: 'cars', name: 'My garage', icon: 'warehouse', opened: false,
+    items: [
+      {id: 'cars', name: 'My cars', icon: 'directions_car', route: '/main/cars'},
+      {id: 'cars', name: 'Reports & Statistics', icon: 'trending_up', route: '/main/rents'},
+
+    ]},
+
+  {id: 'cars', name: 'My rents', icon: 'menu_book', route: ''},
+
+  {id: 'logout', name: 'logout', route: '/login', icon: 'power_settings_new', confirm: 'yes' }
 ];

@@ -1,31 +1,14 @@
 .cars-new {
-    width: 400px;
-    margin: auto;
-    display: flex;
+  
     flex-direction: column-reverse;
-    align-items: center;
-    justify-content: center;
-}
-.cars-new-principal-row {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 
 }
-.cars-new-principal-row-column {
-    padding: .8rem;  
+
+.leftColumn{
+    margin-right: 30px;
+   
 }
 
-.row-location {
-    display: flex;
-    justify-content: center;
-}
-.input-padding {
-    margin: auto;
-    text-align: center;
-}
-
-.input-car_photo {
-   margin: auto;
-
+.photoCar{
+    height: 85%;
 }

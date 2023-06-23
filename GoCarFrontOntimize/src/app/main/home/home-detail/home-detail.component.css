@@ -1,0 +1,105 @@
+.ontimize-buttons{
+    margin: auto;
+}
+.cars-new-principal-row{
+    display: flex;
+    margin: auto;  
+}
+.cars-detail {
+    border-radius: 8px;
+    padding: .4rem;
+    opacity: 1;
+    background-color: transparent;
+}
+.botonrent{
+    margin-top: 30px;
+}
+
+.ontimize-buttons o-button{
+    width: 180px;
+}
+
+.cars-new-principal-row-column-info {
+    padding: .4rem;
+    transition: all 1s ease;
+    border-radius: 8px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    width: 12rem;
+    height: 8rem;  
+    font-size: 14px;
+    background-color: transparent;
+    box-shadow: 1px 1px 15px inset #fff;
+    color: #e91e63;
+    border-bottom: 2px solid #F1AD2D;
+}
+
+.cars-new-principal-row-column-info div {
+    font-weight: bold;
+    display: flex;
+    border-bottom: 2px solid #F1AD2D;
+}
+.cars-new-principal-row-column-info-row {
+    height: 3.6rem;
+    display: none;
+}
+
+.cars-new-principal-row-column-row {
+    border-radius: 8px;
+    background-color: transparent;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    gap: 4rem;
+}
+.ontimize-buttons-button{
+    background-color: transparent;
+}
+
+.cars-new-principal-row-column-requireInputs {
+    /* border: 2px solid brown; */
+    width: 20rem;
+    border-radius: 8px;
+    margin: auto;
+    background-color: transparent;
+    box-shadow: 1px 1px 15px inset #fff;
+    border-bottom: 2px solid #F1AD2D;
+    color: #e91e63;
+}
+.totalprice-amount{
+    color: #e91e63;
+}
+.form{
+    /* background-color: #eceff1; */
+    background-color: transparent;
+    width: 100%;
+    display: flex;
+    gap: 1.3rem;
+    flex-direction: column;  
+    border-radius: 8px;
+}
+
+.form .prueba:hover ~ .cars-new-principal-row-column-info {
+    scale: 1.1;
+}
+.prueba {
+    flex-grow: 1;
+    background-color: transparent;
+    display: flex;
+    place-content: center;
+    align-items: center;
+    border-bottom: 2px solid #F1AD2D;
+    border-radius: 8px;
+}
+.prueba img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+  }
+

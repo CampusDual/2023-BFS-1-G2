@@ -1,13 +1,18 @@
+
+<o-form-layout-manager mode="dialog" title=""  label-columns="name"  attr="o-form-layout-branches-home" color="warn"> 
+  <o-form-layout-dialog-options  title = "Alquiler" width="630px" height="670px" 
+  disable-close="true"></o-form-layout-dialog-options>
+
 <div class="home">
   
   <div class="main-container-title">
-    <h1>WELCOME!!!<span>&#160;</span></h1>
+    <!-- <h1>WELCOME {{user.toUpperCase()}}</h1> -->
   </div>
 
   <o-grid #grid service="cars" entity="availableCars" keys="car_id" columns="car_id;user_id;brand;model;location;start_date_available;plate;end_date_available;car_photo;daily_rental_price"
 
-    show-page-size="yes" fxFlex page-size-options="24;32;64" orderable="yes" sort-column="start_date_available" sortable-columns="brand;model;plate;location;daily_rental_price;start_date_available" attr="gridMyCars" >
-
+  show-page-size="yes" fxFlex page-size-options="12;24;32;64" orderable="yes" sort-column="start_date_available" sortable-columns="brand;model;plate;location;daily_rental_price;start_date_available"
+   attr="gridMyCars" class="main-grid">
 
     <o-grid-item *ngFor="let list of grid.dataArray" class="grid"> 
       <o-column class="grid-item">
@@ -18,8 +23,9 @@
           
         </header>
 
-        <div class="grid-picture">
-          <img src="https://motor.elpais.com/wp-content/uploads/2019/03/Ford-Fiesta-3door-UK-2008-1920x1080-007-1440x740.jpg" />
+        <div class="grid-picture" *ngIf="list.car_photo">
+          <o-image class="picture-car" attr="car_photo" title="car_photo"  [data]= "list.car_photo" orderable="no" searchable="no" avatar="yes" 
+   image-type="base64" show-controls="no" read-only="yes" height="150px"></o-image>
         </div>
        
         <main class="grid-item-body">
@@ -43,5 +49,6 @@
       </o-column>
     </o-grid-item>
   </o-grid>
-  
+
 </div>
+</o-form-layout-manager>
