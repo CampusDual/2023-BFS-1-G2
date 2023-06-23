@@ -14,4 +14,5 @@ public interface IRentService {
 	public EntityResult rentUpdate(Map<?, ?> attrMap, Map<?, ?> keyMap);
 	public EntityResult rentDelete(Map<?, ?> keyMap);
 
+	public EntityResult myCarRentalsQuery(Map<String, Object> keyMap, List<?> attrList);
 }

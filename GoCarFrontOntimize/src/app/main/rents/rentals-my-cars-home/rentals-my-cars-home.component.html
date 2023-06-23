@@ -1,0 +1,16 @@
+<o-form-layout-manager attr="formLayoutMngr" mode="tab" title="Rents my cars" separator=",">
+    <o-table  attr="rents" service="rents" entity="myCarRentals" title="RENTS MY CARS"
+    columns="rent_id;car_id;brand;model;car_photo;user_rent;rental_start_date;rental_end_date;total_price"
+    visible-columns="car_photo;brand;model;user_rent;rental_start_date;rental_end_date;total_price"
+    sort-columns="rental_start_date" keys="rent_id" query-rows="5" quick-filter="yes" delete-button="no" insert-button="no">
+    
+        <o-table-column class="font-table" class="column" title="car_photo" attr="car_photo" orderable="no" searchable="no" type="image"
+            image-type="base64" avatar="yes" >
+        </o-table-column>
+        <o-table-column class="column" attr="brand" title="brand"></o-table-column>
+        <o-table-column class="column" attr="user_rent" title="user_rent"></o-table-column>
+        <o-table-column class="column" attr="rental_start_date" title="rental_start_date" type="date" format="DD/MM/YYYY"></o-table-column>
+        <o-table-column class="column" attr="rental_end_date" title="rental_end_date" type="date" format="DD/MM/YYYY"></o-table-column>
+        <o-table-column class="column" attr="total_price" title="total_price"></o-table-column>
+    </o-table>
+</o-form-layout-manager>

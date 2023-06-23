@@ -76,3 +76,20 @@
   // background-color: #e91e63 !important;
 
 }
+
+.o-table .o-table-container .mat-table.medium tr.mat-row {
+  height: 60px !important;
+}
+
+.o-table {
+  height: 90% !important;
+  margin-top: 50px;
+}
+
+.o-table .o-table-container .mat-table.medium tr.mat-header-row:not(.o-table-insertable) .mat-header-cell {
+  font-size: 16px !important;
+}
+
+.o-table .o-table-container .mat-table.medium tr.mat-row .mat-cell {
+  font-size: 16px !important;
+}

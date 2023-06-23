@@ -9,7 +9,7 @@ export const MENU_CONFIG: MenuRootItem[] = [
   {id: 'cars', name: 'My garage', icon: 'warehouse', opened: false,
     items: [
       {id: 'cars', name: 'My cars', icon: 'directions_car', route: '/main/cars'},
-      {id: 'cars', name: 'Reports & Statistics', icon: 'trending_up', route: '/main/cars'},
+      {id: 'cars', name: 'Reports & Statistics', icon: 'trending_up', route: '/main/rents'},
 
     ]},
 

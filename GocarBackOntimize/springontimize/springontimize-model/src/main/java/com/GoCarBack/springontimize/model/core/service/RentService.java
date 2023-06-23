@@ -62,4 +62,11 @@ public class RentService implements IRentService {
 		return this.daoHelper.delete(this.rentDao, keyMap);
 	}
 
+	@Override
+	public EntityResult myCarRentalsQuery(Map<String, Object> keyMap, List<?> attrList) {
+		//We recover the id_user that is logged in, and we put it in the map to save it in the database
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		keyMap.put("user_id", auth.getName());
+		return this.daoHelper.query(rentDao, keyMap, attrList, "my_car_rentals");
+	}
 }
