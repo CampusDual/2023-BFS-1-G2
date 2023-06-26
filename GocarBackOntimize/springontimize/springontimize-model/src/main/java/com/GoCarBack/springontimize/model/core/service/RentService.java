@@ -26,6 +26,8 @@ import static com.GoCarBack.springontimize.model.core.service.CarService.formatD
 public class RentService implements IRentService {
 
 	private static final String USER_RENT = "user_rent";
+
+
 	@Autowired
 	private RentDao rentDao;
 
@@ -45,8 +47,8 @@ public class RentService implements IRentService {
 		attrMap.put(USER_RENT, auth.getName());
 
 		Map<String, Object> dateRangeMap = (Map<String, Object>) attrMap.get("daterange");
-		String startDate= (String) dateRangeMap.get("startDate");
-		String endDate= (String) dateRangeMap.get("endDate");
+		String startDate = (String) dateRangeMap.get("startDate");
+		String endDate = (String) dateRangeMap.get("endDate");
 
 		attrMap.put("rental_start_date", formatDateDateRange(startDate));
 		attrMap.put("rental_end_date", formatDateDateRange(endDate));
@@ -75,5 +77,13 @@ public class RentService implements IRentService {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		keyMap.put("user_id", auth.getName());
 		return this.daoHelper.query(rentDao, keyMap, attrList, "chart_profit_month");
+	}
+
+	@Override
+	public EntityResult myRentsQuery(Map<String, Object> keyMap, List<?> attrList) {
+		//We recover the id_user that is logged in, and we put it in the map to save it in the database
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		keyMap.put(USER_RENT, auth.getName());
+		return this.daoHelper.query(rentDao, keyMap, attrList, "myRents");
 	}
 }

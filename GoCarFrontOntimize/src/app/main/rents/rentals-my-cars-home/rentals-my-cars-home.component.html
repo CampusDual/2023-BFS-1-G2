@@ -1,6 +1,26 @@
 
 <o-form-layout-manager attr="formLayoutMngr" mode="tab" title="Rents my cars" separator=",">
 
+    <h2>{{"Your profit for month" | oTranslate }}</h2>
+    <o-chart type="discreteBar" x-label="Month" y-label="Totals" service="rents" entity="chartProfitMonth" x-axis="month" y-axis="total" rightAlignYAxis="true" width="90%"></o-chart>
+    
+
+    <o-table  attr="rents" service="rents" entity="myCarRentals" title="RENTS MY CARS"
+    columns="rent_id;car_id;brand;model;car_photo;user_rent;rental_start_date;rental_end_date;total_price;observations"
+    visible-columns="car_photo;brand;model;user_rent;rental_start_date;rental_end_date;total_price;observations"
+    sort-columns="rental_start_date" keys="rent_id" query-rows="5" quick-filter="yes" delete-button="no" insert-button="no">
+    
+        <o-table-column class="font-table" class="column" title="car_photo" attr="car_photo" orderable="no" searchable="no" type="image"
+            image-type="base64" avatar="yes" >
+        </o-table-column>
+        <o-table-column class="column" attr="brand" title="brand"></o-table-column>
+        <o-table-column class="column" attr="user_rent" title="user_rent"></o-table-column>
+        <o-table-column class="column" attr="rental_start_date" title="rental_start_date" type="date" format="DD/MM/YYYY"></o-table-column>
+        <o-table-column class="column" attr="rental_end_date" title="rental_end_date" type="date" format="DD/MM/YYYY"></o-table-column>
+        <o-table-column class="column" attr="total_price" title="total_price"></o-table-column>
+        <o-table-column class="column" attr="observations" title="observations"></o-table-column>
+
+    </o-table>
     <div class="chart" layout="column" fxFlex>
         <div>        <h3 style="text-align: center;">Gráfica JIRA para ingresos totales (falta filtrado por mes) de todos mis coches( car_id/total_price)</h3> <span></span>  </div>
         <div fxLayout="row" fxFlexFill>
@@ -20,22 +40,4 @@
              
         </div>
       </div>
-
-    <o-table  attr="rents" service="rents" entity="myCarRentals" title="RENTS MY CARS"
-    columns="rent_id;car_id;brand;model;car_photo;user_rent;rental_start_date;rental_end_date;total_price;observations"
-    visible-columns="car_photo;brand;model;user_rent;rental_start_date;rental_end_date;total_price;observations"
-    sort-columns="rental_start_date" keys="rent_id" query-rows="5" quick-filter="yes" delete-button="no" insert-button="no">
-    
-        <o-table-column class="font-table" class="column" title="car_photo" attr="car_photo" orderable="no" searchable="no" type="image"
-            image-type="base64" avatar="yes" >
-        </o-table-column>
-        <o-table-column class="column" attr="brand" title="brand"></o-table-column>
-        <o-table-column class="column" attr="user_rent" title="user_rent"></o-table-column>
-        <o-table-column class="column" attr="rental_start_date" title="rental_start_date" type="date" format="DD/MM/YYYY"></o-table-column>
-        <o-table-column class="column" attr="rental_end_date" title="rental_end_date" type="date" format="DD/MM/YYYY"></o-table-column>
-        <o-table-column class="column" attr="total_price" title="total_price"></o-table-column>
-        <o-table-column class="column" attr="observations" title="observations"></o-table-column>
-
-    </o-table>
-
 </o-form-layout-manager>

@@ -59,6 +59,20 @@
                         GROUP BY month;
                 ]]>
             </Sentence>
+
+        </Query>
+        <Query id="myRents">
+            <Sentence>
+                <![CDATA[
+                    SELECT
+                        c.car_id ,c.brand, c.model, c.car_photo, r.rent_id ,r.user_rent , r.rental_start_date, r.rental_end_date , r.total_price, r.observations
+                    FROM
+                        ${mainschema}.tcars c
+                        JOIN trents r on c.car_id = r.car_id
+                    #WHERE#
+
+                ]]>
+            </Sentence>
         </Query>
     </Queries>
 </JdbcEntitySetup>
