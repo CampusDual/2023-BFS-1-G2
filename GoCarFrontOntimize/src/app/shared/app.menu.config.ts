@@ -13,7 +13,7 @@ export const MENU_CONFIG: MenuRootItem[] = [
 
     ]},
 
-  {id: 'cars', name: 'My rents', icon: 'menu_book', route: ''},
+  {id: 'cars', name: 'My rents', icon: 'menu_book', route: '/main/rents/myRentals'},
 
   {id: 'logout', name: 'logout', route: '/login', icon: 'power_settings_new', confirm: 'yes' }
 ];
