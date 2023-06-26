@@ -19,6 +19,15 @@
     <o-text-input class="input-padding" attr="model" fxFlex required="yes" enabled></o-text-input>
     </o-row>
     
+          <!-- USER -->
+    <o-row class="cars-new-principal-row-column-info-row">
+    <o-text-input class="input-padding" attr="user_id" fxFlex required="yes" enabled></o-text-input>
+    </o-row>
+          <!-- LOCATION -->
+          <o-row class="cars-new-principal-row-column-info-row">
+            <o-text-input class="input-padding" attr="location" fxFlex required="yes" enabled></o-text-input>
+            </o-row>
+              
             <!-- PRICE PER DAY -->
     <o-row class="cars-new-principal-row-column-info-row">
       <o-integer-input attr="daily_rental_price" label="Price_per_day" min="1" max="100" required="yes" enabled></o-integer-input>
@@ -29,28 +38,29 @@
       <o-date-input class="input-padding" attr="end_date_available" fxFlex required="yes" enable></o-date-input>
     </o-row>
 
+    <o-column  class="leftColumn" fxFlex="60%" style="height: 500px">
               <!-- PHOTO CAR -->
-    <div class="cars-new-principal-row-column-row">
-      <div class="prueba">
-        <o-image attr="car_photo" title="car_photo" orderable="no" searchable="no" type="image" avatar="yes" show-controls="no" read-only="yes"
-        empty-image="src\assets\images\no-image.png" image-type="base64" width="300px" height="200px"></o-image>
+    <div class="row-car_photo">
+          <o-image attr="car_photo" title="car_photo" orderable="no" searchable="no" type="image" avatar="yes" show-controls="no" read-only="yes"
+      image-type="base64"></o-image>
       </div>
       <div class="cars-new-principal-row-column-info">
+        <h2>Información relativa</h2>
         <div>
-          <span>{{formCar.getFieldValue('brand')}}</span>
-        </div>
-        <div>
-          <span>{{formCar.getFieldValue('model')}}</span>
+          <span>{{formCar.getFieldValue('brand')}} - {{formCar.getFieldValue('model')}}</span>
         </div>
         <div>
           <span>{{formCar.getFieldValue('daily_rental_price')}}</span><mat-icon>euro</mat-icon><span>/{{ 'day' | oTranslate }}</span>
         </div>
         <div>
           <span>{{ 'until' | oTranslate }} {{convertDate(formCar.getFieldValue('end_date_available'))}}</span>
-
         </div>
+       
      </div>
-    </div>
+ 
+  </o-column>
+  <o-column class="rightColumn" fxFlex="40%">
+    <h2>Formaliza tu alquiler</h2>
     <div class="cars-new-principal-row-column-requireInputs">
 
                   <!-- FORM RENT -->
@@ -62,13 +72,18 @@
         </o-row>
 
                   <!-- DATERANGE  -->
-        <o-row>
+        <o-row class="inputRent">
             <o-daterange-input attr="daterange" label="date_range" [min]="currentDay()" [max]="convertDate(formCar.getFieldValue('end_date_available'))" format="YYYY/MM/DD"  required="yes" (onChange)="calculatePrice()"></o-daterange-input>
         </o-row>
 
                     <!-- TOTAL PRICE -->
-        <o-row class="totalprice">
+        <o-row class="inputRent">
             <o-integer-input attr="total_price" label="total_price" required="yes" enabled class="totalprice-amount"></o-integer-input>
+        </o-row>
+
+                    <!-- OBSERVATIONS -->
+        <o-row class="inputRent">
+          <o-textarea-input attr="observations" label="observations"  required="no" read-only="no"></o-textarea-input>
         </o-row>
 
                     <!-- BUTTON INSERT  -->
@@ -79,6 +94,7 @@
         </o-row>
       </o-form>
     </div>
+  </o-column>
   </div>
 </o-form>
 

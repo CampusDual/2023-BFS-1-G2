@@ -82,5 +82,7 @@
   "Erase failed": "Error en el borrado",
   "DATERANGE.APPLYLABEL": "Seleccionar fechas",
   "day": "dia",
-  "until": "Hasta"
+  "until": "Hasta",
+  "observations":"Observaciones:",
+  "user_rent":"Usuario/a"
 }

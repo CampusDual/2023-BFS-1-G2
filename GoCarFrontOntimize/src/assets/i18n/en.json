@@ -81,7 +81,9 @@
   "Car removed" : "Car removed",
   "Erase failed": "Erase failed",
   "day": "day",
-  "until": "Until"
+  "until": "Until",
+  "observations":"Observations:",
+  "user_rent":"User"
  
 
 }

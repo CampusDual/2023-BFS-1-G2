@@ -21,6 +21,8 @@
                 <Column>rental_start_date</Column>
                 <Column>rental_end_date</Column>
                 <Column>total_price</Column>
+                <Column>observations</Column>
+
             </ValidColumns>
             <Sentence>
                 <![CDATA[
@@ -36,7 +38,7 @@
             <Sentence>
                 <![CDATA[
                     SELECT
-                        c.car_id ,c.brand, c.model, c.car_photo, r.rent_id ,r.user_rent , r.rental_start_date, r.rental_end_date , r.total_price
+                        c.car_id ,c.brand, c.model, c.car_photo, r.rent_id ,r.user_rent , r.rental_start_date, r.rental_end_date , r.total_price, r.observations
                     FROM
                         ${mainschema}.tcars c
                         JOIN trents r on c.car_id = r.car_id
