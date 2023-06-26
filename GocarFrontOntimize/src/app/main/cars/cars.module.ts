@@ -6,6 +6,8 @@ import { CarsRoutingModule } from './cars-routing.module';
 import { CarsHomeComponent } from './cars-home/cars-home.component';
 import { CarsDetailComponent } from './cars-detail/cars-detail.component';
 import { CarsNewComponent } from './cars-new/cars-new.component';
+import { OChartModule } from 'ontimize-web-ngx-charts';
+
 
 
 @NgModule({
@@ -13,7 +15,8 @@ import { CarsNewComponent } from './cars-new/cars-new.component';
   imports: [
     CommonModule,
     OntimizeWebModule,
-    CarsRoutingModule
+    CarsRoutingModule,
+    OChartModule
   ]
 })
 export class CarsModule { }

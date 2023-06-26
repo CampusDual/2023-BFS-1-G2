@@ -47,6 +47,18 @@
                 ]]>
             </Sentence>
         </Query>
-
+        <Query id="chart_profit_month">
+            <Sentence>
+                <![CDATA[
+                    SELECT
+                        EXTRACT(MONTH FROM r.rental_start_date) AS month, sum(r.total_price) AS total
+                    FROM
+                        ${mainschema}.tcars c
+                        JOIN trents r on c.car_id = r.car_id
+                    #WHERE#
+                        GROUP BY month;
+                ]]>
+            </Sentence>
+        </Query>
     </Queries>
 </JdbcEntitySetup>

@@ -7,9 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarsHomeComponent implements OnInit {
 
+  protected data: [1, 2, 3, 4];
   
   ngOnInit(): void {
-    
+  
   }
   constructor(){}
   
@@ -18,4 +19,7 @@ export class CarsHomeComponent implements OnInit {
     return (newDate.toLocaleDateString());
   }
   
+  
 }
+
+

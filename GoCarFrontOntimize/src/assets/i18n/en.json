@@ -83,7 +83,8 @@
   "day": "day",
   "until": "Until",
   "observations":"Observations:",
-  "user_rent":"User"
+  "user_rent":"User",
+  "Your profit for month": "Your profit for month"
  
 
 }
