@@ -37,7 +37,7 @@
     <o-row class="cars-new-principal-row-column-info-row">
       <o-date-input class="input-padding" attr="end_date_available" fxFlex required="yes" enable></o-date-input>
     </o-row>
-
+<div class="columnscontainer">
     <o-column  class="leftColumn" fxFlex="60%" style="height: 500px">
               <!-- PHOTO CAR -->
     <div class="row-car_photo">
@@ -45,22 +45,26 @@
       image-type="base64"></o-image>
       </div>
       <div class="cars-new-principal-row-column-info">
-        <h2>Información relativa</h2>
+        <h2>{{ 'Información relativa' | oTranslate }}</h2>
         <div>
           <span>{{formCar.getFieldValue('brand')}} - {{formCar.getFieldValue('model')}}</span>
         </div>
         <div>
-          <span>{{formCar.getFieldValue('daily_rental_price')}}</span><mat-icon>euro</mat-icon><span>/{{ 'day' | oTranslate }}</span>
+          <span>{{formCar.getFieldValue('daily_rental_price')}}<mat-icon>euro</mat-icon>/{{ 'day' | oTranslate }}</span>
         </div>
         <div>
-          <span>{{ 'until' | oTranslate }} {{convertDate(formCar.getFieldValue('end_date_available'))}}</span>
+          <span><mat-icon>person_outline</mat-icon>{{formCar.getFieldValue('user_id')}}  -  {{formCar.getFieldValue('location')}}<mat-icon>place</mat-icon></span>
         </div>
+     
+        <!-- <div>
+          <span>{{ 'until' | oTranslate }} {{convertDate(formCar.getFieldValue('end_date_available'))}}</span>
+        </div> -->
        
      </div>
  
   </o-column>
   <o-column class="rightColumn" fxFlex="40%">
-    <h2>Formaliza tu alquiler</h2>
+    <h2>{{ 'Formaliza tu alquiler' | oTranslate }}</h2>
     <div class="cars-new-principal-row-column-requireInputs">
 
                   <!-- FORM RENT -->
@@ -77,24 +81,28 @@
         </o-row>
 
                     <!-- TOTAL PRICE -->
-        <o-row class="inputRent">
-            <o-integer-input attr="total_price" label="total_price" required="yes" enabled class="totalprice-amount"></o-integer-input>
+        <o-row class="totalprice">
+            <o-integer-input attr="total_price" label="total_price" required="yes" enabled class="totalprice-amount" ></o-integer-input>
         </o-row>
 
                     <!-- OBSERVATIONS -->
-        <o-row class="inputRent">
+        <o-row class="observations">
           <o-textarea-input attr="observations" label="observations"  required="no" read-only="no"></o-textarea-input>
         </o-row>
 
                     <!-- BUTTON INSERT  -->
-        <o-row class="botonrent">
-          <div class="ontimize-buttons">
-            <o-button attr="basic1" type="STROKED" label="RENT" layout-padding color="primary" (click)="insertRent()"></o-button>
-          </div>
-        </o-row>
-      </o-form>
-    </div>
-  </o-column>
+                  </o-form>
+                </div>
+              </o-column>
+            </div>
+            <div class="containerbutton">
+               
+   
+      <o-button attr="basic1" type="STROKED" label="RENT" layout-padding color="primary" (click)="insertRent()"></o-button>
+
+
+  
+</div>
   </div>
 </o-form>
 

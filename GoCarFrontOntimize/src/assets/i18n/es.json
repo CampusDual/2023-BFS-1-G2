@@ -81,9 +81,11 @@
   "Car removed" : "Coche eliminado",
   "Erase failed": "Error en el borrado",
   "DATERANGE.APPLYLABEL": "Seleccionar fechas",
-  "day": "dia",
+  "day": "día",
   "until": "Hasta",
   "observations":"Observaciones:",
   "user_rent":"Usuario/a",
-  "Your profit for month": "Su beneficio por mes"
+  "Your profit for month": "Su beneficio por mes",
+  "Formaliza tu alquiler" : "Formaliza tu alquiler",
+  "Información relativa" : "Información relativa"
 }

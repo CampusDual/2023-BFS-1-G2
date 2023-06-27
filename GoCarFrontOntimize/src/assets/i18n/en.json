@@ -84,7 +84,9 @@
   "until": "Until",
   "observations":"Observations:",
   "user_rent":"User",
-  "Your profit for month": "Your profit for month"
+  "Your profit for month": "Your profit for month",
+  "Formaliza tu alquiler" : "Formalize your rental",
+  "Información relativa" : "Relative information"
  
 
 }
