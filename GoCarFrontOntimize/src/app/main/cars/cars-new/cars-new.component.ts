@@ -22,6 +22,10 @@ export class CarsNewComponent implements OnInit {
    @ViewChild('form', { static: false }) form: OFormComponent;
 
    dialogForm : FormGroup;
+
+  //  Para servicio de mapa
+   public longitude;
+   public latitude;
   
    constructor(public injector : Injector, private dialogRef: MatDialogRef<CarsNewComponent>, private fb: FormBuilder,) {  
 
@@ -41,6 +45,8 @@ export class CarsNewComponent implements OnInit {
     }catch(e){
       }
   }
+
+
      ngOnInit() {
 
     
@@ -60,5 +66,24 @@ export class CarsNewComponent implements OnInit {
       return today.currentDay();;
       }
   
-
+      //Para servicios mapa
+      onFormDataLoaded(data: any) {
+        if (data.LATITUDE) {
+          this.latitude = data.LATITUDE;
+        }
+        if (data.LONGITUDE) {
+          this.longitude = data.LONGITUDE;
+        }
+      }
+    
+      hasGPSPositition() {
+        if (this.latitude && this.longitude) {
+          return true;
+        }
+        return false;
+      }
+    
+      getPositionGPS() {
+        return this.latitude + ',' + this.longitude;
+      }
 }

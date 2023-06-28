@@ -1,4 +1,4 @@
-<o-form #form mode="dialog" class="cars-new" message-service-type="customMessageServiceTypeCar" service="cars" entity="car" keys="car_id" keys-sql-types="INTEGER" header-actions="U;D" show-header="yes">
+<o-form #form  class="cars-new" message-service-type="customMessageServiceTypeCar" service="cars" entity="car" keys="car_id" keys-sql-types="INTEGER" header-actions="U;D" show-header="yes">
   <o-row>
     <!-- COLUMN LEFT -->
     <o-column  class="leftColumn" fxFlex="50%">
@@ -30,9 +30,27 @@
       </o-row>
     </o-column>
     <!-- COLUMN RIGHT -->
-    <o-column  fxFlex="50%">
+    <o-column >
       <!-- PHOTO -->
       <o-image  class="photoCar" attr="car_photo" title="car_photo" avatar="yes" image-type="base64" show-controls="yes" read-only="no"></o-image>
+     
     </o-column>
-  </o-row>
+       <!-- MAPA -->
+      </o-row>
+      <o-row style="border: 1px solid red; height: 315px;"> 
+  
+     <o-map #oMapMarker center="42.940599, -7.120727" zoom="8" min-zoom="3" max-zoom="20" zoom-control="yes"
+     search-control="yes" layer-panel-visible="no" fxFlex  >
+
+     <o-map-layer layer-type="marker" layer-id="samu_marker" layer-center="42.240599;-8.720727" layer-menu-label="Samu "
+     layer-menu-label-secondary="Location of SAmu"></o-map-layer>
+     <o-map-layer layer-type="marker" layer-id="office_marker" layer-center="42.240599;-8.720727" layer-menu-label="Office headquarters "
+     layer-menu-label-secondary="Location of office headquarters"></o-map-layer>
+ </o-map>
+</o-row>
 </o-form>
+
+<!-- MAPA BASICO -->
+        <!-- <o-map #oMapBasic fxFlex attr="basic-usage-map" center="42.240599, -8.720727" zoom="11" min-zoom="3" max-zoom="20"
+        zoom-control="yes" search-control="yes" fxFlex style="height: 300px;"></o-map> -->
+      
