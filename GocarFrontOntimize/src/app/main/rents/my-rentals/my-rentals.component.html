@@ -34,7 +34,7 @@
       <o-button #showOldRents o-list-toolbar position="start" [label]="showOldRentals ? 'Hide old rentals' : 'Show old rentals'" (onClick)="showHideOldRentals()"></o-button>
       <o-list-item class="list-item" *ngFor="let list of filteredData"  > 
         
-        <div class="list-item">
+        
           <header class="list-item-header">
             <div class="list-item-header-div">
               <h2>{{ list.brand }}</h2>
@@ -55,7 +55,7 @@
                 <span> <mat-icon>access_time</mat-icon>{{ convertDate(list.rental_start_date) }} - {{ convertDate(list.rental_end_date) }}</span>
               </div>
             </main>
-        </div>
+        
       </o-list-item>
     </o-list>
   </main>
