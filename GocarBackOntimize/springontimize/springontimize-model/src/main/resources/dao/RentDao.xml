@@ -74,5 +74,18 @@
                 ]]>
             </Sentence>
         </Query>
+        <Query id="allRents">
+            <Sentence>
+                <![CDATA[
+                    SELECT
+                        r.car_id, r.rent_id ,r.user_rent , r.rental_start_date, r.rental_end_date , r.total_price, r.observations
+                    FROM
+                        ${mainschema}.trents r
+
+                    #WHERE#
+
+                ]]>
+            </Sentence>
+        </Query>
     </Queries>
 </JdbcEntitySetup>

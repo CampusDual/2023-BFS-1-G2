@@ -17,4 +17,5 @@ public interface IRentService {
 	public EntityResult myCarRentalsQuery(Map<String, Object> keyMap, List<?> attrList);
 	public EntityResult myRentsQuery(Map<String, Object> keyMap, List<?> attrList);
 	public EntityResult chartProfitMonthQuery(Map<String, Object> keyMap, List<?> attrList);
+	public EntityResult allRentsQuery(Map<String, Object> keyMap, List<?> attrList);
 }
