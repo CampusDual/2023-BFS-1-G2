@@ -27,9 +27,6 @@
   disable-close="true" ></o-form-layout-dialog-options>
   
   <main class="main">
-    <div class="main-container-title">
-  
-    </div>
     <o-list #list service="rents" entity="myRents" keys="rent_id" columns="rent_id;car_id;brand;model;car_photo;user_rent;rental_start_date;rental_end_date;total_price;observations"
       show-page-size="yes" fxFlex paginations-controls="yes" quick-filter-columns="brand;model" insert-button="no" delete-button="no"
       selectable="no" orderable="yes" sort-columns="brand;model" class="list">
