@@ -4,15 +4,11 @@
   disable-close="true"></o-form-layout-dialog-options>
 
   
-<div class="home">
-  
-  <div class="main-container-title">
-    <!-- <h1>WELCOME {{user.toUpperCase()}}</h1> -->
-  </div>
 
+  
   <o-grid #grid service="cars" entity="availableCars" keys="car_id" columns="car_id;user_id;brand;model;location;start_date_available;plate;end_date_available;car_photo;daily_rental_price"
 
-  show-page-size="yes" fxFlex page-size-options="12;24;32;64" orderable="yes" sort-column="start_date_available" sortable-columns="brand;model;plate;location;daily_rental_price;start_date_available"
+  show-page-size="yes" fxFlex page-size-options="6;12;24;32;64" orderable="yes" sort-column="start_date_available" sortable-columns="brand;model;plate;location;daily_rental_price;start_date_available"
    attr="gridMyCars" class="main-grid">
 
     <o-grid-item *ngFor="let list of grid.dataArray" class="grid"> 
@@ -51,5 +47,5 @@
     </o-grid-item>
   </o-grid>
 
-</div>
+
 </o-form-layout-manager>

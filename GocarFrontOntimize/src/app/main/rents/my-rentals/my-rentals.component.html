@@ -1,19 +1,111 @@
-<o-form-layout-manager attr="formLayoutMngr" mode="tab" title="Rents my cars" separator=",">
+<!-- <o-form-layout-manager attr="formLayoutMngr" mode="tab" title="Rents my cars" separator=",">
 
-    <o-table  attr="rents" service="rents" entity="myRents" title="MY RENTS"
+    
+    <o-table  attr="rents" [static-data]="filteredData" title="MY RENTS"
     columns="rent_id;car_id;brand;model;car_photo;user_rent;rental_start_date;rental_end_date;total_price;observations"
     visible-columns="brand;model;user_rent;rental_start_date;rental_end_date;total_price;observations"
-    sort-columns="rental_start_date" keys="rent_id" query-rows="5" quick-filter="yes" delete-button="no" insert-button="no">
+    sort-columns="[DESC]rental_end_date" keys="rent_id" query-rows="5" quick-filter="yes" delete-button="no" insert-button="no"  >
     
- 
-  
+    <o-table-button attr="myButton" [label]="showOldRentals ? 'Hide old rentals' : 'Show old rentals'" (onClick)="showHideOldRentals()" icon="account_circle"></o-table-button>
+    
         <o-table-column class="column" attr="brand" title="brand"></o-table-column>
         <o-table-column class="column" attr="user_rent" title="user_rent"></o-table-column>
         <o-table-column class="column" attr="rental_start_date" title="rental_start_date" type="date" format="DD/MM/YYYY"></o-table-column>
         <o-table-column class="column" attr="rental_end_date" title="rental_end_date" type="date" format="DD/MM/YYYY"></o-table-column>
         <o-table-column class="column" attr="total_price" title="total_price"></o-table-column>
         <o-table-column class="column" attr="observations" title="observations"></o-table-column>
-
+   
     </o-table>
 
+</o-form-layout-manager> -->
+
+
+<o-form-layout-manager mode="dialog" title=""  label-columns="name" 
+  attr="o-form-layout-branches-home" color="warn"> 
+ 
+  <o-form-layout-dialog-options  title = "Car" width="800px" height="600px" 
+  disable-close="true" ></o-form-layout-dialog-options>
+  
+  <main class="main">
+    <div class="main-container-title">
+  
+    </div>
+    <o-list #list service="rents" entity="myRents" keys="rent_id" columns="rent_id;car_id;brand;model;car_photo;user_rent;rental_start_date;rental_end_date;total_price;observations"
+      show-page-size="yes" fxFlex paginations-controls="yes" quick-filter-columns="brand;model" insert-button="no" delete-button="no"
+      selectable="no" orderable="yes" sort-columns="brand;model" class="list">
+      
+      <o-button #showOldRents o-list-toolbar position="start" [label]="showOldRentals ? 'Hide old rentals' : 'Show old rentals'" (onClick)="showHideOldRentals()"></o-button>
+      <o-list-item class="list-item" *ngFor="let list of filteredData"  > 
+        
+        <div class="list-item">
+          <header class="list-item-header">
+            <div class="list-item-header-div">
+              <h2>{{ list.brand }}</h2>
+            </div>
+          </header>
+
+          <div  class="list-picture" *ngIf="list.car_photo">
+            <o-image attr="car_photo" title="car_photo"  [data]= "list.car_photo" orderable="no" enabled="false" searchable="no" type="image" avatar="yes" 
+            image-type="base64" show-controls="no" read-only="yes"></o-image>
+            
+          </div>
+          <main class="list-item-body">
+              <div class="price">
+                <mat-icon>€_simbol</mat-icon><span> {{ list.total_price }}</span>
+              </div>
+              
+              <div class="start_date_available">
+                <span> <mat-icon>access_time</mat-icon>{{ convertDate(list.rental_start_date) }} - {{ convertDate(list.rental_end_date) }}</span>
+              </div>
+            </main>
+        </div>
+      </o-list-item>
+    </o-list>
+  </main>
 </o-form-layout-manager>
+
+
+<!-- <o-form-layout-manager mode="dialog" title=""  label-columns="name"  attr="o-form-layout-branches-home" color="warn"> 
+    <o-form-layout-dialog-options  title = "Alquiler" width="700px" height="650px" 
+    disable-close="true"></o-form-layout-dialog-options>
+  
+    
+  <div class="home">
+    
+      <o-grid #grid service="rents" entity="myRents" keys="rent_id" columns="rent_id;car_id;brand;model;car_photo;user_rent;rental_start_date;rental_end_date;total_price;observations"
+    show-page-size="yes" fxFlex page-size-options="12;24;32;64" orderable="yes" sort-column="start_date_available" sortable-columns="brand;model;plate;location;daily_rental_price;start_date_available"
+     attr="gridMyCars" class="main-grid">
+  
+     <o-button #showOldRents o-grid-toolbar position="start" [label]="showOldRentals ? 'Hide old rentals' : 'Show old rentals'" (onClick)="showHideOldRentals()"></o-button>
+
+
+      <o-grid-item *ngFor="let list of filteredData" class="grid" fxFlex> 
+        <o-column class="grid-item">
+          <header class="grid-item-header">
+            <div class="grid-item-header-div">
+              <h2>{{ list.brand }}</h2>
+            </div>
+            
+          </header>
+  
+          <div class="grid-picture" *ngIf="list.car_photo">
+            <o-image class="picture-car" attr="car_photo" title="car_photo"  [data]= "list.car_photo" orderable="no" searchable="no" avatar="yes" 
+     image-type="base64" show-controls="no" read-only="yes" height="150px"></o-image>
+          </div>
+         
+          <main class="grid-item-body">
+              <div class="price">
+                <span>{{ list.total_price }}</span><mat-icon>euro</mat-icon>
+              </div>
+              
+              <div class="start_date_available">
+                <span> <mat-icon>access_time</mat-icon>{{ convertDate(list.rental_start_date) }} - {{ convertDate(list.rental_end_date) }}</span>
+              </div>
+            </main>
+          
+        </o-column>
+      </o-grid-item>
+    </o-grid>
+  
+  </div>
+  </o-form-layout-manager> -->
