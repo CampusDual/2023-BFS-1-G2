@@ -143,3 +143,15 @@
     justify-content: center;
     gap: .5rem;
   }
+
+  .empty-data-message{
+    text-align: center;
+  }
+
+  .btn-showOldRents{
+    background-color: white;
+  }
+
+  .btn-showOldRents:hover{
+    background-color:#eceff1;
+  }

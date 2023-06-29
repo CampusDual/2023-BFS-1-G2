@@ -87,5 +87,9 @@
   "user_rent":"Usuario/a",
   "Your profit for month": "Su beneficio por mes",
   "Formaliza tu alquiler" : "Formaliza tu alquiler",
-  "Información relativa" : "Información relativa"
+  "Información relativa" : "Información relativa",
+  "Jan": "Ene",
+  "Apr": "Abr",
+  "Aug": "Ago",
+  "There are no rentals pending to enjoy": "No hay alquileres pendientes para disfrutar"
 }

@@ -39,11 +39,9 @@ filterData() {
   } else {
     const currentDate = new Date().getTime();
     this.filteredData = this.tableData.filter(item => item.rental_end_date >= currentDate);
+    console.log(this.filterData);
   }
 }
-
-
-
 
 protected configureService() {
   

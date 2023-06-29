@@ -33,6 +33,7 @@ public class CarService implements ICarService {
 	}
 
 	public EntityResult carInsert(Map<?, ?> attrMap) {
+
 		return this.daoHelper.insert(carDao, attrMap);
 	}
 

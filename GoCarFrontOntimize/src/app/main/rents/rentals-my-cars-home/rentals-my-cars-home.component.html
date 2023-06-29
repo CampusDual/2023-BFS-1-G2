@@ -2,7 +2,7 @@
 <o-form-layout-manager attr="formLayoutMngr" mode="tab" title="Rents my cars" separator=",">
 
     <h2 style="padding-block-start: 50px;">{{"Your profit for month" | oTranslate }}</h2>
-    <o-chart type="discreteBar" x-label="Month" y-label="Totals" service="rents" entity="chartProfitMonth" x-axis="month" y-axis="total" rightAlignYAxis="true" width="90%"></o-chart>
+    <o-chart type="discreteBar" x-label="Month" y-label="Totals" service="rents" entity="chartProfitMonth" x-axis="month_name" y-axis="total" rightAlignYAxis="true" width="90%"></o-chart>
     
 
     <o-table  attr="rents" service="rents" entity="myCarRentals" title="RENTS MY CARS"

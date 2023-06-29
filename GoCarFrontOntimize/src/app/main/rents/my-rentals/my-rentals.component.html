@@ -5,12 +5,14 @@
   <o-form-layout-dialog-options  title = "Car" width="800px" height="600px" 
   disable-close="true" ></o-form-layout-dialog-options>
   
+  
   <main class="main">
+    
     <o-list #list service="rents" entity="myRents" keys="rent_id" columns="rent_id;car_id;brand;model;car_photo;user_rent;rental_start_date;rental_end_date;total_price;observations"
       show-page-size="yes" fxFlex paginations-controls="yes" quick-filter-columns="brand;model" insert-button="no" delete-button="no"
       selectable="no" orderable="yes" sort-columns="brand;model" class="list">
       
-      <o-button #showOldRents o-list-toolbar position="start" [label]="showOldRentals ? 'Hide old rentals' : 'Show old rentals'" (onClick)="showHideOldRentals()"></o-button>
+      <o-button class="btn-showOldRents" #showOldRents o-list-toolbar position="start" [label]="showOldRentals ? 'Hide old rentals' : 'Show old rentals'" (onClick)="showHideOldRentals()"></o-button>
       <o-list-item class="list-item" *ngFor="let list of filteredData"  > 
         
         
@@ -38,5 +40,8 @@
       </o-list-item>
     </o-list>
   </main>
+  <div class="empty-data-message" *ngIf="filteredData.length === 0">
+    <p>{{"There are no rentals pending to enjoy" | oTranslate}}</p>
+  </div>
 </o-form-layout-manager>
 

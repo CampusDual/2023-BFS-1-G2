@@ -86,5 +86,5 @@ public class RentService implements IRentService {
 		keyMap.put(USER_RENT, auth.getName());
 		return this.daoHelper.query(rentDao, keyMap, attrList, "myRents");
 	}
-	
+
 }
