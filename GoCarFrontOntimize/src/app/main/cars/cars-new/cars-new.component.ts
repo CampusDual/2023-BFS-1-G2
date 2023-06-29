@@ -3,6 +3,7 @@ import { MatDialogRef } from '@angular/material';
 import {  OFormComponent, OntimizeService } from 'ontimize-web-ngx';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { CurrentDay } from '../../util/CurrentDay';
+import { OMapComponent } from 'ontimize-web-ngx-map';
 
 @Component({
   selector: 'app-cars-new',
@@ -20,6 +21,7 @@ export class CarsNewComponent implements OnInit {
    idUser: string = sessionStorage.getItem('user_id')
 
    @ViewChild('form', { static: false }) form: OFormComponent;
+   @ViewChild('oMapMarker', { static: false }) oMapMarker: OMapComponent;
 
    dialogForm : FormGroup;
 
