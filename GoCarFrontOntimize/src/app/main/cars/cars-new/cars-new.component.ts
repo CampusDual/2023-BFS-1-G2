@@ -30,7 +30,7 @@ export class CarsNewComponent implements OnInit {
    public latitude;
   
    constructor(public injector : Injector, private dialogRef: MatDialogRef<CarsNewComponent>, private fb: FormBuilder,) {  
-
+this.oMapMarker.getDrawControlEventsObservable.subscribe(resp => {})
     this.carService = this.injector.get(OntimizeService);
     this.validatorsConfirmPlateArray.push(this.plateFormatValidator);
 
