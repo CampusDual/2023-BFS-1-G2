@@ -26,7 +26,8 @@
       </o-row>
       <!-- LOCATION -->
       <o-row class="row-location">
-        <o-text-input attr="location" decimal-separator="," fxFlex="100%" max-decimal-digits="10" min-decimal-digits="0" class="input-padding" fxFlex="100%"></o-text-input>
+        <o-real-input attr="LONGITUDE" decimal-separator="," max-decimal-digits="10" min-decimal-digits="0"  class="input-padding" fxFlex="50"></o-real-input>
+      <o-real-input attr="LATITUDE" decimal-separator="," max-decimal-digits="10" min-decimal-digits="0"  fxFlex="50"></o-real-input>
       </o-row>
     </o-column>
     <!-- COLUMN RIGHT -->
@@ -39,9 +40,9 @@
       </o-row>
       <o-row style="border: 1px solid red; height: 315px;"> 
   
-     <o-map #oMapMarker center="42.940599, -7.120727" zoom="8" min-zoom="3" max-zoom="20" zoom-control="yes"
+     <o-map #oMapMarker center="42.940599, -7.120727" zoom="8" min-zoom="3" max-zoom="20" zoom-control="no"
      search-control="yes" layer-panel-visible="no" fxFlex  >
-
+     <o-map-draw-controls></o-map-draw-controls>
      <o-map-layer layer-type="marker" layer-id="samu_marker" layer-center="42.240599;-8.720727" layer-menu-label="Samu "
      layer-menu-label-secondary="Location of SAmu"></o-map-layer>
      <o-map-layer layer-type="marker" layer-id="office_marker" layer-center="42.240599;-8.720727" layer-menu-label="Office headquarters "

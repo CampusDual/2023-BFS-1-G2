@@ -87,11 +87,5 @@ public class RentService implements IRentService {
 		return this.daoHelper.query(rentDao, keyMap, attrList, "myRents");
 	}
 
-	@Override
-	public EntityResult allRentsQuery(Map<String, Object> keyMap, List<?> attrList) {
-		//We recover the id_user that is logged in, and we put it in the map to save it in the database
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		keyMap.put(USER_RENT, auth.getName());
-		return this.daoHelper.query(rentDao, keyMap, attrList, "allRents");
-	}
+
 }
