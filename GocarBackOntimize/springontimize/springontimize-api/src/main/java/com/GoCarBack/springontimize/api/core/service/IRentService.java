@@ -9,7 +9,7 @@ import java.util.Map;
 
 public interface IRentService {
 
-	public EntityResult rentQuery(Map<?, ?> keyMap, List<?> attrList);
+	public EntityResult allRentQuery(Map<?, ?> keyMap, List<?> attrList);
 	public EntityResult rentInsert(Map<String, Object> attrMap);
 	public EntityResult rentUpdate(Map<?, ?> attrMap, Map<?, ?> keyMap);
 	public EntityResult rentDelete(Map<?, ?> keyMap);
@@ -17,5 +17,5 @@ public interface IRentService {
 	public EntityResult myCarRentalsQuery(Map<String, Object> keyMap, List<?> attrList);
 	public EntityResult myRentsQuery(Map<String, Object> keyMap, List<?> attrList);
 	public EntityResult chartProfitMonthQuery(Map<String, Object> keyMap, List<?> attrList);
-	public EntityResult allRentsQuery(Map<String, Object> keyMap, List<?> attrList);
+
 }

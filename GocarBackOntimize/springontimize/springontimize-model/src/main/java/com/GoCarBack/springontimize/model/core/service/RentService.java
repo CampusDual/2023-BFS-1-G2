@@ -37,7 +37,7 @@ public class RentService implements IRentService {
 
 	//Sample to permission
 	//@Secured({ PermissionsProviderSecured.SECURED })
-	public EntityResult rentQuery(Map<?, ?> keyMap, List<?> attrList) {
+	public EntityResult allRentQuery(Map<?, ?> keyMap, List<?> attrList) {
 		return this.daoHelper.query(rentDao, keyMap, attrList);
 	}
 
@@ -86,12 +86,5 @@ public class RentService implements IRentService {
 		keyMap.put(USER_RENT, auth.getName());
 		return this.daoHelper.query(rentDao, keyMap, attrList, "myRents");
 	}
-
-	@Override
-	public EntityResult allRentsQuery(Map<String, Object> keyMap, List<?> attrList) {
-		//We recover the id_user that is logged in, and we put it in the map to save it in the database
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		keyMap.put(USER_RENT, auth.getName());
-		return this.daoHelper.query(rentDao, keyMap, attrList, "allRents");
-	}
+	
 }
