@@ -1,4 +1,4 @@
-<o-form #form  class="cars-new" message-service-type="customMessageServiceTypeCar" service="cars" entity="car" keys="car_id" keys-sql-types="INTEGER" header-actions="U;D" show-header="yes">
+<o-form #form  mode="dialog" class="cars-new" message-service-type="customMessageServiceTypeCar" service="cars" entity="car" keys="car_id" keys-sql-types="INTEGER" header-actions="U;D" show-header="yes">
   <o-row>
     <!-- COLUMN LEFT -->
     <o-column  class="leftColumn" fxFlex="50%">
@@ -38,13 +38,12 @@
     </o-column>
        <!-- MAPA -->
       </o-row>
-      <o-row style="border: 1px solid red; height: 315px;"> 
+      <o-row style="border: 1px solid red; height: 315px;">  
   
      <o-map #oMapMarker center="42.940599, -7.120727" zoom="8" min-zoom="3" max-zoom="20" zoom-control="no"
      search-control="yes" layer-panel-visible="no" fxFlex  >
      <o-map-draw-controls></o-map-draw-controls>
-     <o-map-layer layer-type="marker" layer-id="samu_marker" layer-center="42.240599;-8.720727" layer-menu-label="Samu "
-     layer-menu-label-secondary="Location of SAmu"></o-map-layer>
+     
      <o-map-layer layer-type="marker" layer-id="office_marker" layer-center="42.240599;-8.720727" layer-menu-label="Office headquarters "
      layer-menu-label-secondary="Location of office headquarters"></o-map-layer>
  </o-map>
