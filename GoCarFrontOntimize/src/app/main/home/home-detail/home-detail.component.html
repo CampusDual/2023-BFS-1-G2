@@ -77,12 +77,15 @@
 
                   <!-- DATERANGE  -->
         <o-row class="inputRent">
-            <o-daterange-input attr="daterange" label="date_range" [min]="currentDay()" [max]="convertDate(formCar.getFieldValue('end_date_available'))" format="YYYY/MM/DD"  required="yes" (onChange)="calculatePrice()"></o-daterange-input>
+            <o-date-input attr="rental_start_date"  [min]="currentDay()" [max]="convertDate(formCar.getFieldValue('end_date_available'))" [date-class]="filter" value-type="string"  format="YYYY/MM/DD"  required="yes" (onValueChange)="calculateMinDate()" ></o-date-input>
+        </o-row>
+        <o-row class="inputRent">
+          <o-date-input attr="rental_end_date" [min]="!this.fechaprueba ? currentDay() : this.fechaprueba" [max]="convertDate(formCar.getFieldValue('end_date_available'))" [date-class]="filter" value-type="string"   format="YYYY/MM/DD"  required="yes" ></o-date-input>
         </o-row>
 
                     <!-- TOTAL PRICE -->
         <o-row class="totalprice">
-            <o-integer-input attr="total_price" label="total_price" required="yes" enabled class="totalprice-amount" ></o-integer-input>
+            <o-integer-input attr="total_price"  label="total_price" required="yes" enabled class="totalprice-amount" ></o-integer-input>
         </o-row>
 
                     <!-- OBSERVATIONS -->

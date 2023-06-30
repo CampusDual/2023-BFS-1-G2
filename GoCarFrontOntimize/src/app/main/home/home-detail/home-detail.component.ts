@@ -2,6 +2,8 @@ import { Component, OnInit,  ViewChild} from '@angular/core';
 import {  OFormComponent } from 'ontimize-web-ngx';
 import { AbstractControl, ValidationErrors, ValidatorFn, FormBuilder, FormGroup } from '@angular/forms';
 import { CurrentDay } from '../../util/CurrentDay';
+import { BBDD } from '../../util/BBDD';
+import { MatCalendarCell } from '@angular/material';
 
 @Component({
   selector: 'app-home-detail',
@@ -10,23 +12,22 @@ import { CurrentDay } from '../../util/CurrentDay';
 })
 export class HomeDetailComponent implements OnInit {
 
-
  @ViewChild('formCar', { static: false }) formCar: OFormComponent;
 
   @ViewChild('formRent', { static: false }) formRent: OFormComponent;
   dialogForm : FormGroup;
   constructor(private fb: FormBuilder) { }
 
-  ngOnInit() {
+
+  car_id: number
+  daysNotAvailable: []
+  methodBBDD = new BBDD()
+
+  fechaprueba: string 
+
+  async ngOnInit() {
     this.dialogForm = this.fb.group({}); 
-
-    if(this.dialogForm.enabled) {
-      // document.querySelector('.o-grid-toolbar').setAttribute('style', "opacity: 0.1")
-      document.querySelectorAll('.grid-item').forEach( element => {
-        element.setAttribute('style', "opacity: 0.1")
-      })
-    }
-
+    this.daysNotAvailable = await this.methodBBDD.getCarRentsById(182)
   }
 
   public insertRent() {
@@ -54,23 +55,46 @@ export class HomeDetailComponent implements OnInit {
    
   }
 
-  public calculatePrice(){
-    let dates = this.formRent.getFieldValue("daterange");
-    console.log(dates);
-   
-    let priceDay = this.formCar.getFieldValue("daily_rental_price");
-    console.log(priceDay);
-    const startDate = dates.startDate;
-    const endDate = dates.endDate;
+  public async filter(date: Date){
+  
+    let methodBBDD = new BBDD()
+    let infoRentsCars = await methodBBDD.getCarRentsById(182)
+     console.log(date)
+    // let mininDate= `${new Date().getDate()}/${new Date().getMonth()}/${new Date().getFullYear()}`
+    // let dateToCompareInString = new Date(date)
+    if(infoRentsCars) {
+    infoRentsCars.forEach(rent => {
+      let dateStartToCheck = new Date(rent.rental_start_date)
+      let dateEndToCheck = new Date(rent.rental_end_date)
+      let daysNotAvailable = [dateStartToCheck, dateEndToCheck]
+      
+      if(date._d >= daysNotAvailable[0] && date._d <= daysNotAvailable[1]) {
+        let classCalendar = new MatCalendarCell(23,"daniel", "prueba", false)
+        let funciona = document.getElementsByClassName("MatCalendarCell")
+        MatCalendarCell.
+        console.log(funciona)
+      }
+       })
+      }
     
-    const milisegundos = endDate - startDate;
-    const days = Math.ceil(milisegundos / (24 * 60 * 60 * 1000));
-    const totalPrice = priceDay * (days);
-
-    this.formRent.setFieldValue("total_price", totalPrice);
   }
 
-  public currentDay(){
+  public calculatePrice(){
+    // let dates = this.formRent.getFieldValue("daterange");
+    // let priceDay = this.formCar.getFieldValue("daily_rental_price");
+    // const startDate = dates.startDate;
+    // const endDate = dates.endDate;
+    
+    // const milisegundos = endDate - startDate;
+    // const days = Math.ceil(milisegundos / (24 * 60 * 60 * 1000));
+    // const totalPrice = priceDay * (days);
+
+    // this.formRent.setFieldValue("total_price", totalPrice);
+    this.calculateMinDate()
+  }
+
+  public currentDay(){  
+    
     const today = new CurrentDay();
     return today.currentDay();;
     }
@@ -78,9 +102,44 @@ export class HomeDetailComponent implements OnInit {
 
   public dateEndAvailable(){
     const endAvailabe = this.formCar.getFieldValue("end_date_available");
-    return "2023-06-30";
+    return endAvailabe;
     
   }
 
+  public calculateMinDate() {
+    
+    if(this.formRent.getFieldValue("rental_start_date")._d === undefined){
+    let dateReturn = new Date(this.formRent.getFieldValue("rental_start_date"))
+    const year = dateReturn.getFullYear();
+    let month: string | number = dateReturn.getMonth() + 1;
+    let day: string | number = dateReturn.getDate();
+
+    if (month < 10) {
+      month = '0' + month;
+    }
+    if (day < 10) {
+      day = '0' + day;
+    }
+    console.log(`${year}-${month}-${day}`)
+     this.formRent.setFieldValue("rental_end_date", `${year}-${month}-${day}`)
+
+     this.fechaprueba =`${year}-${month}-${day}`
+     
+    }else {
+     
+    return this.currentDay()
+    }
+  
+ 
+
+  // public getDates(arrayDate: string[]) {
+
+
+
+
+  // }
+
 }
 
+
+}
