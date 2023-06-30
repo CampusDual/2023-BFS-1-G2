@@ -25,7 +25,9 @@
                 <Column>end_date_available</Column>
                 <Column>car_photo</Column>
                 <Column>daily_rental_price</Column>
-                <Column>marker_id</Column>
+                <Column>longitude</Column>
+                <Column>latitude</Column>
+
 
             </ValidColumns>
             <Sentence>
@@ -50,7 +52,6 @@
                 <Column>end_date_available</Column>
                 <Column>car_photo</Column>
                 <Column>daily_rental_price</Column>
-                <Column>marker_id</Column>
             </ValidColumns>
 
             <!--Query returns all the columns with the condition that the current date is between the beginning and the end of the availability-->

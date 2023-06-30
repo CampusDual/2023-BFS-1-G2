@@ -4,7 +4,7 @@ import {  OFormComponent, OntimizeService } from 'ontimize-web-ngx';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { CurrentDay } from '../../util/CurrentDay';
 import { OMapComponent } from 'ontimize-web-ngx-map';
-import * as L from 'leaflet';
+import * as L from 'leaflet'; // IMPORTANTE MAPA
 
 
 @Component({
@@ -108,7 +108,10 @@ export class CarsNewComponent implements OnInit {
         const latLng = layer.getLatLng();
         const latitude = latLng.lat;
         const longitude = latLng.lng;
-        console.log('New marker placed at:', latitude, longitude);
+        console.log('New marker placed at:', latitude, longitude);   
+        this.form.setFieldValue("longitude", longitude);
+        this.form.setFieldValue("latitude", latitude);
+
       }
     }
     
