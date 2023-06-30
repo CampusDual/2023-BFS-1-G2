@@ -27,7 +27,7 @@ export class HomeDetailComponent implements OnInit {
 
   async ngOnInit() {
     this.dialogForm = this.fb.group({}); 
-    this.daysNotAvailable = await this.methodBBDD.getCarRentsById(182)
+    
   }
 
   public insertRent() {
@@ -80,16 +80,16 @@ export class HomeDetailComponent implements OnInit {
   }
 
   public calculatePrice(){
-    // let dates = this.formRent.getFieldValue("daterange");
-    // let priceDay = this.formCar.getFieldValue("daily_rental_price");
-    // const startDate = dates.startDate;
-    // const endDate = dates.endDate;
     
-    // const milisegundos = endDate - startDate;
-    // const days = Math.ceil(milisegundos / (24 * 60 * 60 * 1000));
-    // const totalPrice = priceDay * (days);
-
-    // this.formRent.setFieldValue("total_price", totalPrice);
+    let priceDay = this.formCar.getFieldValue("daily_rental_price");
+    const startDate = new Date(this.formRent.getFieldValue("rental_start_date"));
+    const endDate = new Date(this.formRent.getFieldValue("rental_end_date"));
+    
+    const days = endDate.getDate() - startDate.getDate();
+    const totalPrice = priceDay * (days);
+    console.log(totalPrice);
+    
+    this.formRent.setFieldValue("total_price", totalPrice);
     this.calculateMinDate()
   }
 
@@ -111,19 +111,13 @@ export class HomeDetailComponent implements OnInit {
     if(this.formRent.getFieldValue("rental_start_date")._d === undefined){
     let dateReturn = new Date(this.formRent.getFieldValue("rental_start_date"))
     const year = dateReturn.getFullYear();
-    let month: string | number = dateReturn.getMonth() + 1;
-    let day: string | number = dateReturn.getDate();
+    let month = dateReturn.getMonth() + 1;
+    let incrementDay = dateReturn.getDate() + 1;
 
-    if (month < 10) {
-      month = '0' + month;
-    }
-    if (day < 10) {
-      day = '0' + day;
-    }
-    console.log(`${year}-${month}-${day}`)
-     this.formRent.setFieldValue("rental_end_date", `${year}-${month}-${day}`)
+    console.log(`${year}-${month}-${incrementDay}`)
+     this.formRent.setFieldValue("rental_end_date", `${year}-${month}-${incrementDay}`)
 
-     this.fechaprueba =`${year}-${month}-${day}`
+     this.fechaprueba =`${year}-${month}-${incrementDay}`
      
     }else {
      
@@ -131,14 +125,6 @@ export class HomeDetailComponent implements OnInit {
     }
   
  
-
-  // public getDates(arrayDate: string[]) {
-
-
-
-
-  // }
-
 }
 
 
