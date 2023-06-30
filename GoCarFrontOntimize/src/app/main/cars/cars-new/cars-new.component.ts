@@ -4,6 +4,8 @@ import {  OFormComponent, OntimizeService } from 'ontimize-web-ngx';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { CurrentDay } from '../../util/CurrentDay';
 import { OMapComponent } from 'ontimize-web-ngx-map';
+import * as L from 'leaflet';
+
 
 @Component({
   selector: 'app-cars-new',
@@ -91,14 +93,28 @@ export class CarsNewComponent implements OnInit {
      public getPositionGPS() {
         return this.latitude + ',' + this.longitude;
       }
-     public addDrawEvent(arg) {
-      // console.log(arg)
-      console.log(arg.target._targets)
-    //   { let lat } = arg.target._targets.117._latlang;
-    // { let lng } = arg.target._targets.117._latlang;
-    // console.log("Lat: ", lat );
-    // console.log("Long: ", long );
+    //  public addDrawEvent(arg) {
+    //   // console.log(arg)
+    //   console.log(arg.target._targets)
+    // //   { let lat } = arg.target._targets.117._latlang;
+    // // { let lng } = arg.target._targets.117._latlang;
+    // // console.log("Lat: ", lat );
+    // // console.log("Long: ", long );
+    //   }
+
+    public addDrawEvent(arg) {
+      const layer = arg.layer;
+      if (layer instanceof L.Marker) {
+        const latLng = layer.getLatLng();
+        const latitude = latLng.lat;
+        const longitude = latLng.lng;
+        console.log('New marker placed at:', latitude, longitude);
       }
+    }
+    
+      
+    
+      
 
 }
 
