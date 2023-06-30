@@ -32,8 +32,11 @@ export class HomeDetailComponent implements OnInit {
 
   public insertRent() {
     let getIdCar = this.formCar.getFieldValue("car_id");
-          this.formRent.setFieldValue("car_id",getIdCar);
-          this.formRent.insert();
+    this.formRent.setFieldValue("car_id",getIdCar);
+    this.formRent.setFieldValue("rental_start_date", new Date(this.formRent.getFieldValue("rental_start_date")))
+    this.formRent.setFieldValue("rental_end_date", new Date(this.formRent.getFieldValue("rental_end_date")))      
+    
+    this.formRent.insert();
 
   }
 
@@ -68,12 +71,12 @@ export class HomeDetailComponent implements OnInit {
       let dateEndToCheck = new Date(rent.rental_end_date)
       let daysNotAvailable = [dateStartToCheck, dateEndToCheck]
       
-      if(date._d >= daysNotAvailable[0] && date._d <= daysNotAvailable[1]) {
-        let classCalendar = new MatCalendarCell(23,"daniel", "prueba", false)
-        let funciona = document.getElementsByClassName("MatCalendarCell")
-        MatCalendarCell.
-        console.log(funciona)
-      }
+      // if(date._d >= daysNotAvailable[0] && date._d <= daysNotAvailable[1]) {
+      //   let classCalendar = new MatCalendarCell(date)
+        
+
+        
+      // }
        })
       }
     
