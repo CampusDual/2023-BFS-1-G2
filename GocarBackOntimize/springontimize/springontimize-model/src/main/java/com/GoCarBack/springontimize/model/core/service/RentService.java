@@ -46,12 +46,12 @@ public class RentService implements IRentService {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		attrMap.put(USER_RENT, auth.getName());
 
-		Map<String, Object> dateRangeMap = (Map<String, Object>) attrMap.get("daterange");
-		String startDate = (String) dateRangeMap.get("startDate");
-		String endDate = (String) dateRangeMap.get("endDate");
-
-		attrMap.put("rental_start_date", formatDateDateRange(startDate));
-		attrMap.put("rental_end_date", formatDateDateRange(endDate));
+//		Map<String, Object> dateRangeMap = (Map<String, Object>) attrMap.get("daterange");
+//		String startDate = (String) dateRangeMap.get("startDate");
+//		String endDate = (String) dateRangeMap.get("endDate");
+//
+//		attrMap.put("rental_start_date", formatDateDateRange(startDate));
+//		attrMap.put("rental_end_date", formatDateDateRange(endDate));
 
 		return this.daoHelper.insert(rentDao, attrMap);
 	}
