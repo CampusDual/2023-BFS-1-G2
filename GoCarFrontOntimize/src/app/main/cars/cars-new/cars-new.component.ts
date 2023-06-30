@@ -30,7 +30,10 @@ export class CarsNewComponent implements OnInit {
    public latitude;
   
    constructor(public injector : Injector, private dialogRef: MatDialogRef<CarsNewComponent>, private fb: FormBuilder,) {  
-this.oMapMarker.getDrawControlEventsObservable.subscribe(resp => {})
+
+    //  this.oMapMarker.getDrawControlEventsObservable().subscribe(resp => {})
+    // this.oMapMarker.addMarker(id, this.latitude, this.longitude);
+
     this.carService = this.injector.get(OntimizeService);
     this.validatorsConfirmPlateArray.push(this.plateFormatValidator);
 
@@ -69,7 +72,7 @@ this.oMapMarker.getDrawControlEventsObservable.subscribe(resp => {})
       }
   
       //Para servicios mapa
-      onFormDataLoaded(data: any) {
+     public onFormDataLoaded(data: any) {
         if (data.LATITUDE) {
           this.latitude = data.LATITUDE;
         }
@@ -78,14 +81,24 @@ this.oMapMarker.getDrawControlEventsObservable.subscribe(resp => {})
         }
       }
     
-      hasGPSPositition() {
+     public hasGPSPositition() {
         if (this.latitude && this.longitude) {
           return true;
         }
         return false;
       }
     
-      getPositionGPS() {
+     public getPositionGPS() {
         return this.latitude + ',' + this.longitude;
       }
+     public addDrawEvent(arg) {
+      // console.log(arg)
+      console.log(arg.target._targets)
+    //   { let lat } = arg.target._targets.117._latlang;
+    // { let lng } = arg.target._targets.117._latlang;
+    // console.log("Lat: ", lat );
+    // console.log("Long: ", long );
+      }
+
 }
+
