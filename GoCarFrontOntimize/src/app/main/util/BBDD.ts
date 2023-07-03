@@ -14,7 +14,7 @@ export class BBDD {
 
     public async getCarRentsById(car_id: number){
 
-        const { data } = await fetch('http://localhost:33333/rents/rent/search', {
+        const { data } = await fetch('http://localhost:33333/rents/allRent/search', {
             method: 'POST', 
             body: JSON.stringify(this.body),
             headers: {

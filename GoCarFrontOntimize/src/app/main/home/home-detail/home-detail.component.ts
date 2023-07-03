@@ -4,30 +4,56 @@ import { AbstractControl, ValidationErrors, ValidatorFn, FormBuilder, FormGroup 
 import { CurrentDay } from '../../util/CurrentDay';
 import { BBDD } from '../../util/BBDD';
 import { MatCalendarCell } from '@angular/material';
+import { FilterDate } from '../../util/FilterDate';
+import { RentService } from '../../services/rentService.service';
+import { Rent } from '../../model/rent';
 
+declare var patatas;
 @Component({
   selector: 'app-home-detail',
   templateUrl: './home-detail.component.html',
   styleUrls: ['./home-detail.component.css']
 })
+
 export class HomeDetailComponent implements OnInit {
 
  @ViewChild('formCar', { static: false }) formCar: OFormComponent;
 
   @ViewChild('formRent', { static: false }) formRent: OFormComponent;
   dialogForm : FormGroup;
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,  private rentService: RentService) { }
 
 
   car_id: number
+  
   daysNotAvailable: []
-  methodBBDD = new BBDD()
+  methodBBDD = new BBDD() 
+  public arraysCars = []
 
-  fechaprueba: string 
+  // username: string = 'demo'
+  //   password: string = 'demouser'
+  
+  //   auth: string = "Basic " + btoa(`${this.username}:${this.password}`)
+  
+  //   carsList: Array<Object>
+  
+  //   protected body = {
+  //     filter: {},
+  //     columns: ["car_id", "user_rent", "rental_start_date","rental_end_date", "total_price", "rent_id"]}
+
 
   async ngOnInit() {
+    patatas = 'patatas'
     this.dialogForm = this.fb.group({}); 
+    let method = new BBDD()
+    this.arraysCars  = await method.getCarRentsById(182)
+    // let cadena = `{` + this.arraysCars[0].toString() + `,` + this.arraysCars[1].toString() + `}`
+    // localStorage.setItem("infoCars", cadena)
+    this.rentService.clearShoppingCart()
+    this.rentService.addShoppingItem(this.arraysCars)
     
+    
+
   }
 
   public insertRent() {
@@ -35,9 +61,7 @@ export class HomeDetailComponent implements OnInit {
     this.formRent.setFieldValue("car_id",getIdCar);
     this.formRent.setFieldValue("rental_start_date", new Date(this.formRent.getFieldValue("rental_start_date")))
     this.formRent.setFieldValue("rental_end_date", new Date(this.formRent.getFieldValue("rental_end_date")))      
-    
     this.formRent.insert();
-
   }
 
   convertDate(date: Date){
@@ -58,27 +82,14 @@ export class HomeDetailComponent implements OnInit {
    
   }
 
-  public async filter(date: Date){
-  
-    let methodBBDD = new BBDD()
-    let infoRentsCars = await methodBBDD.getCarRentsById(182)
-     console.log(date)
-    // let mininDate= `${new Date().getDate()}/${new Date().getMonth()}/${new Date().getFullYear()}`
-    // let dateToCompareInString = new Date(date)
-    if(infoRentsCars) {
-    infoRentsCars.forEach(rent => {
-      let dateStartToCheck = new Date(rent.rental_start_date)
-      let dateEndToCheck = new Date(rent.rental_end_date)
-      let daysNotAvailable = [dateStartToCheck, dateEndToCheck]
-      
-      // if(date._d >= daysNotAvailable[0] && date._d <= daysNotAvailable[1]) {
-      //   let classCalendar = new MatCalendarCell(date)
-        
+  public async filter(date: Date) {
 
-        
-      // }
-       })
-      }
+    let methodFilters = new FilterDate()
+    let method = new BBDD()
+    let infoRentCars = this.rentService.getRents().subs
+    console.log(methodFilters.filterDate(date, infoRentCars))
+    return methodFilters.filterDate(date, infoRentCars)
+    
     
   }
 
@@ -117,10 +128,7 @@ export class HomeDetailComponent implements OnInit {
     let month = dateReturn.getMonth() + 1;
     let incrementDay = dateReturn.getDate() + 1;
 
-    console.log(`${year}-${month}-${incrementDay}`)
      this.formRent.setFieldValue("rental_end_date", `${year}-${month}-${incrementDay}`)
-
-     this.fechaprueba =`${year}-${month}-${incrementDay}`
      
     }else {
      
