@@ -4,7 +4,7 @@ import {  OFormComponent, OntimizeService } from 'ontimize-web-ngx';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { CurrentDay } from '../../util/CurrentDay';
 import { OMapComponent } from 'ontimize-web-ngx-map';
-import * as L from 'leaflet'; // IMPORTANTE MAPA
+import * as L from 'leaflet'; // IMPORTANTE MAPA (no tocar esta porfi)
 
 
 @Component({
@@ -28,7 +28,7 @@ export class CarsNewComponent implements OnInit {
    dialogForm : FormGroup;
 
   //  Para servicio de mapa
-   public longitude;
+   public longitude; 
    public latitude;
   
    constructor(public injector : Injector, private dialogRef: MatDialogRef<CarsNewComponent>, private fb: FormBuilder,) {  
@@ -55,7 +55,6 @@ export class CarsNewComponent implements OnInit {
 
 
      ngOnInit() {
-
     
      }
      
@@ -115,9 +114,29 @@ export class CarsNewComponent implements OnInit {
       }
     }
     
-      
+    public moveMapToLocation() {
+      const location = this.form.getFieldValue('location');    
+  
+      // Nominatim api
+      const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(location)}`;
+      fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+          if (data && data.length > 0) {
+            const latitude = parseFloat(data[0].lat);
+            const longitude = parseFloat(data[0].lon);
+            const zoom = 12; // Nivel de zoom que queremos 
     
-      
-
+            // Mueve el mapa a la localizacion deseada y pone el zoom declarado arriba
+            const mapInstance = this.oMapMarker.getLMap();
+            mapInstance.setView([latitude, longitude], zoom);
+          }
+        })
+        .catch((error) => {
+          console.error('Error geocoding location:', error);
+          // Maneja el error
+        });
+    }
+ 
 }
 
