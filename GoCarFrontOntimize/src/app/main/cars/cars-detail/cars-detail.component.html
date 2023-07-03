@@ -7,7 +7,14 @@
         <o-validator error-name="plateNotFormat" error-text="Invalid registration format"></o-validator>
       </o-text-input>
       <o-integer-input attr="daily_rental_price" label="Price_per_day" min="1" max="100" required="yes"></o-integer-input>
-      <o-text-input attr="location" decimal-separator="," max-decimal-digits="10" min-decimal-digits="0" class="input-padding" fxFlex="100%"></o-text-input>
+      <o-row class="row-location">
+        <o-text-input attr="location" label="location" fxFlex="100%" (keyup.enter)="moveMapToLocation()"></o-text-input>
+
+        
+      <o-real-input oHidden attr="longitude" decimal-separator="," max-decimal-digits="10" min-decimal-digits="0"  class="input-padding" fxFlex="50"></o-real-input>
+      <o-real-input oHidden attr="latitude" decimal-separator="," max-decimal-digits="10" min-decimal-digits="0"  fxFlex="50"></o-real-input> 
+   
+      </o-row>
     </o-column>
     <o-column fxFlex="60%">
       <o-image attr="car_photo" title="car_photo" orderable="no" searchable="no" type="image" avatar="yes" image-type="base64"></o-image>
@@ -24,8 +31,10 @@
 
       <o-row style="border: 1px solid red; height: 315px;">  
   
-        <o-map #oMapBasic fxFlex attr="basic-usage-map" center="42.240599, -8.720727" zoom="11" min-zoom="3" max-zoom="20"
-        zoom-control="no" search-control="no" fxFlex style="height: 300px;"></o-map>
+        <o-map #oMapMarker center="40.4168, -3.7038" zoom="8" min-zoom="3" max-zoom="20" zoom-control="no"
+     search-control="no" layer-panel-visible="no" fxFlex (onDrawEvent)="addDrawEvent($event)" >
+     <o-map-draw-controls></o-map-draw-controls>
+     </o-map>
 
 </o-row>
 </o-form>

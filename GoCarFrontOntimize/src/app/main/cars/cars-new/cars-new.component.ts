@@ -92,14 +92,7 @@ export class CarsNewComponent implements OnInit {
      public getPositionGPS() {
         return this.latitude + ',' + this.longitude;
       }
-    //  public addDrawEvent(arg) {
-    //   // console.log(arg)
-    //   console.log(arg.target._targets)
-    // //   { let lat } = arg.target._targets.117._latlang;
-    // // { let lng } = arg.target._targets.117._latlang;
-    // // console.log("Lat: ", lat );
-    // // console.log("Long: ", long );
-    //   }
+   
 
     public addDrawEvent(arg) {
       const layer = arg.layer;
