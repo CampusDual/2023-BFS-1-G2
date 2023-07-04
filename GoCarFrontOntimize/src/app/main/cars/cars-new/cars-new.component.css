@@ -1,12 +1,16 @@
 .cars-new {
-  
+    
+        display: flex;
+        
+        height: 100%;
+      
     flex-direction: column-reverse;
 
 }
 
 .leftColumn{
     margin-right: 30px;
-   
+   height: 100%;
 }
 
 .photoCar{
