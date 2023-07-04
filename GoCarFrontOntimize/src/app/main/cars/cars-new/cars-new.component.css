@@ -1,5 +1,5 @@
 .cars-new {
-    
+
         display: flex;
         
         height: 100%;
@@ -11,9 +11,17 @@
 .leftColumn{
     margin-right: 30px;
    height: 100%;
+   gap: 40px;
 }
 
 .photoCar{
+    margin-top: 20px;
     height: 85%;
 }
 
+.input-padding{
+    margin-top: 20px;
+}
+.row-location{
+    margin-bottom: 10px;
+}

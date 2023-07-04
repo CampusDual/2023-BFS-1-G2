@@ -10,7 +10,7 @@
 
       <o-row>
 
-        <o-combo attr="brand" service="cars_brands" entity="brand" fxFlex="100%" value-column="brand_name" columns="brand_name" visible-columns="brand_name"></o-combo>
+        <o-combo class="input-padding" attr="brand" service="cars_brands" entity="brand" fxFlex="100%" value-column="brand_name" columns="brand_name" visible-columns="brand_name"></o-combo>
 
       </o-row>
 
@@ -38,7 +38,7 @@
 
       <o-row>
 
-        <o-integer-input attr="daily_rental_price" label="Price_per_day" fxFlex="100%" min="1" max="100" required="yes"></o-integer-input>
+        <o-integer-input class="input-padding" attr="daily_rental_price" label="Price_per_day" fxFlex="100%" min="1" max="100" required="yes"></o-integer-input>
 
       </o-row>
 
@@ -46,7 +46,7 @@
 
       <o-row>
 
-        <o-daterange-input attr="daterange" label="date_range" fxFlex="100%" [min]="currentDay()" format="YYYY/MM/DD" required="yes"></o-daterange-input>
+        <o-daterange-input  class="input-padding" attr="daterange" label="date_range" fxFlex="100%" [min]="currentDay()" format="YYYY/MM/DD" required="yes"></o-daterange-input>
 
       </o-row>
 
@@ -67,14 +67,14 @@
       <!-- LOCATION -->
 
       <o-row class="row-location">
-        <o-text-input attr="location" label="location" fxFlex="100%" (keyup.enter)="moveMapToLocation()"></o-text-input>
+        <o-text-input  attr="location" label="location" fxFlex="100%" (keyup.enter)="moveMapToLocation()"></o-text-input>
 
         
           <o-real-input oHidden attr="longitude" decimal-separator="," max-decimal-digits="10" min-decimal-digits="0"  class="input-padding" fxFlex="50"></o-real-input>
           <o-real-input oHidden attr="latitude" decimal-separator="," max-decimal-digits="10" min-decimal-digits="0"  fxFlex="50"></o-real-input> 
       </o-row>
 
-     <o-map #oMapMarker center="40.4168, -3.7038" zoom="8" min-zoom="3" max-zoom="20" zoom-control="no"
+     <o-map style="border: 2px solid #e91e63; height: 340px; width: 500px !important; padding-top: 2px;" #oMapMarker center="40.4168, -3.7038" zoom="8" min-zoom="3" max-zoom="20" zoom-control="no"
      search-control="no" layer-panel-visible="no" fxFlex (onDrawEvent)="addDrawEvent($event)" >
         <o-map-draw-controls></o-map-draw-controls>
       </o-map>
