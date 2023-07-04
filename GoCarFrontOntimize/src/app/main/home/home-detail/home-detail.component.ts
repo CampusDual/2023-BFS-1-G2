@@ -22,20 +22,17 @@ export class HomeDetailComponent implements OnInit {
   constructor(private fb: FormBuilder,  private rentService: RentService) { }
 
 
-  car_id: number
+  car_id: number;
   
-  daysNotAvailable: []
-  methodBBDD = new BBDD() 
+  daysNotAvailable: any [];
+  methodBBDD = new BBDD();
   intermediateDates = [];
   minDateEnd:string;
 
-  async ngOnInit() {
-    
-    this.dialogForm = this.fb.group({}); 
-   
-   
-   
-  }
+  ngOnInit() {
+      
+      this.dialogForm = this.fb.group({}); 
+    }
 
   async formInit(){
     this.car_id = this.formCar.getFieldValue("car_id");
@@ -52,10 +49,14 @@ export class HomeDetailComponent implements OnInit {
   public insertRent() {
     let getIdCar = this.formCar.getFieldValue("car_id");
     this.formRent.setFieldValue("car_id",getIdCar);
-    this.formRent.setFieldValue("rental_start_date", new Date(this.formRent.getFieldValue("rental_start_date")))
-    this.formRent.setFieldValue("rental_end_date", new Date(this.formRent.getFieldValue("rental_end_date")))      
+    this.formRent.setFieldValue("rental_start_date", new Date(this.formRent.getFieldValue("rental_start_date")));
+    this.formRent.setFieldValue("rental_end_date", new Date(this.formRent.getFieldValue("rental_end_date")));
+
+  
     this.formRent.insert();
   }
+
+  //prueba
 
   convertDate(date: Date){
     const newDate = new Date(date);
@@ -74,8 +75,19 @@ export class HomeDetailComponent implements OnInit {
        return `${year}-${month}-${day}`;
    
   }
-
-
+ 
+  public currentDay(){  
+    
+    const today = new CurrentDay();
+    return today.currentDay();;
+  }
+  
+  
+  public dateEndAvailable(){
+    const endAvailabe = this.formCar.getFieldValue("end_date_available");
+    return endAvailabe;
+    
+  }
   public calculatePrice(){
     
     let priceDay = this.formCar.getFieldValue("daily_rental_price");
@@ -84,17 +96,11 @@ export class HomeDetailComponent implements OnInit {
     
     const days = endDate.getDate() - startDate.getDate();
     const totalPrice = priceDay * (days);
-    console.log(totalPrice);
+
     
     this.formRent.setFieldValue("total_price", totalPrice);
-    this.calculateMinDate()
-  }
-
-  public currentDay(){  
     
-    const today = new CurrentDay();
-    return today.currentDay();;
-    }
+  }
 
 
   public calculateMinDate() {
@@ -143,6 +149,6 @@ filterAvailability(date: Moment):boolean{
   }
 
   
-  
+  console.log(this.intermediateDates);
 }
 }
