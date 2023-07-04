@@ -86,9 +86,6 @@
   "user_rent":"User",
   "Your profit for month": "Your profit for month",
   "Formaliza tu alquiler" : "Formalize your rental",
-<<<<<<< Updated upstream
-  "Información relativa" : "Relative information"
-=======
   "Información relativa" : "Relative information",
   "There are no rentals pending to enjoy": "There are no rentals pending to enjoy",
   "Rents my cars": "Rents my cars",
@@ -96,7 +93,6 @@
   "Show old rentals":"Show old rentals",
   "Distribution of total profit from my cars" : "Distribution of total profit from my cars",
   "Distribution of total profit of my rentals" : "Distribution of total profit of my rentals" 
->>>>>>> Stashed changes
  
 
 }

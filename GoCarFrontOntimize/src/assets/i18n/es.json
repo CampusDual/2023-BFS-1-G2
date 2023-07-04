@@ -87,9 +87,6 @@
   "user_rent":"Usuario/a",
   "Your profit for month": "Su beneficio por mes",
   "Formaliza tu alquiler" : "Formaliza tu alquiler",
-<<<<<<< Updated upstream
-  "Información relativa" : "Información relativa"
-=======
   "Información relativa" : "Información relativa",
   "Jan": "Ene",
   "Apr": "Abr",
@@ -100,5 +97,4 @@
   "Show old rentals": "Mostrar antiguos",
   "Distribution of total profit from my cars" : "Distribución del beneficio total de mis coches",
   "Distribution of total profit of my rentals" : "Distribución del beneficio total de mis alquileres" 
->>>>>>> Stashed changes
 }
