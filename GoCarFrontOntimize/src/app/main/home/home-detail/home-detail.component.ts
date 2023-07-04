@@ -3,10 +3,8 @@ import {  OFormComponent } from 'ontimize-web-ngx';
 import { AbstractControl, ValidationErrors, ValidatorFn, FormBuilder, FormGroup } from '@angular/forms';
 import { CurrentDay } from '../../util/CurrentDay';
 import { BBDD } from '../../util/BBDD';
-import { MatCalendarCell } from '@angular/material';
-import { FilterDate } from '../../util/FilterDate';
 import { RentService } from '../../services/rentService.service';
-import { Rent } from '../../model/rent';
+import { Moment } from 'moment';
 
 declare var patatas;
 @Component({
@@ -28,30 +26,20 @@ export class HomeDetailComponent implements OnInit {
   
   daysNotAvailable: []
   methodBBDD = new BBDD() 
-  public arraysCars = []
-
-  // username: string = 'demo'
-  //   password: string = 'demouser'
-  
-  //   auth: string = "Basic " + btoa(`${this.username}:${this.password}`)
-  
-  //   carsList: Array<Object>
-  
-  //   protected body = {
-  //     filter: {},
-  //     columns: ["car_id", "user_rent", "rental_start_date","rental_end_date", "total_price", "rent_id"]}
-
+  intermediateDates = [];
+  minDateEnd:string;
 
   async ngOnInit() {
-    patatas = 'patatas'
-    this.dialogForm = this.fb.group({}); 
-    let method = new BBDD()
-    this.arraysCars  = await method.getCarRentsById(182)
-    // let cadena = `{` + this.arraysCars[0].toString() + `,` + this.arraysCars[1].toString() + `}`
-    // localStorage.setItem("infoCars", cadena)
-    this.rentService.clearShoppingCart()
-    this.rentService.addShoppingItem(this.arraysCars)
     
+    this.dialogForm = this.fb.group({}); 
+    let method = new BBDD();
+    this.daysNotAvailable  = await method.getCarRentsById(182)
+   
+    for(let resultBBDD of this.daysNotAvailable){
+      let startDate = new Date(resultBBDD.rental_start_date);
+      let endDate = new Date(resultBBDD.rental_end_date);
+      this.getIntermediateDates(startDate,endDate);
+    }
     
 
   }
@@ -78,20 +66,10 @@ export class HomeDetailComponent implements OnInit {
           day = '0' + day;
         }
     
-        return `${year}-${month}-${day}`;
+       return `${year}-${month}-${day}`;
    
   }
 
-  public async filter(date: Date) {
-
-    let methodFilters = new FilterDate()
-    let method = new BBDD()
-    let infoRentCars = this.rentService.getRents().subs
-    console.log(methodFilters.filterDate(date, infoRentCars))
-    return methodFilters.filterDate(date, infoRentCars)
-    
-    
-  }
 
   public calculatePrice(){
     
@@ -114,29 +92,52 @@ export class HomeDetailComponent implements OnInit {
     }
 
 
-  public dateEndAvailable(){
-    const endAvailabe = this.formCar.getFieldValue("end_date_available");
-    return endAvailabe;
-    
-  }
-
   public calculateMinDate() {
     
     if(this.formRent.getFieldValue("rental_start_date")._d === undefined){
-    let dateReturn = new Date(this.formRent.getFieldValue("rental_start_date"))
-    const year = dateReturn.getFullYear();
-    let month = dateReturn.getMonth() + 1;
-    let incrementDay = dateReturn.getDate() + 1;
+      if(this.minDateEnd === undefined){
+        let dateReturn = new Date(this.formRent.getFieldValue("rental_start_date"))
+        const year = dateReturn.getFullYear();
+        let month = dateReturn.getMonth() + 1;
+        let incrementDay = dateReturn.getDate() + 1;
+  
+        this.formRent.setFieldValue("rental_end_date", `${year}-${month}-${incrementDay}`)
+  
+         this.minDateEnd = `${year}-${month}-${incrementDay}`;
 
-     this.formRent.setFieldValue("rental_end_date", `${year}-${month}-${incrementDay}`)
+      }
      
-    }else {
-     
-    return this.currentDay()
     }
   
  
 }
 
+filterAvailability(date: Moment):boolean{
 
+  let compDate: Date = date.toDate();
+ 
+  for(let availableDate of this.intermediateDates){
+    if(compDate.toDateString() === availableDate.toDateString()){
+    return false;
+     }
+  }
+  return true;
+}
+
+
+ getIntermediateDates(startDate, endDate) {
+ 
+  startDate = new Date(startDate);
+  endDate = new Date(endDate);
+  
+  
+  let currentDate = startDate;
+  while (currentDate <= endDate) {
+    this.intermediateDates.push(new Date(currentDate)); 
+    currentDate.setDate(currentDate.getDate() + 1);
+  }
+
+  
+  
+}
 }
