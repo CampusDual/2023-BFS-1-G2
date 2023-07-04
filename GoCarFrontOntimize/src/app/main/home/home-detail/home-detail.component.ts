@@ -3,7 +3,6 @@ import {  OFormComponent } from 'ontimize-web-ngx';
 import { AbstractControl, ValidationErrors, ValidatorFn, FormBuilder, FormGroup } from '@angular/forms';
 import { CurrentDay } from '../../util/CurrentDay';
 import { BBDD } from '../../util/BBDD';
-import { RentService } from '../../services/rentService.service';
 import { Moment } from 'moment';
 
 declare var patatas;
@@ -19,7 +18,7 @@ export class HomeDetailComponent implements OnInit {
 
   @ViewChild('formRent', { static: false }) formRent: OFormComponent;
   dialogForm : FormGroup;
-  constructor(private fb: FormBuilder,  private rentService: RentService) { }
+  constructor(private fb: FormBuilder) { }
 
 
   car_id: number;
