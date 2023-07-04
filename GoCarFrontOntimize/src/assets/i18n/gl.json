@@ -83,7 +83,25 @@
   "Your profit for month": "O seu beneficio por mes",
   "Formaliza tu alquiler" : "Formaliza aluguer",
   "Información relativa" : "Información relativa",
+<<<<<<< Updated upstream
  
+=======
+  "Jan": "Xan",
+  "Apr": "Abr",
+  "May": "Mai",
+  "Jun": "Xuñ",
+  "Jul": "Xul",
+  "Aug": "Ago",
+  "Sep": "Set",
+  "Oct": "Out",
+  "Dic": "Dec",
+  "There are no rentals pending to enjoy": "Non hai alugueres pendentes para gozar",
+  "Rents my cars": "Alugueres dos meus coches",
+  "Hide old rentals": "Ocultar antigos",
+  "Show old rentals": "Mostrar antigos",
+  "Distribution of total profit from my cars" : "Distribución do beneficio total dos meus coches",
+  "Distribution of total profit of my rentals" : "Distribución do beneficio total dos mues alugueres",
+>>>>>>> Stashed changes
 
  
       "LANGUAGE": "Idioma",
