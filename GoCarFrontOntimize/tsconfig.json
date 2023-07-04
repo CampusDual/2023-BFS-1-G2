@@ -1,6 +1,6 @@
 {
-  "compileOnSave": false,
   "compilerOptions": {
+    "skipLibCheck": true,
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
@@ -23,5 +23,8 @@
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true
-  }
+  },
+  "exclude": [
+    "node_modules/@types/geojson" // Si se borra esto la aplicacion peta, cuidado!!
+  ]
 }
