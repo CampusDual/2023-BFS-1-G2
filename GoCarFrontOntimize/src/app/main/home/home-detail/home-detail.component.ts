@@ -32,16 +32,21 @@ export class HomeDetailComponent implements OnInit {
   async ngOnInit() {
     
     this.dialogForm = this.fb.group({}); 
-    let method = new BBDD();
-    this.daysNotAvailable  = await method.getCarRentsById(182)
    
+   
+   
+  }
+
+  async formInit(){
+    this.car_id = this.formCar.getFieldValue("car_id");
+    let method = new BBDD();
+    this.daysNotAvailable  = await method.getCarRentsById(this.car_id);
+
     for(let resultBBDD of this.daysNotAvailable){
       let startDate = new Date(resultBBDD.rental_start_date);
       let endDate = new Date(resultBBDD.rental_end_date);
       this.getIntermediateDates(startDate,endDate);
     }
-    
-
   }
 
   public insertRent() {
