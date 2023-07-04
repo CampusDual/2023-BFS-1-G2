@@ -74,7 +74,7 @@
           <o-real-input oHidden attr="latitude" decimal-separator="," max-decimal-digits="10" min-decimal-digits="0"  fxFlex="50"></o-real-input> 
       </o-row>
 
-     <o-map #oMapMarker center="40.4168, -3.7038" zoom="8" min-zoom="3" max-zoom="20" zoom-control="no"
+     <o-map style="border: 2px solid #e91e63; height: 315px; width: 500px !important;" #oMapMarker center="40.4168, -3.7038" zoom="8" min-zoom="3" max-zoom="20" zoom-control="no"
      search-control="no" layer-panel-visible="no" fxFlex (onDrawEvent)="addDrawEvent($event)" >
         <o-map-draw-controls></o-map-draw-controls>
       </o-map>
