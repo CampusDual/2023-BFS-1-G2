@@ -27,11 +27,14 @@ export class HomeDetailComponent implements OnInit {
   methodBBDD = new BBDD();
   intermediateDates = [];
   minDateEnd:string;
+  maxDateEnd:string;
 
   ngOnInit() {
       
       this.dialogForm = this.fb.group({}); 
     }
+
+
 
   async formInit(){
     this.car_id = this.formCar.getFieldValue("car_id");
@@ -102,10 +105,10 @@ export class HomeDetailComponent implements OnInit {
   }
 
 
-  public calculateMinDate() {
+  public calculateMinDate(event) {
     
-    if(this.formRent.getFieldValue("rental_start_date")._d === undefined){
-      if(this.minDateEnd === undefined){
+      if(event.type == 0){
+        console.log("entro");
         let dateReturn = new Date(this.formRent.getFieldValue("rental_start_date"))
         const year = dateReturn.getFullYear();
         let month = dateReturn.getMonth() + 1;
@@ -117,10 +120,32 @@ export class HomeDetailComponent implements OnInit {
 
       }
      
+    
+  }
+
+  calculateMaxDateEnd(event) {
+console.log(event);
+    if(event && event.newValue){
+
+      const dayStart = new Date(event.newValue);
+      console.log(this.convertDate(dayStart));
+      const maxDateAvailable = new Date(this.formCar.getFieldValue('end_date_available'));
+      
+      const formattedDates = this.intermediateDates.map(date => this.convertDate(date));
+    
+      while (dayStart <= maxDateAvailable) {
+        const dateFormatString = this.convertDate(dayStart);
+        
+        if (formattedDates.includes(dateFormatString)) {
+          this.maxDateEnd = dateFormatString;
+          return;
+        }
+        
+        dayStart.setDate(dayStart.getDate() + 1);
+      }
+      
     }
-  
- 
-}
+  }
 
 filterAvailability(date: Moment):boolean{
 
@@ -147,7 +172,5 @@ filterAvailability(date: Moment):boolean{
     currentDate.setDate(currentDate.getDate() + 1);
   }
 
-  
-  console.log(this.intermediateDates);
 }
 }
