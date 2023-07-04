@@ -11,11 +11,6 @@ import { OMapComponent } from 'ontimize-web-ngx-map';
 import * as L from 'leaflet'; // IMPORTANTE MAPA (no tocar esta porfi)
 
 
-import { OMapComponent } from 'ontimize-web-ngx-map';
-
-import * as L from 'leaflet'; // IMPORTANTE MAPA (no tocar esta porfi)
-
-
 
 
 
@@ -57,7 +52,6 @@ export class CarsNewComponent implements OnInit {
    @ViewChild('form', { static: false }) form: OFormComponent;
    @ViewChild('oMapMarker', { static: false }) oMapMarker: OMapComponent;
 
-   @ViewChild('oMapMarker', { static: false }) oMapMarker: OMapComponent;
 
 
 
