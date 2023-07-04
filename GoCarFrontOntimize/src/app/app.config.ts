@@ -8,9 +8,9 @@ export const CONFIG: Config = {
   //apiEndpoint: 'https://try.imatia.com/ontimizeweb/services/qsallcomponents-jee/services/rest',
   apiEndpoint: 'http://localhost:33333',
   
-  bundle: {
-    path: 'bundle'
-  },
+  // bundle: {
+  //   path: 'bundle'
+  // },
   // Application identifier. Is the unique package identifier of the app.
   // It is used when storing or managing temporal data related with the app.
   // By default is set as 'ontimize-web-uuid'.

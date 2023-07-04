@@ -3,7 +3,7 @@
   <o-row>
   
 
-    <o-column class="leftColumn" fxFlex="20%">
+    <o-column class="firstColumn" fxFlex="20%">
 
       <o-combo attr="brand" service="cars_brands" entity="brand" value-column="brand_name" columns="brand_name" visible-columns="brand_name"></o-combo>
 
@@ -15,12 +15,12 @@
 
       </o-text-input>
 
-      <o-integer-input attr="daily_rental_price" label="Price_per_day" min="1" max="100" required="yes"></o-integer-input>
+      <o-integer-input class="input-padding" attr="daily_rental_price" label="Price_per_day" min="1" max="100" required="yes"></o-integer-input>
      
       
       <o-date-input value-type="date" class="input-padding" label="start_date_available" attr="start_date_available" fxFlex="100%" required="no"></o-date-input>
 
-      <o-date-input  class="input-padding" label="end_date_available" attr="end_date_available" fxFlex="100%" required="no"></o-date-input>
+      <o-date-input  label="end_date_available" attr="end_date_available" fxFlex="100%" required="no"></o-date-input>
 
     </o-column>
 
@@ -40,7 +40,7 @@
       <o-real-input oHidden attr="latitude" decimal-separator="," max-decimal-digits="10" min-decimal-digits="0"  fxFlex="50"></o-real-input> 
     </o-row>
 
-    <o-row  style="border: 2px solid #e91e63; height: 315px; width: 500px;">  
+    <o-row  style="border: 2px solid #e91e63; height: 340px; width: 550px;">  
       <o-map #oMapMarker center="40.4168, -3.7038" zoom="8" min-zoom="3" max-zoom="20" zoom-control="no"
      search-control="no" layer-panel-visible="no" fxFlex (onDrawEvent)="addDrawEvent($event)" >
      <o-map-draw-controls></o-map-draw-controls>
