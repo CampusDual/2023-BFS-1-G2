@@ -29,17 +29,20 @@
             <div fxFlex> <h3 style="text-align: center;">{{"Distribution of total profit from my cars" | oTranslate }}</h3>
             <o-chart class="chart" type="donutChart"  entity="myCarRentals" service="rents" x-axis="model" y-axis="total_price" width="15%" ></o-chart>
         </div>
+    </div>
+    <div fxLayout="row" fxFlexFill>
+
            <div fxFlex> <h3 style="text-align: center;">{{"Distribution of total profit of my rentals" | oTranslate }}</h3>
             <o-chart type="discreteBar" x-label="Axis x" x-axis="rent_id" y-axis="total_price" y-label="Axis y" entity="myCarRentals" service="rents"  width="70%" style="padding-block-start: 20px;"></o-chart>
         </div>
 
         </div>
 
-           <div fxFlex> <h3 style="text-align: center;">{{"Distribution of total profit of my rentals" | oTranslate }}</h3>
+           <!-- <div fxFlex style="width: 400px;"> <h3 style="text-align: center;">{{"Distribution of total profit of my rentals" | oTranslate }}</h3>
 
             <o-chart type="discreteBar" x-label="Axis x" x-axis="rent_id" y-axis="total_price" y-label="Axis y" entity="myCarRentals" service="rents"  width="70%" style="padding-block-start: 20px;"></o-chart>
 
-        </div>
+        </div> -->
 
  
 
