@@ -124,18 +124,16 @@ export class HomeDetailComponent implements OnInit {
   }
 
   calculateMaxDateEnd(event) {
-console.log(event);
-    if(event && event.newValue){
 
+    if(event && event.newValue){
       const dayStart = new Date(event.newValue);
-      console.log(this.convertDate(dayStart));
       const maxDateAvailable = new Date(this.formCar.getFieldValue('end_date_available'));
       
       const formattedDates = this.intermediateDates.map(date => this.convertDate(date));
+      formattedDates.push(this.convertDate(maxDateAvailable));
     
       while (dayStart <= maxDateAvailable) {
         const dateFormatString = this.convertDate(dayStart);
-        
         if (formattedDates.includes(dateFormatString)) {
           this.maxDateEnd = dateFormatString;
           return;
@@ -143,9 +141,10 @@ console.log(event);
         
         dayStart.setDate(dayStart.getDate() + 1);
       }
-      
+     
     }
   }
+  
 
 filterAvailability(date: Moment):boolean{
 
