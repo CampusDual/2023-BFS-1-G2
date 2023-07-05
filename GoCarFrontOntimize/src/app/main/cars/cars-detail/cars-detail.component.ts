@@ -1,18 +1,24 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { AbstractControl, ValidationErrors, ValidatorFn, FormBuilder, FormGroup } from '@angular/forms';
-import { OFormComponent } from 'ontimize-web-ngx';
-import { OMapComponent } from 'ontimize-web-ngx-map';
-import * as L from 'leaflet';
+import { Component, OnInit, ViewChild } from "@angular/core";
+import {
+  AbstractControl,
+  ValidationErrors,
+  ValidatorFn,
+  FormBuilder,
+  FormGroup,
+} from "@angular/forms";
+import { OFormComponent } from "ontimize-web-ngx";
+import { OMapComponent } from "ontimize-web-ngx-map";
+import * as L from "leaflet";
 
 @Component({
-  selector: 'app-cars-detail',
-  templateUrl: './cars-detail.component.html',
-  styleUrls: ['./cars-detail.component.css']
+  selector: "app-cars-detail",
+  templateUrl: "./cars-detail.component.html",
+  styleUrls: ["./cars-detail.component.css"],
 })
 export class CarsDetailComponent implements OnInit {
   validatorsConfirmPlateArray: ValidatorFn[] = [];
-  @ViewChild('oMapMarker', { static: false }) oMapMarker: OMapComponent;
-  @ViewChild('form', { static: false }) form: OFormComponent;
+  @ViewChild("oMapMarker", { static: false }) oMapMarker: OMapComponent;
+  @ViewChild("form", { static: false }) form: OFormComponent;
   dialogForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
@@ -50,7 +56,7 @@ export class CarsDetailComponent implements OnInit {
   }
 
   public getPositionGPS() {
-    return this.latitude + ',' + this.longitude;
+    return this.latitude + "," + this.longitude;
   }
 
   public addDrawEvent(arg) {
@@ -59,16 +65,18 @@ export class CarsDetailComponent implements OnInit {
       const latLng = layer.getLatLng();
       const latitude = latLng.lat;
       const longitude = latLng.lng;
-      console.log('New marker placed at:', latitude, longitude);
-      this.form.setFieldValue('longitude', longitude);
-      this.form.setFieldValue('latitude', latitude);
+      console.log("New marker placed at:", latitude, longitude);
+      this.form.setFieldValue("longitude", longitude);
+      this.form.setFieldValue("latitude", latitude);
     }
   }
 
   public moveMapToLocation() {
-    const location = this.form.getFieldValue('location');
+    const location = this.form.getFieldValue("location");
     // Nominatim API
-    const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(location)}`;
+    const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(
+      location
+    )}`;
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
@@ -83,7 +91,7 @@ export class CarsDetailComponent implements OnInit {
         }
       })
       .catch((error) => {
-        console.error('Error geocoding location:', error);
+        console.error("Error geocoding location:", error);
         // Maneja el error
       });
   }
