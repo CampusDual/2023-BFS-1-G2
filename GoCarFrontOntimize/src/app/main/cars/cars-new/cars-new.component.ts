@@ -161,6 +161,17 @@ export class CarsNewComponent implements OnInit {
         console.log('New marker placed at:', latitude, longitude);   
         this.form.setFieldValue("longitude", longitude);
         this.form.setFieldValue("latitude", latitude);
+        const apiKey= `AIzaSyDeV0LKQvk1HMV0lnGyrhHTYgEAYI2_HZc`
+        const urlCalles = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyDeV0LKQvk1HMV0lnGyrhHTYgEAYI2_HZc`
+        fetch(urlCalles).then(res => res.json()).then(res => {
+          if(res) {
+           this.form.setFieldValue("location", res.results[0].formatted_address
+           )
+          } else {
+            this.form.setFieldValue("location", "Error en la seleccion de localizacion")
+          }
+
+        }) 
 
       }
     }
@@ -170,14 +181,17 @@ export class CarsNewComponent implements OnInit {
   
       // Nominatim api
       const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(location)}`;
+     
       fetch(url)
         .then((response) => response.json())
         .then((data) => {
+          // console.log(data)
           if (data && data.length > 0) {
             const latitude = parseFloat(data[0].lat);
             const longitude = parseFloat(data[0].lon);
-            const zoom = 12; // Nivel de zoom que queremos 
-    
+            const zoom = 12; // Nivel de zoom que queremos
+         
+           
             // Mueve el mapa a la localizacion deseada y pone el zoom declarado arriba
             const mapInstance = this.oMapMarker.getLMap();
             mapInstance.setView([latitude, longitude], zoom);

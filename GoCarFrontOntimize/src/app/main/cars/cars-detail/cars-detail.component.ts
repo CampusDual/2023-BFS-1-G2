@@ -52,7 +52,7 @@ export class CarsDetailComponent implements OnInit {
   public getPositionGPS() {
     return this.latitude + ',' + this.longitude;
   }
-
+  
   public addDrawEvent(arg) {
     const layer = arg.layer;
     if (layer instanceof L.Marker) {
@@ -72,6 +72,7 @@ export class CarsDetailComponent implements OnInit {
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
+      
         if (data && data.length > 0) {
           const latitude = parseFloat(data[0].lat);
           const longitude = parseFloat(data[0].lon);
