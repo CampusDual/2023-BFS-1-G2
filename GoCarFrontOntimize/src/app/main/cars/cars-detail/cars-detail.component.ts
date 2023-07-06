@@ -78,6 +78,13 @@ export class CarsDetailComponent implements OnInit {
   }
 
   public getPositionGPS() {
+if(!this.hasGPSPositition() ){
+  // this.form.setFieldValue("longitude",3.7038)
+  // this.form.setFieldValue("latitude",40.4168)
+  this.longitude=3.7038;
+  this.latitude=40.4168;
+}
+
     return this.latitude + ',' + this.longitude;
   }
 
@@ -88,9 +95,21 @@ export class CarsDetailComponent implements OnInit {
       const latLng = layer.getLatLng();
       const latitude = latLng.lat;
       const longitude = latLng.lng;
-      console.log('New marker placed at:', latitude, longitude);
-      this.form.setFieldValue('longitude', longitude);
-      this.form.setFieldValue('latitude', latitude);
+      console.log('New marker placed at:', latitude, longitude);   
+      this.form.setFieldValue("longitude", longitude);
+      this.form.setFieldValue("latitude", latitude);
+      const apiKey= `AIzaSyDeV0LKQvk1HMV0lnGyrhHTYgEAYI2_HZc`
+      const urlCalles = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyDeV0LKQvk1HMV0lnGyrhHTYgEAYI2_HZc`
+      fetch(urlCalles).then(res => res.json()).then(res => {
+        if(res) {
+         this.form.setFieldValue("location", res.results[0].formatted_address
+         )
+        } else {
+          this.form.setFieldValue("location", "Error en la seleccion de localizacion")
+        }
+
+      }) 
+
     }
   }
 
