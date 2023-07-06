@@ -1,4 +1,4 @@
-<o-form #form mode="dialog" class="cars-detail" message-service-type="customMessageServiceTypeCar" service="cars" entity="car" keys="car_id" keys-sql-types="INTEGER" header-actions="U;D" show-header="yes">
+<o-form #form (onDataLoaded)="formInit()" mode="dialog" class="cars-detail" message-service-type="customMessageServiceTypeCar" service="cars" entity="car" keys="car_id" keys-sql-types="INTEGER" header-actions="U;D" show-header="yes">
 
   <o-row>
   
@@ -41,13 +41,27 @@
     </o-row>
 
     <o-row  style="border: 2px solid #e91e63; height: 340px; width: 550px;">  
-      <o-map #oMapMarker center="40.4168, -3.7038" zoom="8" min-zoom="3" max-zoom="20" zoom-control="no"
+      <div fxFlex="40" fxFlex.md="100" *ngIf="hasGPSPositition()">
+      <o-map #oMapMarker [center]="getPositionGPS()" zoom="15" min-zoom="3" max-zoom="20" zoom-control="no"
      search-control="no" layer-panel-visible="no" fxFlex (onDrawEvent)="addDrawEvent($event)" >
      <o-map-draw-controls></o-map-draw-controls>
-     </o-map>
-    </o-row>
-  </o-column>
+     <o-map-layer layer-type="marker" layer-id="office_marker" [layer-center]="getPositionGPS()"
+layer-menu-label="Office headquarters " layer-menu-label-secondary="Location of office headquarters"></o-map-layer>
+
+
+</o-map>
+</div>
+
+
+
+
+</o-row>
+</o-column>
 </o-row>
 </o-form>
 
 
+<!-- <div fxFlex="40" fxFlex.md="100" *ngIf="hasGPSPositition()">
+  <o-map class="o-map" [center]="getPositionGPS()" zoom="10" min-zoom="3" max-zoom="20" zoom-control="yes"
+    search-control="no" layer-panel-visible="no">
+    <o-map-layer layer-type="marker" layer-id="office_marker" [layer-center]="getPositionGPS()"></o-map-layer> -->
