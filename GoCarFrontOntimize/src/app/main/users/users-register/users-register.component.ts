@@ -13,46 +13,46 @@ import { AuthService, OFormComponent, OntimizeService } from 'ontimize-web-ngx';
 })
 export class UsersRegisterComponent implements OnInit {
 
-  protected userService : OntimizeService;
+  protected userService: OntimizeService;
   validatorsConfirmPasswordArray: ValidatorFn[] = []; //array para la validación de 2 contraseñas iguales.
 
-  public  pass: string | undefined;
-  public  confirm_pass : string | undefined;
+  public pass: string | undefined;
+  public confirm_pass: string | undefined;
 
   @ViewChild('form', { static: false }) form: OFormComponent;
-  
-  dialogForm : FormGroup;
 
-  constructor(public injector : Injector, private dialogRef: MatDialogRef<UsersRegisterComponent>,
-     private router:Router, private actRoute: ActivatedRoute, @Inject(AuthService)
-     private authService: AuthService,  private fb: FormBuilder,) {
-      
-      this.validatorsConfirmPasswordArray.push(this.passwordMatchValidator);
-      this.userService = this.injector.get(OntimizeService);
-    }
-    
-    ngOnInit() {
-      this.dialogForm = this.fb.group({}); 
-      this.configureUserService();
+  dialogForm: FormGroup;
+
+  constructor(public injector: Injector, private dialogRef: MatDialogRef<UsersRegisterComponent>,
+    private router: Router, private actRoute: ActivatedRoute, @Inject(AuthService)
+    private authService: AuthService, private fb: FormBuilder,) {
+
+    this.validatorsConfirmPasswordArray.push(this.passwordMatchValidator);
+    this.userService = this.injector.get(OntimizeService);
   }
 
-  public async send(){
+  ngOnInit() {
+    this.dialogForm = this.fb.group({});
+    this.configureUserService();
+  }
+
+  public async send() {
     const password = this.form.formGroup.get('password').value;
     const confirmPassword = this.form.formGroup.get('confirm_password').value;
     const userName = this.form.formGroup.get('user_').value;
-    
+
     if (password !== confirmPassword) {
       // No es igual
       console.log('pass no igual');
       // this.error = false;
       alert("Las contraseñas no coinciden");
-     
-    }else{
+
+    } else {
       this.form.insert()
     }
-    }
-  
-  public configureUserService(){
+  }
+
+  public configureUserService() {
     const conf = this.userService.getDefaultServiceConfiguration('users');
     this.userService.configureService(conf);
   }
@@ -60,7 +60,7 @@ export class UsersRegisterComponent implements OnInit {
   public forceInsertMode(event: any) {
     if (event != OFormComponent.Mode().INSERT) {
       this.form.setInsertMode();
-  
+
     }
   }
 
@@ -68,20 +68,13 @@ export class UsersRegisterComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  
+
   passwordMatchValidator(control: any): any {
-  
-  try {
-
-    const password = control.parent ? control.parent.controls['password'].value : null
-    const confirm_password = control.value
-
-    return password === confirm_password ? null : { passwordsNotMatched: true };
-
-  }catch(e){
-
+    try {
+      const password = control.parent ? control.parent.controls['password'].value : null
+      const confirm_password = control.value
+      return password === confirm_password ? null : { passwordsNotMatched: true };
+    } catch (e) {
+    }
   }
-
-  }
-
 }

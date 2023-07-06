@@ -1,7 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { OTranslateService } from 'ontimize-web-ngx';
-import { OChartComponent, DiscreteBarChartConfiguration, DataAdapterUtils } from 'ontimize-web-ngx-charts';
-import { D3LocaleService } from 'src/app/shared/d3-locale/d3Locale.service';
 
 
 @Component({
@@ -11,11 +8,10 @@ import { D3LocaleService } from 'src/app/shared/d3-locale/d3Locale.service';
 })
 export class RentalsMyCarsHomeComponent implements OnInit {
   ngOnInit(): void {
-    
+
   }
 
-
-  convertDate(date: Date){
+  convertDate(date: Date) {
     const newDate = new Date(date);
     return (newDate.toLocaleDateString());
   }

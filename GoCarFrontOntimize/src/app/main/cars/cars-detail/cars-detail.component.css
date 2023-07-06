@@ -1,16 +1,16 @@
 .cars-detail {
- 
     flex-direction: column-reverse;
     height: 100%;
 }
 
-.leftColumn{
+.leftColumn {
     margin-right: 30px;
 }
 
-.dateRight{
+.dateRight {
     margin-left: 30px;
 }
-.input-padding{
+
+.input-padding {
     margin-top: 15px;
 }

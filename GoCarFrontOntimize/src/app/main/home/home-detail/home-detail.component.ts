@@ -1,15 +1,9 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
-import { OFormComponent } from "ontimize-web-ngx";
-import {
-  AbstractControl,
-  ValidationErrors,
-  ValidatorFn,
-  FormBuilder,
-  FormGroup,
-} from "@angular/forms";
-import { CurrentDay } from "../../util/CurrentDay";
-import { BBDD } from "../../util/BBDD";
-import { Moment } from "moment";
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { OFormComponent } from 'ontimize-web-ngx';
+import { AbstractControl, ValidationErrors, ValidatorFn, FormBuilder, FormGroup } from '@angular/forms';
+import { CurrentDay } from '../../util/CurrentDay';
+import { BBDD } from '../../util/BBDD';
+import { Moment } from 'moment';
 
 declare var patatas;
 @Component({
@@ -20,12 +14,14 @@ declare var patatas;
 export class HomeDetailComponent implements OnInit {
   @ViewChild("formCar", { static: false }) formCar: OFormComponent;
 
-  @ViewChild("formRent", { static: false }) formRent: OFormComponent;
+  @ViewChild('formCar', { static: false }) formCar: OFormComponent;
+
+  @ViewChild('formRent', { static: false }) formRent: OFormComponent;
   dialogForm: FormGroup;
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder) { }
+
 
   car_id: number;
-
   daysNotAvailable: any[];
   methodBBDD = new BBDD();
   intermediateDates = [];
@@ -33,6 +29,7 @@ export class HomeDetailComponent implements OnInit {
   maxDateEnd: string;
 
   ngOnInit() {
+
     this.dialogForm = this.fb.group({});
   }
 
@@ -51,14 +48,8 @@ export class HomeDetailComponent implements OnInit {
   public insertRent() {
     let getIdCar = this.formCar.getFieldValue("car_id");
     this.formRent.setFieldValue("car_id", getIdCar);
-    this.formRent.setFieldValue(
-      "rental_start_date",
-      new Date(this.formRent.getFieldValue("rental_start_date"))
-    );
-    this.formRent.setFieldValue(
-      "rental_end_date",
-      new Date(this.formRent.getFieldValue("rental_end_date"))
-    );
+    this.formRent.setFieldValue("rental_start_date", new Date(this.formRent.getFieldValue("rental_start_date")));
+    this.formRent.setFieldValue("rental_end_date", new Date(this.formRent.getFieldValue("rental_end_date")));
 
     this.formRent.insert();
   }
@@ -73,13 +64,13 @@ export class HomeDetailComponent implements OnInit {
 
     // Add a leading zero if the month or day is less than 10
     if (month < 10) {
-      month = "0" + month;
+      month = '0' + month;
     }
     if (day < 10) {
-      day = "0" + day;
+      day = '0' + day;
     }
-
     return `${year}-${month}-${day}`;
+
   }
 
   public currentDay() {
@@ -87,17 +78,19 @@ export class HomeDetailComponent implements OnInit {
     return today.currentDay();
   }
 
+
   public dateEndAvailable() {
     const endAvailabe = this.formCar.getFieldValue("end_date_available");
     return endAvailabe;
+
   }
   public calculatePrice() {
+
     let priceDay = this.formCar.getFieldValue("daily_rental_price");
     const startDate = new Date(
       this.formRent.getFieldValue("rental_start_date")
     );
     const endDate = new Date(this.formRent.getFieldValue("rental_end_date"));
-
     const days = endDate.getDate() - startDate.getDate();
     const totalPrice = priceDay * days;
 
@@ -105,20 +98,15 @@ export class HomeDetailComponent implements OnInit {
   }
 
   public calculateMinDate(event) {
+
     if (event.type == 0) {
       console.log("entro");
-      let dateReturn = new Date(
-        this.formRent.getFieldValue("rental_start_date")
-      );
+      let dateReturn = new Date(this.formRent.getFieldValue("rental_start_date"))
       const year = dateReturn.getFullYear();
       let month = dateReturn.getMonth() + 1;
       let incrementDay = dateReturn.getDate() + 1;
 
-      this.formRent.setFieldValue(
-        "rental_end_date",
-        `${year}-${month}-${incrementDay}`
-      );
-
+      this.formRent.setFieldValue("rental_end_date", `${year}-${month}-${incrementDay}`)
       this.minDateEnd = `${year}-${month}-${incrementDay}`;
     }
   }
@@ -126,13 +114,9 @@ export class HomeDetailComponent implements OnInit {
   calculateMaxDateEnd(event) {
     if (event && event.newValue) {
       const dayStart = new Date(event.newValue);
-      const maxDateAvailable = new Date(
-        this.formCar.getFieldValue("end_date_available")
-      );
+      const maxDateAvailable = new Date(this.formCar.getFieldValue('end_date_available'));
+      const formattedDates = this.intermediateDates.map(date => this.convertDate(date));
 
-      const formattedDates = this.intermediateDates.map((date) =>
-        this.convertDate(date)
-      );
       formattedDates.push(this.convertDate(maxDateAvailable));
 
       while (dayStart <= maxDateAvailable) {
@@ -141,7 +125,6 @@ export class HomeDetailComponent implements OnInit {
           this.maxDateEnd = dateFormatString;
           return;
         }
-
         dayStart.setDate(dayStart.getDate() + 1);
       }
     }
@@ -149,7 +132,6 @@ export class HomeDetailComponent implements OnInit {
 
   filterAvailability(date: Moment): boolean {
     let compDate: Date = date.toDate();
-
     for (let availableDate of this.intermediateDates) {
       if (compDate.toDateString() === availableDate.toDateString()) {
         return false;
@@ -158,11 +140,13 @@ export class HomeDetailComponent implements OnInit {
     return true;
   }
 
+
   getIntermediateDates(startDate, endDate) {
+
     startDate = new Date(startDate);
     endDate = new Date(endDate);
-
     let currentDate = startDate;
+
     while (currentDate <= endDate) {
       this.intermediateDates.push(new Date(currentDate));
       currentDate.setDate(currentDate.getDate() + 1);

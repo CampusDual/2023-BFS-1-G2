@@ -1,5 +1,5 @@
-import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute, Router } from "@angular/router";
+import { Component, OnInit, } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: "home",
@@ -9,19 +9,14 @@ import { ActivatedRoute, Router } from "@angular/router";
 export class HomeComponent implements OnInit {
   public user: string;
 
-  constructor(private router: Router, private actRoute: ActivatedRoute) {}
+  public user: string;
+
+  constructor(private router: Router, private actRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    const localStorageData = JSON.parse(
-      localStorage.getItem("com.ontimize.web.ngx.jee.seed")
-    );
+    const localStorageData = JSON.parse(localStorage.getItem('com.ontimize.web.ngx.jee.seed'));
     this.user = localStorageData.session.user;
-
-    if (
-      localStorageData &&
-      localStorageData.session &&
-      localStorageData.session.user
-    ) {
+    if (localStorageData && localStorageData.session && localStorageData.session.user) {
       this.user = localStorageData.session.user;
     }
   }

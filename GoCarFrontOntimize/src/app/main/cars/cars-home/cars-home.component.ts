@@ -7,12 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarsHomeComponent implements OnInit {
 
-  protected data: [1, 2, 3, 4];
+  constructor(){}
   
   ngOnInit(): void {
-  
   }
-  constructor(){}
+  
   
   convertDate(date: Date){
     const newDate = new Date(date);
