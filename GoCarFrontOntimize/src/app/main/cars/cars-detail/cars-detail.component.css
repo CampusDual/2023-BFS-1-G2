@@ -14,10 +14,3 @@
 .input-padding{
     margin-top: 15px;
 }
-
-.o-map {
-    height: auto; /* Add this to make the map container take available vertical space */
-    margin-right: -330px;
-}
-
-
