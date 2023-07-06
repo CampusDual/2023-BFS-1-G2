@@ -58,7 +58,6 @@ export class HomeDetailComponent implements OnInit {
     this.formRent.insert();
   }
 
-  //prueba
 
   convertDate(date: Date){
     const newDate = new Date(date);

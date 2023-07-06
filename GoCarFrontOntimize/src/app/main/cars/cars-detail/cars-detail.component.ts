@@ -11,14 +11,15 @@ import * as L from 'leaflet';
 })
 export class CarsDetailComponent implements OnInit {
 
-  protected carService : OntimizeService;
+  car_id: Number;
+  protected carService: OntimizeService;
   validatorsConfirmPlateArray: ValidatorFn[] = [];
   @ViewChild('oMapMarker', { static: false }) oMapMarker: OMapComponent;
   @ViewChild('form', { static: false }) form: OFormComponent;
   dialogForm: FormGroup;
 
-  constructor(public injector : Injector,
-     private fb: FormBuilder) {
+  constructor(public injector: Injector,
+    private fb: FormBuilder) {
     this.validatorsConfirmPlateArray.push(this.plateFormatValidator);
     this.carService = this.injector.get(OntimizeService);
   }
@@ -26,13 +27,15 @@ export class CarsDetailComponent implements OnInit {
   public longitude;
   public latitude;
 
-  async formInit(){
- 
+  formInit() {
+
+    this.car_id = parseInt(this.form.getFieldValue('car_id'));
+    this.getLongLat();
   }
 
   ngOnInit() {
     this.configureCarService();
-    this.getLongLat();
+
     this.dialogForm = this.fb.group({});
   }
 
@@ -55,45 +58,29 @@ export class CarsDetailComponent implements OnInit {
     }
   }
 
-  public configureCarService(){
+  public configureCarService() {
     const conf = this.carService.getDefaultServiceConfiguration('cars');
     this.carService.configureService(conf);
   }
 
 
-public async  getLongLat(){
- let result= this.carService.query({'car_id':223},['longitude','latitude'], 'myCar').subscribe(data => {console.log(data)});
+  public getLongLat() {
 
-//  let username = 'samu'
-//   let  password = '12345'
-//      let auth = "Basic " + btoa(`${username}:${password}`)
-//      let  body = {
-//       filter: {"car_id" : 223},
-//       columns: ["car_id", "longitude", "latitude"]}
-//       const { data } = await fetch('http://localhost:33333/cars/myCar/search', {
-//         method: 'POST', 
-//         body: JSON.stringify(body),
-//         headers: {
-//           "Content-type": "application/json; charset=UTF-8",
-//           "Authorization": auth
-//       }
-//       }).then(res => res.json())
-//       this.latitude=data[0].latitude;
-//       this.longitude=data[0].longitude;
-//       console.log(data);
-}
+    this.carService.query({ 'car_id': this.car_id }, ['longitude', 'latitude'], 'myCar').subscribe(result => {
+      this.longitude = result.data[0].longitude;
+      this.latitude = result.data[0].latitude;
+    });
+
+  }
 
   public hasGPSPositition() {
-    // this.getLongLat();
     return this.latitude && this.longitude;
-    
   }
 
   public getPositionGPS() {
-    // this.getLongLat();
     return this.latitude + ',' + this.longitude;
   }
-  
+
 
   public addDrawEvent(arg) {
     const layer = arg.layer;
@@ -114,7 +101,7 @@ public async  getLongLat(){
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
-      
+
         if (data && data.length > 0) {
           const latitude = parseFloat(data[0].lat);
           const longitude = parseFloat(data[0].lon);
