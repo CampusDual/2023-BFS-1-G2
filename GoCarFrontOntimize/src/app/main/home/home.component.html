@@ -1,51 +1,66 @@
+<o-form-layout-manager mode="dialog" title="" label-columns="name" attr="o-form-layout-branches-home" color="warn">
+  <o-form-layout-dialog-options title="Alquiler" width="710px" height="700px"
+    disable-close="true"></o-form-layout-dialog-options>
 
-<o-form-layout-manager mode="dialog" title=""  label-columns="name"  attr="o-form-layout-branches-home" color="warn"> 
-  <o-form-layout-dialog-options  title = "Alquiler" width="710px" height="700px" 
-  disable-close="true"></o-form-layout-dialog-options>
 
-  
 
-  
-  <o-grid #grid service="cars" entity="availableCars" keys="car_id" columns="car_id;user_id;brand;model;location;start_date_available;plate;end_date_available;car_photo;daily_rental_price"
 
-  show-page-size="yes" fxFlex page-size-options="6;12;24;32;64" orderable="yes" sort-column="start_date_available" sortable-columns="brand;model;plate;location;daily_rental_price;start_date_available"
-   attr="gridMyCars" class="main-grid">
+  <o-grid #grid service="cars" entity="availableCars" keys="car_id"
+    columns="car_id;user_id;brand;model;location;start_date_available;plate;end_date_available;car_photo;daily_rental_price"
+    show-page-size="yes" fxFlex page-size-options="6;12;24;32;64" orderable="yes" sort-column="start_date_available"
+    sortable-columns="brand;model;plate;location;daily_rental_price;start_date_available" attr="gridMyCars"
+    class="main-grid">
 
-    <o-grid-item *ngFor="let list of grid.dataArray" class="grid"> 
+    <o-grid-item *ngFor="let list of grid.dataArray" class="grid">
       <o-column class="grid-item">
         <header class="grid-item-header">
           <div class="grid-item-header-div">
             <h2>{{ list.brand }}</h2>
           </div>
-          
+
         </header>
 
         <div class="grid-picture" *ngIf="list.car_photo">
-          <o-image class="picture-car" attr="car_photo" title="car_photo"  [data]= "list.car_photo" orderable="no" searchable="no" avatar="yes" 
-   image-type="base64" show-controls="no" read-only="yes" height="150px"></o-image>
+          <o-image class="picture-car" attr="car_photo" title="car_photo" [data]="list.car_photo" orderable="no"
+            searchable="no" avatar="yes" image-type="base64" show-controls="no" read-only="yes"
+            height="150px"></o-image>
         </div>
-       
+
         <main class="grid-item-body">
-           
-            <div class="plate">
-              <h4>{{ list.model }}</h4>
-               <span> <mat-icon>money</mat-icon> {{ list.plate }} </span>
-            </div>
-            <div class="location">
-              <mat-icon>place</mat-icon><span> {{ list.location }}</span>
-            </div>
-            <div class="price">
-              <span>{{ list.daily_rental_price }}</span><mat-icon>euro</mat-icon>
-            </div>
-            
-            <div class="start_date_available">
-              <span> <mat-icon>access_time</mat-icon>{{ convertDate(list.start_date_available) }} - {{ convertDate(list.end_date_available) }}</span>
-            </div>
-          </main>
-        
+
+          <div class="plate">
+            <h4>{{ list.model }}</h4>
+            <span> <mat-icon>money</mat-icon> {{ list.plate }} </span>
+          </div>
+          <div class="location">
+            <mat-icon>place</mat-icon><span> {{ list.location }}</span>
+          </div>
+          <div class="price">
+            <span>{{ list.daily_rental_price }}</span><mat-icon>euro</mat-icon>
+          </div>
+
+          <div class="start_date_available">
+            <span> <mat-icon>access_time</mat-icon>{{ convertDate(list.start_date_available) }} - {{
+              convertDate(list.end_date_available) }}</span>
+          </div>
+        </main>
+
       </o-column>
     </o-grid-item>
   </o-grid>
 
+  <o-row style="border: 2px solid #e91e63; height: 340px; width: 550px;">
+    <!-- <div fxFlex="40" fxFlex="100" *ngIf="hasArray()">  -->
+    <o-map #oMapMarker zoom="15" min-zoom="3" max-zoom="20" zoom-control="no" search-control="true"
+      search-control-button-visible="true" layer-panel-visible="no" fxFlex>
+      <o-map-draw-controls></o-map-draw-controls>
+      <div *ngFor="let data of positionsCars">
 
+        <o-map-layer layer-type="marker" layer-id="{{data.car_id}}" layer-center="{{data.positionGPS}}"
+          layer-menu-label="My car location" layer-menu-label-secondary="Location"></o-map-layer>
+      </div>
+    </o-map>
+    <!-- </div>  -->
+  </o-row>
+  
 </o-form-layout-manager>

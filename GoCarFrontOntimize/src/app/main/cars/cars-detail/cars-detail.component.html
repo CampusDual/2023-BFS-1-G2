@@ -43,7 +43,7 @@
     </o-row>
 
     <o-row  style="border: 2px solid #e91e63; height: 340px; width: 550px;">  
-      <div fxFlex="40" fxFlex.md="100" *ngIf="hasGPSPositition()">
+      <div fxFlex="40" fxFlex="100" *ngIf="hasGPSPositition()">
       <o-map #oMapMarker [center]="getPositionGPS()" zoom="15" min-zoom="3" max-zoom="20" zoom-control="no"
      search-control="no" layer-panel-visible="no" fxFlex (onDrawEvent)="addDrawEvent($event)" >
      <o-map-draw-controls></o-map-draw-controls>

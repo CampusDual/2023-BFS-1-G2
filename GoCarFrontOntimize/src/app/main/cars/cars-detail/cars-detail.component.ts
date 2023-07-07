@@ -3,6 +3,7 @@ import { AbstractControl, ValidationErrors, ValidatorFn, FormBuilder, FormGroup 
 import { OFormComponent, OntimizeService } from 'ontimize-web-ngx';
 import { OMapComponent } from 'ontimize-web-ngx-map';
 import * as L from 'leaflet';
+import { Subscriber } from 'rxjs';
 
 @Component({
   selector: 'app-cars-detail',
@@ -26,6 +27,8 @@ export class CarsDetailComponent implements OnInit {
 
   public longitude;
   public latitude;
+
+ 
 
   formInit() {
 
@@ -128,5 +131,9 @@ export class CarsDetailComponent implements OnInit {
         console.error('Error geocoding location:', error);
         // Maneja el error
       });
+  }
+
+  public json(){
+      console.log("hola");
   }
 }
