@@ -78,11 +78,12 @@ export class CarsDetailComponent implements OnInit {
   }
 
   public getPositionGPS() {
-if(!this.hasGPSPositition() ){
+if(!this.hasGPSPositition() 
+){
   // this.form.setFieldValue("longitude",3.7038)
   // this.form.setFieldValue("latitude",40.4168)
-  this.longitude=3.7038;
-  this.latitude=40.4168;
+  this.longitude= -3.7038;
+  this.latitude= 40.4168;
 }
 
     return this.latitude + ',' + this.longitude;
