@@ -1,5 +1,6 @@
 import { Component,Injector,OnInit,  } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FormatLocation } from '../util/FormatLocation';
 import { OntimizeService } from 'ontimize-web-ngx';
 
 @Component({
@@ -12,6 +13,7 @@ export class HomeComponent implements OnInit {
   public user:string;
   protected carService: OntimizeService;
   
+  formatMethod = new FormatLocation();
   constructor(
     public injector: Injector,
     private router: Router,
@@ -71,4 +73,9 @@ public positionsCars: any[];
     return (newDate.toLocaleDateString());
   }
 
+  public proba(location:string){
+    console.log(location)
+    let resultt= this.formatMethod.format(location);
+   return resultt 
+  }
 }

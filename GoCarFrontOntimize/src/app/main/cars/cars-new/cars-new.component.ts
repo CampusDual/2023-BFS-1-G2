@@ -9,6 +9,7 @@ import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn 
 import { CurrentDay } from '../../util/CurrentDay';
 import { OMapComponent } from 'ontimize-web-ngx-map';
 import * as L from 'leaflet'; // IMPORTANTE MAPA (no tocar esta porfi)
+import { FormatLocation } from '../../util/FormatLocation';
 
 
 
@@ -27,26 +28,18 @@ import * as L from 'leaflet'; // IMPORTANTE MAPA (no tocar esta porfi)
 export class CarsNewComponent implements OnInit {
 
 
-
-
   fecha:string;
-
-
 
 
   validatorsConfirmPlateArray: ValidatorFn[] = [];
 
 
-
-
    protected carService : OntimizeService;
-
-
 
 
    idUser: string = sessionStorage.getItem('user_id')
 
-
+  formatMethod = new FormatLocation();
 
 
    @ViewChild('form', { static: false }) form: OFormComponent;
@@ -164,9 +157,27 @@ export class CarsNewComponent implements OnInit {
         const apiKey= `AIzaSyDeV0LKQvk1HMV0lnGyrhHTYgEAYI2_HZc`
         const urlCalles = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyDeV0LKQvk1HMV0lnGyrhHTYgEAYI2_HZc`
         fetch(urlCalles).then(res => res.json()).then(res => {
-          if(res) {
-           this.form.setFieldValue("location", res.results[0].formatted_address
-           )
+          
+        let resFinal = this.formatMethod.format(res.results[0].formatted_address);
+        console.log(resFinal)
+        
+        // let resFinal = res.results[0].formatted_address.split(',');
+        // resFinal = resFinal.slice(2);
+        // resFinal.toString().split(' ');
+        // let ciudad = resFinal[0].split(' ')[2];
+        // resFinal.shift();
+        // resFinal.unshift(ciudad)
+        
+        
+    
+          
+        if(res) {
+          //  this.form.setFieldValue("location", res.results[0].formatted_address
+          //  )
+          this.form.setFieldValue("location", resFinal
+          )
+
+           console.log(res.results[0].formatted_address)
           } else {
             this.form.setFieldValue("location", "Error en la seleccion de localizacion")
           }

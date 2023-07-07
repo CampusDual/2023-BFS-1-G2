@@ -27,24 +27,23 @@
         </div>
 
         <main class="grid-item-body">
-
-          <div class="plate">
-            <h4>{{ list.model }}</h4>
-            <span> <mat-icon>money</mat-icon> {{ list.plate }} </span>
-          </div>
-          <div class="location">
-            <mat-icon>place</mat-icon><span> {{ list.location }}</span>
-          </div>
-          <div class="price">
-            <span>{{ list.daily_rental_price }}</span><mat-icon>euro</mat-icon>
-          </div>
-
-          <div class="start_date_available">
-            <span> <mat-icon>access_time</mat-icon>{{ convertDate(list.start_date_available) }} - {{
-              convertDate(list.end_date_available) }}</span>
-          </div>
-        </main>
-
+           
+            <div class="plate">
+              <h4>{{ list.model }}</h4>
+               <span> <mat-icon>money</mat-icon> {{ list.plate }} </span>
+            </div>
+            <div class="location">
+              <mat-icon>place</mat-icon><span> {{ proba(list.location) }}</span>
+            </div>
+            <div class="price">
+              <span>{{ list.daily_rental_price }}</span><mat-icon>euro</mat-icon>
+            </div>
+            
+            <!-- <div class="start_date_available">
+              <span> <mat-icon>access_time</mat-icon>{{ convertDate(list.start_date_available) }} - {{ convertDate(list.end_date_available) }}</span>
+            </div> -->
+          </main>
+        
       </o-column>
     </o-grid-item>
   </o-grid>

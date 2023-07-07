@@ -99,8 +99,7 @@
   "Distribution of total profit from my cars" : "Distribución do beneficio total dos meus coches",
   "Distribution of total profit of my rentals" : "Distribución do beneficio total dos mues alugueres",
 
- 
-      "LANGUAGE": "Idioma",
+       "LANGUAGE": "Idioma",
       "LOCALE_en": "EN",
       "LOCALE_es": "ES",
       "LOCALE_gl": "GL",
@@ -384,6 +383,14 @@
       "FILTERBUILDERMENU.BUTTONS.CLEAR_FILTER": "Limpar filtro",
       "FILTERBUILDERMENU.DIALOG.CONFIRM_CLEAR_FILTER": "Esta acción limpiará tódolos filtros desta sección. ¿Desexa continuar?",
       "OIMAGE.TEXT.DROP&DRAG": "Arrastra e solta a imaxe aquí",
-      "OIMAGE.BUTTON.BROWSEFILE":"Seleccionar imaxe"
+      "OIMAGE.BUTTON.BROWSEFILE":"Seleccionar imaxe",
+      
+      "MAP_BASE_LAYERS": "Capas base",
+      "MAP_LAYERS": "Capas",
+      "MAP_WORKSPACE_LAYERS": "Espazo de traballo",
+      "SEARCH_PLACEHOLDER": "Introduce un lugar...",
+      "CONTEXTMENU.CENTER_MAP": "Centrar mapa aquí",
+      "CONTEXTMENU.ZOOM_IN": "Acercar",
+      "CONTEXTMENU.ZOOM_OUT": "Afastar"
 
 }
