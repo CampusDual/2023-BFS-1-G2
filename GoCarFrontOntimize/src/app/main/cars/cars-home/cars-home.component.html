@@ -6,9 +6,9 @@
   
   <main class="main">
    
-    <o-list #list service="cars" entity="myCar" keys="car_id" columns="car_id;user_id;brand;model;location;start_date_available;plate;end_date_available;car_photo;daily_rental_price"
+    <o-list #list service="cars" entity="myCar" keys="car_id" columns="car_id;user_id;brand;model;location;start_date_available;plate;end_date_available;car_photo;daily_rental_price;fuel"
       show-page-size="yes" fxFlex paginations-controls="yes" quick-filter-columns="brand;model;location" insert-button="yes" insert-button-position="top" delete-button="no"
-      selectable="no" orderable="yes" sort-columns="brand;model;plate;location" class="list">
+      selectable="no" orderable="yes" sort-columns="brand;model;plate;location;fuel" class="list">
       
       <o-list-item *ngFor="let list of list.dataArray" class="list-item"> 
         
@@ -27,6 +27,9 @@
               <div class="plate">
                 <h4>{{ list.model }}</h4>
                  <span> <mat-icon>money</mat-icon> {{ list.plate }} </span>
+              </div>
+              <div class="fuel">
+                 <span> <mat-icon>local_gas_station</mat-icon> {{ list.fuel }} </span>
               </div>
               <div class="location">
                 <mat-icon>place</mat-icon><span> {{ list.location }}</span>

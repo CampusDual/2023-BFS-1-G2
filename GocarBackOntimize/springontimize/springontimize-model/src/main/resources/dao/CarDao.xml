@@ -27,6 +27,7 @@
                 <Column>daily_rental_price</Column>
                 <Column>longitude</Column>
                 <Column>latitude</Column>
+                <Column>fuel</Column>
 
 
             </ValidColumns>
@@ -54,6 +55,7 @@
                 <Column>daily_rental_price</Column>
                 <Column>longitude</Column>
                 <Column>latitude</Column>
+                <Column>fuel</Column>
             </ValidColumns>
 
             <!--Query returns all the columns with the condition that the current date is between the beginning and the end of the availability-->

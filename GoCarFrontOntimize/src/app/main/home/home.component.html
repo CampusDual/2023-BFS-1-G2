@@ -3,9 +3,9 @@
     disable-close="true"></o-form-layout-dialog-options>
 
   <o-grid (onDataLoaded)="gridInit()" #grid service="cars" entity="availableCars" keys="car_id"
-    columns="car_id;user_id;brand;model;location;start_date_available;plate;end_date_available;car_photo;daily_rental_price"
+    columns="car_id;user_id;brand;model;location;start_date_available;plate;end_date_available;car_photo;daily_rental_pricel;fuel"
     show-page-size="yes" fxFlex page-size-options="6;12;24;32;64" orderable="yes" sort-column="start_date_available"
-    sortable-columns="brand;model;plate;location;daily_rental_price;start_date_available" attr="gridMyCars"
+    sortable-columns="brand;model;plate;location;daily_rental_price;start_date_available;fuel" attr="gridMyCars"
     class="main-grid">
 
     <o-grid-item *ngFor="let list of grid.dataArray" class="grid">
@@ -27,6 +27,9 @@
             <h4>{{ list.model }}</h4>
             <span> <mat-icon>money</mat-icon> {{ list.plate }} </span>
           </div>
+          <div class="fuel">
+            <span> <mat-icon>local_gas_station</mat-icon> {{ list.fuel }} </span>
+         </div>
           <div class="location">
             <mat-icon>place</mat-icon><span> {{ proba(list.location) }}</span>
           </div>

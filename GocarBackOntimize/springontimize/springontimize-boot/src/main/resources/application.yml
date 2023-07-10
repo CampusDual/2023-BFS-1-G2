@@ -27,7 +27,7 @@ ontimize:
          upper-like: true
    security:
       mode: default
-      ignore-paths: /app/**, /users/user, /cars/car, /brand
+      ignore-paths: /app/**, /users/user, /cars/car, /brand, /fuel
       role-information-service:
          role-repository: UserRoleDao
          role-name-column: rolename
