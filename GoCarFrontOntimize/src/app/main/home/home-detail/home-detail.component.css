@@ -1,5 +1,5 @@
 .leftColumn{
-    height: 500px;
+    height: 650px;
     /* border: 2px solid green; */
 }
 .rightColumn{
@@ -10,8 +10,14 @@
 .row-car_photo{
     /* border: 2px solid orange; */
     padding: auto;
+    padding-left: 100px;
     height: 250px;
-    width: 360px;;
+    width: 360px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
 }
 
 .ontimize-buttons{
@@ -44,7 +50,7 @@ o-textarea-input{
     width: 250;
     height: 250;  
     color: #e91e63;
-    gap: .7rem;
+    gap: .5rem;
     /* border-bottom: 2px solid #F1AD2D; */
 } 
 
@@ -59,11 +65,13 @@ o-textarea-input{
     /* border: 1px solid blue; */
 }
 .containerbutton{
-    height: 50px;
+    padding-top: 30px;
     display: flex;
     justify-content: center;
     /* border: 1px solid greenyellow; */
     align-items: center;
+
+ 
 }
 span{
     justify-content: center;
