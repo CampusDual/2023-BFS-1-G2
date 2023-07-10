@@ -83,5 +83,10 @@ export class UsersRegisterComponent implements OnInit {
   }
 
   }
+  public reviewMatches(event: Event){
+    this.form.formGroup.controls['confirm_password'].updateValueAndValidity();
+    this.form.formGroup.get('confirm_password').markAsTouched();
+
+  }
 
 }
