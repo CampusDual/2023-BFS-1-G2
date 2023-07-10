@@ -158,7 +158,7 @@ export class CarsNewComponent implements OnInit {
         const urlCalles = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyDeV0LKQvk1HMV0lnGyrhHTYgEAYI2_HZc`
         fetch(urlCalles).then(res => res.json()).then(res => {
           
-        let resFinal = this.formatMethod.format(res.results[0].formatted_address);
+        let resFinal = res.results[0].formatted_address;
         console.log(resFinal)
         
         // let resFinal = res.results[0].formatted_address.split(',');
@@ -171,17 +171,18 @@ export class CarsNewComponent implements OnInit {
         
     
           
-        if(res) {
-          //  this.form.setFieldValue("location", res.results[0].formatted_address
-          //  )
-          this.form.setFieldValue("location", resFinal
-          )
+        // if(res) {
+        //   //  this.form.setFieldValue("location", res.results[0].formatted_address
+        //   //  )
+        //   this.form.setFieldValue("location", resFinal
+        //   )
 
-           console.log(res.results[0].formatted_address)
-          } else {
-            this.form.setFieldValue("location", "Error en la seleccion de localizacion")
-          }
+        //    console.log(res.results[0].formatted_address)
+        //   } else {
+        //     this.form.setFieldValue("location", "Error en la seleccion de localizacion")
+        //   }
 
+           this.form.setFieldValue("location", resFinal)
         }) 
 
       }
