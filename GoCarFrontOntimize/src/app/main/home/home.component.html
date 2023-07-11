@@ -2,12 +2,16 @@
   <o-form-layout-dialog-options title="Alquiler" width="710px" height="700px"
     disable-close="true"></o-form-layout-dialog-options>
 
-  <o-grid (onDataLoaded)="gridInit()" #grid service="cars" entity="availableCars" keys="car_id"
+  <o-grid #grid service="cars" entity="availableCars" keys="car_id"
     columns="car_id;user_id;brand;model;location;start_date_available;plate;end_date_available;car_photo;daily_rental_price"
     show-page-size="yes" fxFlex page-size-options="6;12;24;32;64" orderable="yes" sort-column="start_date_available"
     sortable-columns="brand;model;plate;location;daily_rental_price;start_date_available" attr="gridMyCars"
     class="main-grid">
 
+    <o-button class="btn-showOldRents" #showOldRents o-grid-toolbar position="start"
+    label="Show in map" (onClick)="openMap()"></o-button>
+    
+    <div *ngIf="show">
     <o-grid-item *ngFor="let list of grid.dataArray" class="grid">
       <o-column class="grid-item">
         <header class="grid-item-header">
@@ -36,16 +40,6 @@
         </main>
       </o-column>
     </o-grid-item>
+  </div>
   </o-grid>
-
-  <o-row style="border: 2px solid #e91e63; height: 340px; width: 550px;">
-    <o-map #oMapMarker zoom="15" min-zoom="3" max-zoom="20" zoom-control="no" search-control="true"
-      search-control-button-visible="true" layer-panel-visible="no" fxFlex>
-      <o-map-draw-controls></o-map-draw-controls>
-
-      <!-- <o-map-layer layer-type="marker" layer-id="{{data.car_id}}" layer-center="{{data.positionGPS}}"
-          layer-menu-label="My car location" layer-menu-label-secondary="Location"></o-map-layer>
-      </div>  -->
-    </o-map>
-  </o-row>
 </o-form-layout-manager>

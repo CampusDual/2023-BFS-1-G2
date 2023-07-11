@@ -97,7 +97,6 @@ export class HomeDetailComponent implements OnInit {
     
     const days = endDate.getDate() - startDate.getDate();
     const totalPrice = priceDay * (days);
-
     
     this.formRent.setFieldValue("total_price", totalPrice);
     

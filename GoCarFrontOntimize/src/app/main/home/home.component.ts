@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormatLocation } from '../util/FormatLocation';
 import { OntimizeService } from 'ontimize-web-ngx';
 import { OMapComponent } from 'ontimize-web-ngx-map';
+import { MatDialog, MatDialogRef } from '@angular/material';
+import { MapHomeComponent } from './map-home/map-home.component';
 
 @Component({
   selector: 'home',
@@ -15,6 +17,8 @@ export class HomeComponent implements OnInit {
   protected carService: OntimizeService;
   public positionsCars: any[];
   formatMethod = new FormatLocation();
+  public show: boolean = true;
+  public positionNavigator: string;
 
   @ViewChild('oMapMarker', { static: false }) oMap: OMapComponent;
   reloadMapFlag: boolean = false;
@@ -22,13 +26,13 @@ export class HomeComponent implements OnInit {
   constructor(
     public injector: Injector,
     private router: Router,
-    private actRoute: ActivatedRoute) {
+    private actRoute: ActivatedRoute,
+    protected dialog: MatDialog) {
     this.carService = this.injector.get(OntimizeService);
   }
 
 
   ngOnInit() {
-    this.configureCarService();
 
     const localStorageData = JSON.parse(localStorage.getItem('com.ontimize.web.ngx.jee.seed'));
     this.user = localStorageData.session.user;
@@ -37,38 +41,13 @@ export class HomeComponent implements OnInit {
       this.user = localStorageData.session.user;
     }
 
-    this.getData();
-    console.log(this.positionsCars);
-  }
-
-  gridInit() {
-    this.addMarkerOnMap();
   }
 
 
-  public addMarkerOnMap() {
-    this.positionsCars.forEach(marker => {
-      this.oMap.addMarker(marker.car_id, marker.latitude, marker.longitude, null, null, null, null, null);
-    })
+  showOptions() {
+    this.show = !this.show;
   }
-
-  public getData() {
-    this.carService.query(null, ['car_id', 'longitude', 'latitude'], 'availableCars').subscribe(result => {
-      this.positionsCars = result.data.map(item => {
-        return {
-          car_id: item.car_id,
-          longitude: item.longitude,
-          latitude: item.latitude
-        };
-      });
-      console.log(this.positionsCars);
-    })
-  }
-
-  public configureCarService() {
-    const conf = this.carService.getDefaultServiceConfiguration('cars');
-    this.carService.configureService(conf);
-  }
+  
 
   navigate() {
     this.router.navigate(['../', 'login'], { relativeTo: this.actRoute });
@@ -81,5 +60,13 @@ export class HomeComponent implements OnInit {
   public proba(location: string) {
     let resultt = this.formatMethod.format(location);
     return resultt
+  }
+
+  public openMap(): void {
+    this.dialog.open(MapHomeComponent, {
+      disableClose: false, 
+      height: '650px',
+      width: '700px'
+    });
   }
 }
