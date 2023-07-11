@@ -8,8 +8,7 @@ import { OTranslateService } from "ontimize-web-ngx";
 export class Combo {
 
   constructor(
-    private translateService: OTranslateService
-  ) { }
+    ) { }
 
   
   public fuelsArray = [{
