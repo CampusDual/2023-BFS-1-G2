@@ -101,5 +101,6 @@
   "Diesel Oil":"Gasóleo",
   "Gasoline":"Gasolina",
   "Electric":"Electric",
-  "Hybrid":"Híbrido" 
+  "Hybrid":"Híbrido",
+  "owner_profit": "Beneficio"
 }

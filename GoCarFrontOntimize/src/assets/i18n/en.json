@@ -97,7 +97,8 @@
   "Gasóleo":"Diesel Oil",
   "Gasolina":"Gasoline",
   "Eléctrico":"Electric",
-  "Híbrido":"Hybrid" 
+  "Híbrido":"Hybrid",
+  "owner_profit": "Profit"
  
 
 }

@@ -6,9 +6,9 @@
     
 
     <o-table  attr="rents" service="rents" entity="myCarRentals" title="RENTS MY CARS"
-    columns="rent_id;car_id;brand;model;car_photo;user_rent;rental_start_date;rental_end_date;total_price;observations"
-    visible-columns="car_photo;brand;model;user_rent;rental_start_date;rental_end_date;total_price;observations"
-    sort-columns="rental_start_date" keys="rent_id" query-rows="5" quick-filter="yes" delete-button="no" insert-button="no">
+    columns="rent_id;car_id;brand;model;user_rent;rental_start_date;rental_end_date;total_price;owner_profit"
+    visible-columns="brand;model;user_rent;rental_start_date;rental_end_date;total_price;owner_profit"
+    sort-columns="[DES]rental_start_date" keys="rent_id" query-rows="5" quick-filter="yes" delete-button="no" insert-button="no">
     
         <o-table-column class="font-table" class="column" title="car_photo" attr="car_photo" orderable="no" searchable="no" type="image"
             image-type="base64" avatar="yes" >
