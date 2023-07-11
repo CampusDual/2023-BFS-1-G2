@@ -11,17 +11,17 @@
 .leftColumn{
     margin-right: 30px;
    height: 100%;
-   gap: 40px;
+   gap: 20px;
 }
 
 .photoCar{
-    margin-top: 15px;
+    margin-top: 10px;
     height: 85%;
 }
 
 .input-padding{
-    margin-top: 15px;
+    margin-top: 10px;
 }
 .row-location{
-    margin-top: 15px;
+    margin-top: 10px;
 }

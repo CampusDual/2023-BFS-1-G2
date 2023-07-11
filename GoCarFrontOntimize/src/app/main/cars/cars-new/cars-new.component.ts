@@ -17,7 +17,7 @@ import { Combo } from '../../util/Combo';
 })
 
 export class CarsNewComponent implements OnInit {
-
+combo= new Combo();
   fecha: string;
   validatorsConfirmPlateArray: ValidatorFn[] = [];
   protected carService: OntimizeService;
