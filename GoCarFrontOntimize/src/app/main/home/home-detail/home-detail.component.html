@@ -33,7 +33,7 @@
               
             <!-- PRICE PER DAY -->
     <o-row class="cars-new-principal-row-column-info-row">
-      <o-integer-input attr="daily_rental_price" label="Price_per_day" min="1" max="100" required="yes" enabled></o-integer-input>
+      <o-currency-input attr="daily_rental_price" label="Price_per_day" min="1" max="100" required="yes" enabled></o-currency-input>
     </o-row>
 
               <!-- END DATE AVAILABLE -->
@@ -94,8 +94,10 @@
 
                     <!-- TOTAL PRICE -->
         <o-row class="totalprice">
-            <o-integer-input attr="total_price"  label="total_price" required="yes" enabled class="totalprice-amount" ></o-integer-input>
+          <o-currency-input  attr="total_price"  label="total_price" required="yes" enabled class="totalprice-amount" ></o-currency-input>
         </o-row>
+       <span>* +5% Gestión Gocar</span>
+       
 
                     <!-- OBSERVATIONS -->
         <o-row class="observations">

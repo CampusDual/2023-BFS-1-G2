@@ -4,6 +4,7 @@ import { OFormComponent, OntimizeService } from 'ontimize-web-ngx';
 import { OMapComponent } from 'ontimize-web-ngx-map';
 import * as L from 'leaflet';
 import { Subscriber } from 'rxjs';
+import { Combo } from '../../util/Combo';
 
 @Component({
   selector: 'app-cars-detail',
@@ -18,7 +19,8 @@ export class CarsDetailComponent implements OnInit {
   @ViewChild('oMapMarker', { static: false }) oMapMarker: OMapComponent;
   @ViewChild('form', { static: false }) form: OFormComponent;
   dialogForm: FormGroup;
-
+  combo= new Combo();
+  
   constructor(public injector: Injector,
     private fb: FormBuilder) {
     this.validatorsConfirmPlateArray.push(this.plateFormatValidator);

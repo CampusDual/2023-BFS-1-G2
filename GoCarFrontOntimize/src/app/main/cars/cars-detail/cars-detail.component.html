@@ -21,11 +21,13 @@
         <o-validator error-name="plateNotFormat" error-text="Invalid registration format"></o-validator>
         
       </o-text-input>
-      <o-combo class="input-padding" attr="fuel" service="cars_fuels" entity="fuel" value-column="fuel_name" columns="fuel_name"
-      visible-columns="fuel_name"></o-combo>
+        
+        <o-combo class="input-padding" attr="fuel"  [static-data]="combo.fuelsArray"
+        [data]="combo.selectedFuelCode" value-column="fuelText" columns="fuelCode;fuelText"
+        visible-columns="fuelText" required="no" fxFlex></o-combo>
 
-      <o-integer-input class="input-padding" attr="daily_rental_price" label="Price_per_day" min="1" max="100"
-        required="yes"></o-integer-input>
+      <o-currency-input class="input-padding" attr="daily_rental_price" label="Price_per_day" min="1" max="100"
+        required="yes"></o-currency-input>
 
 
       <o-date-input value-type="date" class="input-padding" label="start_date_available" attr="start_date_available"

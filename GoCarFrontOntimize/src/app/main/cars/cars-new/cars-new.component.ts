@@ -1,15 +1,13 @@
-import { Component, Injector, OnInit, ViewChild } from '@angular/core';
-
+import { Component, Injector, OnInit, ViewChild } from '@angular/core'
 import { MatDialogRef } from '@angular/material';
-
 import { OFormComponent, OntimizeService } from 'ontimize-web-ngx';
-
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn } from '@angular/forms';
 
 import { CurrentDay } from '../../util/CurrentDay';
 import { OMapComponent } from 'ontimize-web-ngx-map';
 import * as L from 'leaflet'; // IMPORTANTE MAPA (no tocar esta porfi)
 import { FormatLocation } from '../../util/FormatLocation';
+import { Combo } from '../../util/Combo';
 
 
 @Component({
@@ -25,6 +23,9 @@ export class CarsNewComponent implements OnInit {
   protected carService: OntimizeService;
   idUser: string = sessionStorage.getItem('user_id')
   formatMethod = new FormatLocation();
+  combo= new Combo();
+
+  
 
   @ViewChild('form', { static: false }) form: OFormComponent;
   @ViewChild('oMapMarker', { static: false }) oMapMarker: OMapComponent;
