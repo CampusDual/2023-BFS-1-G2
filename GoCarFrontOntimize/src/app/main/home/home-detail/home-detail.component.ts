@@ -89,25 +89,42 @@ export class HomeDetailComponent implements OnInit {
     return endAvailabe;
     
   }
-  public calculatePrice(){
-    
+  public calculatePrice(event){
+  
+    if(event.type == 0){
+        
     let priceDay = this.formCar.getFieldValue("daily_rental_price");
     const startDate = new Date(this.formRent.getFieldValue("rental_start_date"));
     const endDate = new Date(this.formRent.getFieldValue("rental_end_date"));
     
     const days = endDate.getDate() - startDate.getDate();
-    const totalPrice = priceDay * (days);
-
-    
+    let totalPrice = priceDay * (days);
+   
+   
     this.formRent.setFieldValue("total_price", totalPrice);
+    this.taxGocar(totalPrice)
+    this.ownerProfif(totalPrice)
     
   }
+}
+public taxGocar(total_price){
+  let tax = total_price * 0.05;
+
+  this.formRent.setFieldValue("tax_gocar", tax)
+
+}
+public ownerProfif(total_price){
+  let profit = total_price * 0.95;
+
+  this.formRent.setFieldValue("owner_profit", profit)
+
+}
 
 
   public calculateMinDate(event) {
     
       if(event.type == 0){
-        console.log("entro");
+        
         let dateReturn = new Date(this.formRent.getFieldValue("rental_start_date"))
         const year = dateReturn.getFullYear();
         let month = dateReturn.getMonth() + 1;
