@@ -8,6 +8,10 @@
     sortable-columns="brand;model;plate;location;daily_rental_price;start_date_available" attr="gridMyCars"
     class="main-grid">
 
+    <o-button class="btn-showOldRents" #showOldRents o-grid-toolbar position="start"
+    [label]="show ? 'Show in map' : 'Show in grid'" (onClick)="showOptions()"></o-button>
+    
+    <div *ngIf="show">
     <o-grid-item *ngFor="let list of grid.dataArray" class="grid">
       <o-column class="grid-item">
         <header class="grid-item-header">
@@ -36,16 +40,18 @@
         </main>
       </o-column>
     </o-grid-item>
+  </div>
   </o-grid>
 
-  <o-row style="border: 2px solid #e91e63; height: 340px; width: 550px;">
-    <o-map #oMapMarker zoom="15" min-zoom="3" max-zoom="20" zoom-control="no" search-control="true"
-      search-control-button-visible="true" layer-panel-visible="no" fxFlex>
+  
+    <o-map #oMapMarker zoom="11" min-zoom="3" max-zoom="20" zoom-control="no" search-control="true"
+      search-control-button-visible="true" layer-panel-visible="no" fxFlex >
       <o-map-draw-controls></o-map-draw-controls>
 
       <!-- <o-map-layer layer-type="marker" layer-id="{{data.car_id}}" layer-center="{{data.positionGPS}}"
           layer-menu-label="My car location" layer-menu-label-secondary="Location"></o-map-layer>
       </div>  -->
     </o-map>
-  </o-row>
+  
+
 </o-form-layout-manager>

@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormatLocation } from '../util/FormatLocation';
 import { OntimizeService } from 'ontimize-web-ngx';
 import { OMapComponent } from 'ontimize-web-ngx-map';
+import { error } from 'console';
 
 @Component({
   selector: 'home',
@@ -15,6 +16,8 @@ export class HomeComponent implements OnInit {
   protected carService: OntimizeService;
   public positionsCars: any[];
   formatMethod = new FormatLocation();
+  public show: boolean = true;
+  public positionNavigator: string;
 
   @ViewChild('oMapMarker', { static: false }) oMap: OMapComponent;
   reloadMapFlag: boolean = false;
@@ -38,7 +41,8 @@ export class HomeComponent implements OnInit {
     }
 
     this.getData();
-    console.log(this.positionsCars);
+
+    this.getGeolocation();
   }
 
   gridInit() {
@@ -49,10 +53,23 @@ export class HomeComponent implements OnInit {
   public addMarkerOnMap() {
     this.positionsCars.forEach(marker => {
       this.oMap.addMarker(marker.car_id, marker.latitude, marker.longitude, null, null, null, null, null);
+      if(this.positionNavigator === undefined){
+        this.positionNavigator = "40.419020587254735;-3.7001507068918635";
+      }
+      this.oMap.setCenter(this.positionNavigator);
+      console.log(this.positionNavigator)
     })
   }
 
-  public getData() {
+  public getGeolocation() {
+      navigator.geolocation.getCurrentPosition(position => {
+        var latitute = position.coords.latitude;
+        var longitude = position.coords.longitude;
+        this.positionNavigator = `${latitute};${longitude}`;
+      })
+    }
+
+ public getData() {
     this.carService.query(null, ['car_id', 'longitude', 'latitude'], 'availableCars').subscribe(result => {
       this.positionsCars = result.data.map(item => {
         return {
@@ -61,10 +78,12 @@ export class HomeComponent implements OnInit {
           latitude: item.latitude
         };
       });
-      console.log(this.positionsCars);
     })
   }
 
+  showOptions() {
+    this.show = !this.show;
+  }
   public configureCarService() {
     const conf = this.carService.getDefaultServiceConfiguration('cars');
     this.carService.configureService(conf);
