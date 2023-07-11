@@ -23,9 +23,7 @@ export class CarsNewComponent implements OnInit {
   protected carService: OntimizeService;
   idUser: string = sessionStorage.getItem('user_id')
   formatMethod = new FormatLocation();
-  combo= new Combo();
-
-  
+  public positionNavigator: string;
 
   @ViewChild('form', { static: false }) form: OFormComponent;
   @ViewChild('oMapMarker', { static: false }) oMapMarker: OMapComponent;
@@ -52,7 +50,7 @@ export class CarsNewComponent implements OnInit {
   }
 
   ngOnInit() {
-
+      this.getGeolocation();
   }
 
   public starEndDate() {
@@ -134,6 +132,22 @@ export class CarsNewComponent implements OnInit {
         console.error('Error geocoding location:', error);
         // Maneja el error
       });
+  }
+
+  public getGeolocation() {
+    navigator.geolocation.getCurrentPosition(position => {
+      var latitute = position.coords.latitude;
+      var longitude = position.coords.longitude;
+      this.positionNavigator = `${latitute};${longitude}`;
+      
+    })
+  }
+
+  public centerMapLocation(){
+    if(!this.positionNavigator){
+      this.positionNavigator = "40.419020587254735;-3.7001507068918635";
+    }
+    this.oMapMarker.setCenter(this.positionNavigator);
   }
 
 }

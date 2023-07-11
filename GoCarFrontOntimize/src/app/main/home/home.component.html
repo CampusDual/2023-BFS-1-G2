@@ -8,6 +8,10 @@
     sortable-columns="brand;model;plate;location;daily_rental_price;start_date_available;fuel" attr="gridMyCars"
     class="main-grid">
 
+    <o-button class="btn-showOldRents" #showOldRents o-grid-toolbar position="start"
+    label="Show in map" (onClick)="openMap()"></o-button>
+    
+    <div *ngIf="show">
     <o-grid-item *ngFor="let list of grid.dataArray" class="grid">
       <o-column class="grid-item">
         <header class="grid-item-header">
@@ -39,6 +43,7 @@
         </main>
       </o-column>
     </o-grid-item>
+  </div>
   </o-grid>
 
   <!-- <o-row style="border: 2px solid #e91e63; height: 340px; width: 550px;">
