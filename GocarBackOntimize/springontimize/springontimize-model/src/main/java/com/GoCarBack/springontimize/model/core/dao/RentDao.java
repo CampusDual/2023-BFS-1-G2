@@ -20,6 +20,8 @@ public class RentDao extends OntimizeJdbcDaoSupport {
     public static final String RENTAL_START_DATE = "rental_start_date";
     public static final String RENTAL_END_DATE = "rental_end_date";
     public static final String TOTAL_PRICE = "total_price";
+    public static final String TAX_GOCAR = "tax_gocar";
+    public static final String OWNER_PROFIT = "owner_profit";
     public static final String OBSERVATIONS = "observations";
 
 

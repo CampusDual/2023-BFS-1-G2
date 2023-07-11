@@ -86,18 +86,24 @@
 
                   <!-- DATERANGE  -->
         <o-row class="inputRent">
-            <o-date-input attr="rental_start_date"  [min]="currentDay()" [filter-date]="filterAvailability.bind(this)" [max]="convertDate(formCar.getFieldValue('end_date_available'))"  value-type="string"  format="YYYY/MM/DD"  required="yes" (onValueChange)="calculateMinDate($event); calculateMaxDateEnd($event)" ></o-date-input>
+            <o-date-input attr="rental_start_date"  [min]="currentDay()" [filter-date]="filterAvailability.bind(this)" [max]="convertDate(formCar.getFieldValue('end_date_available'))"  value-type="string"  format="YYYY/MM/DD"  required="yes" (onValueChange)="calculateMinDate($event); calculateMaxDateEnd($event); calculatePrice($event)" ></o-date-input>
         </o-row>
         <o-row class="inputRent">
-          <o-date-input attr="rental_end_date" [filter-date]="filterAvailability.bind(this)" [min]="!this.minDateEnd ? currentDay() : this.minDateEnd" [max]="!this.maxDateEnd ? convertDate(formCar.getFieldValue('end_date_available')) : this.maxDateEnd"  value-type="string"   format="YYYY/MM/DD"  required="yes" (onChange)="calculatePrice()" ></o-date-input>
+          <o-date-input attr="rental_end_date" [filter-date]="filterAvailability.bind(this)" [min]="!this.minDateEnd ? currentDay() : this.minDateEnd" [max]="!this.maxDateEnd ? convertDate(formCar.getFieldValue('end_date_available')) : this.maxDateEnd"  value-type="string"   format="YYYY/MM/DD"  required="yes" (onValueChange)="calculatePrice($event)" ></o-date-input>
         </o-row>
 
                     <!-- TOTAL PRICE -->
         <o-row class="totalprice">
           <o-currency-input  attr="total_price"  label="total_price" required="yes" enabled class="totalprice-amount" ></o-currency-input>
         </o-row>
-       <span>* +5% Gestión Gocar</span>
-       
+      
+        <o-row class="tax_gocar">
+          <o-currency-input  attr="tax_gocar"  label="tax_gocar" required="yes" enabled oHidden ></o-currency-input>
+        </o-row>
+        <o-row class="owner_profit">
+          <o-currency-input  attr="owner_profit"  label="owner_profit" required="yes" enabled oHidden ></o-currency-input>
+        </o-row>
+
 
                     <!-- OBSERVATIONS -->
         <o-row class="observations">

@@ -21,6 +21,8 @@
                 <Column>rental_start_date</Column>
                 <Column>rental_end_date</Column>
                 <Column>total_price</Column>
+                <Column>tax_gocar</Column>
+                <Column>owner_profit</Column>
                 <Column>observations</Column>
 
             </ValidColumns>
@@ -53,7 +55,7 @@
                     SELECT months.month,
                            to_char(date_trunc('month', to_date(months.month::text, 'MM')), 'Mon') AS month_name,
                            EXTRACT(YEAR FROM CURRENT_DATE) AS year,
-                           COALESCE(SUM(r.total_price), 0) AS total
+                           COALESCE(SUM(r.owner_profit), 0) AS total
                     FROM (
                       SELECT 1 AS month
                       UNION SELECT 2 AS month
@@ -70,7 +72,7 @@
                     ) AS months
                     LEFT JOIN (
                       SELECT EXTRACT(MONTH FROM r.rental_start_date) AS month,
-                             SUM(r.total_price) AS total_price
+                             SUM(r.owner_profit) AS owner_profit
                       FROM tcars c
                       JOIN trents r ON c.car_id = r.car_id
                       #WHERE# AND EXTRACT(YEAR FROM r.rental_start_date) = EXTRACT(YEAR FROM CURRENT_DATE)
