@@ -6,8 +6,8 @@
     
 
     <o-table  attr="rents" service="rents" entity="myCarRentals" title="RENTS MY CARS"
-    columns="rent_id;car_id;brand;model;car_photo;user_rent;rental_start_date;rental_end_date;total_price;observations"
-    visible-columns="car_photo;brand;model;user_rent;rental_start_date;rental_end_date;total_price;observations"
+    columns="rent_id;car_id;brand;model;car_photo;user_rent;rental_start_date;rental_end_date;total_price;owner_profit;observations"
+    visible-columns="car_photo;brand;model;user_rent;rental_start_date;rental_end_date;total_price; owner_profit;observations"
     sort-columns="rental_start_date" keys="rent_id" query-rows="5" quick-filter="yes" delete-button="no" insert-button="no">
     
         <o-table-column class="font-table" class="column" title="car_photo" attr="car_photo" orderable="no" searchable="no" type="image"
@@ -18,6 +18,9 @@
         <o-table-column class="column" attr="rental_start_date" title="rental_start_date" type="date" format="DD/MM/YYYY"></o-table-column>
         <o-table-column class="column" attr="rental_end_date" title="rental_end_date" type="date" format="DD/MM/YYYY"></o-table-column>
         <o-table-column class="column" attr="total_price" title="total_price"></o-table-column>
+        <o-table-column class="column" attr="owner_profit" title="owner_profit"></o-table-column>
+
+
         <o-table-column class="column" attr="observations" title="observations"></o-table-column>
 
     </o-table>
@@ -27,19 +30,17 @@
     
             <!-- <o-chart type="discreteBar" x-label="car_id" x-axis="car_id" y-axis="total_price" y-label="Axis y" entity="myCarRentals" service="rents" fxFlex></o-chart> -->
             <div fxFlex> <h3 style="text-align: center;">{{"Distribution of total profit from my cars" | oTranslate }}</h3>
-            <o-chart class="chart" type="donutChart"  entity="myCarRentals" service="rents" x-axis="model" y-axis="total_price" width="15%" ></o-chart>
+            <o-chart class="chart" type="donutChart"  entity="myCarRentals" service="rents" x-axis="model" y-axis="owner_profit" width="15%" ></o-chart>
         </div>
-           <div fxFlex> <h3 style="text-align: center;">{{"Distribution of total profit of my rentals" | oTranslate }}</h3>
-            <o-chart type="discreteBar" x-label="Axis x" x-axis="rent_id" y-axis="total_price" y-label="Axis y" entity="myCarRentals" service="rents"  width="70%" style="padding-block-start: 20px;"></o-chart>
-        </div>
+          
 
-        </div>
-
+         </div>
+        <!--
            <div fxFlex> <h3 style="text-align: center;">{{"Distribution of total profit of my rentals" | oTranslate }}</h3>
 
             <o-chart type="discreteBar" x-label="Axis x" x-axis="rent_id" y-axis="total_price" y-label="Axis y" entity="myCarRentals" service="rents"  width="70%" style="padding-block-start: 20px;"></o-chart>
 
-        </div>
+        </div> -->
 
  
 
