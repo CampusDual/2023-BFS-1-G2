@@ -1,4 +1,4 @@
-import { Component, Injector, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Injector, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef } from '@angular/material';
 import { OntimizeService } from 'ontimize-web-ngx';
@@ -9,37 +9,47 @@ import { OMapComponent } from 'ontimize-web-ngx-map';
   templateUrl: './map-home.component.html',
   styleUrls: ['./map-home.component.css']
 })
-export class MapHomeComponent implements OnInit {
+export class MapHomeComponent implements OnInit, AfterViewInit {
 
   protected carService: OntimizeService;
   public positionsCars: any[];
   public positionNavigator: string;
   dialogForm : FormGroup;
+  isLoading: boolean;
 
   @ViewChild('oMapMarker', { static: false }) oMap: OMapComponent;
 
   constructor(public injector: Injector, private dialogRef: MatDialogRef<MapHomeComponent>, private fb: FormBuilder) {
-    this.carService = this.injector.get(OntimizeService); }
+    this.carService = this.injector.get(OntimizeService); 
+  this.isLoading = true}
 
   ngOnInit() {
     this.configureCarService(); 
-
     this.getData();
-
     this.getGeolocation();
-
+    this.addMarkerOnMap();
+    document.addEventListener('load', 
+    function() { 
+      alert('hello!');
+    }, false);
  }
   
 
   ngAfterViewInit(){
-    this.addMarkerOnMap();
 
+  
   }
+
+  hazClic(){
+    let element = document.getElementById("carMap");
+   element.click(); 
+  }
+
 
   
   public addMarkerOnMap() {
     this.positionsCars.forEach(marker => {
-      this.oMap.addMarker(marker.car_id, marker.latitude, marker.longitude, null, null, null, null, null);
+      this.oMap.getMapService().addMarker(marker.car_id, marker.latitude, marker.longitude, null, null, null, null, null);
       console.log(this.positionNavigator)
       if (!this.positionNavigator) {
         this.positionNavigator = "40.419020587254735;-3.7001507068918635";
