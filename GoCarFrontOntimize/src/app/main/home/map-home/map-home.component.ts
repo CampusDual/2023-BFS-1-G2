@@ -14,32 +14,27 @@ export class MapHomeComponent implements OnInit {
   protected carService: OntimizeService;
   public positionsCars: any[];
   public positionNavigator: string;
+  public longitude: any = -3.7001507068918635;
+  public latitude: any = 40.419020587254735;
 
   @ViewChild('oMapMarker', { static: false }) oMap: OMapComponent;
 
   constructor(public injector: Injector, private dialogRef: MatDialogRef<MapHomeComponent>, private fb: FormBuilder) {
-    this.carService = this.injector.get(OntimizeService); 
-  this.positionsCars = []}
+    this.carService = this.injector.get(OntimizeService);
+    this.positionsCars = []
+  }
 
   ngOnInit() {
-    this.configureCarService(); 
+    this.configureCarService();
     this.getData();
     this.getGeolocation();
-    
  }
-  
-
-  ngAfterViewInit(){
-    this.addMarkerOnMap();
-    
-   
-  }
 
 
   public addMarkerOnMap() {
     this.positionsCars.forEach(marker => {
+      //we add each mark and if it does not have postionNavigator because it does not have geolocation we set it to Madrid
       this.oMap.getMapService().addMarker(marker.car_id, marker.latitude, marker.longitude, null, null, null, null, null);
-      console.log(this.positionNavigator)
       if (!this.positionNavigator) {
         this.positionNavigator = "40.419020587254735;-3.7001507068918635";
       }
@@ -47,15 +42,33 @@ export class MapHomeComponent implements OnInit {
     })
   }
 
+  //method that we call from the html to call the function once the map is loaded
+  public centerMap() {
+    if (this.positionsCars.length > 0 && this.sameLocation()) {
+      this.addMarkerOnMap();
+    }
+  }
+
+  
+//We check if the longitudes and latitudes that the map has are different from those set to use in center map
+  public sameLocation() {
+    let longitudeMap = this.oMap.getCenter().longitude;
+    let latitudeMap = this.oMap.getCenter().latitude;
+
+    return longitudeMap != this.longitude && latitudeMap != this.latitude;
+  }
+
+  //Retrieve browser location if location is enabled
   public getGeolocation() {
     navigator.geolocation.getCurrentPosition(position => {
-      var latitute = position.coords.latitude;
-      var longitude = position.coords.longitude;
-      this.positionNavigator = `${latitute};${longitude}`;
-      
+      this.latitude = position.coords.latitude;
+      this.longitude = position.coords.longitude;
+      this.positionNavigator = `${this.latitude};${this.longitude}`;
+      return `${this.latitude};${this.longitude}`;
     })
   }
 
+  //add in the positionCars array with the values ​​in the database
   public getData() {
     this.carService.query(null, ['car_id', 'longitude', 'latitude'], 'availableCars').subscribe(result => {
       this.positionsCars = result.data.map(item => {
@@ -72,5 +85,5 @@ export class MapHomeComponent implements OnInit {
     const conf = this.carService.getDefaultServiceConfiguration('cars');
     this.carService.configureService(conf);
   }
-  
+
 }
