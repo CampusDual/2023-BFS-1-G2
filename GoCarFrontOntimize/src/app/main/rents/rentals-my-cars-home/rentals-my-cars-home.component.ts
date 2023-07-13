@@ -43,11 +43,10 @@ export class RentalsMyCarsHomeComponent implements OnInit {
 
   private _configureStackedAreaChart(locale: any):void{
     this.chartParameters1 = new StackedAreaChartConfiguration();
-    this.chartParameters1.xAxis = "month_name";
-    this.chartParameters1.yAxis = ["total_price;total_profit;total_tax"];
+    this.chartParameters1.xAxis = "";
+    this.chartParameters1.yAxis = [];
     this.chartParameters1.xDataType = d => locale.timeFormat('%b')(new Date(d));
-    this.chartParameters1.showControls=true;
-    
+       
   }
 
   convertDate(date: Date){
