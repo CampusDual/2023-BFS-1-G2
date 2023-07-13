@@ -102,5 +102,6 @@
   "Gasoline":"Gasolina",
   "Electric":"Eléctrico",
   "Hybrid":"Híbrido",
-  "owner_profit": "Beneficio"
+  "owner_profit": "Beneficio",
+  "Show in map": "Ver en mapa"
 }

@@ -98,7 +98,8 @@
   "Gasoline":"Gasoline",
   "Electric":"Electric",
   "Hybrid":"Hybrid",
-  "owner_profit": "Profit"
+  "owner_profit": "Profit",
+  "Show in map": "Show in map"
  
 
 }
