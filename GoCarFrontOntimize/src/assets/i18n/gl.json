@@ -99,6 +99,10 @@
   "Distribution of total profit from my cars" : "Distribución do beneficio total dos meus coches",
   "Distribution of total profit of my rentals" : "Distribución do beneficio total dos mues alugueres",
   "Fuel":"Combustible",
+  "Diesel Oil":"Gasóleo",
+  "Gasoline":"Gasolina",
+  "Electric":"Eléctrico",
+  "Hybrid":"Híbrido",
   "owner_profit": "Beneficio",
 
        "LANGUAGE": "Idioma",
