@@ -94,10 +94,10 @@
   "Distribution of total profit from my cars" : "Distribution of total profit from my cars",
   "Distribution of total profit of my rentals" : "Distribution of total profit of my rentals",
   "fuel":"Fuel",
-  "Gasóleo":"Diesel Oil",
-  "Gasolina":"Gasoline",
-  "Eléctrico":"Electric",
-  "Híbrido":"Hybrid",
+  "Diesel Oil":"Gasóleo",
+  "Gasoline":"Gasoline",
+  "Electric":"Electric",
+  "Hybrid":"Hybrid",
   "owner_profit": "Profit"
  
 

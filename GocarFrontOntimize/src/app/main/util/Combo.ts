@@ -28,4 +28,6 @@ export class Combo {
 
   public selectedFuelCode = 2;
 
+
+  
 }

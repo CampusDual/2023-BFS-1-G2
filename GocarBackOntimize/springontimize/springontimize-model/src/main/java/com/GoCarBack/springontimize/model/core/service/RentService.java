@@ -86,5 +86,17 @@ public class RentService implements IRentService {
 		keyMap.put(USER_RENT, auth.getName());
 		return this.daoHelper.query(rentDao, keyMap, attrList, "myRents");
 	}
+	@Override
+	public EntityResult chartTaxQuery(Map<String, Object> keyMap, List<?> attrList) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		keyMap.put("user_id", auth.getName());
+		return this.daoHelper.query(rentDao, keyMap, attrList, "chart_tax");
+	}
 
+	@Override
+	public EntityResult chartAllTaxQuery(Map<String, Object> keyMap, List<?> attrList) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		keyMap.put("user_id", auth.getName());
+		return this.daoHelper.query(rentDao, keyMap, attrList, "chart_all_tax");
+	}
 }

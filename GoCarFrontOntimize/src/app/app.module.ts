@@ -3,6 +3,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { APP_CONFIG, ONTIMIZE_MODULES, ONTIMIZE_PROVIDERS, OntimizeWebModule } from 'ontimize-web-ngx';
 
 import { environment } from '../environments/environment';
+import { OChartModule } from 'ontimize-web-ngx-charts';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CONFIG } from './app.config';
@@ -20,6 +21,7 @@ export const customProviders: any = [
   imports: [
     ONTIMIZE_MODULES,
     OntimizeWebModule,
+    OChartModule,
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', 
   

@@ -2,7 +2,7 @@
 <o-form-layout-manager attr="formLayoutMngr" mode="tab" title="Rents my cars" separator=",">
 
     <h2 style="padding-block-start: 50px;">{{"Your profit for month" | oTranslate }}</h2>
-    <o-chart type="discreteBar" x-label="Month" y-label="Totals" service="rents" entity="chartProfitMonth" x-axis="month_name" y-axis="total" rightAlignYAxis="true" width="90%"></o-chart>
+    <o-chart type="discreteBar" x-label="Month" y-label="Totals" service="rents" entity="chartProfitMonth" x-axis="month_name" y-axis="total" rightAlignYAxis="true" width="90%" ></o-chart>
     
 
     <o-table  attr="rents" service="rents" entity="myCarRentals" title="RENTS MY CARS"
@@ -27,26 +27,27 @@
     <div class="chart" layout="column" fxFlex>
 
         <div fxLayout="row" fxFlexFill>
-    
-            <!-- <o-chart type="discreteBar" x-label="car_id" x-axis="car_id" y-axis="total_price" y-label="Axis y" entity="myCarRentals" service="rents" fxFlex></o-chart> -->
             <div fxFlex> <h3 style="text-align: center;">{{"Distribution of total profit from my cars" | oTranslate }}</h3>
-            <o-chart class="chart" type="donutChart"  entity="myCarRentals" service="rents" x-axis="model" y-axis="owner_profit" width="15%" ></o-chart>
+            <o-chart class="chart" type="donutChart"  entity="myCarRentals" service="rents" x-axis="model" y-axis="owner_profit" width="15%" ></o-chart>     
         </div>
-          
+        <div fxFlex> <h3 style="text-align: center;">{{"Mis contribuciones a Gocar " | oTranslate }}</h3>
+            
 
-         </div>
-        <!--
-           <div fxFlex> <h3 style="text-align: center;">{{"Distribution of total profit of my rentals" | oTranslate }}</h3>
+            <o-chart type="discreteBar" x-label="Axis x" x-axis="month_name" y-axis="total_tax" y-label="Totals" entity="chartTax" service="rents"  width="70%" style="padding-block-start: 20px;"></o-chart>
 
-            <o-chart type="discreteBar" x-label="Axis x" x-axis="rent_id" y-axis="total_price" y-label="Axis y" entity="myCarRentals" service="rents"  width="70%" style="padding-block-start: 20px;"></o-chart>
-
-        </div> -->
-
- 
+  
+        </div>
+    </div>
+    <div fxLayout="row" fxFlexFill>
+        <div fxFlex> <h3 style="text-align: center;">{{"Mis contribuciones a Gocar II" | oTranslate }}</h3>
+            
+            <o-chart type="stackedAreaChart"
+            x-label="Month" x-axis="Month" x-data-type="time"
+            y-axis="total_tax;total_profit;total_total_price" y-label="total_total_price" 
+            entity="chartAllTax" service="rents" 
+            width="70%" style="padding-block-start: 20px;"></o-chart>
+        </div>
+    </div>
 
         </div>
-
-   
-
- 
 </o-form-layout-manager>
