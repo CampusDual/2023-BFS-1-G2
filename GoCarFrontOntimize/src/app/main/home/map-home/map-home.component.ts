@@ -9,44 +9,33 @@ import { OMapComponent } from 'ontimize-web-ngx-map';
   templateUrl: './map-home.component.html',
   styleUrls: ['./map-home.component.css']
 })
-export class MapHomeComponent implements OnInit, AfterViewInit {
+export class MapHomeComponent implements OnInit {
 
   protected carService: OntimizeService;
   public positionsCars: any[];
   public positionNavigator: string;
-  dialogForm : FormGroup;
-  isLoading: boolean;
 
   @ViewChild('oMapMarker', { static: false }) oMap: OMapComponent;
 
   constructor(public injector: Injector, private dialogRef: MatDialogRef<MapHomeComponent>, private fb: FormBuilder) {
     this.carService = this.injector.get(OntimizeService); 
-  this.isLoading = true}
+  this.positionsCars = []}
 
   ngOnInit() {
     this.configureCarService(); 
     this.getData();
     this.getGeolocation();
-    this.addMarkerOnMap();
-    document.addEventListener('load', 
-    function() { 
-      alert('hello!');
-    }, false);
+    
  }
   
 
   ngAfterViewInit(){
-
-  
-  }
-
-  hazClic(){
-    let element = document.getElementById("carMap");
-   element.click(); 
+    this.addMarkerOnMap();
+    
+   
   }
 
 
-  
   public addMarkerOnMap() {
     this.positionsCars.forEach(marker => {
       this.oMap.getMapService().addMarker(marker.car_id, marker.latitude, marker.longitude, null, null, null, null, null);
