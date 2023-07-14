@@ -24,8 +24,6 @@
         [data]="combo.selectedFuelCode" value-column="fuelText" columns="fuelCode;fuelText"
         visible-columns="fuelText" required="yes" fxFlex></o-combo>
         
-        
-        <!-- service="cars_fuels" entity="fuel" fxFlex="100%" value-column="fuel_name" columns="fuel_name" visible-columns="fuel_name"></o-combo> -->
       </o-row>
 
       <!-- PRICE PER DAY -->
@@ -36,7 +34,7 @@
       </o-row>
        
       <o-row>
-              <div><span>* Gocar obtendrá un 5% por gastos de gestión</span></div>
+              <div class="nota"><span>{{"* Gocar obtendrá un 5% por gastos de gestión" | oTranslate }}</span></div>
       </o-row>
       <o-row>
         <o-daterange-input class="input-padding" attr="daterange" label="date_range" fxFlex="100%" [min]="currentDay()"
@@ -56,15 +54,12 @@
           fxFlex="50"></o-real-input>
       </o-row>
 
-     <o-map style="border: 2px solid #e91e63; height: 380px; width: 550px ;" #oMapMarker zoom="12" min-zoom="3" max-zoom="20" zoom-control="no"
-     search-control="no" layer-panel-visible="no" fxFlex (onDrawEvent)="addDrawEvent($event)" >
+     <o-map class="mapNewCar"  #oMapMarker zoom="12" min-zoom="3" max-zoom="20" zoom-control="no"
+     search-control="false"  search-control-button-visible="false" layer-panel-visible="no" fxFlex (onDrawEvent)="addDrawEvent($event)" >
+    
     
         <o-map-draw-controls></o-map-draw-controls>
       </o-map>
     </o-column>
   </o-row>
 </o-form>
-
-<!-- MAPA BASICO -->
-<!-- <o-map #oMapBasic fxFlex attr="basic-usage-map" center="42.240599, -8.720727" zoom="11" min-zoom="3" max-zoom="20"
-        zoom-control="yes" search-control="yes" fxFlex style="height: 300px;"></o-map> -->

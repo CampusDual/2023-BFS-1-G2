@@ -29,12 +29,9 @@
       <o-currency-input class="input-padding" attr="daily_rental_price" label="Price_per_day" min="1" max="100"
         required="yes"></o-currency-input>
 
-
       <o-date-input value-type="date" class="input-padding" label="start_date_available" attr="start_date_available"
         fxFlex="100%" required="no"></o-date-input>
-
       <o-date-input label="end_date_available" attr="end_date_available" fxFlex="100%" required="no"></o-date-input>
-
     </o-column>
 
     <o-column class="leftColumn" fxFlex="30%">
@@ -43,8 +40,6 @@
         image-type="base64"></o-image>
 
     </o-column>
-
-
 
     <o-column fxFlex="60%">
       <o-row class="row-location">
@@ -56,10 +51,11 @@
           fxFlex="50"></o-real-input>
       </o-row>
 
-      <o-row style="border: 2px solid #e91e63; height: 380px; width: 550px;">
+      <o-row class="mapDetailCar" >
         <div fxFlex="40" fxFlex="100" *ngIf="hasGPSPositition()">
           <o-map #oMapMarker [center]="getPositionGPS()" zoom="15" min-zoom="3" max-zoom="20" zoom-control="no"
-            search-control="no" layer-panel-visible="no" fxFlex (onDrawEvent)="addDrawEvent($event)">
+            search-control="no" layer-panel-visible="no" search-control-button-visible="false" fxFlex (onDrawEvent)="addDrawEvent($event)">
+            
             <o-map-draw-controls></o-map-draw-controls>
             <o-map-layer layer-type="marker" layer-id="office_marker" [layer-center]="getPositionGPS()"
               layer-menu-label="My car location" layer-menu-label-secondary="Location"></o-map-layer>
@@ -69,17 +65,3 @@
     </o-column>
   </o-row>
 </o-form>
-
-
-<!-- <div fxFlex="40" fxFlex.md="100" *ngIf="hasGPSPositition()">
-  <o-map class="o-map" [center]="getPositionGPS()" zoom="10" min-zoom="3" max-zoom="20" zoom-control="yes"
-    search-control="no" layer-panel-visible="no">
-    <o-map-layer layer-type="marker" layer-id="office_marker" [layer-center]="getPositionGPS()"></o-map-layer> -->
-
-
-
-<!-- <o-map #oMapMarker center="42.940599, -7.120727" zoom="8" min-zoom="3" max-zoom="20"
-zoom-control="yes" search-control="no" layer-panel-visible="no" fxFlex>
-<o-map-layer layer-type="marker" layer-id="office_marker" layer-center="42.240599;-8.720727"
-layer-menu-label="Office headquarters " layer-menu-label-secondary="Location of office headquarters"></o-map-layer>
-</o-map> -->
